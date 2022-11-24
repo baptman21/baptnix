@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+rec {
+  # TODO: split into multiple configurations for multiple computers
+  imports = [];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "baptman";
@@ -16,11 +18,14 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   programs = {
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
+
+    bash.enable = true;
     git = import ./git.nix { };
+    ssh = import ./ssh.nix { homeDirectory = home.homeDirectory; };
     vim = import ./vim.nix { };
+    zsh = import ./zsh.nix { };
   };
 }
