@@ -7,6 +7,9 @@
   enableSyntaxHighlighting = true;
   history.ignoreSpace = true;
   oh-my-zsh = {
-    plugins = [ "ssh" "fzf" "zsh-autosugggestios" ];
+    enable = true;
+    theme = "bapt";
+    custom = "${./config/zsh-custom}";
+    plugins = [ "ssh-agent" "fzf" ];
   };
 }

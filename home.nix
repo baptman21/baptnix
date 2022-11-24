@@ -23,6 +23,7 @@ rec {
     home-manager.enable = true;
 
     bash.enable = true;
+    fzf = import ./fzf.nix { };
     git = import ./git.nix { };
     ssh = import ./ssh.nix { homeDirectory = home.homeDirectory; };
     vim = import ./vim.nix { };
