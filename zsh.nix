@@ -5,7 +5,10 @@
   enableAutosuggestions = true;
   enableCompletion = true;
   enableSyntaxHighlighting = true;
-  history.ignoreSpace = true;
+  history = {
+    ignoreSpace = true;
+    extended = true;
+  };
   initExtra = ''
   export LESS=-iXFR
   '';
