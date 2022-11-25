@@ -7,6 +7,9 @@
 { config, pkgs, ... }:
 # I3 configuration
 {
+  home.file.".background-image" = {
+    source = ../assets/wallpapers/forest-botw.jpg;
+  };
   xsession.enable = true;
   xsession.windowManager.i3 = {
     enable = true;
