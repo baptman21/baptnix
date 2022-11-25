@@ -1,15 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  # TODO: split into multiple configurations for multiple computers
   imports = [
-    ./fzf.nix
-    ./git.nix
-    (import ./i3.nix { modifier = "Mod4"; })
-    ./polybar.nix
-    (import ./ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
-    ./vim.nix
-    ./zsh.nix
+    ./local.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -25,8 +18,6 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.05";
-
-  home.packages = import ./pkgs.nix { inherit pkgs; };
 
   programs = {
     # Let Home Manager install and manage itself.
