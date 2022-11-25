@@ -1,6 +1,11 @@
 { pkgs }:
 # Packages to install
 [
+  # Shell utilities
+  pkgs.tree
+  pkgs.bat
+
+  # Node
   pkgs.nodejs
 
   # Nix formatter
