@@ -18,7 +18,10 @@
   };
 
   xsession.enable = true;
+
+  # Disable the command set by the i3 service of home manager
   xsession.windowManager.command = pkgs.lib.mkForce ''test -n "$1" && eval "$@"'';
+
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -128,7 +131,18 @@
 
       defaultWorkspace = "workspace number 1";
 
-      startup = [ ];
+      startup = [
+        {
+          command = "${pkgs.feh}/bin/feh --bg-fill ${../assets/wallpapers/forest-botw.jpg}";
+          always = true;
+          notification = false;
+        }
+        {
+          command = ''pkill "ksplashqml"'';
+          always = true;
+          notification = false;
+        }
+      ];
 
       bars = [ ];
 
