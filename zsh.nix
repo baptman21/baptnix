@@ -6,6 +6,9 @@
   enableCompletion = true;
   enableSyntaxHighlighting = true;
   history.ignoreSpace = true;
+  initExtra = ''
+  export LESS=-iXFR
+  '';
   oh-my-zsh = {
     enable = true;
     theme = "bapt";
