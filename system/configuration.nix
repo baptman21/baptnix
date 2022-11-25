@@ -22,6 +22,24 @@
     '';
   };
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    terminus_font
+    terminus_font_ttf
+    terminus-nerdfont
+    font-awesome
+    (nerdfonts.override { fonts = [ "Iosevka" "Terminus" ]; })
+    siji
+  ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -52,17 +70,22 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
-    enable = true;   
-    desktopManager = {
-      default = "xfce";
-      xterm.enable = false;
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-      };
+    enable = true;
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "plasma5+i3+bapt";
+      session = [
+        {
+          manage = "desktop";
+          name = "plasma5+i3+bapt";
+          start = ''
+            export KDEWM=${pkgs.i3-gaps}/bin/i3
+            ${pkgs.plasma-workspace}/bin/startplasma-x11
+          '';
+        }
+      ];
     };
-    windowManager.i3.enable = true;
+    desktopManager.plasma5.enable = true;
   };
 
   # Configure keymap in X11

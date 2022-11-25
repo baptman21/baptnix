@@ -15,7 +15,7 @@
   oh-my-zsh = {
     enable = true;
     theme = "bapt";
-    custom = "${./config/zsh-custom}";
+    custom = "${./assets/zsh-custom}";
     plugins = [ "ssh-agent" "fzf" ];
   };
 }

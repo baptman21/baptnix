@@ -34,6 +34,10 @@ rec {
     zsh = import ./zsh.nix { };
   };
 
+  services = {
+    polybar = import ./polybar.nix { inherit pkgs; };
+  };
+
   xsession = {
     enable = true;
     windowManager.i3 = import ./i3.nix { inherit pkgs; };

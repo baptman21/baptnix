@@ -2,5 +2,5 @@
 # Vim configuration
 {
   enable = true;
-  extraConfig = builtins.readFile ./config/vimrc;
+  extraConfig = builtins.readFile ./assets/config/vimrc;
 }

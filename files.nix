@@ -4,7 +4,7 @@
   # Vim files in home
   # Settings for CocNvim plugin
   coc-settings = {
-    text = builtins.readFile ./config/coc-settings.json;
+    text = builtins.readFile ./assets/config/coc-settings.json;
     target = ".vim/coc-settings.json";
   };
   # Vim plug to install other plugins, I currently prefer to rely on vim-plug

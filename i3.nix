@@ -36,7 +36,7 @@ in
       "${modifier}+u" = "border none";
       "${modifier}+n" = "border pixel 1";
 
-      "${modifier}+Return" = "exec xfce4-terminal";
+      "${modifier}+Return" = "exec konsole";
       "${modifier}+Shift+q" = "kill";
       "${modifier}+z" = "exec --no-startup-id morc_menu";
       "${modifier}+shift+m" = "exec i3lock-fancy -p -t 'Well have you noticed the shields are still up ?!'";
@@ -149,5 +149,8 @@ in
     for_window [class="plasmashell" window_type="dialog"] floating enable, border pixel 1, resize set 400 300
     no_focus [class="plasmashell" window_type="notification"]
     no_focus [class="plasmashell" window_type="on_screen_display"]
+
+    for_window [title="Desktop — Plasma"] kill; border pixel 1
+    for_window [class="ksplashqml"] kill; border pixel 1
   '';
 }
