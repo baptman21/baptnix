@@ -18,6 +18,10 @@ rec {
   # changes in each release.
   home.stateVersion = "22.05";
 
+  home.packages = import ./pkgs.nix { inherit pkgs; };
+
+  home.file = import ./files.nix { inherit pkgs; };
+
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
@@ -26,7 +30,7 @@ rec {
     fzf = import ./fzf.nix { };
     git = import ./git.nix { };
     ssh = import ./ssh.nix { homeDirectory = home.homeDirectory; };
-    vim = import ./vim.nix { };
+    vim = import ./vim.nix { inherit pkgs; };
     zsh = import ./zsh.nix { };
   };
 }

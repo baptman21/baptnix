@@ -1,4 +1,4 @@
-{ }:
+{ pkgs }:
 # Vim configuration
 {
   enable = true;
