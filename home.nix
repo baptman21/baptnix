@@ -1,8 +1,16 @@
 { config, pkgs, ... }:
 
-rec {
+{
   # TODO: split into multiple configurations for multiple computers
-  imports = [ ];
+  imports = [
+    ./fzf.nix
+    ./git.nix
+    (import ./i3.nix { modifier = "Mod4"; })
+    ./polybar.nix
+    (import ./ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
+    ./vim.nix
+    ./zsh.nix
+  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "baptman";
@@ -20,26 +28,9 @@ rec {
 
   home.packages = import ./pkgs.nix { inherit pkgs; };
 
-  home.file = import ./files.nix { inherit pkgs; };
-
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
     bash.enable = true;
-    fzf = import ./fzf.nix { };
-    git = import ./git.nix { };
-    ssh = import ./ssh.nix { homeDirectory = home.homeDirectory; };
-    vim = import ./vim.nix { inherit pkgs; };
-    zsh = import ./zsh.nix { };
-  };
-
-  services = {
-    polybar = import ./polybar.nix { inherit pkgs; };
-  };
-
-  xsession = {
-    enable = true;
-    windowManager.i3 = import ./i3.nix { inherit pkgs; };
   };
 }

@@ -1,7 +1,9 @@
-{ }:
+{ config, pkgs, ... }:
 # FZF
 {
-  enable = true;
-  enableBashIntegration = true;
-  enableZshIntegration = true;
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
 }

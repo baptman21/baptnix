@@ -1,6 +1,7 @@
-{ }:
+{ config, pkgs, ... }:
 # Git configuration
 {
+  programs.git = {
     enable = true;
     aliases = {
       st = "status";
@@ -32,8 +33,9 @@
       mergetool."fugitive" = ''vim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
       core = {
         editor = "vim";
-	autocrlf = "input";
+        autocrlf = "input";
       };
       pull.ff = "only";
     };
-  }
+  };
+}

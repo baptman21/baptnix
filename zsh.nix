@@ -1,21 +1,26 @@
-{ }:
+{ config, pkgs, ... }:
 # ZSH configuration
 {
-  enable = true;
-  enableAutosuggestions = true;
-  enableCompletion = true;
-  enableSyntaxHighlighting = true;
-  history = {
-    ignoreSpace = true;
-    extended = true;
-  };
-  initExtra = ''
-  export LESS=-iXFR
-  '';
-  oh-my-zsh = {
+  programs.zsh = {
     enable = true;
-    theme = "bapt";
-    custom = "${./assets/zsh-custom}";
-    plugins = [ "ssh-agent" "fzf" ];
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+
+    history = {
+      ignoreSpace = true;
+      extended = true;
+    };
+
+    initExtra = ''
+      export LESS=-iXFR
+    '';
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "bapt";
+      custom = "${./assets/zsh-custom}";
+      plugins = [ "ssh-agent" "fzf" ];
+    };
   };
 }
