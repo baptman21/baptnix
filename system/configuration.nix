@@ -79,8 +79,7 @@
           manage = "desktop";
           name = "plasma5+i3+bapt";
           start = ''
-            export KDEWM=${pkgs.i3-gaps}/bin/i3
-            ${pkgs.plasma-workspace}/bin/startplasma-x11
+            env KDEWM=${pkgs.i3-gaps}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11
           '';
         }
       ];

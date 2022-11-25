@@ -5,12 +5,20 @@
 # - modifier: i3 modifier
 #
 { config, pkgs, ... }:
-# I3 configuration
+# I3 configuration to use with KDE
 {
+  # Files to include in the home
   home.file.".background-image" = {
     source = ../assets/wallpapers/forest-botw.jpg;
   };
+  # We add this file to disable the systemBoot option to allow i3 to replace
+  # KNWM
+  home.file.".config/startkderc" = {
+    source = ../assets/config/kde/i3-plasma/startkderc;
+  };
+
   xsession.enable = true;
+  xsession.windowManager.command = pkgs.lib.mkForce ''test -n "$1" && eval "$@"'';
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -51,7 +59,7 @@
         "${modifier}+t" = "exec --no-startup-id pkill picom ";
         "${modifier}+Ctrl+t" = "exec --no-startup-id picom --experimental-backends -b";
         "${modifier}+Ctrl+c" = "exec --no-startup-id conky -d -q";
-        # "${modifier}+Shift+e" = "exec qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1";
+        "${modifier}+Shift+e" = "exec qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1";
 
         "${modifier}+ctrl+r" = "move workspace to output left";
         "${modifier}+j" = "focus left";
@@ -118,7 +126,11 @@
       };
       menu = "${pkgs.plasma-workspace}/bin/krunner";
 
+      defaultWorkspace = "workspace number 1";
+
       startup = [ ];
+
+      bars = [ ];
 
       terminal = "konsole";
 
