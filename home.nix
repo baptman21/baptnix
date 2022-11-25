@@ -2,7 +2,7 @@
 
 rec {
   # TODO: split into multiple configurations for multiple computers
-  imports = [];
+  imports = [ ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "baptman";
@@ -32,5 +32,10 @@ rec {
     ssh = import ./ssh.nix { homeDirectory = home.homeDirectory; };
     vim = import ./vim.nix { inherit pkgs; };
     zsh = import ./zsh.nix { };
+  };
+
+  xsession = {
+    enable = true;
+    windowManager.i3 = import ./i3.nix { inherit pkgs; };
   };
 }

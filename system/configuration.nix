@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -52,29 +52,17 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
-    enable = true;
-
-    # Enable the KDE Plasma Desktop Environment.
-    displayManager = {
-      sddm.enable = true;
-      defaultSession = "plasma5+i3+bapt";
-      session = [
-          {
-              manage = "desktop";
-              name = "plasma5+i3+bapt";
-              start = ''exec env KDEWM=${pkgs.i3-gaps}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
-          }
-      ];
+    enable = true;   
+    desktopManager = {
+      default = "xfce";
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
     };
-    desktopManager.plasma5.enable = true;
-
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-        polybar
-     ];
-    };
+    windowManager.i3.enable = true;
   };
 
   # Configure keymap in X11
@@ -114,7 +102,7 @@
     packages = with pkgs; [
       firefox
       kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
