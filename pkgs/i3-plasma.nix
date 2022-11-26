@@ -133,7 +133,7 @@
 
       startup = [
         {
-          command = "${pkgs.feh}/bin/feh --bg-fill ${../assets/wallpapers/forest-botw.jpg}";
+          command = "${pkgs.feh}/bin/feh --bg-scale ${../assets/wallpapers/forest-botw.jpg}";
           always = true;
           notification = false;
         }
