@@ -2,9 +2,9 @@
 # Picom configuration
 {
   services.picom = {
-    enable = false;
+    enable = true;
 
-    backend = "glx";
+    backend = "xrender";
 
     extraArgs = [ ];
 
@@ -65,7 +65,7 @@
       # Bad in performance, with driver-dependent behavior. 
       # The name of the switch may change without prior notifications.
       #
-      blur-background = false;
+      blur-background = true;
 
       # Blur background of windows when the window frame is not opaque. 
       # Implies:
