@@ -129,7 +129,7 @@
       };
       menu = "${pkgs.plasma-workspace}/bin/krunner";
 
-      defaultWorkspace = "workspace number 1";
+      defaultWorkspace = "workspace 1";
 
       startup = [
         {
