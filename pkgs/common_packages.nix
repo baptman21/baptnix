@@ -18,5 +18,9 @@
 
     # Json
     pkgs.jq
+
+    # Python
+    pkgs.poetry
+    pkgs.python310
   ];
 }
