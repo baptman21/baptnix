@@ -19,6 +19,8 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
+  nixpkgs.config.allowUnfree = true;
+
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;

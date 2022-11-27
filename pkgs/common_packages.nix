@@ -22,5 +22,7 @@
     # Python
     pkgs.poetry
     pkgs.python310
+
+    pkgs.google-chrome
   ];
 }
