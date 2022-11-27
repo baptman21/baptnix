@@ -113,6 +113,9 @@
     #media-session.enable = true;
   };
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -120,7 +123,7 @@
   users.users.baptman = {
     isNormalUser = true;
     description = "baptman";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
       kate
