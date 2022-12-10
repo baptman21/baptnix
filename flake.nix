@@ -12,7 +12,7 @@
 
   outputs = { self, nixpkgs, home-manager }@inputs:
     let
-      system = self.system;
+      system = "x86_64-linux";
 
       lib = nixpkgs.lib;
 

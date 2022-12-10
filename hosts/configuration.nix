@@ -1,4 +1,4 @@
-{ config, inputs, lib, location, pkgs, user, ... }:
+{ config, inputs, lib, location, pkgs, user, system, ... }:
 
 {
   imports = [ ];
@@ -79,9 +79,10 @@
       PAGER = "most";
     };
     systemPackages = with pkgs; [
-      inputs.home-manager
       vim
+      git
       wget
+      inputs.home-manager.defaultPackage.${system}
     ];
   };
 

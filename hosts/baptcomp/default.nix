@@ -10,13 +10,18 @@
 
   boot = {
     loader = {
-      systemd-boot.enable = true;
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
+    # systemd-boot.enable = true;
+    # efi = {
+    #   canTouchEfiVariables = true;
+    #   efiSysMountPoint = "/boot/efi";
+    # };
 
-      timeout = 15;
+    # timeout = 15;
+      grub = {
+        enable = true;
+        device = "/dev/sda";
+        useOSProber = true;
+      };
     };
   };
 

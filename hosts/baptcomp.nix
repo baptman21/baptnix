@@ -11,7 +11,7 @@ lib.nixosSystem {
   inherit system;
 
   specialArgs = {
-    inherit host inputs location;
+    inherit host inputs location system;
   };
 
   modules = [
