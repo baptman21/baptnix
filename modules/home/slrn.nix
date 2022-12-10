@@ -7,7 +7,7 @@
   # SLRN configuration file
   home.file = {
     ".slrnrc" = {
-      source = ../../../assets/config/slrnrc;
+      source = ../../assets/config/slrnrc;
     };
   };
 }
