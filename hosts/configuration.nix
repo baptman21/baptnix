@@ -76,7 +76,6 @@
     variables = {
       EDITOR = "vim";
       VISUAL = "vim";
-      PAGER = "most";
     };
     systemPackages = with pkgs; [
       vim
