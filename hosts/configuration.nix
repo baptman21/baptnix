@@ -85,11 +85,11 @@
     ];
   };
 
+  sound.enable = true;
   sound.mediaKeys.enable = true;
 
   # Enable the X11 windowing system.
   services = {
-    rtkit.enable = true;
     printing.enable = true;
 
     xserver = {
