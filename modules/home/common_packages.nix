@@ -16,6 +16,9 @@
     # yaml formatter
     pkgs.nodePackages.markdownlint-cli
 
+    # Sound
+    pkgs.pulseaudio
+
     # Json
     pkgs.jq
 
