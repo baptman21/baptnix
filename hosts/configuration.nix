@@ -11,7 +11,7 @@
       initialPassword = "baptcave";
     };
 
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.bash;
   };
 
   # User does not need to give password when using sudo.
@@ -31,7 +31,7 @@
 
   # Locales settings
   i18n = {
-    defaultLocale = "en_GB.UTF-8";
+    defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
       LC_ADDRESS = "fr_FR.utf8";
       LC_IDENTIFICATION = "fr_FR.utf8";
@@ -67,10 +67,6 @@
     siji
   ];
 
-  console = {
-    keyMap = "fr";
-  };
-
   environment = {
     # Environment variables
     variables = {
@@ -99,6 +95,8 @@
       layout = "us";
       # Enable touchpad support
       libinput.enable = true;
+
+      xkbVariant = "";
     };
 
     pipewire = {
@@ -143,10 +141,6 @@
   nixpkgs.config.allowUnfree = true;
 
   system = {
-    # NixOS settings
-    autoUpgrade = {
-      enable = false;
-    };
     # You should not modify this by hand !
     stateVersion = "22.11";
   };

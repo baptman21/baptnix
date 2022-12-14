@@ -7,7 +7,7 @@ let
   };
 
 in
-lib.nixosSystem {
+inputs.nixpkgs_release_22_11.lib.nixosSystem {
   inherit system;
 
   specialArgs = {
