@@ -145,11 +145,9 @@
   system = {
     # NixOS settings
     autoUpgrade = {
-      # Allow auto update (not useful in flakes)
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
+      enable = false;
     };
     # You should not modify this by hand !
-    stateVersion = "22.05";
+    stateVersion = "22.11";
   };
 }
