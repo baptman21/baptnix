@@ -27,7 +27,7 @@
     package = pkgs.i3-gaps;
     config = {
       colors = {
-        focused = { border = "#0c0c0c"; childBorder = "#0c0c0c"; background = "#13b019"; text = "#80FFF9"; indicator = "#08D19F"; };
+        focused = { border = "#010101"; childBorder = "#010101"; background = "#13b019"; text = "#80FFF9"; indicator = "#08D19F"; };
         focusedInactive = { border = "#032D42"; childBorder = "#032D42"; background = "#032D42"; text = "#1ABC9C"; indicator = "#454948"; };
         unfocused = { border = "#032D42"; childBorder = "#032D42"; background = "#032D42"; text = "#1ABC9C"; indicator = "#454948"; };
         urgent = { border = "#CB4B16"; childBorder = "#CB4B16"; background = "#FDF6E3"; text = "#1ABC9C"; indicator = "#268BD2"; };

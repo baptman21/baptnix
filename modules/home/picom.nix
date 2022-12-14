@@ -4,7 +4,7 @@
   services.picom = {
     enable = true;
 
-    backend = "xrender";
+    backend = "glx";
 
     extraArgs = [ ];
 
