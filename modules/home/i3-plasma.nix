@@ -47,8 +47,9 @@
       };
 
       assigns = {
-        "7: slack" = [{ class = "^Slack$"; }];
-        "8: discord" = [{ class = "^discord$"; }];
+        "6" = [{ class = "^Spotify$"; }];
+        "7" = [{ class = "^Slack$"; }];
+        "8" = [{ class = "^discord$"; }];
       };
 
       keybindings = pkgs.lib.mkOptionDefault {
