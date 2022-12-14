@@ -24,5 +24,8 @@
     pkgs.python310
 
     pkgs.google-chrome
+
+    pkgs.slack
+    pkgs.discord
   ];
 }
