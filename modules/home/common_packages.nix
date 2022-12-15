@@ -30,5 +30,7 @@
 
     pkgs.slack
     pkgs.discord
+
+    pkgs.spotify
   ];
 }

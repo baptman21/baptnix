@@ -15,6 +15,7 @@
     # services
     ../../modules/home/picom.nix
     ../../modules/home/polybar.nix
+    ../../modules/home/blueman.nix
   ];
 
   home.username = "baptman";
