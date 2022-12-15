@@ -16,6 +16,10 @@
     # yaml formatter
     pkgs.nodePackages.markdownlint-cli
 
+    # C/C++
+    pkgs.clang-tools_14
+    pkgs.gcc.out
+
     # Sound
     pkgs.pulseaudio
 
