@@ -62,6 +62,7 @@
         "${modifier}+shift+m" = "exec i3lock-fancy -p -t 'Well have you noticed the shields are still up ?!'";
         "${modifier}+t" = "exec --no-startup-id pkill picom ";
         "${modifier}+Ctrl+t" = "exec --no-startup-id picom --experimental-backends -b";
+        "${modifier}+Ctrl+y" = "exec --no-startup-id systemctl --user restart polybar";
         "${modifier}+Ctrl+c" = "exec --no-startup-id conky -d -q";
         "${modifier}+Shift+e" = "exec qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1";
 
