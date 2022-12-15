@@ -20,6 +20,8 @@
   boot.initrd.luks.devices."luks-4670bb1a-e67c-4925-9808-51483d8e3315".keyFile = "/crypto_keyfile.bin";
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_6_0;
+
     loader = {
       systemd-boot.enable = true;
       efi = {
