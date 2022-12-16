@@ -36,5 +36,8 @@
     pkgs.discord
 
     pkgs.spotify
+
+    # Zip
+    pkgs.ark
   ];
 }
