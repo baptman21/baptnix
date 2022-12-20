@@ -9,6 +9,7 @@
     ../../modules/home/git.nix
     (import ../../modules/home/i3-plasma.nix { modifier = "Mod4"; })
     ../../modules/home/slrn.nix
+    ../../modules/home/starship.nix
     (import ../../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
     ../../modules/home/vim.nix
     ../../modules/home/zsh.nix
