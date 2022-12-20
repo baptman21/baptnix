@@ -286,6 +286,8 @@ nnoremap <leader>gt :Git tag -a -m ''<Space>
 
 autocmd Filetype python setlocal cc=120 textwidth=119
 
+autocmd Filetype go setlocal noexpandtab tabstop=4
+
 " -----------------------------------------------------------------------------
 " ---------------------------      Function     -------------------------------
 " -----------------------------------------------------------------------------
@@ -362,6 +364,7 @@ call plug#end()
 let g:coc_global_extensions = [
       \'coc-markdownlint',
       \'coc-yaml',
+      \'coc-go',
       \'coc-xml',
       \'coc-svelte',
       \'coc-pyright',
