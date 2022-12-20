@@ -5,6 +5,7 @@
     # Shell utilities
     pkgs.tree
     pkgs.bat
+    pkgs.file
 
     # Node
     pkgs.nodejs
