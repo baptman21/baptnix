@@ -47,4 +47,9 @@
     # Postgres
     pkgs.postgresql
   ];
+
+  home.sessionVariables = {
+    # for libmagic
+    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.file}/lib";
+  };
 }
