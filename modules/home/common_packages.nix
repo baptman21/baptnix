@@ -39,5 +39,8 @@
 
     # Zip
     pkgs.ark
+
+    # Go
+    pkgs.go
   ];
 }
