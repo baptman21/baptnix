@@ -9,6 +9,7 @@
     ../../modules/system/bluetooth.nix
   ];
 
+  networking.hostName = "baptcomp3";
 
   # Setup keyfile
   boot.initrd.secrets = {
