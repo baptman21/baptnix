@@ -23,6 +23,7 @@
     userEmail = "baptiste.bourdet@epita.fr";
 
     extraConfig = {
+      init.defaultBranch = "main";
       push.merge = true;
       commit.verbose = true;
       rebase = {
