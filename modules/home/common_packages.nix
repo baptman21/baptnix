@@ -42,5 +42,8 @@
 
     # Go
     pkgs.go
+
+    # Postgres
+    pkgs.postgresql
   ];
 }
