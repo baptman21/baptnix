@@ -10,6 +10,9 @@
     # Node
     pkgs.nodejs
 
+    # Java
+    pkgs.openjdk17
+
     # Nix formatter
     pkgs.nixpkgs-fmt
     pkgs.rnix-lsp
