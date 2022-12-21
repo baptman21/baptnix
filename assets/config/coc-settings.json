@@ -1,6 +1,7 @@
 {
     "python.venvPath": "~/.conda/envs/",
     "coc.preferences.useQuickfixForLocations": true,
+    "clangd.compilationDatabasePath": ".",
     "suggest.noselect": true,
     "python.formatting.blackArgs": [
         "--line-length=120"
@@ -22,7 +23,6 @@
     "python.linting.banditArgs": [
         "-s B101"
     ],
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
     "yaml.format.enable": true,
     "languageserver": {
         "nix": {
