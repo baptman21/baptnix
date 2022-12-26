@@ -23,6 +23,7 @@
     # C/C++
     pkgs.clang-tools_14
     pkgs.gcc.out
+    pkgs.glib.out
 
     # Sound
     pkgs.pulseaudio
@@ -52,7 +53,7 @@
   ];
 
   home.sessionVariables = {
-    # for libmagic
-    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.file}/lib";
+    # for c++ and libmagic (in that order)
+    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.file}/lib";
   };
 }
