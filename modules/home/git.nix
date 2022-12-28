@@ -31,7 +31,7 @@
         autoSquash = true;
       };
       merge.tool = "fugitive";
-      mergetool."fugitive" = ''vim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
+      mergetool."fugitive".cmd = ''vim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
       core = {
         editor = "vim";
         autocrlf = "input";
