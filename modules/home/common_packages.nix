@@ -17,6 +17,10 @@
     pkgs.nixpkgs-fmt
     pkgs.rnix-lsp
 
+    # Npm
+    pkgs.nodePackages.npm
+    pkgs.nodePackages.pnpm
+
     # yaml formatter
     pkgs.nodePackages.markdownlint-cli
 
