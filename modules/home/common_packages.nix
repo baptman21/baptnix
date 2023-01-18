@@ -6,6 +6,8 @@
     pkgs.tree
     pkgs.bat
     pkgs.file
+    pkgs.coreutils
+    pkgs.gnugrep
 
     # Node
     pkgs.nodejs
@@ -25,6 +27,7 @@
     pkgs.nodePackages.markdownlint-cli
 
     # C/C++
+    pkgs.gnumake
     pkgs.clang-tools_14
     pkgs.gcc.out
     pkgs.glib.out
