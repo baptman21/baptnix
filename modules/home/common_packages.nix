@@ -8,6 +8,7 @@
     pkgs.file
     pkgs.coreutils
     pkgs.gnugrep
+    pkgs.ranger
 
     # Node
     pkgs.nodejs
