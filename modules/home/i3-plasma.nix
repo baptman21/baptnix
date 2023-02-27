@@ -7,6 +7,10 @@
 { config, pkgs, ... }:
 # I3 configuration to use with KDE
 {
+
+  home.packages = [
+    pkgs.milou # not installed by default and needed so that krunner does not crash
+  ];
   # Files to include in the home
   home.file.".background-image" = {
     source = ../../assets/wallpapers/forest-botw.jpg;
@@ -24,7 +28,6 @@
 
   xsession.windowManager.i3 = {
     enable = true;
-    package = pkgs.i3-gaps;
     config = {
       colors = {
         focused = { border = "#010101"; childBorder = "#010101"; background = "#13b019"; text = "#80FFF9"; indicator = "#08D19F"; };

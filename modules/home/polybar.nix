@@ -11,7 +11,7 @@ in
       githubSupport = true;
       mpdSupport = true;
       pulseSupport = true;
-      i3GapsSupport = true;
+      i3Support = true;
     };
     extraConfig = builtins.replaceStrings
       [ "__HOME__" ]
