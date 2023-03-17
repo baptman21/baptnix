@@ -3,7 +3,7 @@
 {
   imports = [
     # packages
-    ../../modules/home/common_packages.nix
+    ../../modules/home/packages.nix
     # apps
     ../../modules/home/fzf.nix
     ../../modules/home/git.nix

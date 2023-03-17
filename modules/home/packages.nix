@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-# Packages to install
+# Packages to install without any specific configuration
 {
   home.packages = [
     # Shell utilities
