@@ -12,6 +12,7 @@
     ../../modules/home/starship.nix
     (import ../../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
     ../../modules/home/vim.nix
+    ../../modules/home/lunarvim.nix
     ../../modules/home/zsh.nix
     # services
     ../../modules/home/picom.nix

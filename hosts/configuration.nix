@@ -74,6 +74,9 @@
       VISUAL = "vim";
       PAGER = "less";
     };
+
+    localBinInPath = true;
+
     systemPackages = with pkgs; [
       vim
       git

@@ -59,6 +59,10 @@
     # Go
     pkgs.go
 
+    # Rust
+    pkgs.cargo
+    pkgs.rustc
+
     # Postgres
     pkgs.postgresql
   ];
