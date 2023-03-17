@@ -33,11 +33,14 @@
     pkgs.gcc.out
     pkgs.glib.out
 
-    # Sound
-    pkgs.pulseaudio
-
     # Json
     pkgs.jq
+
+    # Terraform
+    pkgs.terraform
+
+    # Openssl
+    pkgs.openssl
 
     # Python
     pkgs.poetry

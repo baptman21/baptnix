@@ -79,10 +79,12 @@
       git
       wget
       inputs.home-manager.defaultPackage.${system}
+      pipewire.pulse
+      pipewire
     ];
   };
 
-  sound.enable = true;
+  sound.enable = false;
   hardware.pulseaudio.enable = false;
   sound.mediaKeys.enable = true;
 
@@ -104,6 +106,7 @@
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
+      audio.enable = true;
       pulse.enable = true;
       # If you want to use JACK applications, uncomment this
       #jack.enable = true;
