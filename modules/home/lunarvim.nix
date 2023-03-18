@@ -4,14 +4,19 @@ let
   lib = pkgs.lib;
 
   env = {
-    LUNARVIM_RUNTIME_DIR = "${config.home.homeDirectory}/.local/share/lunarvim";
+    LUNARVIM_RUNTIME_DIR = "${config.home.homeDirectory}/.local/share/lvim";
     LUNARVIM_CONFIG_DIR = "${config.home.homeDirectory}/.config/lvim";
     LUNARVIM_CACHE_DIR = "${config.home.homeDirectory}/.cache/lvim";
     LUNARVIM_BASE_DIR = "${lunarvimDrv}/lvim";
   };
 
   # TODO: add rust with dependencies ?
-  extraPackages = with pkgs; [ git rnix-lsp tree-sitter ];
+  extraPackages = with pkgs; [
+    git
+    rnix-lsp
+    tree-sitter
+    sumneko-lua-language-server
+  ];
 
   nvim = config.programs.neovim.finalPackage;
 
