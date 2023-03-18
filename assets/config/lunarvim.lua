@@ -62,8 +62,18 @@ vim.opt.spelllang = { "en", "fr" }
 
 -- Quickfix
 vim.opt.swb = "useopen,vsplit"
-lvim.keys.normal_mode["<leader>cw"] = ":botright :cw<CR>"
-lvim.keys.normal_mode["<leader>ccl"] = ":botright :ccl<CR>"
+lvim.keys.normal_mode["<leader>cw"] = "<CMD>botright :cw<CR>"
+lvim.keys.normal_mode["<leader>ccl"] = "<CMD>botright :ccl<CR>"
+
+-- Map arrows to resize
+lvim.keys.insert_mode["<Left>"] = "<CMD>vert:res -5<CR>"
+lvim.keys.normal_mode["<Left>"] = lvim.keys.insert_mode["<Left>"]
+lvim.keys.insert_mode["<Right>"] = "<CMD>vert:res +5<CR>"
+lvim.keys.normal_mode["<Right>"] = lvim.keys.insert_mode["<Right>"]
+lvim.keys.insert_mode["<Up>"] = "<CMD>res -5<CR>"
+lvim.keys.normal_mode["<Up>"] = lvim.keys.insert_mode["<Up>"]
+lvim.keys.insert_mode["<Down>"] = "<CMD>res +5<CR>"
+lvim.keys.normal_mode["<Down>"] = lvim.keys.insert_mode["<Down>"]
 
 -- Specific languages
 lvim.autocommands = {
@@ -83,6 +93,41 @@ lvim.autocommands = {
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
+
+lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
+    "c",
+    lvim.icons.ui.Gear .. "  Configuration",
+    "<CMD>edit /home/baptman/Baptcave/baptnix/assets/config/lunarvim.lua <CR>" ..
+    "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>"
+}
+
+
+lvim.builtin.alpha.dashboard.section.buttons.entries[7] = {
+    "x",
+    "  Nixos Configuration",
+    "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>" .. "<CMD>edit . <CR>"
+}
+
+lvim.builtin.alpha.dashboard.section.header.val = {
+    [[⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠀⠀]],
+    [[⠀⠀⠀⠀⠑⠒⢕⡜⣔⢎⢦⢣⢲⡱⡜⡔⣎⢦⢣⢲⡱⡜⡔⣎⢦⢣⢲⡱⡜⡔⣎⢦⢣⡪⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⣔⢕⢆⢧⢲⢱⢢⡣⡲⡱⡢⣣⢲⢱⢢⡣⡲⡱⡢⣣⢲⢱⢢⡣⡲⡱⡢⠣⠒⠁⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠘⠸⢸⢪⡪⡣⡣⣣⢫⢪⡪⡪⡣⡣⣣⢫⢪⡪⡪⡣⡣⣣⢫⢪⡪⣪⢪⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡂⠀⠀⠀⠀⢨⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⡱⡕⡵⡹⡸⡪⡪⡣⣣⢫⡪⡣⣣⢳⢹⢸⢜⢎⢇⢏⢎⡎⣇⢧⠳⠙⠈⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢕⢝⢼⢸⢪⢣⢣⡫⡪⣣⢣⢳⡱⡕⣝⢜⢕⢵⢱⢣⡣⣣⢳⢱⠥⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡪⡎⡖⡕⣜⢜⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⡔⡵⡱⡣⡳⡹⡸⡪⡣⡫⣪⢪⡪⡺⡸⡜⡎⡇⣇⢗⢕⡝⣜⢼⠸⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢕⢇⢗⢕⢇⢇⡏⣎⢎⢇⢇⡇⡧⡳⡹⡸⡪⡣⡣⣣⢳⢱⡹⡢⡣⡆⣆⢄⢄⢄⡀⡀⣀⢜⢜⢎⢞⢼⢸⢪⢲⢀⡀⣀⢠⢠⢠⢄⢆⡎⡮⡪⡺⡸⡪⡺⡸⡪⣪⢣⡫⡪⡪⡎⣎⢇⢧⢳⢹⢸⢸⢱⡱⡱⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⢱⡹⡸⡱⣱⢱⢕⢝⡜⡼⡸⡜⡎⡞⡜⡎⣇⠧⡳⡱⡱⡕⡇⡗⡕⡕⣇⢧⢣⢳⢱⡱⣹⢸⢱⡱⡕⡇⡗⣕⢵⢱⢕⢇⢗⢕⢇⢧⢳⢹⢸⡱⡹⡸⡱⡹⣸⢸⢜⢎⢇⢏⢎⢮⢪⢎⢞⢜⢕⢵⠱⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢕⢕⡝⡼⡸⡜⡎⡇⣇⢗⢕⢵⢱⡹⡸⡪⣪⢺⢸⢪⢣⡣⡳⡹⡸⣱⢱⢕⢵⢹⡸⡜⣜⢜⢕⡕⡵⡱⣹⢸⡸⡜⡜⡎⡇⡗⡕⡇⡧⡳⡱⣱⢹⡸⡱⣹⢸⡸⡜⡎⣎⢧⢳⢱⢣⢳⡱⡹⡜⡕⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡪⡪⡎⡮⡪⡎⡞⣜⢜⢕⡕⡇⡧⡫⡪⡎⣎⢇⢗⢕⢵⢹⢸⢪⡪⡎⡮⡪⡎⣎⢮⢪⡪⡣⣣⢳⢹⢸⡸⡸⡜⡎⡞⡜⡎⡇⡏⣎⢮⢺⢸⢜⢜⢎⢮⢪⡪⡪⡎⣎⢮⢪⢎⢇⢧⢣⢳⢱⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡎⣇⢗⢕⢇⢏⢮⢪⡪⡣⣣⢳⢱⡹⡸⡪⣪⢪⡣⡫⡪⡎⣇⢧⢣⡣⡳⡱⡹⡸⡸⡜⡜⣎⢮⢪⢎⢇⢇⢗⢕⢵⢹⡸⡪⡣⡫⡪⡪⡎⡮⡪⡣⡳⡱⡕⡕⡇⡏⣎⢎⢮⢪⢣⢳⢱⡹⡜⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⢭⢪⡪⡎⡇⡗⣕⢵⢱⡹⡸⡸⡱⡱⡹⡸⡜⣜⢜⢎⢇⢧⢣⡣⡇⡧⡫⡪⣣⢫⡪⡺⡸⡜⣜⢜⢎⢎⡇⣏⢮⢪⢣⡣⡳⡹⡸⡱⡕⡇⡗⡝⣜⢕⢵⢹⢸⡱⡹⡸⡸⡪⣪⢣⢳⡱⡕⡕⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠣⠣⠃⠃⠋⠊⠊⠊⠊⠊⠪⠣⠫⠪⢣⢳⢹⢸⢸⢪⢣⢳⢱⡱⡕⡵⡱⡝⣜⢜⡜⡎⡇⡧⡣⡳⡹⡸⡜⣜⢜⢎⢇⢇⢗⢝⢜⢕⢵⢱⢣⢫⢪⠪⠺⠸⠱⠑⠙⠘⠑⠙⠘⠘⠑⠑⠱⠳⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠈⠈⠑⠣⢣⡣⡇⡗⣕⢵⢱⢕⢕⢵⢹⢸⢪⢺⢸⡱⡕⣕⢕⢇⢗⢝⢜⠎⠇⠋⠈⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠓⢕⢕⢵⢱⡹⡜⡎⡇⡗⡝⣜⢜⡜⡼⡸⡱⠑⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠱⡣⡣⡣⡇⡏⡮⡺⡸⡸⡜⠜⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠪⡣⡳⡹⡸⡜⡎⡇⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⡕⣝⢜⢼⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣜⢜⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]]
+}
 
 lvim.builtin.breadcrumbs.active = false
 lvim.builtin.bufferline.active = true
@@ -113,6 +158,33 @@ lvim.plugins = {
     -- Theming
     { "navarasu/onedark.nvim" },
 
+    {
+        "kevinhwang91/nvim-bqf",
+        event = { "BufRead", "BufNew" },
+        config = function()
+            require("bqf").setup({
+                auto_enable = true,
+                preview = {
+                    win_height = 12,
+                    win_vheight = 12,
+                    delay_syntax = 80,
+                    border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+                },
+                func_map = {
+                    vsplit = "",
+                    ptogglemode = "z,",
+                    stoggleup = "",
+                },
+                filter = {
+                    fzf = {
+                        action_for = { ["ctrl-s"] = "split" },
+                        extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+                    },
+                },
+            })
+        end,
+    },
+
     -- Git
     {
         "tpope/vim-fugitive",
@@ -132,6 +204,14 @@ lvim.plugins = {
             "Gedit"
         },
         ft = { "fugitive" }
+    },
+    {
+        'tummetott/unimpaired.nvim',
+        config = function()
+            require('unimpaired').setup {
+                -- add any options here or leave empty
+            }
+        end
     },
 
     -- UI
