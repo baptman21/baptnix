@@ -10,6 +10,9 @@
     pkgs.gnugrep
     pkgs.ranger
 
+    # VLC
+    pkgs.vlc
+
     # Node
     pkgs.nodejs
 
