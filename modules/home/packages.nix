@@ -39,8 +39,9 @@
     # Json
     pkgs.jq
 
-    # Terraform
+    # Hashicorp stuff
     pkgs.terraform
+    pkgs.vault-bin
 
     # Openssl
     pkgs.openssl
