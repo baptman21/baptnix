@@ -67,13 +67,9 @@ lvim.keys.normal_mode["<leader>cw"] = "<CMD>botright :cw<CR>"
 lvim.keys.normal_mode["<leader>ccl"] = "<CMD>botright :ccl<CR>"
 
 -- Map arrows to resize
-lvim.keys.insert_mode["<Left>"] = "<CMD>vert:res -5<CR>"
 lvim.keys.normal_mode["<Left>"] = lvim.keys.insert_mode["<Left>"]
-lvim.keys.insert_mode["<Right>"] = "<CMD>vert:res +5<CR>"
 lvim.keys.normal_mode["<Right>"] = lvim.keys.insert_mode["<Right>"]
-lvim.keys.insert_mode["<Up>"] = "<CMD>res -5<CR>"
 lvim.keys.normal_mode["<Up>"] = lvim.keys.insert_mode["<Up>"]
-lvim.keys.insert_mode["<Down>"] = "<CMD>res +5<CR>"
 lvim.keys.normal_mode["<Down>"] = lvim.keys.insert_mode["<Down>"]
 
 -- Specific languages
