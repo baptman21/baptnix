@@ -327,14 +327,13 @@ lvim.lsp.automatic_servers_installation = true
 -- Disable rnix/nil because rnix-lsp is installed with nix config, avoid
 -- rebuild of rnix manually with cargo
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls", "rnix" })
+vim.list_extend(lvim.lsp.installer.setup.automatic_installation.exclude, { "rnix" })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
-require("lspconfig").clangd.setup({ capabilities = capabilities })
+require("lvim.lsp.manager").setup("clangd", { capabilities = capabilities })
 
-require("lspconfig").sumneko_lua.setup({ cmd = { "bash", "-c", "~/.nix-profile/bin/lua-language-server" } })
-
-require("lspconfig").rnix.setup({ cmd = { "rnix-lsp" } })
+require("lvim.lsp.manager").setup("rnix", { cmd = { "rnix-lsp" } })
 
 vim.filetype.add({
     extension = {

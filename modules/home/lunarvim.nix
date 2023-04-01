@@ -1,5 +1,17 @@
 { config, pkgs, ... }:
 # LunarVim configuration
+#
+# WARNING: Post install step
+# For now the sumneko_lua language server does not work if installed by Packer.
+# It is installed by nix directly but it is not possible to change the path of
+# the command only for the default config. As a result to make the lua lsp
+# server work you need to create a symlink instead of the binary built by
+# Mason.
+#
+# Open the logs of the lsp with :LspLog
+# Locate the `lua-language-server` binary that is not working in the logs
+# Delete it
+# Create a symlink instead: `ln -s $(which lua-language-server) <path>`
 let
   lib = pkgs.lib;
 
@@ -21,7 +33,7 @@ let
   nvim = config.programs.neovim.finalPackage;
 
   lunarvimDrv = pkgs.stdenv.mkDerivation
-    rec {
+    {
       pname = "lunarvim";
       version = "1.2.0";
 
@@ -70,6 +82,7 @@ in
 {
   home.packages = [
     pkgs.nodePackages.neovim
+    pkgs.lua-language-server
     lunarvimDrv
   ];
 
@@ -79,6 +92,9 @@ in
     withPython3 = true;
     extraPython3Packages = ps: [
       ps.pynvim
+    ];
+    extraLuaPackages = ps: [
+      ps.luarocks
     ];
     inherit extraPackages;
   };
