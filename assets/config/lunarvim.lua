@@ -3,7 +3,6 @@
 lvim.log.level = "warn"
 lvim.colorscheme = "onedark"
 lvim.format_on_save.enabled = true
-lvim.lsp.automatic_servers_installation = true
 
 -- Status bar configuration
 local components = require "lvim.core.lualine.components"
@@ -324,12 +323,21 @@ linters.setup {
 }
 
 -- LSP options
+lvim.lsp.automatic_servers_installation = true
+-- Disable rnix/nil because rnix-lsp is installed with nix config, avoid
+-- rebuild of rnix manually with cargo
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls", "rnix" })
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
 require("lspconfig").clangd.setup({ capabilities = capabilities })
 
+require("lspconfig").sumneko_lua.setup({ cmd = { "bash", "-c", "~/.nix-profile/bin/lua-language-server" } })
+
+require("lspconfig").rnix.setup({ cmd = { "rnix-lsp" } })
+
 vim.filetype.add({
-        extension = {
-          hcl = 'terraform',
-        }
-      })
+    extension = {
+        hcl = 'terraform',
+    }
+})
