@@ -26,6 +26,8 @@ vim.opt.signcolumn = "auto"
 vim.opt.updatetime = 100
 vim.opt.title = false
 vim.opt.cursorline = false
+vim.opt.showcmd = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
@@ -93,6 +95,9 @@ lvim.autocommands = {
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
+
+-- Use fugitive instead
+lvim.builtin.gitsigns.active = false
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
     "c",
@@ -322,3 +327,9 @@ linters.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
 require("lspconfig").clangd.setup({ capabilities = capabilities })
+
+vim.filetype.add({
+        extension = {
+          hcl = 'terraform',
+        }
+      })

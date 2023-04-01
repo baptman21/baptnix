@@ -9,6 +9,8 @@
     pkgs.coreutils
     pkgs.gnugrep
     pkgs.ranger
+    pkgs.unzip
+    pkgs.xclip
 
     # VLC
     pkgs.vlc
@@ -42,6 +44,7 @@
     # Hashicorp stuff
     pkgs.terraform
     pkgs.vault-bin
+    pkgs.terraform-ls
 
     # Openssl
     pkgs.openssl
