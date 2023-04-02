@@ -73,15 +73,7 @@ lvim.keys.normal_mode["<Up>"] = lvim.keys.insert_mode["<Up>"]
 lvim.keys.normal_mode["<Down>"] = lvim.keys.insert_mode["<Down>"]
 
 -- Specific languages
-lvim.autocommands = {
-    {
-        "BufEnter",
-        {
-            pattern = { "*.py", "*.go" },
-            command = "setlocal cc=120 textwidth=119",
-        }
-    },
-}
+lvim.autocommands = {}
 
 --- Plugins ---
 
@@ -101,6 +93,7 @@ lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
     "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>"
 }
 
+-- Dashboard configuration
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[7] = {
     "x",
@@ -152,6 +145,12 @@ lvim.builtin.treesitter.ensure_installed = "all"
 lvim.builtin.treesitter.ignore_install = { "" }
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.matchup.enable = true
+
+-- CMP
+lvim.builtin.cmp.mapping["<S-Tab>"].i = function(fallback) fallback() end
+lvim.builtin.cmp.mapping["<S-Tab>"].s = function(fallback) fallback() end
+lvim.builtin.cmp.mapping["<Tab>"].i = function(fallback) fallback() end
+lvim.builtin.cmp.mapping["<Tab>"].s = function(fallback) fallback() end
 
 -- Extra plugins
 lvim.plugins = {
@@ -331,8 +330,11 @@ require("lvim.lsp.manager").setup("clangd", { capabilities = capabilities })
 
 require("lvim.lsp.manager").setup("rnix", { cmd = { "rnix-lsp" } })
 
+-- Filetype
+
 vim.filetype.add({
     extension = {
         hcl = 'terraform',
+        mail = 'mail',
     }
 })
