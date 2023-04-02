@@ -131,6 +131,12 @@ lvim.builtin.terminal.active = true
 
 lvim.builtin.cmp.cmdline.enable = true
 
+-- Disable project plugin that auto cd in project
+lvim.builtin.project.active = false
+
+lvim.builtin.nvimtree.setup.update_cwd = false
+lvim.builtin.nvimtree.setup.update_focused_file = { enable = false, update_cwd = false }
+lvim.builtin.nvimtree.setup.sync_root_with_cwd = false
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.adaptive_size = true
 lvim.builtin.nvimtree.setup.auto_reload_on_write = true
@@ -335,6 +341,7 @@ require("lvim.lsp.manager").setup("rnix", { cmd = { "rnix-lsp" } })
 vim.filetype.add({
     extension = {
         hcl = 'terraform',
+        tf = 'terraform',
         mail = 'mail',
-    }
+    },
 })
