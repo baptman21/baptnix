@@ -62,6 +62,7 @@
     terminus_font
     terminus_font_ttf
     terminus-nerdfont
+    termsyn
     font-awesome
     (nerdfonts.override { fonts = [ "Hack" "Noto" "Iosevka" "Terminus" ]; })
     siji
