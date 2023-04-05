@@ -102,27 +102,12 @@ in
   home.sessionVariables = env;
 
   home.file.".config/lvim/config.lua" = {
-    source = ../../assets/config/lunarvim.lua;
+    source = ../../assets/config/lvim/config.lua;
   };
 
-  # FT Plugins for some filetype specific configuration
+  # FT Plugin s for some filetype specific configuration
 
-  home.file.".config/lvim/after/ftplugin/mail.lua" = {
-    text = ''
-      vim.cmd("setlocal cc=68 textwidth=68 nocindent noautoindent")
-      vim.cmd("setlocal spell spelllang=en fileencodings=iso8859-1,utf-8")
-    '';
-  };
-
-  home.file.".config/lvim/after/ftplugin/go.lua" = {
-    text = ''
-      vim.cmd("setlocal cc=120 textwidth=119 noexpandtab tabstop=4")
-    '';
-  };
-
-  home.file.".config/lvim/after/ftplugin/python.lua" = {
-    text = ''
-      vim.cmd("setlocal cc=120 textwidth=119")
-    '';
+  home.file.".config/lvim/after" = {
+    source = ../../assets/config/lvim/after;
   };
 }
