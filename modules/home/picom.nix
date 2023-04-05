@@ -34,6 +34,7 @@
       "100:class_g = 'discord'"
       "100:class_g = 'peek'"
       "100:class_g *= 'Minecraft'"
+      "100:class_g *= 'i3lock'"
     ];
 
     # ---- Fade ----

@@ -10,6 +10,7 @@
 
   home.packages = [
     pkgs.milou # not installed by default and needed so that krunner does not crash
+    pkgs.i3lock-fancy
   ];
   # Files to include in the home
   home.file.".background-image" = {
