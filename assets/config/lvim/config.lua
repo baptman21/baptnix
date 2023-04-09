@@ -67,10 +67,10 @@ lvim.keys.normal_mode["<leader>cw"] = "<CMD>botright :cw<CR>"
 lvim.keys.normal_mode["<leader>ccl"] = "<CMD>botright :ccl<CR>"
 
 -- Map arrows to resize
-lvim.keys.normal_mode["<Left>"] = lvim.keys.insert_mode["<Left>"]
-lvim.keys.normal_mode["<Right>"] = lvim.keys.insert_mode["<Right>"]
-lvim.keys.normal_mode["<Up>"] = lvim.keys.insert_mode["<Up>"]
-lvim.keys.normal_mode["<Down>"] = lvim.keys.insert_mode["<Down>"]
+lvim.keys.normal_mode["<Left>"] = "<CMD>vert:res -5<CR>"
+lvim.keys.normal_mode["<Right>"] = "<CMD>vert:res +5<CR>"
+lvim.keys.normal_mode["<Up>"] = "<CMD>res -5<CR>"
+lvim.keys.normal_mode["<Down>"] = "<CMD>res +5<CR>"
 
 -- Specific languages
 lvim.autocommands = {}
@@ -89,7 +89,7 @@ lvim.builtin.gitsigns.active = false
 lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
     "c",
     lvim.icons.ui.Gear .. "  Configuration",
-    "<CMD>edit /home/baptman/Baptcave/baptnix/assets/config/lunarvim.lua <CR>" ..
+    "<CMD>edit /home/baptman/Baptcave/baptnix/assets/config/lvim/config.lua <CR>" ..
     "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>"
 }
 
