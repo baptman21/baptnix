@@ -18,12 +18,10 @@ $ sudo nixos-rebuild -j auto --impure --flake <path>#<host> switch
 
 Install [home-manager](https://github.com/nix-community/home-manager).
 
-Specify the machine to use in the [`local.nix`](./local.nix) file.
-
 Run `home-manager`.
 
 ```bash
-$ home-manager switch --flake <path>#<host>
+$ home-manager switch --flake <path>#<home>
 ```
 
 ## Structure
