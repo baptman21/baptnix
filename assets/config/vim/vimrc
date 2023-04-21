@@ -283,6 +283,9 @@ Plug 'jxnblk/vim-mdx-js'
 " [x] icons
 Plug 'ryanoasis/vim-devicons'
 
+" [x] FZF
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 
