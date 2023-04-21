@@ -1,5 +1,8 @@
 --- LVIM options ---
 
+
+lvim.builtin.gitsigns.opts.signcolumn = false
+
 lvim.log.level = "warn"
 lvim.colorscheme = "onedark"
 lvim.format_on_save.enabled = true
@@ -82,9 +85,6 @@ lvim.autocommands = {}
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-
--- Use fugitive instead
-lvim.builtin.gitsigns.active = false
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
     "c",
@@ -261,7 +261,10 @@ lvim.plugins = {
             })
         end,
     },
-    { "folke/trouble.nvim",   cmd = "TroubleToggle" },
+    {
+        "folke/trouble.nvim",
+        cmd = "TroubleToggle"
+    },
     { "tpope/vim-repeat" },
     {
         "kylechui/nvim-surround",
