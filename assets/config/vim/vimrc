@@ -197,6 +197,16 @@ noremap <leader>pp :setlocal paste!<cr>
 
 " Command line remap
 cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+
+" Tab char
+inoremap <S-Tab> <C-V><Tab>
+
+" terminal
+nnoremap <leader>te :rightb terminal ++rows=12<CR>
 
 " ---------------------------- Quickfix list ----------------------------------
 
@@ -209,73 +219,20 @@ nnoremap <leader>m :silent! :make! \| :redraw!<CR>
 nnoremap <leader>mc :silent! :make! check \| :redraw!<CR>
 nnoremap <leader>ml :silent! :make! clean \| :redraw!<CR>
 
-" Tab char
-inoremap <S-Tab> <C-V><Tab>
-
-" terminal
-nnoremap <leader>te :rightb terminal ++rows=12<CR>
-
 " ------------------------------ Fugitive -------------------------------------
 
 nnoremap <leader>gd :Gvdiffsplit!<CR>
-nnoremap <leader>gdf :Gvdiff<CR>
 nnoremap <leader>g2 :diffget //2<CR>
 nnoremap <leader>g3 :diffget //3<CR>
 nnoremap <leader>gp :diffput<CR>
 
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>glt :Git log --decorate<CR>
-nnoremap <leader>gl :silent! Glog<CR>
-
-nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>go :Git checkout<Space>
-
 nnoremap <leader>gt :Git tag -a -m ''<Space>
-
-" never used it so far
-" nnoremap <leader>gr :Gread<CR>
-" nnoremap <leader>gw :Gwrite<CR><CR>
-" nnoremap <leader>gp :Ggrep<Space>
-" nnoremap <leader>gm :Gmove<Space>
-" nnoremap <leader>gps :Dispatch! git push<CR>
-" nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 " -----------------------------------------------------------------------------
 " -----------------------     Filetype specific     ---------------------------
 " -----------------------------------------------------------------------------
 
-autocmd Filetype python setlocal cc=120 textwidth=119
-
-autocmd Filetype go setlocal noexpandtab tabstop=4
-
-" -----------------------------------------------------------------------------
-" ---------------------------      Function     -------------------------------
-" -----------------------------------------------------------------------------
-
 autocmd BufNewFile,BufRead *.mail setfiletype mail
-autocmd FileType mail call Format_mail()
-
-function Format_mail()
-    setlocal nocindent
-    setlocal noautoindent
-    setlocal textwidth=68
-    setlocal cc=68
-    setlocal spell spelllang=en
-    setlocal fileencodings=iso8859-1,utf-8
-
-    setlocal makeprg=/home/baptman/yaka/leodagan/leodagan.py
-    nnoremap <leader>c :make %:p -q<CR>
-endfunction
-
-autocmd FileType tex call Mapping_TEX()
-
-function Mapping_TEX()
-    nnoremap <leader>b o\begin{}<Esc>i
-    nnoremap <leader>e o\end{}<Esc>i
-    vnoremap <leader>f :s/\%V\(.*\)\/\(.*\)\%V/\\frac{\1}{\2}/<Esc>:noh<CR>i
-    nnoremap <leader>1 i\frac{1}{}<Esc>i
-endfunction
 
 " -----------------------------------------------------------------------------
 " ---------------------------     Skeletons     -------------------------------

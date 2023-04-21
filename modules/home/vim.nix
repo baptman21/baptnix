@@ -25,4 +25,7 @@ in
     };
     target = ".vim/autoload/plug.vim";
   };
+  # FTPlugin files
+  home.file.".vim/ftplugin".source = ../../assets/config/vim/ftplugin;
+
 }
