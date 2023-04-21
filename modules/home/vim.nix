@@ -27,5 +27,7 @@ in
   };
   # FTPlugin files
   home.file.".vim/ftplugin".source = ../../assets/config/vim/ftplugin;
+  # Lightline color scheme
+  home.file.".vim/autoload/lightline".source = ../../assets/config/vim/autoload/lightline;
 
 }

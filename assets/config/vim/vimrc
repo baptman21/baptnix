@@ -42,9 +42,6 @@ set visualbell
 set t_vb=
 set belloff=all
 
-" Add info to statusline
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Add all directory and sub directory to path for find
 set path+=**
 
@@ -208,6 +205,11 @@ inoremap <S-Tab> <C-V><Tab>
 " terminal
 nnoremap <leader>te :rightb terminal ++rows=12<CR>
 
+" ---------------------------- File Explorer ----------------------------------
+
+nnoremap <leader>e :Vexplore
+let g:netrw_winsize = 40
+
 " ---------------------------- Quickfix list ----------------------------------
 
 nnoremap <leader>cw :botright :cw<CR>
@@ -278,6 +280,9 @@ Plug 'leafOfTree/vim-svelte-plugin'
 " [x] mdx syntax highlight
 Plug 'jxnblk/vim-mdx-js'
 
+" [x] icons
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 
@@ -293,7 +298,7 @@ packadd termdebug
 inoremap <silent><expr> <C-@> coc#refresh()
 
 " Use K to show documentation in preview window.
-nnoremap <silent> <leader>K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -306,38 +311,40 @@ function! s:show_documentation()
 endfunction
 
 " Navigation
-nnoremap <leader>kd :CocDiagnostic<cr>
-nnoremap <leader>kp <Plug>(coc-diagnostic-prev)
-nnoremap <leader>kn <Plug>(coc-diagnostic-next)
+nnoremap <leader>tf :CocDiagnostic<cr>
+nnoremap <leader>lk <Plug>(coc-diagnostic-prev)
+nnoremap <leader>lj <Plug>(coc-diagnostic-next)
 
 
 " GoTo code navigation.
-nmap <silent> <leader>kk <Plug>(coc-definition)
-nmap <silent> <leader>kt <Plug>(coc-type-definition)
-nmap <silent> <leader>ki <Plug>(coc-implementation)
-nmap <silent> <leader>kr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-type-definition)
+nmap <silent> gI <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Symbol renaming.
-nmap <leader>krn <Plug>(coc-rename)
+nmap <leader>lr <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>kf  <Plug>(coc-format-selected)
-nmap <leader>kf  <Plug>(coc-format-selected)
-nnoremap <leader>ko  <Plug>(coc-format)
+xmap <leader>lF  <Plug>(coc-format-selected)
+nmap <leader>lF  <Plug>(coc-format-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>kac  <Plug>(coc-codeaction)
+nmap <leader>la  <Plug>(coc-codeaction)
 
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
-nnoremap <leader>kb :silent! :Format<CR>
+nnoremap <leader>lf :silent! :Format<CR>
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
+nnoremap <leader>lF :silent! :Format<CR>
+
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+
+nnoremap <leader>lo :silent! :OR<CR>
 
 " ------------------------------- COC Config ----------------------------------
 
@@ -360,23 +367,93 @@ xmap <leader>ga <Plug>(EasyAlign)
 
 " ------------------------------- Last Line -----------------------------------
 
+function! LightLineSpaces()
+    return ">- " . &shiftwidth
+endfunction
+
+function! LightLineFugitive()
+    let l:head = FugitiveHead()
+    if l:head != ''
+        return " " . l:head
+    endif
+    return ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() . ' ' . &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? ( WebDevIconsGetFileFormatSymbol() . ' ' . &fileformat) : ''
+endfunction
+
+function LightLineCocStatusError()
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  if get(info, 'error', 0)
+    return ' ' . info['error']
+  endif
+  return ''
+endfunction
+
+function LightLineCocStatusWarning()
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  if get(info, 'warning', 0)
+    return ' ' . info['warning']
+  endif
+  return ''
+endfunction
+
+function LightLineCocStatusHint()
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  if get(info, 'hint', 0)
+    return ' ' . info['hint']
+  endif
+  return ''
+endfunction
+
+function LightLineCocStatus()
+  return get(g:, 'coc_status', '')
+endfunction
+
+" Update lightline on change
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 " lightline properties
 let g:lightline = {
-        \ 'colorscheme': 'onedark',
+        \ 'colorscheme': 'baptonedark',
         \ 'active': {
-        \   'left': [ [ 'mde', 'paste' ],
-        \             [ 'gitbranch', 'readonly',
-        \               'filename', 'modified' ] ],
-        \   'right': [ [ 'lineinfo' ],
-        \              [ 'percent' ],
-        \              [ 'fileencoding', 'filetype', 'charvaluehex' ] ]
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'gitbranch', 'modifid', 'readonly' ],
+        \             [ 'cocstatuserror', 'cocstatuswarning', 'cocstatushint', 'cocstatus', 'spaces'] ],
+        \   'right': [ [ 'lineinfo', 'percent' ],
+        \              [ 'filename', 'fileformat', 'filetype' ],
+        \              [ 'searchcount', 'charvaluehex' ] ]
         \ },
         \ 'component_function': {
-        \   'gitbranch': 'FugitiveHead'
+        \   'cocstatus': 'LightLineCocStatus',
+        \   'gitbranch': 'LightLineFugitive',
+        \   'filetype': 'LightLineFiletype',
+        \   'fileformat': 'LightLineFileformat',
+        \   'spaces': 'LightLineSpaces'
+        \ },
+        \ 'component_expand': {
+        \   'cocstatuserror': 'LightLineCocStatusError',
+        \   'cocstatuswarning': 'LightLineCocStatusWarning',
+        \   'cocstatushint': 'LightLineCocStatusHint',
+        \ },
+        \ 'component_type': {
+        \   'cocstatuserror': 'error',
+        \   'cocstatuswarning': 'warning',
+        \   'cocstatushint': 'hint',
         \ },
         \ 'component': {
         \   'charvaluehex': '0x%B'
         \ },
+        \ 'separator': { 'left': '', 'right': '' },
+        \ 'subseparator': { 'left': '', 'right': '' },
     \ }
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
