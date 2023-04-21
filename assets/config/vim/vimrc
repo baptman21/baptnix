@@ -271,8 +271,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " [x] LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" [x] testing
-Plug 'janko/vim-test'
 
 " [x] svelte syntax highlight
 Plug 'leafOfTree/vim-svelte-plugin'
@@ -284,7 +282,11 @@ Plug 'jxnblk/vim-mdx-js'
 Plug 'ryanoasis/vim-devicons'
 
 " [x] FZF
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+
+" [x] Which Key
+Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
 
@@ -295,7 +297,25 @@ packadd termdebug
 " -----------------------------------------------------------------------------
 " -----------------------       Plugin Config       ---------------------------
 " -----------------------------------------------------------------------------
-"
+
+" ---------------------------------  FZF  --------------------------------------
+
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>sf :Files<CR>
+nnoremap <leader>sf :Files<CR>
+" Does not exists in FZF but coherent with Telescope in lvim config
+nnoremap <leader>sb :G branch -a<CR>
+nnoremap <leader>sc :Colors<CR>
+nnoremap <leader>sk :Maps<CR>
+nnoremap <leader>sC :Commands<CR>
+nnoremap <leader>st :Rg<CR>
+
+nnoremap <leader>bf :Buffers<CR>
+
+nnoremap <leader>gb :GFiles?<CR>
+nnoremap <leader>gc :Commits<CR>
+nnoremap <leader>gC :BCommits<CR>
+
 " ----------------------------- COC Mappings ----------------------------------
 
 inoremap <silent><expr> <C-@> coc#refresh()
@@ -314,7 +334,7 @@ function! s:show_documentation()
 endfunction
 
 " Navigation
-nnoremap <leader>tf :CocDiagnostic<cr>
+nnoremap <leader>tt :CocDiagnostic<cr>
 nnoremap <leader>lk <Plug>(coc-diagnostic-prev)
 nnoremap <leader>lj <Plug>(coc-diagnostic-next)
 

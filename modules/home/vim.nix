@@ -7,6 +7,10 @@ let
   };
 in
 {
+  home.packages = [
+    pkgs.ripgrep
+  ];
+
   programs.vim = {
     enable = true;
     extraConfig = builtins.readFile ../../assets/config/vim/vimrc;
