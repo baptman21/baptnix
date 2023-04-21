@@ -1,46 +1,26 @@
---- LVIM options ---
+-------------------------------------------------------------------------------
+--           \BBBBBBBBBBBBBBB&*      B   B      *&BBBBBBBBBBBBBBB/
+--               \&BBBBBBBBBBBB&\___/BBBBB\___/&BBBBBBBBBBBB&/
+--                 \%BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB%/
+--                   \BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB/
+--                      *****\%BBBBBBBBBBBBBBBBB%/*****
+--                             ...#BBBBBBBBB#...
+--                                  \BBBBB/
+--                                    \B/
+--                                     B
+--
+-------------------------------------------------------------------------------
 
-
-lvim.builtin.gitsigns.opts.signcolumn = false
+-------------------------------------------------------------------------------
+-----------------------------   General options   -----------------------------
+-------------------------------------------------------------------------------
 
 lvim.log.level = "warn"
-lvim.colorscheme = "onedark"
 lvim.format_on_save.enabled = true
 
--- Status bar configuration
-local components = require "lvim.core.lualine.components"
-lvim.builtin.lualine.style = "default"
-lvim.builtin.lualine.options.component_separators = ""
-lvim.builtin.lualine.sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { components.branch, components.diff },
-    lualine_c = { components.diagnostics, components.lsp, components.spaces, },
-    lualine_x = { "searchcount" },
-    lualine_y = { "filename", "fileformat", "filesize", components.filetype, },
-    lualine_z = { components.location, components.progress }
-}
-
--- UI
 vim.opt.autoread = true
 vim.opt.autowriteall = true
-vim.opt.guifont = "Hack Nerd Font Mono:h17"
-vim.opt.signcolumn = "auto"
-vim.opt.updatetime = 100
-vim.opt.title = false
-vim.opt.cursorline = false
-vim.opt.showcmd = true
-vim.opt.clipboard = "unnamedplus"
 
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.breakindent = true
-
-vim.opt.visualbell = true
-vim.opt.belloff = "all"
-
-vim.opt.colorcolumn = "+1"
-vim.opt.list = true
-vim.opt.listchars = "tab:>-,nbsp:.,eol:$,trail:."
 vim.opt.textwidth = 79
 
 -- Indentation
@@ -64,6 +44,42 @@ vim.opt.ignorecase = true
 vim.opt.autowrite = true
 vim.opt.spelllang = { "en", "fr" }
 
+-------------------------------------------------------------------------------
+------------------------------------   UI   -----------------------------------
+-------------------------------------------------------------------------------
+
+lvim.colorscheme = "onedark"
+
+vim.opt.signcolumn = "auto"
+-- disable gitsign column
+lvim.builtin.gitsigns.opts.signcolumn = false
+
+vim.opt.guifont = "Hack Nerd Font Mono:h17"
+
+vim.opt.updatetime = 100
+
+vim.opt.title = false
+vim.opt.cursorline = false
+vim.opt.showcmd = true
+vim.opt.clipboard = "unnamedplus"
+
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+
+vim.opt.visualbell = true
+vim.opt.belloff = "all"
+
+vim.opt.colorcolumn = "+1"
+vim.opt.list = true
+vim.opt.listchars = "tab:>-,nbsp:.,eol:$,trail:."
+
+-------------------------------------------------------------------------------
+--------------------------------   Mappings  ----------------------------------
+-------------------------------------------------------------------------------
+
+lvim.leader = ","
+
 -- Quickfix
 vim.opt.swb = "useopen,vsplit"
 lvim.keys.normal_mode["<leader>cw"] = "<CMD>botright :cw<CR>"
@@ -75,14 +91,28 @@ lvim.keys.normal_mode["<Right>"] = "<CMD>vert:res +5<CR>"
 lvim.keys.normal_mode["<Up>"] = "<CMD>res -5<CR>"
 lvim.keys.normal_mode["<Down>"] = "<CMD>res +5<CR>"
 
--- Specific languages
-lvim.autocommands = {}
 
---- Plugins ---
+-------------------------------------------------------------------------------
+----------------------------   Builtin Plugins  -------------------------------
+-------------------------------------------------------------------------------
 
--- Builtins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 
+-------------------------   Status line configuration -------------------------
+
+local components = require "lvim.core.lualine.components"
+lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.options.component_separators = ""
+lvim.builtin.lualine.sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { components.branch, components.diff },
+    lualine_c = { components.diagnostics, components.lsp, components.spaces, },
+    lualine_x = { "searchcount" },
+    lualine_y = { "filename", "fileformat", "filesize", components.filetype, },
+    lualine_z = { components.location, components.progress }
+}
+
+-------------------------------  Dashboard  -----------------------------------
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 
@@ -92,8 +122,6 @@ lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
     "<CMD>edit /home/baptman/Baptcave/baptnix/assets/config/lvim/config.lua <CR>" ..
     "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>"
 }
-
--- Dashboard configuration
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[7] = {
     "x",
@@ -122,17 +150,28 @@ lvim.builtin.alpha.dashboard.section.header.val = {
     [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]]
 }
 
+-- Disable breadcrumbs
 lvim.builtin.breadcrumbs.active = false
+
+-- Better bufferline
 lvim.builtin.bufferline.active = true
 lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.bufferline.options.mode = "tabs"
 
+-- Enable terminal plufin
 lvim.builtin.terminal.active = true
 
+-- Enable cmp in cmd
 lvim.builtin.cmp.cmdline.enable = true
 
 -- Disable project plugin that auto cd in project
 lvim.builtin.project.active = false
+
+-- toggleterm plugin
+lvim.builtin.terminal.open_mapping = "<C-t>"
+lvim.builtin.terminal.direction = "horizontal"
+
+-------------------------------  Nvimtree -------------------------------------
 
 lvim.builtin.nvimtree.setup.update_cwd = false
 lvim.builtin.nvimtree.setup.update_focused_file = { enable = false, update_cwd = false }
@@ -152,17 +191,33 @@ lvim.builtin.treesitter.ignore_install = { "" }
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.matchup.enable = true
 
--- CMP
+---------------------------------  CMP ----------------------------------------
+
 lvim.builtin.cmp.mapping["<S-Tab>"].i = function(fallback) fallback() end
 lvim.builtin.cmp.mapping["<S-Tab>"].s = function(fallback) fallback() end
 lvim.builtin.cmp.mapping["<Tab>"].i = function(fallback) fallback() end
 lvim.builtin.cmp.mapping["<Tab>"].s = function(fallback) fallback() end
 
--- Extra plugins
+------------------------------  Telescope -------------------------------------
+lvim.builtin.telescope.on_config_done = function(telescope)
+    pcall(telescope.load_extension, "fzf")
+    pcall(telescope.load_extension, "possession")
+    pcall(telescope.load_extension, "projects")
+    pcall(telescope.load_extension, "notify")
+    -- any other extensions loading
+end
+
+
+
+-------------------------------------------------------------------------------
+-----------------------------   Extra Plugins  --------------------------------
+-------------------------------------------------------------------------------
+
 lvim.plugins = {
-    -- Theming
+    -- Theme
     { "navarasu/onedark.nvim" },
 
+    -- Better quickfix
     {
         "kevinhwang91/nvim-bqf",
         event = { "BufRead", "BufNew" },
@@ -210,6 +265,7 @@ lvim.plugins = {
         },
         ft = { "fugitive" }
     },
+    -- [] mappings
     {
         'tummetott/unimpaired.nvim',
         config = function()
@@ -219,7 +275,7 @@ lvim.plugins = {
         end
     },
 
-    -- UI
+    -- Color highlight in files
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
@@ -234,6 +290,7 @@ lvim.plugins = {
             })
         end,
     },
+    -- auto comments
     {
         "folke/todo-comments.nvim",
         event = "BufRead",
@@ -241,6 +298,7 @@ lvim.plugins = {
             require("todo-comments").setup()
         end,
     },
+    -- lsp info
     {
         "j-hui/fidget.nvim",
         config = function()
@@ -250,7 +308,7 @@ lvim.plugins = {
         end
     },
 
-    -- Misc
+    -- function signature
     {
         "ray-x/lsp_signature.nvim",
         event = "BufRead",
@@ -261,85 +319,87 @@ lvim.plugins = {
             })
         end,
     },
+    -- Diagnostics display
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle"
     },
+    -- Repeat more stuff
     { "tpope/vim-repeat" },
+    -- Align magic
+    { "junegunn/vim-easy-align" },
+    -- Surround elements
     {
         "kylechui/nvim-surround",
         config = function() require("nvim-surround").setup {} end,
     },
+    -- gx (open url) sane
     { "felipec/vim-sanegx", event = "BufRead" },
+    -- handling of sessions
     {
         'jedrzejboczar/possession.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
     }
 }
 
--- Onedark theming
+
+--------------------------------- Theme ---------------------------------------
+
 require('onedark').setup {
     style = 'cool',
     transparent = true,
 }
 require('onedark').load()
 
--- Telescope settings
-lvim.builtin.telescope.on_config_done = function(telescope)
-    pcall(telescope.load_extension, "fzf")
-    pcall(telescope.load_extension, "possession")
-    pcall(telescope.load_extension, "projects")
-    pcall(telescope.load_extension, "notify")
-    -- any other extensions loading
-end
+-------------------------------- Trouble --------------------------------------
 
---- Key Mappings ---
-
-lvim.leader = ","
-
--- toggleterm plugin
-lvim.builtin.terminal.open_mapping = "<C-t>"
-lvim.builtin.terminal.direction = "horizontal"
-
--- Trouble plugin
 lvim.builtin.which_key.mappings["t"] = {
     name = "Diagnostics",
     t = { "<cmd>TroubleToggle<cr>", "trouble" },
-    w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
-    d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
-    q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-    l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-    r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
 
---- Specific Linting/Formatting parameters ---
--- Formatter options
+-------------------------------- EasyAlign --------------------------------------
+
+lvim.keys.normal_mode["<leader>ga"] = "<Plug>(EasyAlign)"
+lvim.keys.visual_mode["<leader>ga"] = "<Plug>(EasyAlign)"
+
+-------------------------------------------------------------------------------
+---------------------------------   LSP   -------------------------------------
+-------------------------------------------------------------------------------
+
+---------------------------------- Format -------------------------------------
+
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
     { command = "black", args = { "--line-length=120" }, },
     { command = "jq" },
 }
+----------------------------------- Lint --------------------------------------
 
--- Linter options
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
     { command = "mypy", args = { "--check-untyped-defs" }, },
 }
 
--- LSP options
+----------------------------------- LSP ---------------------------------------
 lvim.lsp.automatic_servers_installation = true
+
 -- Disable rnix/nil because rnix-lsp is installed with nix config, avoid
 -- rebuild of rnix manually with cargo
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls", "rnix" })
 vim.list_extend(lvim.lsp.installer.setup.automatic_installation.exclude, { "rnix" })
 
+-- Add current capabilities to clangd
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
 require("lvim.lsp.manager").setup("clangd", { capabilities = capabilities })
 
+-- Add rnix
 require("lvim.lsp.manager").setup("rnix", { cmd = { "rnix-lsp" } })
 
--- Filetype
+-------------------------------------------------------------------------------
+--------------------------------   Filetype   ---------------------------------
+-------------------------------------------------------------------------------
 
 vim.filetype.add({
     extension = {
