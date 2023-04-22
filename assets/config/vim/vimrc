@@ -32,7 +32,8 @@ set showcmd
 " Set list chars:
 " trail -> trailing spaces
 " nbsp -> non breakable space character
-set list listchars=tab:>-,nbsp:.,eol:$,trail:.
+set list
+set listchars=tab:>-,nbsp:.,eol:$,trail:.
 
 " Faster update time
 set updatetime=100
@@ -388,7 +389,7 @@ let g:coc_global_extensions = [
 nmap <leader>ga <Plug>(EasyAlign)
 xmap <leader>ga <Plug>(EasyAlign)
 
-" ------------------------------- Last Line -----------------------------------
+" ------------------------------ Light Line -----------------------------------
 
 function! LightLineSpaces()
     return ">- " . &shiftwidth
@@ -438,7 +439,11 @@ function LightLineCocStatusHint()
 endfunction
 
 function LightLineCocStatus()
-  return get(g:, 'coc_status', '')
+  let status = get(g:, 'coc_status', '')
+  if len(status) > 30
+    return status[:30] . '...'
+  endif
+  return status
 endfunction
 
 " Update lightline on change
@@ -488,6 +493,14 @@ if (empty($TMUX))
   endif
 endif
 
+" -------------------------------- Onedark ------------------------------------
+
 autocmd ColorScheme * call onedark#extend_highlight("Identifier", { "fg": { "gui": "#26c7a4" } })
+
+let g:onedark_color_overrides = {
+\ "background": {"gui": "#21252b", "cterm": "235", "cterm16": "0" },
+\}
+
+set listchars=tab:>-,nbsp:.,eol:$,trail:.
 
 colorscheme onedark
