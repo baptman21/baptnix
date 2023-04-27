@@ -35,20 +35,20 @@ let
   lunarvimDrv = pkgs.stdenv.mkDerivation
     {
       pname = "lunarvim";
-      version = "1.2.0";
+      version = "1.3.0";
 
       src = pkgs.fetchFromGitHub {
         owner = "LunarVim";
         repo = "LunarVim";
-        rev = "fc6873809934917b470bff1b072171879899a36b";
-        sha256 = "sha256-3yNxl9ofAQjoFuSHPU/BDQEv5yhR3IvBXe5hjK8wptY=";
+        rev = "release-1.3/neovim-0.9";
+        sha256 = "sha256-EJranewqcymI7sUdYIQIf7oON62JFWObPHhuqwQRZqc=";
       };
 
       nativeBuildInputs = [ pkgs.makeWrapper pkgs.coreutils pkgs.gnused ];
       buildInputs = [ nvim ];
 
       buildPhase = ''
-        echo hello
+        echo Skipping Build Phase
       '';
 
       installPhase = ''
