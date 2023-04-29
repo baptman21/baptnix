@@ -73,9 +73,4 @@
     # Postgres
     pkgs.postgresql
   ];
-
-  home.sessionVariables = {
-    # for c++ and libmagic (in that order)
-    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.file}/lib";
-  };
 }
