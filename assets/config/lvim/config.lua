@@ -336,7 +336,7 @@ lvim.plugins = {
     -- handling of sessions
     {
         'jedrzejboczar/possession.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
+        dependencies = { 'nvim-lua/plenary.nvim' },
     }
 }
 
@@ -380,20 +380,15 @@ linters.setup {
 }
 
 ----------------------------------- LSP ---------------------------------------
-lvim.lsp.automatic_servers_installation = true
 
 -- Disable rnix/nil because rnix-lsp is installed with nix config, avoid
 -- rebuild of rnix manually with cargo
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls", "rnix" })
-vim.list_extend(lvim.lsp.installer.setup.automatic_installation.exclude, { "rnix" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls" })
 
 -- Add current capabilities to clangd
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
 require("lvim.lsp.manager").setup("clangd", { capabilities = capabilities })
-
--- Add rnix
-require("lvim.lsp.manager").setup("rnix", { cmd = { "rnix-lsp" } })
 
 -------------------------------------------------------------------------------
 --------------------------------   Filetype   ---------------------------------
