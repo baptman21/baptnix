@@ -381,14 +381,17 @@ linters.setup {
 
 ----------------------------------- LSP ---------------------------------------
 
--- Disable rnix/nil because rnix-lsp is installed with nix config, avoid
--- rebuild of rnix manually with cargo
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls" })
+lvim.lsp.installer.setup.automatic_installation = { exclude = {} }
 
--- Add current capabilities to clangd
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = { "utf-16" }
-require("lvim.lsp.manager").setup("clangd", { capabilities = capabilities })
+-- Disable nil_ls
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls" })
+-- Use rnix instead
+lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+    return server ~= "rnix"
+end, lvim.lsp.automatic_configuration.skipped_servers)
+
+-- Needs manual setup now apparently
+require("lvim.lsp.manager").setup("sumneko_lua", {})
 
 -------------------------------------------------------------------------------
 --------------------------------   Filetype   ---------------------------------
