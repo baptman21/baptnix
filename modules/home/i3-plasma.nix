@@ -22,10 +22,10 @@
     source = ../../assets/config/kde/i3-plasma/startkderc;
   };
 
-  xsession.enable = true;
+  xsession.enable = false;
 
   # Disable the command set by the i3 service of home manager
-  xsession.windowManager.command = pkgs.lib.mkForce ''test -n "$1" && eval "$@"'';
+  # xsession.windowManager.command = pkgs.lib.mkForce ''test -n "$1" && eval "$@"'';
 
   xsession.windowManager.i3 = {
     enable = true;
