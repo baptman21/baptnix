@@ -13,6 +13,11 @@
 # Delete it
 # Create a symlink instead: `ln -s $(which lua-language-server) <path>`
 let
+  vim-spell-fr-utf8-dictionary = builtins.fetchurl {
+    url = "http://ftp.vim.org/vim/runtime/spell/fr.utf-8.spl";
+    sha256 = "abfb9702b98d887c175ace58f1ab39733dc08d03b674d914f56344ef86e63b61";
+  };
+
   lib = pkgs.lib;
 
   env = {
@@ -100,6 +105,9 @@ in
   };
 
   home.sessionVariables = env;
+
+  # French dictionary
+  home.file.".config/lvim/spell/fr.utf-8.spl".source = vim-spell-fr-utf8-dictionary;
 
   home.file.".config/lvim/config.lua" = {
     source = ../../assets/config/lvim/config.lua;
