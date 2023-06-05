@@ -42,7 +42,7 @@ vim.opt.directory = "/home/baptman/.local/share/lvim/tmp/swap"
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.autowrite = true
-vim.opt.spelllang = { "en", "fr" }
+vim.opt.spelllang = { "en" }
 
 -------------------------------------------------------------------------------
 ------------------------------------   UI   -----------------------------------
