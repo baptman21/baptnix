@@ -402,5 +402,6 @@ vim.filetype.add({
         hcl = 'terraform',
         tf = 'terraform',
         mail = 'mail',
+        mdx = 'markdown',
     },
 })
