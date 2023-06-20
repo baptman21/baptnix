@@ -193,6 +193,7 @@ lvim.builtin.treesitter.matchup.enable = true
 
 ---------------------------------  CMP ----------------------------------------
 
+lvim.builtin.cmp.mapping["<C-K>"].i = function(fallback) fallback() end
 lvim.builtin.cmp.mapping["<S-Tab>"].i = function(fallback) fallback() end
 lvim.builtin.cmp.mapping["<S-Tab>"].s = function(fallback) fallback() end
 lvim.builtin.cmp.mapping["<Tab>"].i = function(fallback) fallback() end
