@@ -28,6 +28,7 @@
 
     opacityRules = [
       "100:class_g = 'firefox'"
+      "100:class_g = 'Blender'"
       "100:class_g = 'Chromium'"
       "100:class_g = 'Google-chrome'"
       "100:class_g = 'vlc'"
