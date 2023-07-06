@@ -24,7 +24,7 @@
     };
 
     userName = "Baptiste Bourdet";
-    userEmail = "baptiste.bourdet@epita.fr";
+    userEmail = "bat.bourdet@gmail.com";
 
     extraConfig = {
       init.defaultBranch = "main";
