@@ -12,6 +12,8 @@
     pkgs.unzip
     pkgs.xclip
 
+    pkgs.pre-commit
+
     # VLC
     pkgs.vlc
 
