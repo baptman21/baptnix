@@ -391,12 +391,12 @@ lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(serve
     return server ~= "rnix"
 end, lvim.lsp.automatic_configuration.skipped_servers)
 
--- Disable pyright and pylyzer
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright", "pylyzer" })
+-- Disable pylyzer
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pylyzer" })
 -- Use ruff intead
-lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
-    return server ~= "ruff_lsp"
-end, lvim.lsp.automatic_configuration.skipped_servers)
+-- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+--     return server ~= "ruff_lsp"
+-- end, lvim.lsp.automatic_configuration.skipped_servers)
 
 -- Needs manual setup now apparently
 require("lvim.lsp.manager").setup("sumneko_lua", {})
