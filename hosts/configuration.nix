@@ -137,6 +137,7 @@
     # Enable nixFlakes on system
     package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
+    registry.unstable.flake = inputs.unstable;
 
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -150,6 +151,6 @@
 
   system = {
     # You should not modify this by hand !
-    stateVersion = "22.11";
+    stateVersion = "23.05";
   };
 }

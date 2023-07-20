@@ -2,26 +2,34 @@
   description = "Baptnix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs_release_22_11.url = "github:nixos/nixpkgs/release-22.11";
+    nixpkgs.url = "github:nixos/nixpkgs/release-23.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs_release_22_11, home-manager }@inputs:
+  outputs = { self, nixpkgs, unstable, home-manager }@inputs:
     let
       system = "x86_64-linux";
 
       lib = nixpkgs.lib;
 
+      unstable = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ (import ./overlays/discord.nix) ];
+        overlays = [
+          (import ./overlays/discord.nix)
+          (final: prev: { inherit unstable; })
+        ];
       };
 
       location = "$HOME/Baptcave/baptnix";

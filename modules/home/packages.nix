@@ -52,7 +52,7 @@
     pkgs.openssl
 
     # Python
-    pkgs.poetry
+    pkgs.unstable.poetry
     pkgs.python310
 
     pkgs.google-chrome
