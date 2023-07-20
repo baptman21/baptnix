@@ -196,7 +196,7 @@
       no_focus [class="plasmashell" window_type="notification"]
       no_focus [class="plasmashell" window_type="on_screen_display"]
 
-      for_window [title="Desktop — Plasma"] kill; border pixel 1
+      for_window [title="^Desktop .*— Plasma$"] kill; floating enable; border none
       for_window [class="ksplashqml"] kill; border pixel 1
     '';
   };
