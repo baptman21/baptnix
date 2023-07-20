@@ -42,6 +42,7 @@
 
       inherit modifier;
 
+      window.titlebar = false;
       floating.border = 1;
 
       gaps = {
@@ -144,6 +145,11 @@
           notification = false;
         }
         {
+          command = "systemctl --user restart polybar";
+          always = true;
+          notification = false;
+        }
+        {
           command = ''pkill "ksplashqml"'';
           always = true;
           notification = false;
@@ -157,9 +163,9 @@
     };
 
     extraConfig = ''
-      ###############################################################################
-      ## Plasma windows configurations                                             ##
-      ###############################################################################
+      #########################################################################
+      ## Plasma windows configurations                                       ##
+      #########################################################################
       for_window [class="Galculator"] floating enable border pixel 1
       for_window [class="GParted"] floating enable border pixel 1
       for_window [title="i3_help"] floating enable sticky enable border pixel 1
