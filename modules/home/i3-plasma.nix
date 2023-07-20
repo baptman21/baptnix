@@ -31,10 +31,10 @@
     enable = true;
     config = {
       colors = {
-        focused = { border = "#010101"; childBorder = "#010101"; background = "#13b019"; text = "#80FFF9"; indicator = "#08D19F"; };
-        focusedInactive = { border = "#032D42"; childBorder = "#032D42"; background = "#032D42"; text = "#1ABC9C"; indicator = "#454948"; };
-        unfocused = { border = "#032D42"; childBorder = "#032D42"; background = "#032D42"; text = "#1ABC9C"; indicator = "#454948"; };
-        urgent = { border = "#CB4B16"; childBorder = "#CB4B16"; background = "#FDF6E3"; text = "#1ABC9C"; indicator = "#268BD2"; };
+        focused = { border = "#010101"; childBorder = "#010101"; background = "#313B40"; text = "#11d116"; indicator = "#11d116"; };
+        focusedInactive = { border = "#032D42"; childBorder = "#032D42"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
+        unfocused = { border = "#032D42"; childBorder = "#032D42"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
+        urgent = { border = "#CB4B16"; childBorder = "#CB4B16"; background = "#212B30"; text = "#EC7875"; indicator = "#268BD2"; };
         placeholder = { border = "#000000"; childBorder = "#000000"; background = "#0c0c0c"; text = "#ffffff"; indicator = "#000000"; };
 
         background = "#000000";
