@@ -157,6 +157,11 @@ lvim.builtin.breadcrumbs.active = false
 lvim.builtin.bufferline.active = true
 lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.bufferline.options.mode = "tabs"
+lvim.builtin.bufferline.options.enforce_regular_tabs = true
+lvim.builtin.bufferline.options.left_mouse_command = function(_)
+end
+lvim.builtin.bufferline.options.right_mouse_command = function(_)
+end
 
 -- Enable terminal plufin
 lvim.builtin.terminal.active = true
