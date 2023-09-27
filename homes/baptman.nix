@@ -3,22 +3,22 @@
 {
   imports = [
     # packages
-    ../../modules/home/packages.nix
+    ../modules/home/packages.nix
     # apps
-    ../../modules/home/fzf.nix
-    ../../modules/home/git.nix
-    (import ../../modules/home/i3-plasma.nix { modifier = "Mod4"; })
-    ../../modules/home/lunarvim.nix
-    ../../modules/home/nix-index.nix
-    ../../modules/home/slrn.nix
-    ../../modules/home/starship.nix
-    (import ../../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
-    ../../modules/home/vim.nix
-    ../../modules/home/zsh.nix
+    ../modules/home/fzf.nix
+    ../modules/home/git.nix
+    (import ../modules/home/i3-plasma.nix { modifier = "Mod4"; })
+    ../modules/home/lunarvim.nix
+    ../modules/home/nix-index.nix
+    ../modules/home/slrn.nix
+    ../modules/home/starship.nix
+    (import ../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
+    ../modules/home/vim.nix
+    ../modules/home/zsh.nix
     # services
-    ../../modules/home/picom.nix
-    ../../modules/home/polybar.nix
-    ../../modules/home/blueman.nix
+    ../modules/home/picom.nix
+    ../modules/home/polybar.nix
+    ../modules/home/blueman.nix
   ];
 
   home.username = "baptman";

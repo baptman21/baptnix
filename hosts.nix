@@ -19,15 +19,15 @@ let
     };
 in
 {
-  baptcomp = mkHost {
-    name = "baptcomp3";
+  rocinante = mkHost {
+    name = "rocinante";
     inherit system;
-    modules = [ ./hosts/baptcomp/host.nix ];
+    modules = [ ./hosts/rocinante.nix ];
   };
 
-  saturn = mkHost {
-    name = "saturn";
+  tempest = mkHost {
+    name = "tempest";
     inherit system;
-    modules = [ ./hosts/saturn/host.nix ];
+    modules = [ ./hosts/tempest.nix ];
   };
 }

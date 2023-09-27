@@ -6,5 +6,5 @@ let
     };
 in
 {
-  baptcomp = mkHome [ ./hosts/baptcomp/home.nix ];
+  baptman = mkHome [ ./homes/baptman.nix ];
 }
