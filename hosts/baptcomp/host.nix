@@ -2,14 +2,11 @@
 
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
     ../../modules/system/i3-plasma.nix
     ../../modules/system/krb5.nix
     ../../modules/system/docker.nix
     ../../modules/system/bluetooth.nix
   ];
-
-  networking.hostName = "baptcomp3";
 
   # Setup keyfile
   boot.initrd.secrets = {

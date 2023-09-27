@@ -31,11 +31,9 @@
           (final: prev: { inherit unstable; })
         ];
       };
-
-      location = "$HOME/Baptcave/baptnix";
     in
     {
-      nixosConfigurations = import ./hosts { inherit inputs location lib pkgs system; };
+      nixosConfigurations = import ./hosts.nix { inherit inputs lib pkgs system; };
 
       homeConfigurations = import ./home.nix { inherit inputs lib pkgs system; };
     };
