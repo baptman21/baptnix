@@ -7,7 +7,10 @@
     # apps
     ../modules/home/fzf.nix
     ../modules/home/git.nix
-    (import ../modules/home/i3-plasma.nix { modifier = "Mod4"; })
+    (import ../modules/home/i3-plasma.nix {
+      modifier = "Mod4";
+      background_image = ../assets/wallpapers/forest-botw.jpg;
+    })
     ../modules/home/lunarvim.nix
     ../modules/home/nix-index.nix
     ../modules/home/slrn.nix

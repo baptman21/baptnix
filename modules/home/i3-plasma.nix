@@ -1,9 +1,15 @@
-{ modifier }:
+{ modifier, background_image }:
 # I3 configuration
 #
 # Args:
 # - modifier: i3 modifier
+# - background_image: background image
 #
+let
+  colors = {
+    primary = "#11d116";
+  };
+in
 { config, pkgs, ... }:
 # I3 configuration to use with KDE
 {
@@ -14,7 +20,7 @@
   ];
   # Files to include in the home
   home.file.".background-image" = {
-    source = ../../assets/wallpapers/forest-botw.jpg;
+    source = background_image;
   };
   # We add this file to disable the systemBoot option to allow i3 to replace
   # KNWM
@@ -31,11 +37,11 @@
     enable = true;
     config = {
       colors = {
-        focused = { border = "#010101"; childBorder = "#010101"; background = "#313B40"; text = "#11d116"; indicator = "#11d116"; };
-        focusedInactive = { border = "#032D42"; childBorder = "#032D42"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
-        unfocused = { border = "#032D42"; childBorder = "#032D42"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
-        urgent = { border = "#CB4B16"; childBorder = "#CB4B16"; background = "#212B30"; text = "#EC7875"; indicator = "#268BD2"; };
-        placeholder = { border = "#000000"; childBorder = "#000000"; background = "#0c0c0c"; text = "#ffffff"; indicator = "#000000"; };
+        focused = { border = "#01010177"; childBorder = "#01010177"; background = "#313B40"; text = "${colors.primary}"; indicator = "${colors.primary}"; };
+        focusedInactive = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
+        unfocused = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
+        urgent = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#EC7875"; indicator = "#268BD2"; };
+        placeholder = { border = "#00000077"; childBorder = "#000000"; background = "#0c0c0c"; text = "#ffffff"; indicator = "#000000"; };
 
         background = "#000000";
       };
