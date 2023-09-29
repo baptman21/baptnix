@@ -8,13 +8,14 @@
     ../modules/home/fzf.nix
     ../modules/home/git.nix
     (import ../modules/home/i3-plasma.nix {
+      theme = "whirlwind";
       modifier = "Mod4";
       background_image = ../assets/wallpapers/forest-botw.jpg;
     })
     ../modules/home/lunarvim.nix
     ../modules/home/nix-index.nix
     ../modules/home/slrn.nix
-    ../modules/home/starship.nix
+    (import ../modules/home/starship.nix { theme = "whirlwind"; })
     (import ../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
     ../modules/home/vim.nix
     ../modules/home/zsh.nix

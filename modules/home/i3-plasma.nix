@@ -1,13 +1,19 @@
-{ modifier, background_image }:
+{ modifier, background_image, theme }:
 # I3 configuration
 #
 # Args:
 # - modifier: i3 modifier
 # - background_image: background image
+# - theme: one of tempest, whirlwind
 #
 let
   colors = {
-    primary = "#11d116";
+    tempest = {
+      primary = "#0458cf";
+    };
+    whirlwind = {
+      primary = "#11d116";
+    };
   };
 in
 { config, pkgs, ... }:
@@ -28,8 +34,6 @@ in
     source = ../../assets/config/kde/i3-plasma/startkderc;
   };
 
-  xsession.enable = false;
-
   # Disable the command set by the i3 service of home manager
   # xsession.windowManager.command = pkgs.lib.mkForce ''test -n "$1" && eval "$@"'';
 
@@ -37,7 +41,13 @@ in
     enable = true;
     config = {
       colors = {
-        focused = { border = "#01010177"; childBorder = "#01010177"; background = "#313B40"; text = "${colors.primary}"; indicator = "${colors.primary}"; };
+        focused = {
+          border = "#01010177";
+          childBorder = "#01010177";
+          background = "#313B40";
+          text = "${colors.${theme}.primary}";
+          indicator = "${colors.${theme}.primary}";
+        };
         focusedInactive = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
         unfocused = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
         urgent = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#EC7875"; indicator = "#268BD2"; };
@@ -52,7 +62,7 @@ in
       floating.border = 1;
 
       gaps = {
-        inner = 14;
+        inner = 12;
         outer = -2;
         smartBorders = "on";
       };

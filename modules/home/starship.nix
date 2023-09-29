@@ -1,11 +1,21 @@
-{ config, pkgs, ... }:
-# Starship configuration
+{ theme }:
+# Args:
+# - theme: one of whirlwind, tempest
 let
   colors = {
-    primary = "green";
-    secondary = "cyan";
+    tempest = {
+      primary = "blue";
+      secondary = "cyan";
+    };
+    whirlwind = {
+      primary = "green";
+      secondary = "cyan";
+    };
   };
 in
+{ config, pkgs, ... }:
+# Starship configuration
+
 {
   programs.starship = {
     enable = true;
@@ -13,22 +23,22 @@ in
     settings = {
       add_newline = false;
 
-      format = ''[┌\[$username@$hostname\]$localip$shlvl$singularity$kubernetes\[$directory\] $vcsh$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$docker_context$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$swift$terraform$vlang$vagrant$zig$buf$nix_shell$conda$meson$spack$memory_usage$aws$gcloud$openstack$azure$env_var$crystal$custom$sudo$cmd_duration[ ](bright-blue)$line_break└$jobs$battery$time$status$container$shell$character](${colors.secondary})'';
+      format = ''[┌\[$username@$hostname\]$localip$shlvl$singularity$kubernetes\[$directory\] $vcsh$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$docker_context$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$swift$terraform$vlang$vagrant$zig$buf$nix_shell$conda$meson$spack$memory_usage$aws$gcloud$openstack$azure$env_var$crystal$custom$sudo$cmd_duration[ ](bright-blue)$line_break└$jobs$battery$time$status$container$shell$character](${colors.${theme}.secondary})'';
 
       username = {
         show_always = true;
         format = ''[$user]($style)'';
-        style_user = "${colors.primary}";
+        style_user = "${colors.${theme}.primary}";
       };
 
       hostname = {
         ssh_only = false;
-        style = "${colors.primary}";
+        style = "${colors.${theme}.primary}";
         format = ''[$ssh_symbol$hostname]($style)'';
       };
 
       directory = {
-        style = "${colors.primary}";
+        style = "${colors.${theme}.primary}";
         format = ''[$path]($style)[$read_only]($read_only_style)'';
         truncate_to_repo = false;
         truncation_symbol = "…/";
@@ -36,7 +46,7 @@ in
 
       jobs = {
         disabled = true;
-        style = "${colors.primary}";
+        style = "${colors.${theme}.primary}";
         format = ''[\[$symbol$number\]]($style)'';
       };
 
@@ -47,7 +57,7 @@ in
       shell = {
         disabled = false;
         format = "[$indicator]($style)";
-        style = "${colors.secondary}";
+        style = "${colors.${theme}.secondary}";
         zsh_indicator = "";
         bash_indicator = '' [bash](yellow)\$'';
       };
@@ -55,7 +65,7 @@ in
       status = {
         disabled = false;
         format =
-          ''[\[](${colors.secondary})[$symbol]($style)[\]](${colors.secondary})'';
+          ''[\[](${colors.${theme}.secondary})[$symbol]($style)[\]](${colors.${theme}.secondary})'';
         symbol = ''❌$status'';
         success_symbol = ''[$status](white)'';
         not_executable_symbol = ''🚫$status'';
