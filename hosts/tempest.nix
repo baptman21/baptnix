@@ -14,8 +14,9 @@
   };
 
   # Enable swap on luks
-  # TODO: boot.initrd.luks.devices."luks-4670bb1a-e67c-4925-9808-51483d8e3315".device = "/dev/disk/by-uuid/4670bb1a-e67c-4925-9808-51483d8e3315";
-  # TODO: boot.initrd.luks.devices."luks-4670bb1a-e67c-4925-9808-51483d8e3315".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-4ffd049f-1426-436b-8f77-191b69a361e1".device = "/dev/disk/by-uuid/4ffd049f-1426-436b-8f77-191b69a361e1";
+  boot.initrd.luks.devices."luks-4ffd049f-1426-436b-8f77-191b69a361e1".keyFile = "/crypto_keyfile.bin";
+
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_1;
@@ -24,7 +25,6 @@
       systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
       };
 
       # timeout = 15;
@@ -36,5 +36,9 @@
     };
   };
 
-  services = { };
+  services = {
+    xserver = {
+      videoDrivers = [ "nvidia" ];
+    };
+  };
 }
