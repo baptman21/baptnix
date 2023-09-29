@@ -1,3 +1,16 @@
+{ theme }:
+# Args:
+# - theme: theme, must be one of tempest, whirlwind
+let
+  colors = {
+    whirlwind = {
+      shadow_color = "#00730b";
+    };
+    tempest = {
+      shadow_color = "#003175";
+    };
+  };
+in
 { config, pkgs, ... }:
 # Picom configuration
 {
@@ -102,9 +115,7 @@
 
       focus-exclude = [ "class_g = 'Cairo-clock'" ];
 
-      shadow-red = 0;
-      shadow-green = 0;
-      shadow-blue = 0.3;
+      shadow-color = "${colors.${theme}.shadow_color}";
       shadow-radius = 7;
       # Disable the use of damage information. 
       # This cause the whole screen to be redrawn everytime, instead of the part of the screen

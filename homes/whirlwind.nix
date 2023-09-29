@@ -19,7 +19,7 @@
     ../modules/home/vim.nix
     ../modules/home/zsh.nix
     # services
-    ../modules/home/picom.nix
+    (import ../modules/home/picom.nix { theme = "whirlwind"; })
     (import ../modules/home/polybar.nix { theme = "whirlwind"; })
     ../modules/home/blueman.nix
   ];

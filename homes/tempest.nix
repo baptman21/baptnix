@@ -16,7 +16,7 @@
     ../modules/home/vim.nix
     ../modules/home/zsh.nix
     # services
-    ../modules/home/picom.nix
+    (import ../modules/home/picom.nix { theme = "tempest"; })
     (import ../modules/home/polybar.nix { theme = "tempest"; })
     ../modules/home/blueman.nix
   ];

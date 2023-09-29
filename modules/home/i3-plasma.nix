@@ -146,7 +146,7 @@ in
 
       startup = [
         {
-          command = "${pkgs.feh}/bin/feh --bg-scale ${../../assets/wallpapers/forest-botw.jpg}";
+          command = "${pkgs.feh}/bin/feh --bg-scale ${background_image}";
           always = true;
           notification = false;
         }
@@ -173,6 +173,8 @@ in
       ## Plasma windows configurations                                       ##
       #########################################################################
       for_window [class="Galculator"] floating enable border pixel 1
+      for_window [class="spectacle"] floating enable border pixel 1
+      for_window [class="plasmawindowed"] floating enable border pixel 1
       for_window [class="GParted"] floating enable border pixel 1
       for_window [title="i3_help"] floating enable sticky enable border pixel 1
       for_window [class="Manjaro-hello"] floating enable
