@@ -6,5 +6,6 @@ let
     };
 in
 {
-  baptman = mkHome [ ./homes/baptman.nix ];
+  tempest = mkHome [ ./homes/tempest.nix ];
+  whirlwind = mkHome [ ./homes/whirlwind.nix ];
 }

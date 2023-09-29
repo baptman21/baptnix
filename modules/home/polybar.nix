@@ -1,7 +1,14 @@
+{ theme }:
+# Polybar configuration
+#
+# Args:
+# - theme: name of the them to use, must be one of
+#   * tempest
+#   * whirlind
 { config, pkgs, ... }:
 # Polybar
 let
-  theme = ../../assets/polybar/bapt-forest-theme;
+  theme_dir = ../../assets/polybar/theme;
 in
 {
   services.polybar = {
@@ -15,11 +22,10 @@ in
     };
     extraConfig = builtins.replaceStrings
       [ "__HOME__" ]
-      [ "${theme}" ]
-      (builtins.readFile (theme + "/config.ini"));
+      [ "${theme_dir}" ]
+      (builtins.readFile (theme_dir + "/${theme}.ini"));
     script = ''
       set -ex
-      echo ${theme}
       export PATH="$PATH:${pkgs.xorg.xrandr}/bin:${pkgs.i3-gaps}/bin:${pkgs.coreutils}/bin:${pkgs.gnugrep}/bin"
 
       main=$(xrandr | grep ' connected primary ' | cut -d' ' -f1)

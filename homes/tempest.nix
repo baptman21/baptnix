@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-# BaptComp Laptop configuration
+# BaptComp Tempest configuration
 {
   imports = [
     # packages
@@ -17,7 +17,7 @@
     ../modules/home/zsh.nix
     # services
     ../modules/home/picom.nix
-    (import ../modules/home/polybar.nix { theme = "whirlwind"; })
+    (import ../modules/home/polybar.nix { theme = "tempest"; })
     ../modules/home/blueman.nix
   ];
 

@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-# BaptComp Laptop configuration
+# BaptComp Whirlwind configuration
 {
   imports = [
     # packages
