@@ -387,8 +387,6 @@ linters.setup {
 
 ----------------------------------- LSP ---------------------------------------
 
-lvim.lsp.installer.setup.automatic_installation = { exclude = {} }
-
 -- Disable nil_ls
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls" })
 -- Use rnix instead
