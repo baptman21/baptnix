@@ -25,6 +25,12 @@ in
     modules = [ ./hosts/whirlwind.nix ];
   };
 
+  typhoon = mkHost {
+    name = "typhoon";
+    inherit system;
+    modules = [ ./hosts/typhoon.nix ];
+  };
+
   tempest = mkHost {
     name = "tempest";
     inherit system;
