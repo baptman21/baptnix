@@ -19,10 +19,10 @@ let
     };
 in
 {
-  rocinante = mkHost {
-    name = "rocinante";
+  whirlwind = mkHost {
+    name = "whirlwind";
     inherit system;
-    modules = [ ./hosts/rocinante.nix ];
+    modules = [ ./hosts/whirlwind.nix ];
   };
 
   tempest = mkHost {
