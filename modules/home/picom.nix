@@ -3,11 +3,14 @@
 # - theme: theme, must be one of tempest, whirlwind
 let
   colors = {
-    whirlwind = {
-      shadow_color = "#00730b";
-    };
     tempest = {
       shadow_color = "#003175";
+    };
+    typhoon = {
+      shadow_color = "#5e1191";
+    };
+    whirlwind = {
+      shadow_color = "#00730b";
     };
   };
 in

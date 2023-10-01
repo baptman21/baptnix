@@ -7,5 +7,6 @@ let
 in
 {
   tempest = mkHome [ ./homes/tempest.nix ];
+  typhoon = mkHome [ ./homes/typhoon.nix ];
   whirlwind = mkHome [ ./homes/whirlwind.nix ];
 }

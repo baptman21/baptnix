@@ -11,6 +11,9 @@ let
     tempest = {
       primary = "#0458cf";
     };
+    typhoon = {
+      primary = "#a51fff";
+    };
     whirlwind = {
       primary = "#11d116";
     };

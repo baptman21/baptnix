@@ -7,6 +7,10 @@ let
       primary = "blue";
       secondary = "cyan";
     };
+    typhoon = {
+      primary = "purple";
+      secondary = "red";
+    };
     whirlwind = {
       primary = "green";
       secondary = "cyan";
