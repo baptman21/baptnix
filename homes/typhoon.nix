@@ -10,7 +10,7 @@
     (import ../modules/home/i3-plasma.nix {
       theme = "typhoon";
       modifier = "Mod4";
-      background_image = ../assets/wallpapers/forest-botw.jpg;
+      background_image = ../assets/wallpapers/purple-planet.jpg;
     })
     ../modules/home/lunarvim.nix
     ../modules/home/nix-index.nix
