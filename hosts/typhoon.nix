@@ -14,8 +14,8 @@
   };
 
   # Enable swap on luks
-  # TODO: boot.initrd.luks.devices."luks-4670bb1a-e67c-4925-9808-51483d8e3315".device = "/dev/disk/by-uuid/4670bb1a-e67c-4925-9808-51483d8e3315";
-  # TODO: boot.initrd.luks.devices."luks-4670bb1a-e67c-4925-9808-51483d8e3315".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-fe6c43be-ec3d-455d-9bd5-391b3f06357f".device = "/dev/disk/by-uuid/fe6c43be-ec3d-455d-9bd5-391b3f06357f";
+  boot.initrd.luks.devices."luks-fe6c43be-ec3d-455d-9bd5-391b3f06357f".keyFile = "/crypto_keyfile.bin";
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_1;
@@ -24,7 +24,6 @@
       systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
       };
 
       # timeout = 15;
