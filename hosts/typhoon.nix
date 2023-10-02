@@ -8,6 +8,8 @@
     ../modules/system/bluetooth.nix
   ];
 
+  networking.firewall.enable = true;
+
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
