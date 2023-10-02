@@ -45,4 +45,12 @@
     home-manager.enable = true;
     bash.enable = true;
   };
+
+  home.packages = [
+    pkgs.kubectl
+    pkgs.azure-cli
+    pkgs.terraform
+    pkgs.awscli2
+  ];
+
 }
