@@ -51,6 +51,8 @@
     pkgs.azure-cli
     pkgs.terraform
     pkgs.awscli2
+    # Client VPN
+    pkgs.pritunl-client
   ];
 
 }
