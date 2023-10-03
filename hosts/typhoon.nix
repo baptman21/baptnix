@@ -41,4 +41,12 @@
   };
 
   services = { };
+
+  systemd.services = {
+    pritunl-client-service = {
+      description = "Pritunl Client Daemon";
+      script = "${pkgs.unstable.pritunl-client}/bin/pritunl-client-service";
+      wantedBy = [ "multi-user.target" ];
+    };
+  };
 }

@@ -18,7 +18,7 @@
 
       lib = nixpkgs.lib;
 
-      unstable = import nixpkgs {
+      unstable = import inputs.unstable {
         inherit system;
         config.allowUnfree = true;
       };

@@ -7,7 +7,7 @@ let
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
 
-      specialArgs = { inherit inputs system; };
+      specialArgs = { inherit pkgs inputs system; };
 
       modules = [
         {

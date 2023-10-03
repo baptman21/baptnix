@@ -52,7 +52,7 @@
     pkgs.terraform
     pkgs.awscli2
     # Client VPN
-    pkgs.pritunl-client
+    pkgs.unstable.pritunl-client
     pkgs.postgresql
     pkgs.redis
   ];
