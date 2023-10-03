@@ -53,6 +53,8 @@
     pkgs.awscli2
     # Client VPN
     pkgs.pritunl-client
+    pkgs.postgresql
+    pkgs.redis
   ];
 
 }
