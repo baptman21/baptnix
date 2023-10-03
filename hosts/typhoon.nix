@@ -8,7 +8,10 @@
     ../modules/system/bluetooth.nix
   ];
 
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowPing = false;
+  };
 
   # Setup keyfile
   boot.initrd.secrets = {
