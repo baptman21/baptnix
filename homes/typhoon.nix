@@ -55,6 +55,7 @@
     pkgs.unstable.pritunl-client
     pkgs.postgresql
     pkgs.redis
+    pkgs.teleport
   ];
 
 }
