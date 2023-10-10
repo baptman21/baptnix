@@ -61,6 +61,7 @@
     pkgs.postgresql
     pkgs.redis
     pkgs.teleport
+    pkgs.kubernetes-helm
   ];
 
 }
