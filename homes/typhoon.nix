@@ -46,6 +46,11 @@
     bash.enable = true;
   };
 
+  home.shellAliases = {
+    k = "kubectl";
+    tf = "terraform";
+  };
+
   home.packages = [
     pkgs.kubectl
     pkgs.azure-cli
