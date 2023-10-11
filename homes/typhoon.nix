@@ -62,6 +62,7 @@
     pkgs.redis
     pkgs.teleport
     pkgs.kubernetes-helm
+    pkgs.argocd
   ];
 
 }
