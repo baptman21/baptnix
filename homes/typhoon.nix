@@ -52,17 +52,17 @@
   };
 
   home.packages = [
-    pkgs.kubectl
-    pkgs.azure-cli
-    pkgs.terraform
+    pkgs.argocd
     pkgs.awscli2
-    # Client VPN
-    pkgs.unstable.pritunl-client
+    pkgs.azure-cli
+    pkgs.kubectl
+    pkgs.kubernetes-helm
     pkgs.postgresql
     pkgs.redis
     pkgs.teleport
-    pkgs.kubernetes-helm
-    pkgs.argocd
+    pkgs.terraform
+    # Client VPN
+    pkgs.unstable.pritunl-client
   ];
 
 }
