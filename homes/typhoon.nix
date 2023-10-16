@@ -51,6 +51,7 @@
     kctx = "kubectx";
     kns = "kubens";
     tf = "terraform";
+    by = "bat -l yaml";
   };
 
   home.packages = [
