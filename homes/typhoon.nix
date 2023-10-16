@@ -48,6 +48,8 @@
 
   home.shellAliases = {
     k = "kubectl";
+    kctx = "kubectx";
+    kns = "kubens";
     tf = "terraform";
   };
 
@@ -57,6 +59,7 @@
     pkgs.azure-cli
     pkgs.kubectl
     pkgs.kubernetes-helm
+    pkgs.kubectx
     pkgs.postgresql
     pkgs.redis
     pkgs.teleport
