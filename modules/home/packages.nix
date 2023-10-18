@@ -54,6 +54,7 @@
     # Python
     pkgs.unstable.poetry
     pkgs.python310
+    pkgs.ruff
 
     pkgs.google-chrome
 

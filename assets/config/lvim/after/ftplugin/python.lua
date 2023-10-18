@@ -12,3 +12,4 @@ local opts = {
     }
 }
 require("lvim.lsp.manager").setup("ruff_lsp", opts)
+require("lvim.lsp.manager").setup("pyright", opts)
