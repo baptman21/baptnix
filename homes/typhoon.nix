@@ -58,6 +58,7 @@
     pkgs.argocd
     pkgs.awscli2
     pkgs.azure-cli
+    pkgs.helm-ls
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
