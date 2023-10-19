@@ -196,6 +196,16 @@ lvim.builtin.treesitter.ignore_install = { "" }
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.matchup.enable = true
 
+local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
+parser_config.gotmpl = {
+    install_info = {
+        url = "https://github.com/ngalaiko/tree-sitter-go-template",
+        files = { "src/parser.c" }
+    },
+    filetype = "gotmpl",
+    used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" }
+}
+
 ---------------------------------  CMP ----------------------------------------
 
 lvim.builtin.cmp.mapping["<C-K>"].i = function(fallback) fallback() end
@@ -422,19 +432,19 @@ end
 --@private
 --@return string
 local function yaml_filetype(path, bufname)
-    return is_helm_file(path) and "helm.yaml" or "yaml"
+    return is_helm_file(path) and "gotmpl" or "yaml"
 end
 
 --@private
 --@return string
 local function tmpl_filetype(path, bufname)
-    return is_helm_file(path) and "helm.tmpl" or "template"
+    return is_helm_file(path) and "gotmpl" or "template"
 end
 
 --@private
 --@return string
 local function tpl_filetype(path, bufname)
-    return is_helm_file(path) and "helm.tmpl" or "smarty"
+    return is_helm_file(path) and "gotmpl" or "smarty"
 end
 
 vim.filetype.add({

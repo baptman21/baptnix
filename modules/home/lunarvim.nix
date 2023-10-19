@@ -118,4 +118,9 @@ in
   home.file.".config/lvim/after" = {
     source = ../../assets/config/lvim/after;
   };
+
+  # Tree sitter plugin
+  home.file.".config/lvim/queries" = {
+    source = ../../assets/config/lvim/queries;
+  };
 }
