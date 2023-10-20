@@ -196,10 +196,13 @@ lvim.builtin.treesitter.ignore_install = { "" }
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.matchup.enable = true
 
+-- Register helm ft to use the gotmpl
+vim.treesitter.language.register('gotmpl', 'helm')
+
 local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
 parser_config.gotmpl = {
     install_info = {
-        url = "https://github.com/ngalaiko/tree-sitter-go-template",
+        url = "https://github.com/baptman21/tree-sitter-go-template",
         files = { "src/parser.c" }
     },
     filetype = "gotmpl",
@@ -432,19 +435,19 @@ end
 --@private
 --@return string
 local function yaml_filetype(path, bufname)
-    return is_helm_file(path) and "gotmpl" or "yaml"
+    return is_helm_file(path) and "helm" or "yaml"
 end
 
 --@private
 --@return string
 local function tmpl_filetype(path, bufname)
-    return is_helm_file(path) and "gotmpl" or "template"
+    return is_helm_file(path) and "helm" or "template"
 end
 
 --@private
 --@return string
 local function tpl_filetype(path, bufname)
-    return is_helm_file(path) and "gotmpl" or "smarty"
+    return is_helm_file(path) and "helm" or "smarty"
 end
 
 vim.filetype.add({
@@ -456,7 +459,8 @@ vim.filetype.add({
         yaml = yaml_filetype,
         yml = yaml_filetype,
         tmpl = tmpl_filetype,
-        tpl = tpl_filetype
+        tpl = tpl_filetype,
+        gotmpl = "gotmpl"
     },
     filename = {
         ["Chart.yaml"] = "yaml",
