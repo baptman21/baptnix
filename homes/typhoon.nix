@@ -48,6 +48,10 @@
 
   home.shellAliases = {
     k = "kubectl";
+    ky = "k -o yaml";
+    kyg = "ky get";
+    kygp = "ky get pods";
+    kgp = "k get pods";
     kctx = "kubectx";
     kns = "kubens";
     tf = "terraform";
