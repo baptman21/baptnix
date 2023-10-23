@@ -56,6 +56,7 @@
 
   home.packages = [
     pkgs.argocd
+    pkgs.argo
     pkgs.awscli2
     pkgs.azure-cli
     pkgs.unstable.helm-ls
