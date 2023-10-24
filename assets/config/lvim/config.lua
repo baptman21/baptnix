@@ -388,7 +388,7 @@ lvim.keys.visual_mode["<leader>ga"] = "<Plug>(EasyAlign)"
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-    { command = "black", args = { "--line-length=120" }, },
+    { command = "black", args = { "--line-length=88" }, },
     { command = "jq" },
 }
 ----------------------------------- Lint --------------------------------------

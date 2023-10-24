@@ -1,11 +1,11 @@
-vim.cmd("setlocal cc=120 textwidth=119")
+vim.cmd("setlocal cc=88 textwidth=87")
 local opts = {
     settings = {
         pylsp = {
             plugins = {
                 ruff = {
                     enabled = true,
-                    lineLength = 120,
+                    lineLength = 88,
                 },
             }
         }
