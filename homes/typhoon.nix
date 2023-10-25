@@ -48,7 +48,9 @@
 
   home.shellAliases = {
     k = "kubectl";
+    kex = "k exec -it";
     ky = "k -o yaml";
+    kg = "k get";
     kyg = "ky get";
     kygp = "ky get pods";
     kgp = "k get pods";
