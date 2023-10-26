@@ -69,6 +69,7 @@
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
+    pkgs.kube-linter
     pkgs.postgresql
     pkgs.redis
     pkgs.teleport
