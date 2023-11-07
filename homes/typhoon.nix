@@ -15,7 +15,15 @@
     ../modules/home/lunarvim.nix
     ../modules/home/nix-index.nix
     ../modules/home/slrn.nix
-    (import ../modules/home/starship.nix { theme = "typhoon"; })
+    (import ../modules/home/starship.nix {
+      theme = "typhoon";
+      extraSettings = {
+        kubernetes = {
+          disabled = false;
+          format = ''\[[$symbol$context( \($namespace\))]($style)\] '';
+        };
+      };
+    })
     (import ../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
     ../modules/home/vim.nix
     ../modules/home/zsh.nix
@@ -65,7 +73,7 @@
     pkgs.argo
     pkgs.awscli2
     pkgs.azure-cli
-    pkgs.unstable.helm-ls
+    pkgs.helm-ls
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
