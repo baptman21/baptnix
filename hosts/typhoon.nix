@@ -40,7 +40,19 @@
     };
   };
 
-  services = { };
+  services = {
+    fprintd.enable = true;
+    fprintd.tod.enable = true;
+    fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
+  };
+
+  security.pam.services.login.fprintAuth = false;
+
+  environment = {
+    systemPackages = with pkgs; [
+      fprintd
+    ];
+  };
 
   systemd.services = {
     pritunl-client-service = {
