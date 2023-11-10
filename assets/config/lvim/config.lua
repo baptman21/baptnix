@@ -178,6 +178,8 @@ lvim.builtin.terminal.direction = "horizontal"
 
 -------------------------------  Nvimtree -------------------------------------
 
+lvim.builtin.nvimtree.setup.disable_netrw = true
+lvim.builtin.nvimtree.setup.hijack_netrw = true
 lvim.builtin.nvimtree.setup.update_cwd = false
 lvim.builtin.nvimtree.setup.update_focused_file = { enable = false, update_cwd = false }
 lvim.builtin.nvimtree.setup.sync_root_with_cwd = false
@@ -233,6 +235,27 @@ end
 lvim.plugins = {
     -- Theme
     { "navarasu/onedark.nvim" },
+
+    -- CSV Formatting
+    {
+        'cameron-wags/rainbow_csv.nvim',
+        config = true,
+        ft = {
+            'csv',
+            'tsv',
+            'csv_semicolon',
+            'csv_whitespace',
+            'csv_pipe',
+            'rfc_csv',
+            'rfc_semicolon'
+        },
+        cmd = {
+            'RainbowDelim',
+            'RainbowDelimSimple',
+            'RainbowDelimQuoted',
+            'RainbowMultiDelim'
+        }
+    },
 
     -- Better quickfix
     {
@@ -368,6 +391,14 @@ require('onedark').setup {
 }
 require('onedark').load()
 
+--------------------------------- Rainbow CSV ---------------------------------
+
+vim.g.disable_rainbow_key_mappings = 1
+vim.g.rbql_with_headers = 1
+
+lvim.keys.normal_mode["<leader>ra"] = ":RainbowAlign<CR>"
+lvim.keys.normal_mode["<leader>rs"] = ":RainbowShrink<CR>"
+
 -------------------------------- Trouble --------------------------------------
 
 lvim.builtin.which_key.mappings["t"] = {
@@ -375,7 +406,7 @@ lvim.builtin.which_key.mappings["t"] = {
     t = { "<cmd>TroubleToggle<cr>", "trouble" },
 }
 
--------------------------------- EasyAlign --------------------------------------
+-------------------------------- EasyAlign ------------------------------------
 
 lvim.keys.normal_mode["<leader>ga"] = "<Plug>(EasyAlign)"
 lvim.keys.visual_mode["<leader>ga"] = "<Plug>(EasyAlign)"
