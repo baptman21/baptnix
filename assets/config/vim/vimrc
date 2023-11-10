@@ -251,6 +251,9 @@ call plug#begin('~/.vim/plugged')
 " markdown align
 Plug 'junegunn/vim-easy-align'
 
+" Pretty CSV
+Plug'mechatroner/rainbow_csv'
+
 " syntax highlight for nix
 Plug 'LnL7/vim-nix'
 
@@ -297,7 +300,7 @@ packadd termdebug
 " -----------------------       Plugin Config       ---------------------------
 " -----------------------------------------------------------------------------
 
-" ---------------------------------  FZF  --------------------------------------
+" ---------------------------------  FZF  -------------------------------------
 
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>sf :Files<CR>
@@ -314,6 +317,11 @@ nnoremap <leader>bf :Buffers<CR>
 nnoremap <leader>gb :GFiles?<CR>
 nnoremap <leader>gc :Commits<CR>
 nnoremap <leader>gC :BCommits<CR>
+
+" ----------------------------- Rainbow CSV -----------------------------------
+
+nnoremap <leader>ra :RainbowAlign<CR>
+nnoremap <leader>rs :RainbowShrink<CR>
 
 " ----------------------------- COC Mappings ----------------------------------
 
