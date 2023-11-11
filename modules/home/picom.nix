@@ -55,20 +55,13 @@ in
     ];
 
     # ---- Fade ----
-    shadow = true;
-    shadowExclude = [
-      "name = 'Notification'"
-      "class_g *= 'conky'"
-      "window_type *= 'normal' && ! name ~= ''"
-      "class_g ?= 'Notify-osd'"
-      "class_g = 'Cairo-clock'"
-      "_GTK_FRAME_EXTENTS@:c"
-    ];
-    shadowOffsets = [ (-2) (-2) ];
-
+    shadow = false;
 
     # ---- Rest of the settings ----
     settings = {
+
+      round-borders = 1;
+      corner-radius = 16;
       # ---- Blur ----
 
       # Parameters for background blurring, see the *BLUR* section for more information.
@@ -118,8 +111,6 @@ in
 
       focus-exclude = [ "class_g = 'Cairo-clock'" ];
 
-      shadow-color = "${colors.${theme}.shadow_color}";
-      shadow-radius = 7;
       # Disable the use of damage information. 
       # This cause the whole screen to be redrawn everytime, instead of the part of the screen
       # has actually changed. Potentially degrades the performance, but might fix some artifacts.

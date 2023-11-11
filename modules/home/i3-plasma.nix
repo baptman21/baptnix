@@ -22,6 +22,9 @@ in
 { config, pkgs, ... }:
 # I3 configuration to use with KDE
 {
+  home.shellAliases = {
+    kdelogout = "qdbus org.kde.ksmserver /KSMServer logout 0 0 2";
+  };
 
   home.packages = [
     pkgs.milou # not installed by default and needed so that krunner does not crash
@@ -62,6 +65,7 @@ in
       inherit modifier;
 
       window.titlebar = false;
+      window.border = 1;
       floating.border = 1;
 
       gaps = {
