@@ -65,8 +65,8 @@ in
       inherit modifier;
 
       window.titlebar = false;
-      window.border = 1;
-      floating.border = 1;
+      window.border = 0;
+      floating.border = 0;
 
       gaps = {
         inner = 12;
@@ -82,7 +82,7 @@ in
 
       keybindings = pkgs.lib.mkOptionDefault {
         "${modifier}+u" = "border none";
-        "${modifier}+n" = "border pixel 1";
+        "${modifier}+n" = "border pixel 0";
 
         "${modifier}+Return" = "exec konsole";
         "${modifier}+Shift+q" = "kill";
@@ -174,7 +174,7 @@ in
         }
         {
           command = ''pkill "ksplashqml"'';
-          always = true;
+          always = false;
           notification = false;
         }
       ];
@@ -189,17 +189,17 @@ in
       #########################################################################
       ## Plasma windows configurations                                       ##
       #########################################################################
-      for_window [class="Galculator"] floating enable border pixel 1
-      for_window [class="spectacle"] floating enable border pixel 1
-      for_window [class="plasmawindowed"] floating enable border pixel 1
-      for_window [class="GParted"] floating enable border pixel 1
-      for_window [title="i3_help"] floating enable sticky enable border pixel 1
+      for_window [class="Galculator"] floating enable border pixel 0
+      for_window [class="spectacle"] floating enable border pixel 0
+      for_window [class="plasmawindowed"] floating enable border pixel 0
+      for_window [class="GParted"] floating enable border pixel 0
+      for_window [title="i3_help"] floating enable sticky enable border pixel 0
       for_window [class="Manjaro-hello"] floating enable
-      for_window [class="Manjaro Settings Manager"] floating enable border pixel 1
-      for_window [class="Nitrogen"] floating enable sticky enable border pixel 1
-      for_window [class="qt5ct"] floating enable sticky enable border pixel 1
-      for_window [class="Qtconfig-qt4"] floating enable sticky enable border pixel 1
-      for_window [class="Simple-scan"] floating enable border pixel 1
+      for_window [class="Manjaro Settings Manager"] floating enable border pixel 0
+      for_window [class="Nitrogen"] floating enable sticky enable border pixel 0
+      for_window [class="qt5ct"] floating enable sticky enable border pixel 0
+      for_window [class="Qtconfig-qt4"] floating enable sticky enable border pixel 0
+      for_window [class="Simple-scan"] floating enable border pixel 0
 
       for_window [window_role="pop-up"] floating enable
       for_window [window_role="task_dialog"] floating enable
@@ -217,12 +217,12 @@ in
       for_window [class="Plasmoidviewer"] floating enable; border none
       for_window [class="(?i)*nextcloud*"] floating disable
       for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-      for_window [class="plasmashell" window_type="dialog"] floating enable, border pixel 1, resize set 400 300
+      for_window [class="plasmashell" window_type="dialog"] floating enable, border pixel 0, resize set 400 300
       no_focus [class="plasmashell" window_type="notification"]
       no_focus [class="plasmashell" window_type="on_screen_display"]
 
       for_window [title="^Desktop .*— Plasma$"] kill; floating enable; border none
-      for_window [class="ksplashqml"] kill; border pixel 1
+      for_window [class="ksplashqml"] kill; border pixel 0
     '';
   };
 }
