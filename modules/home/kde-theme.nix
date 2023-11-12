@@ -26,7 +26,7 @@ in
 { config, pkgs, ... }:
 let
   colors_with_theme = pkgs.substituteAll {
-    src = ../../assets/kde-theme-custom/NordicDarker.colors.tmpl;
+    src = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors.tmpl;
     theme_color = colors.${theme}.primary_rgb;
   };
 
