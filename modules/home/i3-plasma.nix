@@ -189,40 +189,43 @@ in
       #########################################################################
       ## Plasma windows configurations                                       ##
       #########################################################################
-      for_window [class="Galculator"] floating enable border pixel 0
-      for_window [class="spectacle"] floating enable border pixel 0
-      for_window [class="plasmawindowed"] floating enable border pixel 0
-      for_window [class="GParted"] floating enable border pixel 0
-      for_window [title="i3_help"] floating enable sticky enable border pixel 0
-      for_window [class="Manjaro-hello"] floating enable
-      for_window [class="Manjaro Settings Manager"] floating enable border pixel 0
-      for_window [class="Nitrogen"] floating enable sticky enable border pixel 0
-      for_window [class="qt5ct"] floating enable sticky enable border pixel 0
-      for_window [class="Qtconfig-qt4"] floating enable sticky enable border pixel 0
-      for_window [class="Simple-scan"] floating enable border pixel 0
+      for_window [class="Galculator"] floating enable, border pixel 0;
+      for_window [class="spectacle"] floating enable, border pixel 0;
+      for_window [class="plasmawindowed"] floating enable, border pixel 0;
+      for_window [class="GParted"] floating enable, border pixel 0;
+      for_window [title="i3_help"] floating enable, sticky enable, border pixel 0;
+      for_window [class="Manjaro-hello"] floating enable;
+      for_window [class="Manjaro Settings Manager"] floating enable, border pixel 0;
+      for_window [class="Nitrogen"] floating enable, sticky enable, border pixel 0;
+      for_window [class="qt5ct"] floating enable, sticky enable, border pixel 0;
+      for_window [class="Qtconfig-qt4"] floating enable, sticky enable, border pixel 0;
+      for_window [class="Simple-scan"] floating enable, border pixel 0;
 
-      for_window [window_role="pop-up"] floating enable
-      for_window [window_role="task_dialog"] floating enable
+      for_window [window_role="pop-up"] floating enable;
+      for_window [window_role="task_dialog"] floating enable;
 
-      for_window [class="yakuake"] floating enable
-      for_window [class="systemsettings"] floating enable
+      for_window [class="yakuake"] floating enable;
+      for_window [class="systemsettings"] floating enable;
       for_window [class="plasmashell"] floating enable;
-      for_window [class="Plasma"] floating enable; border none
-      for_window [class="Conky"] floating enable; border none
-      for_window [title="plasma-desktop"] floating enable; border none
-      for_window [title="win7"] floating enable; border none
-      for_window [class="krunner"] floating enable; border none, move down 100px
-      for_window [class="Kmix"] floating enable; border none
-      for_window [class="Klipper"] floating enable; border none
-      for_window [class="Plasmoidviewer"] floating enable; border none
-      for_window [class="(?i)*nextcloud*"] floating disable
-      for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-      for_window [class="plasmashell" window_type="dialog"] floating enable, border pixel 0, resize set 400 300
+      for_window [class="Plasma"] floating enable, border none;
+      for_window [class="Conky"] floating enable, border none;
+      for_window [title="plasma-desktop"] floating enable, border none;
+      for_window [title="win7"] floating enable, border none;
+      for_window [class="krunner"] floating enable, border none, move down 100px;
+      for_window [class="Kmix"] floating enable, border none;
+      for_window [class="Klipper"] floating enable, border none;
+      for_window [class="Plasmoidviewer"] floating enable, border none;
+      for_window [class="(?i)*nextcloud*"] floating disable;
+      for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px;
+      for_window [class="plasmashell" window_type="dialog"] floating enable, border pixel 0, resize set 400 300;
+
       no_focus [class="plasmashell" window_type="notification"]
+
       no_focus [class="plasmashell" window_type="on_screen_display"]
 
-      for_window [title="^Desktop .*— Plasma$"] kill; floating enable; border none
-      for_window [class="ksplashqml"] kill; border pixel 0
+      for_window [title="^Desktop .*— Plasma$"] kill, floating enable, border none;
+
+      for_window [class="ksplashqml"] kill, border pixel 0;
     '';
   };
 }
