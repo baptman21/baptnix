@@ -1,60 +1,33 @@
-var plasma = getApiVersion(1)
+var panel = new Panel
+var panelScreen = panel.screen
 
-var activityId = activityIds[0]
+panel.location = "bottom";
+panel.height = 32
+panel.alignment = "center";
 
-var activity = desktopById(activityId)
-//Remove desktop toolbox
-activity.currentConfigGroup = ["General"]
-activity.writeConfig("showToolbox", false)
+geo = screenGeometry(panelScreen);
 
+panel.minimumLength = geo.width * 9 / 16
+panel.maximumLength = geo.width * 9 / 16
 
-//Create top panel
-panel = new plasma.Panel
-panel.location = "bottom"
-panel.alignment = "left"
-panel.height = gridUnit * 2
+var kickoff = panel.addWidget("org.kde.plasma.kickoff")
+kickoff.currentConfigGroup = ["Shortcuts"]
+kickoff.writeConfig("global", "Alt+F1")
+kickoff.currentConfigGroup = ["General"]
+kickoff.writeConfig("favorites", ["preferred://browser", "org.kde.dolphin.desktop", "org.kde.konsole.desktop", "systemsettings.desktop"])
 
-//Add widgets to the top panel
+panel.addWidget("org.kde.plasma.panelspacer");
 
-var spacer = panel.addWidget("org.kde.plasma.panelspacer")
-//Make first spacer non expandable by default
-spacer.currentConfigGroup = ["Configuration", "General"]
-spacer.writeConfig("expanding", false)
+let taskBar = panel.addWidget("org.kde.plasma.icontasks")
+taskBar.currentConfigGroup = ["General"]
+taskBar.writeConfig("launchers", ["preferred://browser", "preferred://filemanager", "applications:org.kde.konsole.desktop"])
 
-//Kickerdash
-panel.addWidget("org.kde.plasma.appmenu")
-//Spacer
-panel.addWidget("org.kde.plasma.panelspacer")
-//System tray
-panel.addWidget("org.kde.plasma.systemtray")
-//Clock
-panel.addWidget("org.kde.plasma.digitalclock")
+panel.addWidget("org.kde.plasma.panelspacer");
 
-//USwitch https://store.kde.org/p/1194339/
-var uswitcher = panel.addWidget("org.kde.plasma.uswitcher")
-uswitcher.currentConfigGroup = ["Configuration", "General"]
-uswitcher.writeConfig("showName", false)
-uswitcher.writeConfig("showSett", true)
+panel.addWidget("org.kde.plasma.systemtray");
 
+var dClock = panel.addWidget("org.kde.plasma.digitalclock");
+dClock.writeConfig("showDate", false);
 
-//Create left panel
-
-var leftpanel = new plasma.Panel
-leftpanel.location = "left"
-leftpanel.height = gridUnit * 3.2
-leftpanel.offset = panel.height
-
-//Add widgets to the left panel
-var menu = leftpanel.addWidget("org.kde.plasma.kickerdash")
-//Add default shortcut to the kickerdash menu
-menu.currentConfigGroup = ["Shortcuts"]
-menu.writeConfig("global", "Alt+F1")
-//Icontasks
-leftpanel.addWidget("org.kde.plasma.icontasks")
-//Present Windows Button https://store.kde.org/p/1181039/
-var windows = leftpanel.addWidget("com.github.zren.presentwindows")
-//Toggle desktop grid
-windows.currentConfigGroup = ["Configuration", "General"]
-windows.writeConfig("clickCommand", "ShowDesktopGrid")
-//Trash
-leftpanel.addWidget("org.kde.plasma.trash")
+var dLogout = panel.addWidget("org.kde.plasma.lock_logout");
+dLogout.writeConfig("show_lockScreen", false);
