@@ -13,6 +13,7 @@
       background_image = ../assets/wallpapers/the-expanse-1440p.png;
     })
     ../modules/home/lunarvim.nix
+    (import ../modules/home/kde-theme.nix { theme = "tempest"; })
     ../modules/home/nix-index.nix
     ../modules/home/slrn.nix
     (import ../modules/home/starship.nix { theme = "tempest"; })

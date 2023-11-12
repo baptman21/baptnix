@@ -13,6 +13,7 @@
       background_image = ../assets/wallpapers/purple-planet.jpg;
     })
     ../modules/home/lunarvim.nix
+    (import ../modules/home/kde-theme.nix { theme = "typhoon"; })
     ../modules/home/nix-index.nix
     ../modules/home/slrn.nix
     (import ../modules/home/starship.nix {
