@@ -8,19 +8,28 @@ let
   colors = {
     tempest = {
       primary = "#0458cf";
+      primary_rgb = "4,88,207";
     };
     typhoon = {
       primary = "#a51fff";
+      primary_rgb = "165,31,255";
     };
     whirlwind = {
       primary = "#11d116";
+      primary_rgb = "17,209,22";
     };
   };
 in
 { config, pkgs, ... }:
-# I3 configuration to use with KDE
+let
+  colors_with_theme = pkgs.substituteAll {
+    src = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors.tmpl;
+    THEME_COLOR = colors.${theme}.primary_rgb;
+  };
+in
 {
   home.file.".local/share/color-schemes/NordicDarker.colors".source = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors;
+
   home.file.".local/share/aurorae/themes/Nordic".source = ../../assets/kde-theme-custom/aurorae/Nordic;
   home.file.".local/share/plasma/desktoptheme/Nordic-darker".source = ../../assets/kde-theme-custom/plasma/desktoptheme/Nordic-darker;
   home.file.".local/share/plasma/look-and-feel/Nordic-darker".source = ../../assets/kde-theme-custom/plasma/look-and-feel/Nordic-darker;
