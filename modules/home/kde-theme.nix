@@ -86,6 +86,7 @@ let
 in
 {
   home.file.".local/share/color-schemes/NordicDarker.colors".source = colors_with_theme;
+  home.file.".local/share/konsole/Laconia.colorscheme".source = ../../assets/kde-theme-custom/konsole/Laconia.colorscheme;
 
   home.file.".local/share/plasma/desktoptheme/Nordic-darker".source = NordicDarkerKdeGit;
 
