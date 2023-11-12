@@ -5,6 +5,12 @@
 # - theme: one of tempest, whirlwind
 #
 let
+  shared_colors = {
+    bg0 = "#282c34";
+    bg1 = "#31353f";
+    bg2 = "#393f4a";
+    bg3 = "#3b3f4c";
+  };
   colors = {
     tempest = {
       primary = "#0458cf";
@@ -76,6 +82,10 @@ let
       gunzip -S .svgz ./Nordic/widgets/*.svgz
 
       sed -i 's/#8fbcbb/${colors.${theme}.secondary}/g' ./Nordic/widgets/* ./tmp/*
+      sed -i 's/#2e3440/${shared_colors.bg0}/g' ./Nordic/widgets/* ./tmp/*
+      sed -i 's/#3b4252/${shared_colors.bg1}/g' ./Nordic/widgets/* ./tmp/*
+      sed -i 's/#434c5e/${shared_colors.bg2}/g' ./Nordic/widgets/* ./tmp/*
+      sed -i 's/#4c566a/${shared_colors.bg3}/g' ./Nordic/widgets/* ./tmp/*
 
       gzip -S .svgz ./Nordic/widgets/*
       mv ./tmp/* ./Nordic/widgets/
