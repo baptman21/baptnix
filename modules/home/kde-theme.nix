@@ -20,10 +20,11 @@ in
 { config, pkgs, ... }:
 # I3 configuration to use with KDE
 {
-  home.file.".local/share/aurorae/themes/Nordic".source = ../../assets/kde-theme-custom/aurorae;
-  home.file.".local/share/color-schemes/Nordic.colors".source = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors;
-  home.file.".local/share/konsole/Nordic.colorscheme".source = ../../assets/kde-theme-custom/konsole/Nordic.colorscheme;
-  home.file.".local/share/Kvantum/Nordic".source = ../../assets/kde-theme-custom/kvantum/Nordic-Darker;
-  home.file.".local/share/plasma/look-and-feel/com.github.eliverlara.nordic".source = ../../assets/kde-theme-custom/plasma/look-and-feel/Nordic-darker;
-  home.file.".local/share/sddm/themes/Nordic".source = ../../assets/kde-theme-custom/sddm/Nordic-darker;
+  home.file.".local/share/color-schemes/NordicDarker.colors".source = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors;
+  home.file.".local/share/aurorae/themes/Nordic".source = ../../assets/kde-theme-custom/aurorae/Nordic;
+  home.file.".local/share/plasma/desktoptheme/Nordic-darker".source = ../../assets/kde-theme-custom/plasma/desktoptheme/Nordic-darker;
+  home.file.".local/share/plasma/look-and-feel/Nordic-darker".source = ../../assets/kde-theme-custom/plasma/look-and-feel/Nordic-darker;
+  home.file.".local/share/icons/Nordic-darker".source = ../../assets/kde-theme-custom/folders/Nordic-darker;
+  home.file.".icons/Nordic-cursors".source = ../../assets/kde-theme-custom/cursors/Nordic-cursors;
+
 }
