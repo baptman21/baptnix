@@ -18,7 +18,7 @@ let
     };
     whirlwind = {
       primary = "#11d116";
-      secondary = "#09730d";
+      secondary = "#14b318";
       primary_rgb = "17,209,22";
     };
   };
