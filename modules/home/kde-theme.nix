@@ -24,11 +24,11 @@ in
 let
   colors_with_theme = pkgs.substituteAll {
     src = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors.tmpl;
-    THEME_COLOR = colors.${theme}.primary_rgb;
+    theme_color = colors.${theme}.primary_rgb;
   };
 in
 {
-  home.file.".local/share/color-schemes/NordicDarker.colors".source = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors;
+  home.file.".local/share/color-schemes/NordicDarker.colors".source = colors_with_theme;
 
   home.file.".local/share/aurorae/themes/Nordic".source = ../../assets/kde-theme-custom/aurorae/Nordic;
   home.file.".local/share/plasma/desktoptheme/Nordic-darker".source = ../../assets/kde-theme-custom/plasma/desktoptheme/Nordic-darker;
