@@ -28,6 +28,3 @@ panel.addWidget("org.kde.plasma.systemtray");
 
 var dClock = panel.addWidget("org.kde.plasma.digitalclock");
 dClock.writeConfig("showDate", false);
-
-var dLogout = panel.addWidget("org.kde.plasma.lock_logout");
-dLogout.writeConfig("show_lockScreen", false);
