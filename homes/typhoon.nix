@@ -85,6 +85,7 @@
     pkgs.terraform
     # Client VPN
     pkgs.unstable.pritunl-client
+    pkgs.yarn
   ];
 
 }
