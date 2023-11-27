@@ -14,6 +14,7 @@
       ca = "commit --amend";
       ce = "commit --amend --no-edit";
       mgt = "mergetool";
+      puo = "push -u origin";
       pushft = "push --follow-tags";
       pushwl = "push --force-with-lease";
       pushff = "push --force";
