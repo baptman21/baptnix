@@ -60,13 +60,15 @@
     kex = "k exec -it";
     ky = "k -o yaml";
     kg = "k get";
+    kwg = "watch -n 2 -- kubectl get";
     kyg = "ky get";
     kygp = "ky get pods";
     kgp = "k get pods";
-    kctx = "kubectx";
+    ktx = "kubectx";
     kns = "kubens";
     tf = "terraform";
     by = "bat -l yaml";
+    kdb = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
   };
 
   home.packages = [
