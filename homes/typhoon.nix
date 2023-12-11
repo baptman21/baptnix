@@ -68,7 +68,8 @@
     kns = "kubens";
     tf = "terraform";
     by = "bat -l yaml";
-    kdb = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
+    kdbb = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
+    kdbp = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
   };
 
   home.packages = [
