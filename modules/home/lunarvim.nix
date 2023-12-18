@@ -40,13 +40,13 @@ let
   lunarvimDrv = pkgs.stdenv.mkDerivation
     {
       pname = "lunarvim";
-      version = "1.3.0";
+      version = "1.4.0-unstable";
 
       src = pkgs.fetchFromGitHub {
         owner = "LunarVim";
         repo = "LunarVim";
-        rev = "release-1.3/neovim-0.9";
-        sha256 = "sha256-Zh5RnQmQ7k13bpTjcfD7kpnL9TbEfYeWZsY0LQD/UCs=";
+        rev = "master";
+        sha256 = "sha256-J2E4BQfyrZ9HvuDDCLFm6wj8S9QQ2lEo9PwsJkjcbuY=";
       };
 
       nativeBuildInputs = [ pkgs.makeWrapper pkgs.coreutils pkgs.gnused ];
