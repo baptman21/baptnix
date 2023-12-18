@@ -157,7 +157,6 @@ lvim.builtin.breadcrumbs.active = false
 lvim.builtin.bufferline.active = true
 lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.bufferline.options.mode = "tabs"
-lvim.builtin.bufferline.options.enforce_regular_tabs = true
 lvim.builtin.bufferline.options.left_mouse_command = function(_)
 end
 lvim.builtin.bufferline.options.right_mouse_command = function(_)
@@ -445,8 +444,10 @@ lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(serve
     return server ~= "ruff_lsp"
 end, lvim.lsp.automatic_configuration.skipped_servers)
 
+-- Manual setup for terraform in tf files (see ftpluging dir)
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "terraformls" })
+
 -- Needs manual setup now apparently
-require("lvim.lsp.manager").setup("lua_ls", {})
 require("lvim.lsp.manager").setup("helm_ls", {
     filetypes = { "helm.yaml", "helm", "helm.tmpl" }
 })
