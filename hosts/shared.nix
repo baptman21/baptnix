@@ -151,6 +151,6 @@
 
   system = {
     # You should not modify this by hand !
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 }
