@@ -49,7 +49,7 @@
 
   # Fonts Definition
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -83,7 +83,6 @@
       git
       wget
       inputs.home-manager.defaultPackage.${system}
-      pipewire.pulse
       pipewire
     ];
   };
