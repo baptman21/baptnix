@@ -447,11 +447,6 @@ end, lvim.lsp.automatic_configuration.skipped_servers)
 -- Manual setup for terraform in tf files (see ftpluging dir)
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "terraformls" })
 
--- Needs manual setup now apparently
-require("lvim.lsp.manager").setup("helm_ls", {
-    filetypes = { "helm.yaml", "helm", "helm.tmpl" }
-})
-
 -------------------------------------------------------------------------------
 --------------------------------   Filetype   ---------------------------------
 -------------------------------------------------------------------------------
