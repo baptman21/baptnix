@@ -481,6 +481,7 @@ vim.filetype.add({
     extension = {
         hcl = 'terraform',
         tf = 'terraform',
+        tfvars = 'terraform',
         mail = 'mail',
         mdx = 'markdown',
         yaml = yaml_filetype,
