@@ -70,6 +70,10 @@
     by = "bat -l yaml";
     kdbb = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
     kdbp = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
+    kdbmab = "kgp --selector='postgres-operator.crunchydata.com/role=master' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
+    kdbmap = "kgp --selector='postgres-operator.crunchydata.com/role=master' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
+    kdbreb = "kgp --selector='postgres-operator.crunchydata.com/role=replica' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
+    kdbrep = "kgp --selector='postgres-operator.crunchydata.com/role=replica' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
   };
 
   home.packages = [
