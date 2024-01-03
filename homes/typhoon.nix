@@ -90,6 +90,10 @@
     pkgs.redis
     pkgs.teleport
     pkgs.terraform
+    pkgs.tflint
+    pkgs.trivy
+    pkgs.terraform-docs
+    pkgs.checkov
     # Client VPN
     pkgs.unstable.pritunl-client
     pkgs.yarn
