@@ -85,6 +85,7 @@
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
+    pkgs.kubectl-node-shell
     pkgs.kube-linter
     pkgs.postgresql
     pkgs.redis
