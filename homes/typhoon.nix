@@ -57,7 +57,7 @@
 
   home.shellAliases = {
     k = "kubectl";
-    kvs = "kubectl view-secret";
+    kvs = "kubectl-view-secret";
     kex = "k exec -it";
     ky = "k -o yaml";
     kg = "k get";
