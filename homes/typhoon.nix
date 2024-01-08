@@ -57,6 +57,7 @@
 
   home.shellAliases = {
     k = "kubectl";
+    kvs = "kubectl view-secret";
     kex = "k exec -it";
     ky = "k -o yaml";
     kg = "k get";
@@ -86,6 +87,7 @@
     pkgs.kubernetes-helm
     pkgs.kubectx
     pkgs.kubectl-node-shell
+    pkgs.kubectl-view-secret
     pkgs.kube-linter
     pkgs.postgresql
     pkgs.redis
