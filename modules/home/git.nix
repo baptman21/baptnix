@@ -8,6 +8,7 @@
       sw = "switch";
       sc = "switch -c";
       b = "branch";
+      cp = "cherry-pick";
       cb = "checkout -b";
       ch = "checkout";
       cc = "commit";
