@@ -42,6 +42,10 @@
 
     # Json
     pkgs.jq
+    pkgs.yq
+
+    # Git/github
+    pkgs.gh # github cli
 
     # Hashicorp stuff
     pkgs.terraform

@@ -82,7 +82,6 @@
     pkgs.argo
     pkgs.awscli2
     pkgs.azure-cli
-    pkgs.gh # github cli
     pkgs.helm-ls
     pkgs.kubectl
     pkgs.kubernetes-helm
