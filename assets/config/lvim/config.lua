@@ -23,6 +23,8 @@ vim.opt.autowriteall = true
 
 vim.opt.textwidth = 79
 
+vim.opt.relativenumber = true
+
 -- Indentation
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
