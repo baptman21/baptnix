@@ -48,7 +48,7 @@
     pkgs.gh # github cli
 
     # Hashicorp stuff
-    pkgs.terraform
+    pkgs.unstable.terraform
     pkgs.vault-bin
     pkgs.terraform-ls
 

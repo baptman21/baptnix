@@ -93,7 +93,6 @@
     pkgs.postgresql
     pkgs.redis
     pkgs.teleport
-    pkgs.terraform
     pkgs.tflint
     pkgs.trivy
     pkgs.terraform-docs
