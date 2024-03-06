@@ -75,6 +75,7 @@
     kdbmap = "kgp --selector='postgres-operator.crunchydata.com/role=master' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
     kdbreb = "kgp --selector='postgres-operator.crunchydata.com/role=replica' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
     kdbrep = "kgp --selector='postgres-operator.crunchydata.com/role=replica' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
+    kgetall = "kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found";
   };
 
   home.packages = [
