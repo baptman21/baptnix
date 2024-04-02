@@ -59,6 +59,8 @@
     k = "kubectl";
     kvs = "kubectl-view-secret";
     kex = "k exec -it";
+    kbh = "kgp | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
+    ksh = "kgp | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- sh";
     ky = "k -o yaml";
     kg = "k get";
     kwg = "watch -n 2 -- kubectl get";
