@@ -97,7 +97,7 @@
     pkgs.postgresql
     pkgs.redis
     pkgs.teleport
-    pkgs.tflint
+    pkgs.unstable.tflint # TODO: revert next nix update
     pkgs.trivy
     pkgs.terraform-docs
     pkgs.checkov
