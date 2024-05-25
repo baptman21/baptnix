@@ -25,7 +25,6 @@
 
     # Nix formatter
     pkgs.nixpkgs-fmt
-    pkgs.rnix-lsp
 
     # Npm
     pkgs.nodePackages.npm
@@ -49,7 +48,7 @@
 
     # Hashicorp stuff
     pkgs.unstable.terraform
-    pkgs.vault-bin
+    pkgs.unstable.vault-bin
     pkgs.terraform-ls
 
     # Openssl

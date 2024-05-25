@@ -30,7 +30,6 @@ let
   # TODO: add rust with dependencies ?
   extraPackages = with pkgs; [
     git
-    rnix-lsp
     tree-sitter
     sumneko-lua-language-server
   ];
