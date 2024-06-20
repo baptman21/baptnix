@@ -10,6 +10,8 @@
     history = {
       ignoreSpace = true;
       extended = true;
+      save = 420000;
+      size = 420000;
     };
 
     initExtra = ''
