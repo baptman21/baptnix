@@ -59,8 +59,8 @@
     k = "kubectl";
     kvs = "kubectl-view-secret";
     kex = "k exec -it";
-    kbh = "kgp | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
-    ksh = "kgp | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- sh";
+    ksh = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- /bin/sh";
+    kbg = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- bash";
     ky = "k -o yaml";
     kg = "k get";
     kwg = "watch -n 2 -- kubectl get";
@@ -71,12 +71,12 @@
     kns = "kubens";
     tf = "terraform";
     by = "bat -l yaml";
-    kdbb = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
-    kdbp = "kgp | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
-    kdbmab = "kgp --selector='postgres-operator.crunchydata.com/role=master' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
-    kdbmap = "kgp --selector='postgres-operator.crunchydata.com/role=master' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
-    kdbreb = "kgp --selector='postgres-operator.crunchydata.com/role=replica' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- bash";
-    kdbrep = "kgp --selector='postgres-operator.crunchydata.com/role=replica' | grep -- '-pg-' | fzf | awk '{print $1}' | xargs -oI {} kubectl exec -it {} -- psql";
+    kdbb = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- bash";
+    kdbp = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- psql";
+    kdbmab = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=master'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- bash";
+    kdbmap = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=master'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- psql";
+    kdbreb = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=replica'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- bash";
+    kdbrep = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=replica'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- psql";
     kgetall = "kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found";
   };
 
