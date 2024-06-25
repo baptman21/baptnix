@@ -59,8 +59,8 @@
     k = "kubectl";
     kvs = "kubectl-view-secret";
     kex = "k exec -it";
-    ksh = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- /bin/sh";
-    kbg = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- bash";
+    ksh = "pod=$(kgp | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- /bin/sh";
+    kbh = "pod=$(kgp | fzf | awk '{print $1}'); print -rs kex $pod; kubectl exec -it $pod -- bash";
     ky = "k -o yaml";
     kg = "k get";
     kwg = "watch -n 2 -- kubectl get";
@@ -84,7 +84,7 @@
     pkgs.argocd
     pkgs.argo
     pkgs.awscli2
-    pkgs.azure-cli
+    pkgs.unstable.azure-cli
     pkgs.circleci-cli
     pkgs.dig
     pkgs.helm-ls
