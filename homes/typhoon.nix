@@ -84,7 +84,7 @@
     pkgs.argocd
     pkgs.argo
     pkgs.awscli2
-    pkgs.unstable.azure-cli
+    pkgs.azure-cli
     pkgs.circleci-cli
     pkgs.dig
     pkgs.helm-ls
