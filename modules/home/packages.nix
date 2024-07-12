@@ -11,6 +11,7 @@
     pkgs.ranger
     pkgs.unzip
     pkgs.xclip
+    pkgs.bc
 
     pkgs.pre-commit
 
