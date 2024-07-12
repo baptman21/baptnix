@@ -84,7 +84,7 @@
     pkgs.argocd
     pkgs.argo
     pkgs.awscli2
-    pkgs.azure-cli
+    (pkgs.unstable.azure-cli.withExtensions [ pkgs.unstable.azure-cli-extensions.storage-actions ])
     pkgs.circleci-cli
     pkgs.dig
     pkgs.helm-ls
