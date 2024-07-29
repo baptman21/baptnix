@@ -91,6 +91,7 @@
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
+    pkgs.kubectl-neat
     pkgs.kubectl-node-shell
     pkgs.kubectl-view-secret
     pkgs.kube-linter
