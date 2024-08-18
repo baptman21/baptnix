@@ -51,3 +51,23 @@ vim.opt.belloff = "all"
 vim.opt.colorcolumn = "+1"
 vim.opt.list = true
 vim.opt.listchars = "tab:>-,nbsp:.,eol:$,trail:."
+
+vim.filetype.add({
+	extension = {
+		hcl = "terraform",
+		tf = "terraform",
+		tfvars = "terraform",
+		mail = "mail",
+		mdx = "markdown",
+		gotmpl = "gotmpl",
+	},
+	filename = {
+		["Chart.yaml"] = "yaml",
+		["Chart.lock"] = "yaml",
+	},
+	pattern = {
+		[".*/templates/.*%.tpl"] = "helm",
+		[".*/templates/.*%.ya?ml"] = "helm",
+		["helmfile.*%.ya?ml"] = "helm",
+	},
+})

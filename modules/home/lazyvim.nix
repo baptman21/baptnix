@@ -38,6 +38,7 @@ in
     pkgs.nodePackages.neovim
     pkgs.lua-language-server
     pkgs.luarocks
+    pkgs.stylua
   ];
 
   home.file.".config/nvim-lazyvim" = {
