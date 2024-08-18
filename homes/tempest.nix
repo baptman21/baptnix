@@ -12,7 +12,9 @@
       modifier = "Mod4";
       background_image = ../assets/wallpapers/the-expanse-1440p.png;
     })
+    ../modules/home/neovim.nix
     ../modules/home/lunarvim.nix
+    ../modules/home/lazyvim.nix
     (import ../modules/home/kde-theme.nix { theme = "tempest"; })
     ../modules/home/nix-index.nix
     ../modules/home/slrn.nix

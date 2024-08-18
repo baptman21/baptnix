@@ -12,6 +12,7 @@
       modifier = "Mod4";
       background_image = ../assets/wallpapers/forest-botw.jpg;
     })
+    ../modules/home/neovim.nix
     ../modules/home/lunarvim.nix
     ../modules/home/lazyvim.nix
     (import ../modules/home/kde-theme.nix { theme = "whirlwind"; })

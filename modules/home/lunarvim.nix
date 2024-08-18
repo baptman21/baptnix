@@ -27,12 +27,7 @@ let
     LUNARVIM_BASE_DIR = "${lunarvimDrv}/lvim";
   };
 
-  # TODO: add rust with dependencies ?
-  extraPackages = with pkgs; [
-    git
-    tree-sitter
-    sumneko-lua-language-server
-  ];
+  extraPackages = config.programs.neovim.extraPackages;
 
   nvim = config.programs.neovim.finalPackage;
 
@@ -89,19 +84,6 @@ in
     pkgs.lua-language-server
     lunarvimDrv
   ];
-
-  programs.neovim = {
-    enable = true;
-    withNodeJs = true;
-    withPython3 = true;
-    extraPython3Packages = ps: [
-      ps.pynvim
-    ];
-    extraLuaPackages = ps: [
-      ps.luarocks
-    ];
-    inherit extraPackages;
-  };
 
   home.sessionVariables = env;
 

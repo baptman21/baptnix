@@ -2,14 +2,7 @@
 # Lazyvim
 #
 let
-  vim-spell-fr-utf8-dictionary = builtins.fetchurl {
-    url = "http://ftp.vim.org/vim/runtime/spell/fr.utf-8.spl";
-    sha256 = "abfb9702b98d887c175ace58f1ab39733dc08d03b674d914f56344ef86e63b61";
-  };
-
   lib = pkgs.lib;
-
-  nvim = config.programs.neovim.finalPackage;
 
   lazyvimStaterRepo = pkgs.stdenv.mkDerivation
     {
@@ -24,7 +17,6 @@ let
       };
 
       nativeBuildInputs = [ pkgs.makeWrapper pkgs.coreutils pkgs.gnused ];
-      buildInputs = [ nvim ];
 
       installPhase = ''
         mkdir -p $out
@@ -51,24 +43,4 @@ in
   home.shellAliases = {
     zvim = "NVIM_APPNAME=nvim-lazyvim nvim";
   };
-
-  programs.neovim = {
-    enable = true;
-    withNodeJs = true;
-    withPython3 = true;
-    extraPython3Packages = ps: [
-      ps.pynvim
-    ];
-    extraLuaPackages = ps: [
-      ps.luarocks
-    ];
-    extraPackages = with pkgs; [
-      git
-      tree-sitter
-      luarocks
-    ];
-  };
-
-  # French dictionary
-  home.file.".config/lvim/spell/fr.utf-8.spl".source = vim-spell-fr-utf8-dictionary;
 }
