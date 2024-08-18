@@ -55,6 +55,21 @@ return {
         },
     },
     {
+        "nvim-ualine/lualine.nvim",
+        opts = function(_, opts)
+            local section = opts.sections.lualine_c
+            -- vim.notify(section, "debug")
+            local ft = 0
+            for i = 1, #section do -- #v is the size of v for lists.
+                if section[i][1] == "filetype" then
+                    ft = i
+                    break
+                end
+            end
+            opts.sections.lualine_c[ft]["icon_only"] = false
+        end,
+    },
+    {
         "nvimdev/dashboard-nvim",
         lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
         opts = function()
