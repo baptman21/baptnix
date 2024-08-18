@@ -93,7 +93,6 @@ lvim.keys.normal_mode["<Right>"] = "<CMD>vert:res +5<CR>"
 lvim.keys.normal_mode["<Up>"] = "<CMD>res -5<CR>"
 lvim.keys.normal_mode["<Down>"] = "<CMD>res +5<CR>"
 
-
 -------------------------------------------------------------------------------
 ----------------------------   Builtin Plugins  -------------------------------
 -------------------------------------------------------------------------------
@@ -102,16 +101,16 @@ lvim.keys.normal_mode["<Down>"] = "<CMD>res +5<CR>"
 
 -------------------------   Status line configuration -------------------------
 
-local components = require "lvim.core.lualine.components"
+local components = require("lvim.core.lualine.components")
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options.component_separators = ""
 lvim.builtin.lualine.sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { components.branch, components.diff },
-    lualine_c = { components.diagnostics, components.lsp, components.spaces, },
-    lualine_x = { "searchcount" },
-    lualine_y = { "filename", "fileformat", "filesize", components.filetype, },
-    lualine_z = { components.location, components.progress }
+	lualine_a = { "mode" },
+	lualine_b = { components.branch, components.diff },
+	lualine_c = { components.diagnostics, components.lsp, components.spaces },
+	lualine_x = { "searchcount" },
+	lualine_y = { "filename", "fileformat", "filesize", components.filetype },
+	lualine_z = { components.location, components.progress },
 }
 
 -------------------------------  Dashboard  -----------------------------------
@@ -119,37 +118,37 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
-    "c",
-    lvim.icons.ui.Gear .. "  Configuration",
-    "<CMD>edit /home/baptman/Baptcave/baptnix/assets/config/lvim/config.lua <CR>" ..
-    "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>"
+	"c",
+	lvim.icons.ui.Gear .. "  Configuration",
+	"<CMD>edit /home/baptman/Baptcave/baptnix/assets/config/lvim/config.lua <CR>"
+		.. "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>",
 }
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[7] = {
-    "x",
-    "  Nixos Configuration",
-    "<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>" .. "<CMD>edit . <CR>"
+	"x",
+	"  Nixos Configuration",
+	"<CMD>cd /home/baptman/Baptcave/baptnix/ <CR>" .. "<CMD>edit . <CR>",
 }
 
 lvim.builtin.alpha.dashboard.section.header.val = {
-    [[⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠀⠀]],
-    [[⠀⠀⠀⠀⠑⠒⢕⡜⣔⢎⢦⢣⢲⡱⡜⡔⣎⢦⢣⢲⡱⡜⡔⣎⢦⢣⢲⡱⡜⡔⣎⢦⢣⡪⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⣔⢕⢆⢧⢲⢱⢢⡣⡲⡱⡢⣣⢲⢱⢢⡣⡲⡱⡢⣣⢲⢱⢢⡣⡲⡱⡢⠣⠒⠁⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠘⠸⢸⢪⡪⡣⡣⣣⢫⢪⡪⡪⡣⡣⣣⢫⢪⡪⡪⡣⡣⣣⢫⢪⡪⣪⢪⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡂⠀⠀⠀⠀⢨⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⡱⡕⡵⡹⡸⡪⡪⡣⣣⢫⡪⡣⣣⢳⢹⢸⢜⢎⢇⢏⢎⡎⣇⢧⠳⠙⠈⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢕⢝⢼⢸⢪⢣⢣⡫⡪⣣⢣⢳⡱⡕⣝⢜⢕⢵⢱⢣⡣⣣⢳⢱⠥⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡪⡎⡖⡕⣜⢜⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⡔⡵⡱⡣⡳⡹⡸⡪⡣⡫⣪⢪⡪⡺⡸⡜⡎⡇⣇⢗⢕⡝⣜⢼⠸⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢕⢇⢗⢕⢇⢇⡏⣎⢎⢇⢇⡇⡧⡳⡹⡸⡪⡣⡣⣣⢳⢱⡹⡢⡣⡆⣆⢄⢄⢄⡀⡀⣀⢜⢜⢎⢞⢼⢸⢪⢲⢀⡀⣀⢠⢠⢠⢄⢆⡎⡮⡪⡺⡸⡪⡺⡸⡪⣪⢣⡫⡪⡪⡎⣎⢇⢧⢳⢹⢸⢸⢱⡱⡱⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⢱⡹⡸⡱⣱⢱⢕⢝⡜⡼⡸⡜⡎⡞⡜⡎⣇⠧⡳⡱⡱⡕⡇⡗⡕⡕⣇⢧⢣⢳⢱⡱⣹⢸⢱⡱⡕⡇⡗⣕⢵⢱⢕⢇⢗⢕⢇⢧⢳⢹⢸⡱⡹⡸⡱⡹⣸⢸⢜⢎⢇⢏⢎⢮⢪⢎⢞⢜⢕⢵⠱⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢕⢕⡝⡼⡸⡜⡎⡇⣇⢗⢕⢵⢱⡹⡸⡪⣪⢺⢸⢪⢣⡣⡳⡹⡸⣱⢱⢕⢵⢹⡸⡜⣜⢜⢕⡕⡵⡱⣹⢸⡸⡜⡜⡎⡇⡗⡕⡇⡧⡳⡱⣱⢹⡸⡱⣹⢸⡸⡜⡎⣎⢧⢳⢱⢣⢳⡱⡹⡜⡕⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡪⡪⡎⡮⡪⡎⡞⣜⢜⢕⡕⡇⡧⡫⡪⡎⣎⢇⢗⢕⢵⢹⢸⢪⡪⡎⡮⡪⡎⣎⢮⢪⡪⡣⣣⢳⢹⢸⡸⡸⡜⡎⡞⡜⡎⡇⡏⣎⢮⢺⢸⢜⢜⢎⢮⢪⡪⡪⡎⣎⢮⢪⢎⢇⢧⢣⢳⢱⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡎⣇⢗⢕⢇⢏⢮⢪⡪⡣⣣⢳⢱⡹⡸⡪⣪⢪⡣⡫⡪⡎⣇⢧⢣⡣⡳⡱⡹⡸⡸⡜⡜⣎⢮⢪⢎⢇⢇⢗⢕⢵⢹⡸⡪⡣⡫⡪⡪⡎⡮⡪⡣⡳⡱⡕⡕⡇⡏⣎⢎⢮⢪⢣⢳⢱⡹⡜⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⢭⢪⡪⡎⡇⡗⣕⢵⢱⡹⡸⡸⡱⡱⡹⡸⡜⣜⢜⢎⢇⢧⢣⡣⡇⡧⡫⡪⣣⢫⡪⡺⡸⡜⣜⢜⢎⢎⡇⣏⢮⢪⢣⡣⡳⡹⡸⡱⡕⡇⡗⡝⣜⢕⢵⢹⢸⡱⡹⡸⡸⡪⣪⢣⢳⡱⡕⡕⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠣⠣⠃⠃⠋⠊⠊⠊⠊⠊⠪⠣⠫⠪⢣⢳⢹⢸⢸⢪⢣⢳⢱⡱⡕⡵⡱⡝⣜⢜⡜⡎⡇⡧⡣⡳⡹⡸⡜⣜⢜⢎⢇⢇⢗⢝⢜⢕⢵⢱⢣⢫⢪⠪⠺⠸⠱⠑⠙⠘⠑⠙⠘⠘⠑⠑⠱⠳⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠈⠈⠑⠣⢣⡣⡇⡗⣕⢵⢱⢕⢕⢵⢹⢸⢪⢺⢸⡱⡕⣕⢕⢇⢗⢝⢜⠎⠇⠋⠈⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠓⢕⢕⢵⢱⡹⡜⡎⡇⡗⡝⣜⢜⡜⡼⡸⡱⠑⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠱⡣⡣⡣⡇⡏⡮⡺⡸⡸⡜⠜⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠪⡣⡳⡹⡸⡜⡎⡇⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⡕⣝⢜⢼⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣜⢜⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-    [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]]
+	[[⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠀⠀]],
+	[[⠀⠀⠀⠀⠑⠒⢕⡜⣔⢎⢦⢣⢲⡱⡜⡔⣎⢦⢣⢲⡱⡜⡔⣎⢦⢣⢲⡱⡜⡔⣎⢦⢣⡪⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⣔⢕⢆⢧⢲⢱⢢⡣⡲⡱⡢⣣⢲⢱⢢⡣⡲⡱⡢⣣⢲⢱⢢⡣⡲⡱⡢⠣⠒⠁⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠘⠸⢸⢪⡪⡣⡣⣣⢫⢪⡪⡪⡣⡣⣣⢫⢪⡪⡪⡣⡣⣣⢫⢪⡪⣪⢪⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡂⠀⠀⠀⠀⢨⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⡱⡕⡵⡹⡸⡪⡪⡣⣣⢫⡪⡣⣣⢳⢹⢸⢜⢎⢇⢏⢎⡎⣇⢧⠳⠙⠈⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢕⢝⢼⢸⢪⢣⢣⡫⡪⣣⢣⢳⡱⡕⣝⢜⢕⢵⢱⢣⡣⣣⢳⢱⠥⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡪⡎⡖⡕⣜⢜⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⡔⡵⡱⡣⡳⡹⡸⡪⡣⡫⣪⢪⡪⡺⡸⡜⡎⡇⣇⢗⢕⡝⣜⢼⠸⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢕⢇⢗⢕⢇⢇⡏⣎⢎⢇⢇⡇⡧⡳⡹⡸⡪⡣⡣⣣⢳⢱⡹⡢⡣⡆⣆⢄⢄⢄⡀⡀⣀⢜⢜⢎⢞⢼⢸⢪⢲⢀⡀⣀⢠⢠⢠⢄⢆⡎⡮⡪⡺⡸⡪⡺⡸⡪⣪⢣⡫⡪⡪⡎⣎⢇⢧⢳⢹⢸⢸⢱⡱⡱⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⢱⡹⡸⡱⣱⢱⢕⢝⡜⡼⡸⡜⡎⡞⡜⡎⣇⠧⡳⡱⡱⡕⡇⡗⡕⡕⣇⢧⢣⢳⢱⡱⣹⢸⢱⡱⡕⡇⡗⣕⢵⢱⢕⢇⢗⢕⢇⢧⢳⢹⢸⡱⡹⡸⡱⡹⣸⢸⢜⢎⢇⢏⢎⢮⢪⢎⢞⢜⢕⢵⠱⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢕⢕⡝⡼⡸⡜⡎⡇⣇⢗⢕⢵⢱⡹⡸⡪⣪⢺⢸⢪⢣⡣⡳⡹⡸⣱⢱⢕⢵⢹⡸⡜⣜⢜⢕⡕⡵⡱⣹⢸⡸⡜⡜⡎⡇⡗⡕⡇⡧⡳⡱⣱⢹⡸⡱⣹⢸⡸⡜⡎⣎⢧⢳⢱⢣⢳⡱⡹⡜⡕⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⡪⡪⡎⡮⡪⡎⡞⣜⢜⢕⡕⡇⡧⡫⡪⡎⣎⢇⢗⢕⢵⢹⢸⢪⡪⡎⡮⡪⡎⣎⢮⢪⡪⡣⣣⢳⢹⢸⡸⡸⡜⡎⡞⡜⡎⡇⡏⣎⢮⢺⢸⢜⢜⢎⢮⢪⡪⡪⡎⣎⢮⢪⢎⢇⢧⢣⢳⢱⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡎⣇⢗⢕⢇⢏⢮⢪⡪⡣⣣⢳⢱⡹⡸⡪⣪⢪⡣⡫⡪⡎⣇⢧⢣⡣⡳⡱⡹⡸⡸⡜⡜⣎⢮⢪⢎⢇⢇⢗⢕⢵⢹⡸⡪⡣⡫⡪⡪⡎⡮⡪⡣⡳⡱⡕⡕⡇⡏⣎⢎⢮⢪⢣⢳⢱⡹⡜⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⢭⢪⡪⡎⡇⡗⣕⢵⢱⡹⡸⡸⡱⡱⡹⡸⡜⣜⢜⢎⢇⢧⢣⡣⡇⡧⡫⡪⣣⢫⡪⡺⡸⡜⣜⢜⢎⢎⡇⣏⢮⢪⢣⡣⡳⡹⡸⡱⡕⡇⡗⡝⣜⢕⢵⢹⢸⡱⡹⡸⡸⡪⣪⢣⢳⡱⡕⡕⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠣⠣⠃⠃⠋⠊⠊⠊⠊⠊⠪⠣⠫⠪⢣⢳⢹⢸⢸⢪⢣⢳⢱⡱⡕⡵⡱⡝⣜⢜⡜⡎⡇⡧⡣⡳⡹⡸⡜⣜⢜⢎⢇⢇⢗⢝⢜⢕⢵⢱⢣⢫⢪⠪⠺⠸⠱⠑⠙⠘⠑⠙⠘⠘⠑⠑⠱⠳⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠈⠈⠑⠣⢣⡣⡇⡗⣕⢵⢱⢕⢕⢵⢹⢸⢪⢺⢸⡱⡕⣕⢕⢇⢗⢝⢜⠎⠇⠋⠈⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠓⢕⢕⢵⢱⡹⡜⡎⡇⡗⡝⣜⢜⡜⡼⡸⡱⠑⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠱⡣⡣⡣⡇⡏⡮⡺⡸⡸⡜⠜⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠪⡣⡳⡹⡸⡜⡎⡇⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⡕⣝⢜⢼⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣜⢜⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
 }
 
 -- Disable breadcrumbs
@@ -159,10 +158,8 @@ lvim.builtin.breadcrumbs.active = false
 lvim.builtin.bufferline.active = true
 lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.bufferline.options.mode = "tabs"
-lvim.builtin.bufferline.options.left_mouse_command = function(_)
-end
-lvim.builtin.bufferline.options.right_mouse_command = function(_)
-end
+lvim.builtin.bufferline.options.left_mouse_command = function(_) end
+lvim.builtin.bufferline.options.right_mouse_command = function(_) end
 
 -- Enable terminal plufin
 lvim.builtin.terminal.active = true
@@ -200,33 +197,43 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.matchup.enable = true
 
 -- Register helm ft to use the gotmpl
-vim.treesitter.language.register('gotmpl', 'helm')
+vim.treesitter.language.register("gotmpl", "helm")
 
-local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.gotmpl = {
-    install_info = {
-        url = "https://github.com/ngalaiko/tree-sitter-go-template",
-        files = { "src/parser.c" }
-    },
-    filetype = "gotmpl",
-    used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" }
+	install_info = {
+		url = "https://github.com/ngalaiko/tree-sitter-go-template",
+		files = { "src/parser.c" },
+	},
+	filetype = "gotmpl",
+	used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
 }
 
 ---------------------------------  CMP ----------------------------------------
 
-lvim.builtin.cmp.mapping["<C-K>"].i = function(fallback) fallback() end
-lvim.builtin.cmp.mapping["<S-Tab>"].i = function(fallback) fallback() end
-lvim.builtin.cmp.mapping["<S-Tab>"].s = function(fallback) fallback() end
-lvim.builtin.cmp.mapping["<Tab>"].i = function(fallback) fallback() end
-lvim.builtin.cmp.mapping["<Tab>"].s = function(fallback) fallback() end
+lvim.builtin.cmp.mapping["<C-K>"].i = function(fallback)
+	fallback()
+end
+lvim.builtin.cmp.mapping["<S-Tab>"].i = function(fallback)
+	fallback()
+end
+lvim.builtin.cmp.mapping["<S-Tab>"].s = function(fallback)
+	fallback()
+end
+lvim.builtin.cmp.mapping["<Tab>"].i = function(fallback)
+	fallback()
+end
+lvim.builtin.cmp.mapping["<Tab>"].s = function(fallback)
+	fallback()
+end
 
 ------------------------------  Telescope -------------------------------------
 lvim.builtin.telescope.on_config_done = function(telescope)
-    pcall(telescope.load_extension, "fzf")
-    pcall(telescope.load_extension, "possession")
-    pcall(telescope.load_extension, "projects")
-    pcall(telescope.load_extension, "notify")
-    -- any other extensions loading
+	pcall(telescope.load_extension, "fzf")
+	pcall(telescope.load_extension, "possession")
+	pcall(telescope.load_extension, "projects")
+	pcall(telescope.load_extension, "notify")
+	-- any other extensions loading
 end
 
 -------------------------------------------------------------------------------
@@ -234,163 +241,164 @@ end
 -------------------------------------------------------------------------------
 
 lvim.plugins = {
-    -- Theme
-    { "navarasu/onedark.nvim" },
+	-- Theme
+	{ "navarasu/onedark.nvim" },
 
-    -- CSV Formatting
-    {
-        'cameron-wags/rainbow_csv.nvim',
-        config = true,
-        ft = {
-            'csv',
-            'tsv',
-            'csv_semicolon',
-            'csv_whitespace',
-            'csv_pipe',
-            'rfc_csv',
-            'rfc_semicolon'
-        },
-        cmd = {
-            'RainbowDelim',
-            'RainbowDelimSimple',
-            'RainbowDelimQuoted',
-            'RainbowMultiDelim'
-        }
-    },
+	-- CSV Formatting
+	{
+		"cameron-wags/rainbow_csv.nvim",
+		config = true,
+		ft = {
+			"csv",
+			"tsv",
+			"csv_semicolon",
+			"csv_whitespace",
+			"csv_pipe",
+			"rfc_csv",
+			"rfc_semicolon",
+		},
+		cmd = {
+			"RainbowDelim",
+			"RainbowDelimSimple",
+			"RainbowDelimQuoted",
+			"RainbowMultiDelim",
+		},
+	},
 
-    -- Better quickfix
-    {
-        "kevinhwang91/nvim-bqf",
-        event = { "BufRead", "BufNew" },
-        config = function()
-            require("bqf").setup({
-                auto_enable = true,
-                preview = {
-                    win_height = 12,
-                    win_vheight = 12,
-                    delay_syntax = 80,
-                    border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
-                },
-                func_map = {
-                    vsplit = "",
-                    ptogglemode = "z,",
-                    stoggleup = "",
-                },
-                filter = {
-                    fzf = {
-                        action_for = { ["ctrl-s"] = "split" },
-                        extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
-                    },
-                },
-            })
-        end,
-    },
+	-- Better quickfix
+	{
+		"kevinhwang91/nvim-bqf",
+		event = { "BufRead", "BufNew" },
+		config = function()
+			require("bqf").setup({
+				auto_enable = true,
+				preview = {
+					win_height = 12,
+					win_vheight = 12,
+					delay_syntax = 80,
+					border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+				},
+				func_map = {
+					vsplit = "",
+					ptogglemode = "z,",
+					stoggleup = "",
+				},
+				filter = {
+					fzf = {
+						action_for = { ["ctrl-s"] = "split" },
+						extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+					},
+				},
+			})
+		end,
+	},
 
-    -- Git
-    {
-        "tpope/vim-fugitive",
-        cmd = {
-            "G",
-            "Git",
-            "Gdiffsplit",
-            "Gread",
-            "Gwrite",
-            "Ggrep",
-            "GMove",
-            "GDelete",
-            "GBrowse",
-            "GRemove",
-            "GRename",
-            "Glgrep",
-            "Gedit"
-        },
-        ft = { "fugitive" }
-    },
-    -- [] mappings
-    {
-        'tummetott/unimpaired.nvim',
-        config = function()
-            require('unimpaired').setup {
-                -- add any options here or leave empty
-            }
-        end
-    },
+	-- Git
+	{
+		"tpope/vim-fugitive",
+		cmd = {
+			"G",
+			"Git",
+			"Gdiffsplit",
+			"Gread",
+			"Gwrite",
+			"Ggrep",
+			"GMove",
+			"GDelete",
+			"GBrowse",
+			"GRemove",
+			"GRename",
+			"Glgrep",
+			"Gedit",
+		},
+		ft = { "fugitive" },
+	},
+	-- [] mappings
+	{
+		"tummetott/unimpaired.nvim",
+		config = function()
+			require("unimpaired").setup({
+				-- add any options here or leave empty
+			})
+		end,
+	},
 
-    -- Color highlight in files
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup({ "*" }, {
-                RGB = true,      -- #RGB hex codes
-                RRGGBB = true,   -- #RRGGBB hex codes
-                RRGGBBAA = true, -- #RRGGBBAA hex codes
-                rgb_fn = true,   -- CSS rgb() and rgba() functions
-                hsl_fn = true,   -- CSS hsl() and hsla() functions
-                css = true,      -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-                css_fn = true,   -- Enable all CSS *functions*: rgb_fn, hsl_fn
-            })
-        end,
-    },
-    -- auto comments
-    {
-        "folke/todo-comments.nvim",
-        event = "BufRead",
-        config = function()
-            require("todo-comments").setup()
-        end,
-    },
-    -- lsp info
-    {
-        "j-hui/fidget.nvim",
-        config = function()
-            require('fidget').setup {
-                notification = { window = { winblend = 0, }, },
-            }
-        end
-    },
+	-- Color highlight in files
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({ "*" }, {
+				RGB = true, -- #RGB hex codes
+				RRGGBB = true, -- #RRGGBB hex codes
+				RRGGBBAA = true, -- #RRGGBBAA hex codes
+				rgb_fn = true, -- CSS rgb() and rgba() functions
+				hsl_fn = true, -- CSS hsl() and hsla() functions
+				css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+				css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+			})
+		end,
+	},
+	-- auto comments
+	{
+		"folke/todo-comments.nvim",
+		event = "BufRead",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	},
+	-- lsp info
+	{
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup({
+				notification = { window = { winblend = 0 } },
+			})
+		end,
+	},
 
-    -- function signature
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "BufRead",
-        config = function()
-            require "lsp_signature".on_attach({
-                bind = true,
-                handler_opts = { border = "rounded" }
-            })
-        end,
-    },
-    -- Diagnostics display
-    {
-        "folke/trouble.nvim",
-        cmd = "TroubleToggle"
-    },
-    -- Repeat more stuff
-    { "tpope/vim-repeat" },
-    -- Align magic
-    { "junegunn/vim-easy-align" },
-    -- Surround elements
-    {
-        "kylechui/nvim-surround",
-        config = function() require("nvim-surround").setup {} end,
-    },
-    -- gx (open url) sane
-    { "felipec/vim-sanegx", event = "BufRead" },
-    -- handling of sessions
-    {
-        'jedrzejboczar/possession.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-    }
+	-- function signature
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "BufRead",
+		config = function()
+			require("lsp_signature").on_attach({
+				bind = true,
+				handler_opts = { border = "rounded" },
+			})
+		end,
+	},
+	-- Diagnostics display
+	{
+		"folke/trouble.nvim",
+		cmd = "TroubleToggle",
+	},
+	-- Repeat more stuff
+	{ "tpope/vim-repeat" },
+	-- Align magic
+	{ "junegunn/vim-easy-align" },
+	-- Surround elements
+	{
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	-- gx (open url) sane
+	{ "felipec/vim-sanegx", event = "BufRead" },
+	-- handling of sessions
+	{
+		"jedrzejboczar/possession.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 }
-
 
 --------------------------------- Theme ---------------------------------------
 
-require('onedark').setup {
-    style = 'cool',
-    transparent = true,
-}
-require('onedark').load()
+require("onedark").setup({
+	style = "cool",
+	transparent = true,
+})
+require("onedark").load()
 
 --------------------------------- Rainbow CSV ---------------------------------
 
@@ -403,8 +411,8 @@ lvim.keys.normal_mode["<leader>rs"] = ":RainbowShrink<CR>"
 -------------------------------- Trouble --------------------------------------
 
 lvim.builtin.which_key.mappings["t"] = {
-    name = "Diagnostics",
-    t = { "<cmd>TroubleToggle<cr>", "trouble" },
+	name = "Diagnostics",
+	t = { "<cmd>TroubleToggle<cr>", "trouble" },
 }
 
 -------------------------------- EasyAlign ------------------------------------
@@ -418,17 +426,17 @@ lvim.keys.visual_mode["<leader>ga"] = "<Plug>(EasyAlign)"
 
 ---------------------------------- Format -------------------------------------
 
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-    { command = "black", args = { "--line-length=88" }, },
-    { command = "jq" },
-}
+local formatters = require("lvim.lsp.null-ls.formatters")
+formatters.setup({
+	{ command = "black", args = { "--line-length=88" } },
+	{ command = "jq" },
+})
 ----------------------------------- Lint --------------------------------------
 
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-    { command = "mypy", args = { "--check-untyped-defs" }, },
-}
+local linters = require("lvim.lsp.null-ls.linters")
+linters.setup({
+	{ command = "mypy", args = { "--check-untyped-defs" } },
+})
 
 ----------------------------------- LSP ---------------------------------------
 
@@ -436,14 +444,14 @@ linters.setup {
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "nil_ls" })
 -- Use rnix instead
 lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
-    return server ~= "rnix"
+	return server ~= "rnix"
 end, lvim.lsp.automatic_configuration.skipped_servers)
 
 -- Disable pylyzer
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pylyzer" })
 -- Use ruff intead
 lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
-    return server ~= "ruff_lsp"
+	return server ~= "ruff_lsp"
 end, lvim.lsp.automatic_configuration.skipped_servers)
 
 -- Manual setup for terraform in tf files (see ftpluging dir)
@@ -457,43 +465,43 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "terraformls
 --@param path string
 --@return boolean
 local function is_helm_file(path)
-    local check = vim.fs.find("Chart.yaml", { path = vim.fs.dirname(path), upward = true })
-    return not vim.tbl_isempty(check)
+	local check = vim.fs.find("Chart.yaml", { path = vim.fs.dirname(path), upward = true })
+	return not vim.tbl_isempty(check)
 end
 
 --@private
 --@return string
 local function yaml_filetype(path, bufname)
-    return is_helm_file(path) and "helm" or "yaml"
+	return is_helm_file(path) and "helm" or "yaml"
 end
 
 --@private
 --@return string
 local function tmpl_filetype(path, bufname)
-    return is_helm_file(path) and "helm" or "template"
+	return is_helm_file(path) and "helm" or "template"
 end
 
 --@private
 --@return string
 local function tpl_filetype(path, bufname)
-    return is_helm_file(path) and "helm" or "smarty"
+	return is_helm_file(path) and "helm" or "smarty"
 end
 
 vim.filetype.add({
-    extension = {
-        hcl = 'terraform',
-        tf = 'terraform',
-        tfvars = 'terraform',
-        mail = 'mail',
-        mdx = 'markdown',
-        yaml = yaml_filetype,
-        yml = yaml_filetype,
-        tmpl = tmpl_filetype,
-        tpl = tpl_filetype,
-        gotmpl = "gotmpl"
-    },
-    filename = {
-        ["Chart.yaml"] = "yaml",
-        ["Chart.lock"] = "yaml",
-    }
+	extension = {
+		hcl = "terraform",
+		tf = "terraform",
+		tfvars = "terraform",
+		mail = "mail",
+		mdx = "markdown",
+		yaml = yaml_filetype,
+		yml = yaml_filetype,
+		tmpl = tmpl_filetype,
+		tpl = tpl_filetype,
+		gotmpl = "gotmpl",
+	},
+	filename = {
+		["Chart.yaml"] = "yaml",
+		["Chart.lock"] = "yaml",
+	},
 })

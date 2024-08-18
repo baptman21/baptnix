@@ -21,13 +21,13 @@ let
       installPhase = ''
         mkdir -p $out
         cp -r * $out
-        cp ${../../assets/config/lazyvim/options.lua} $out/lua/config/options.lua
-        cp ${../../assets/config/lazyvim/keymaps.lua} $out/lua/config/keymaps.lua
-        cp ${../../assets/config/lazyvim/autocmds.lua} $out/lua/config/autocmds.lua
-        cp ${../../assets/config/lazyvim/lazy.lua} $out/lua/config/lazy.lua
+        cp ${../../assets/config/lazyvim}/options.lua $out/lua/config/options.lua
+        cp ${../../assets/config/lazyvim}/keymaps.lua $out/lua/config/keymaps.lua
+        cp ${../../assets/config/lazyvim}/autocmds.lua $out/lua/config/autocmds.lua
+        cp ${../../assets/config/lazyvim}/lazy.lua $out/lua/config/lazy.lua
 
-        rm -rf $out/lua/config/plugins
-        cp -r ${../../assets/config/lazyvim/plugins} $out/lua/config/plugins
+        rm -rf $out/lua/plugins
+        cp -r ${../../assets/config/lazyvim}/plugins $out/lua/plugins
       '';
     };
 
