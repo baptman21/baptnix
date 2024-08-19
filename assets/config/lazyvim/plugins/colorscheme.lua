@@ -1,3 +1,10 @@
 return {
-	{ "navarasu/onedark.nvim" },
+	{
+		"navarasu/onedark.nvim",
+		opts = {
+			highlights = {
+				DashboardHeader = { fg = "$purple" }, -- color for dashboard-nvim
+			},
+		},
+	},
 }
