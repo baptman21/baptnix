@@ -58,6 +58,9 @@
   };
 
   home.shellAliases = {
+    # TODO: tmp to see if I prefer lazyvim to lunar
+    lvim = "zvim";
+
     k = "kubectl";
     kvs = "kubectl-view-secret";
     kex = "k exec -it";
