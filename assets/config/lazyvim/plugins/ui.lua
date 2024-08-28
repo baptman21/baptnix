@@ -60,7 +60,7 @@ return {
 		},
 	},
 	{
-		"nvim-ualine/lualine.nvim",
+		"nvim-lualine/lualine.nvim",
 		opts = function(_, opts)
 			local section = opts.sections.lualine_c
 			-- vim.notify(section, "debug")
