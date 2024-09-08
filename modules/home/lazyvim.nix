@@ -28,6 +28,8 @@ let
 
         rm -rf $out/lua/plugins
         cp -r ${../../assets/config/lazyvim}/plugins $out/lua/plugins
+
+        cp -r ${../../assets/config/lazyvim}/after $out/after
       '';
     };
 
