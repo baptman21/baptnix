@@ -25,7 +25,7 @@ in
   home.file.vim_plug = {
     source = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
-      sha256 = "sha256-uXwLrsgan6PYYfxuddiYE+wrBAdZ3WFo/mUnjyxDne0=";
+      sha256 = "sha256-ILTIlfmNE4SCBGmAaMTdAxcw1OfJxLYw1ic7m5r83Ns=";
     };
     target = ".vim/autoload/plug.vim";
   };

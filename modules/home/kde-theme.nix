@@ -43,7 +43,7 @@ let
       owner = "EliverLara";
       repo = "Nordic";
       rev = "master";
-      sha256 = "sha256-cH/ZWZxKuJOPUafinAyX7/CrUfpo+lWGX7HraIYPsUU=";
+      sha256 = "sha256-slmrZSCtYB9HCa3E7hwMPoGuMSXwdNFc7M013jJs4IQ=";
     };
 
     nativeBuildInputs = [ ];
@@ -66,7 +66,7 @@ let
       owner = "EliverLara";
       repo = "Nordic-kde";
       rev = "master";
-      sha256 = "sha256-td3zATfLCEbz48QNR0GYyMB5TuOg9XkpbmebT1pznkw=";
+      sha256 = "sha256-4x5RhFtdvyycaXg86kEwYI6bf/cD0X8NO2PwACqXr1g=";
     };
 
     nativeBuildInputs = [ pkgs.gzip ];

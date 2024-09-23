@@ -40,7 +40,7 @@ let
         owner = "LunarVim";
         repo = "LunarVim";
         rev = "master";
-        sha256 = "sha256-J2E4BQfyrZ9HvuDDCLFm6wj8S9QQ2lEo9PwsJkjcbuY=";
+        sha256 = "sha256-lFX9vmNwbpd4dPpILS4B6Qea5OtqUd7ecaRLEzlkK3g=";
       };
 
       nativeBuildInputs = [ pkgs.makeWrapper pkgs.coreutils pkgs.gnused ];
