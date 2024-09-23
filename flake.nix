@@ -6,13 +6,15 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/release-23.11";
 
+    nixpkgs_teleport_12.url = "github:nixos/nixpkgs?rev=857636b0327ad7e092ec6cbd71a7735c885cbebd";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager }@inputs:
+  outputs = { self, nixpkgs, unstable, nixpkgs_teleport_12, home-manager }@inputs:
     let
       system = "x86_64-linux";
 
@@ -28,6 +30,7 @@
         config.allowUnfree = true;
         overlays = [
           (import ./overlays/discord.nix)
+          (import ./overlays/teleport.nix { inherit inputs; })
           (final: prev: { inherit unstable; })
         ];
       };
