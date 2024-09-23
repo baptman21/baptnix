@@ -13,14 +13,8 @@
     allowPing = false;
   };
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-fe6c43be-ec3d-455d-9bd5-391b3f06357f".device = "/dev/disk/by-uuid/fe6c43be-ec3d-455d-9bd5-391b3f06357f";
-  boot.initrd.luks.devices."luks-fe6c43be-ec3d-455d-9bd5-391b3f06357f".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-8f9f4ba5-e524-4fa8-b986-73624f140b6a".device = "/dev/disk/by-uuid/8f9f4ba5-e524-4fa8-b986-73624f140b6a";
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_1;
