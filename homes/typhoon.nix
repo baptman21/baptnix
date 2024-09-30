@@ -93,6 +93,7 @@
     pkgs.circleci-cli
     pkgs.dig
     pkgs.helm-ls
+    pkgs.krdc
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
