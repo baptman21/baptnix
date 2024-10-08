@@ -92,6 +92,7 @@
     (pkgs.unstable.azure-cli.withExtensions [ pkgs.unstable.azure-cli-extensions.storage-actions ])
     pkgs.circleci-cli
     pkgs.dig
+    pkgs.firefox
     pkgs.helm-ls
     pkgs.krdc
     pkgs.kubectl
