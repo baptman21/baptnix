@@ -44,6 +44,8 @@ in
     pkgs.shfmt
     pkgs.terraform-ls
     pkgs.ruff-lsp
+    pkgs.unstable.typescript-language-server
+    pkgs.yaml-language-server
   ];
 
   home.file.".config/nvim-lazyvim" = {
