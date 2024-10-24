@@ -43,7 +43,7 @@ in
     pkgs.stylua
     pkgs.shfmt
     pkgs.terraform-ls
-    pkgs.ruff
+    pkgs.ruff-lsp
   ];
 
   home.file.".config/nvim-lazyvim" = {
