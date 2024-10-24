@@ -41,6 +41,9 @@ in
     pkgs.lua-language-server
     pkgs.luarocks
     pkgs.stylua
+    pkgs.shfmt
+    pkgs.terraform-ls
+    pkgs.ruff
   ];
 
   home.file.".config/nvim-lazyvim" = {
