@@ -71,3 +71,5 @@ vim.filetype.add({
 		["helmfile.*%.ya?ml"] = "helm",
 	},
 })
+
+vim.g.lazyvim_python_ruff = "ruff_lsp"
