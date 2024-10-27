@@ -134,7 +134,7 @@
     };
 
     # Enable nixFlakes on system
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.latest;
     registry.nixpkgs.flake = inputs.nixpkgs;
     registry.unstable.flake = inputs.unstable;
 
