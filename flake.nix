@@ -4,12 +4,12 @@
   inputs = {
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs.url = "github:nixos/nixpkgs/release-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
 
     nixpkgs_teleport_12.url = "github:nixos/nixpkgs?rev=857636b0327ad7e092ec6cbd71a7735c885cbebd";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
