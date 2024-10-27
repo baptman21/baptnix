@@ -43,6 +43,9 @@ in
     pkgs.luarocks
     pkgs.stylua
 
+    pkgs.nil
+    pkgs.nixfmt-classic
+
     pkgs.shfmt
 
     pkgs.terraform-ls
