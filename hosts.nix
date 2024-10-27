@@ -3,22 +3,18 @@ let
   mkHost = { name, system, modules }:
     let
 
-    in
-    inputs.nixpkgs.lib.nixosSystem {
+    in inputs.nixpkgs.lib.nixosSystem {
       inherit system;
 
       specialArgs = { inherit pkgs inputs system; };
 
       modules = [
-        {
-          networking.hostName = "${name}";
-        }
+        { networking.hostName = "${name}"; }
         /etc/nixos/hardware-configuration.nix
         ./hosts/shared.nix
       ] ++ modules;
     };
-in
-{
+in {
   whirlwind = mkHost {
     name = "whirlwind";
     inherit system;

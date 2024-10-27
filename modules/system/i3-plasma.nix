@@ -4,8 +4,7 @@ let
   i3_script = pkgs.writeShellScriptBin "i3_script" ''
     ${pkgs.i3-gaps}/bin/i3 -d all -V &>> /tmp/i3.log
   '';
-in
-{
+in {
   services = {
 
     displayManager = {
@@ -19,15 +18,13 @@ in
         variant = "";
       };
       displayManager = {
-        session = [
-          {
-            manage = "desktop";
-            name = "plasma5+i3+bapt";
-            start = ''
-              env KDEWM=${i3_script}/bin/i3_script ${pkgs.plasma-workspace}/bin/startplasma-x11
-            '';
-          }
-        ];
+        session = [{
+          manage = "desktop";
+          name = "plasma5+i3+bapt";
+          start = ''
+            env KDEWM=${i3_script}/bin/i3_script ${pkgs.plasma-workspace}/bin/startplasma-x11
+          '';
+        }];
       };
       desktopManager.plasma5.enable = true;
     };

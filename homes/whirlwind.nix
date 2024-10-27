@@ -19,7 +19,9 @@
     ../modules/home/nix-index.nix
     ../modules/home/slrn.nix
     (import ../modules/home/starship.nix { theme = "whirlwind"; })
-    (import ../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
+    (import ../modules/home/ssh.nix {
+      sshDir = config.home.homeDirectory + "/.ssh";
+    })
     ../modules/home/vim.nix
     ../modules/home/zsh.nix
     # services

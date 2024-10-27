@@ -7,10 +7,8 @@
 #   * whirlind
 { config, pkgs, ... }:
 # Polybar
-let
-  theme_dir = ../../assets/polybar/theme;
-in
-{
+let theme_dir = ../../assets/polybar/theme;
+in {
   services.polybar = {
     enable = true;
     package = pkgs.polybar.override {
@@ -20,9 +18,7 @@ in
       pulseSupport = true;
       i3Support = true;
     };
-    extraConfig = builtins.replaceStrings
-      [ "__HOME__" ]
-      [ "${theme_dir}" ]
+    extraConfig = builtins.replaceStrings [ "__HOME__" ] [ "${theme_dir}" ]
       (builtins.readFile (theme_dir + "/${theme}.ini"));
     script = ''
       set -ex

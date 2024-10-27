@@ -7,7 +7,18 @@
   users = {
     users."baptman" = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "video" "audio" "camera" "networkmanager" "lp" "kvm" "libvirtd" "plex" "docker" ];
+      extraGroups = [
+        "wheel"
+        "video"
+        "audio"
+        "camera"
+        "networkmanager"
+        "lp"
+        "kvm"
+        "libvirtd"
+        "plex"
+        "docker"
+      ];
       initialPassword = "baptcave";
     };
 
@@ -125,9 +136,7 @@
 
   nix = {
     # Nix Package Manager settings
-    settings = {
-      auto-optimise-store = true;
-    };
+    settings = { auto-optimise-store = true; };
 
     # Garbage collector settings
     gc = {

@@ -23,11 +23,13 @@
       extraSettings = {
         kubernetes = {
           disabled = false;
-          format = ''\[[$symbol$context( \($namespace\))]($style)\] '';
+          format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
         };
       };
     })
-    (import ../modules/home/ssh.nix { sshDir = config.home.homeDirectory + "/.ssh"; })
+    (import ../modules/home/ssh.nix {
+      sshDir = config.home.homeDirectory + "/.ssh";
+    })
     ../modules/home/vim.nix
     ../modules/home/zsh.nix
     # services
@@ -57,9 +59,7 @@
     bash.enable = true;
   };
 
-  home.sessionPath = [
-    "$HOME/go/bin"
-  ];
+  home.sessionPath = [ "$HOME/go/bin" ];
 
   home.shellAliases = {
     # TODO: tmp to see if I prefer lazyvim to lunar
@@ -68,8 +68,10 @@
     k = "kubectl";
     kvs = "kubectl-view-secret";
     kex = "k exec -it";
-    ksh = "pod=$(kgp | fzf | awk '{print $1}'); print -rs kex $pod -- /bin/sh; kubectl exec -it $pod -- /bin/sh";
-    kbh = "pod=$(kgp | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
+    ksh =
+      "pod=$(kgp | fzf | awk '{print $1}'); print -rs kex $pod -- /bin/sh; kubectl exec -it $pod -- /bin/sh";
+    kbh =
+      "pod=$(kgp | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
     ky = "k -o yaml";
     kg = "k get";
     kwg = "watch -n 2 -- kubectl get";
@@ -80,13 +82,20 @@
     kns = "kubens";
     tf = "terraform";
     by = "bat -l yaml";
-    kdbb = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
-    kdbp = "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- psql; kubectl exec -it $pod -- psql";
-    kdbmab = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=master'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
-    kdbmap = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=master'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- psql; kubectl exec -it $pod -- psql";
-    kdbreb = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=replica'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
-    kdbrep = "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=replica'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- psql; kubectl exec -it $pod -- psql";
-    kgetall = "kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found";
+    kdbb =
+      "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
+    kdbp =
+      "pod=$(kgp | grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- psql; kubectl exec -it $pod -- psql";
+    kdbmab =
+      "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=master'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
+    kdbmap =
+      "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=master'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- psql; kubectl exec -it $pod -- psql";
+    kdbreb =
+      "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=replica'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- bash; kubectl exec -it $pod -- bash";
+    kdbrep =
+      "pod=$(kgp --selector='postgres-operator.crunchydata.com/role=replica'| grep -- '-pg-' | fzf | awk '{print $1}'); print -rs kex $pod -- psql; kubectl exec -it $pod -- psql";
+    kgetall =
+      "kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found";
   };
 
   home.packages = [

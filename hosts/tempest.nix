@@ -8,23 +8,20 @@
   ];
 
   # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  boot.initrd.secrets = { "/crypto_keyfile.bin" = null; };
 
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-4ffd049f-1426-436b-8f77-191b69a361e1".device = "/dev/disk/by-uuid/4ffd049f-1426-436b-8f77-191b69a361e1";
-  boot.initrd.luks.devices."luks-4ffd049f-1426-436b-8f77-191b69a361e1".keyFile = "/crypto_keyfile.bin";
-
+  boot.initrd.luks.devices."luks-4ffd049f-1426-436b-8f77-191b69a361e1".device =
+    "/dev/disk/by-uuid/4ffd049f-1426-436b-8f77-191b69a361e1";
+  boot.initrd.luks.devices."luks-4ffd049f-1426-436b-8f77-191b69a361e1".keyFile =
+    "/crypto_keyfile.bin";
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_1;
 
     loader = {
       systemd-boot.enable = true;
-      efi = {
-        canTouchEfiVariables = true;
-      };
+      efi = { canTouchEfiVariables = true; };
 
       # timeout = 15;
       # grub = {
@@ -35,9 +32,5 @@
     };
   };
 
-  services = {
-    xserver = {
-      videoDrivers = [ "nvidia" ];
-    };
-  };
+  services = { xserver = { videoDrivers = [ "nvidia" ]; }; };
 }

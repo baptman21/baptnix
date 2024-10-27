@@ -22,7 +22,8 @@
       alog = "log --oneline --graph --all --decorate";
       tlog = "log --oneline --graph --decorate -n 15";
       nlog = "log --oneline --graph --decorate";
-      brclean = ''!git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D "$branch"; done'';
+      brclean = ''
+        !git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D "$branch"; done'';
     };
 
     userName = "Baptiste Bourdet";
@@ -37,7 +38,8 @@
         autoSquash = true;
       };
       merge.tool = "fugitive";
-      mergetool."fugitive".cmd = ''vim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
+      mergetool."fugitive".cmd = ''
+        vim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
       core = {
         editor = "vim";
         autocrlf = "input";

@@ -13,16 +13,15 @@
   };
 
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-8f9f4ba5-e524-4fa8-b986-73624f140b6a".device = "/dev/disk/by-uuid/8f9f4ba5-e524-4fa8-b986-73624f140b6a";
+  boot.initrd.luks.devices."luks-8f9f4ba5-e524-4fa8-b986-73624f140b6a".device =
+    "/dev/disk/by-uuid/8f9f4ba5-e524-4fa8-b986-73624f140b6a";
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_1;
 
     loader = {
       systemd-boot.enable = true;
-      efi = {
-        canTouchEfiVariables = true;
-      };
+      efi = { canTouchEfiVariables = true; };
 
       # timeout = 15;
       # grub = {
@@ -41,11 +40,7 @@
 
   security.pam.services.login.fprintAuth = false;
 
-  environment = {
-    systemPackages = with pkgs; [
-      fprintd
-    ];
-  };
+  environment = { systemPackages = with pkgs; [ fprintd ]; };
 
   systemd.services = {
     pritunl-client-service = {

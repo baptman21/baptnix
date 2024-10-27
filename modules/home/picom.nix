@@ -3,18 +3,11 @@
 # - theme: theme, must be one of tempest, whirlwind
 let
   colors = {
-    tempest = {
-      shadow_color = "#003175";
-    };
-    typhoon = {
-      shadow_color = "#5e1191";
-    };
-    whirlwind = {
-      shadow_color = "#00730b";
-    };
+    tempest = { shadow_color = "#003175"; };
+    typhoon = { shadow_color = "#5e1191"; };
+    whirlwind = { shadow_color = "#00730b"; };
   };
-in
-{ config, pkgs, ... }:
+in { config, pkgs, ... }:
 # Picom configuration
 {
   services.picom = {
@@ -27,7 +20,13 @@ in
     vSync = true;
 
     wintypes = {
-      tooltip = { fade = true; shadow = true; opacity = 0.75; focus = true; full-shadow = false; };
+      tooltip = {
+        fade = true;
+        shadow = true;
+        opacity = 0.75;
+        focus = true;
+        full-shadow = false;
+      };
       dock = { shadow = false; };
       dnd = { shadow = false; };
       popup_menu = { opacity = 0.8; };
@@ -40,7 +39,7 @@ in
 
     # ---- Fade ----
     fade = true;
-    fadeSteps = [ 0.03 0.03 ];
+    fadeSteps = [ 3.0e-2 3.0e-2 ];
 
     opacityRules = [
       "100:class_g = 'firefox'"
@@ -86,10 +85,8 @@ in
       #
       # blur-background-frame = false
 
-
       # Use fixed blur strength rather than adjusting according to window opacity.
       # blur-background-fixed = false
-
 
       # Specify the blur convolution kernel, with the following format:
       # example:
@@ -99,7 +96,6 @@ in
       # blur-kern = "3x3box";
       blur-kern = "5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1";
 
-
       # Exclude conditions for background blur.
       # blur-background-exclude = []
       blur-background-exclude = [
@@ -107,7 +103,6 @@ in
         "window_type = 'desktop'"
         "_GTK_FRAME_EXTENTS@:c"
       ];
-
 
       focus-exclude = [ "class_g = 'Cairo-clock'" ];
 

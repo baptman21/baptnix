@@ -8,18 +8,11 @@
 #
 let
   colors = {
-    tempest = {
-      primary = "#0458cf";
-    };
-    typhoon = {
-      primary = "#a51fff";
-    };
-    whirlwind = {
-      primary = "#11d116";
-    };
+    tempest = { primary = "#0458cf"; };
+    typhoon = { primary = "#a51fff"; };
+    whirlwind = { primary = "#11d116"; };
   };
-in
-{ config, pkgs, ... }:
+in { config, pkgs, ... }:
 # I3 configuration to use with KDE
 {
   home.shellAliases = {
@@ -31,9 +24,7 @@ in
     pkgs.i3lock-fancy
   ];
   # Files to include in the home
-  home.file.".background-image" = {
-    source = background_image;
-  };
+  home.file.".background-image" = { source = background_image; };
   # We add this file to disable the systemBoot option to allow i3 to replace
   # KNWM
   home.file.".config/startkderc" = {
@@ -54,10 +45,34 @@ in
           text = "${colors.${theme}.primary}";
           indicator = "${colors.${theme}.primary}";
         };
-        focusedInactive = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
-        unfocused = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#C4C7C5"; indicator = "#454948"; };
-        urgent = { border = "#01010177"; childBorder = "#01010177"; background = "#212B30"; text = "#EC7875"; indicator = "#268BD2"; };
-        placeholder = { border = "#00000077"; childBorder = "#000000"; background = "#0c0c0c"; text = "#ffffff"; indicator = "#000000"; };
+        focusedInactive = {
+          border = "#01010177";
+          childBorder = "#01010177";
+          background = "#212B30";
+          text = "#C4C7C5";
+          indicator = "#454948";
+        };
+        unfocused = {
+          border = "#01010177";
+          childBorder = "#01010177";
+          background = "#212B30";
+          text = "#C4C7C5";
+          indicator = "#454948";
+        };
+        urgent = {
+          border = "#01010177";
+          childBorder = "#01010177";
+          background = "#212B30";
+          text = "#EC7875";
+          indicator = "#268BD2";
+        };
+        placeholder = {
+          border = "#00000077";
+          childBorder = "#000000";
+          background = "#0c0c0c";
+          text = "#ffffff";
+          indicator = "#000000";
+        };
 
         background = "#000000";
       };
@@ -87,12 +102,16 @@ in
         "${modifier}+Return" = "exec konsole";
         "${modifier}+Shift+q" = "kill";
         "${modifier}+z" = "exec --no-startup-id morc_menu";
-        "${modifier}+shift+m" = "exec i3lock-fancy -p -t 'Well have you noticed the shields are still up ?!'";
+        "${modifier}+shift+m" =
+          "exec i3lock-fancy -p -t 'Well have you noticed the shields are still up ?!'";
         "${modifier}+t" = "exec --no-startup-id pkill picom ";
-        "${modifier}+Ctrl+t" = "exec --no-startup-id picom --experimental-backends -b";
-        "${modifier}+Ctrl+y" = "exec --no-startup-id systemctl --user restart polybar";
+        "${modifier}+Ctrl+t" =
+          "exec --no-startup-id picom --experimental-backends -b";
+        "${modifier}+Ctrl+y" =
+          "exec --no-startup-id systemctl --user restart polybar";
         "${modifier}+Ctrl+c" = "exec --no-startup-id conky -d -q";
-        "${modifier}+Shift+e" = "exec qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1";
+        "${modifier}+Shift+e" =
+          "exec qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1";
 
         "${modifier}+ctrl+r" = "move workspace to output left";
         "${modifier}+j" = "focus left";
@@ -112,7 +131,8 @@ in
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Right" = "move right";
         "${modifier}+b" = "workspace back_and_forth";
-        "${modifier}+Shift+b" = "move container to workspace back_and_forth; workspace back_and_forth";
+        "${modifier}+Shift+b" =
+          "move container to workspace back_and_forth; workspace back_and_forth";
         "${modifier}+h" = "split h;exec notify-send 'tile horizontally'";
         "${modifier}+v" = "split v;exec notify-send 'tile vertically'";
         "${modifier}+q" = "split toggle";

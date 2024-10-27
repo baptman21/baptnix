@@ -31,64 +31,60 @@ let
 
   nvim = config.programs.neovim.finalPackage;
 
-  lunarvimDrv = pkgs.stdenv.mkDerivation
-    {
-      pname = "lunarvim";
-      version = "1.4.0-unstable";
+  lunarvimDrv = pkgs.stdenv.mkDerivation {
+    pname = "lunarvim";
+    version = "1.4.0-unstable";
 
-      src = pkgs.fetchFromGitHub {
-        owner = "LunarVim";
-        repo = "LunarVim";
-        rev = "master";
-        sha256 = "sha256-lFX9vmNwbpd4dPpILS4B6Qea5OtqUd7ecaRLEzlkK3g=";
-      };
-
-      nativeBuildInputs = [ pkgs.makeWrapper pkgs.coreutils pkgs.gnused ];
-      buildInputs = [ nvim ];
-
-      buildPhase = ''
-        echo Skipping Build Phase
-      '';
-
-      installPhase = ''
-        runHook preInstall
-        mkdir -p $out/bin
-        cp -r $(pwd) $out/lvim
-
-        export shim="$out/lvim/utils/bin/lvim.template"
-
-        substituteInPlace "$shim" \
-          --replace "exec -a lvim nvim" "exec -a lvim ${nvim}/bin/nvim" \
-          --replace "RUNTIME_DIR_VAR" "\"${env.LUNARVIM_RUNTIME_DIR}\"" \
-          --replace "CONFIG_DIR_VAR" "\"${env.LUNARVIM_CONFIG_DIR}\"" \
-          --replace "CACHE_DIR_VAR" "\"${env.LUNARVIM_CACHE_DIR}\"" \
-          --replace "BASE_DIR_VAR" "\"$out/lvim\""
-
-        chmod +x "$shim"
-
-        makeWrapper "$shim" "$out/bin/lvim" \
-          --set LUNARVIM_RUNTIME_DIR "${env.LUNARVIM_RUNTIME_DIR}" \
-          --set LUNARVIM_CONFIG_DIR "${env.LUNARVIM_CONFIG_DIR}" \
-          --set LUNARVIM_CACHE_DIR "${env.LUNARVIM_CACHE_DIR}" \
-          --set LUNARVIM_BASE_DIR "$out/lvim" \
-          --prefix PATH : ${lib.makeBinPath (extraPackages ++ [ nvim ])}
-
-        runHook postInstall
-      '';
+    src = pkgs.fetchFromGitHub {
+      owner = "LunarVim";
+      repo = "LunarVim";
+      rev = "master";
+      sha256 = "sha256-lFX9vmNwbpd4dPpILS4B6Qea5OtqUd7ecaRLEzlkK3g=";
     };
 
-in
-{
-  home.packages = [
-    pkgs.nodePackages.neovim
-    pkgs.lua-language-server
-    lunarvimDrv
-  ];
+    nativeBuildInputs = [ pkgs.makeWrapper pkgs.coreutils pkgs.gnused ];
+    buildInputs = [ nvim ];
+
+    buildPhase = ''
+      echo Skipping Build Phase
+    '';
+
+    installPhase = ''
+      runHook preInstall
+      mkdir -p $out/bin
+      cp -r $(pwd) $out/lvim
+
+      export shim="$out/lvim/utils/bin/lvim.template"
+
+      substituteInPlace "$shim" \
+        --replace "exec -a lvim nvim" "exec -a lvim ${nvim}/bin/nvim" \
+        --replace "RUNTIME_DIR_VAR" "\"${env.LUNARVIM_RUNTIME_DIR}\"" \
+        --replace "CONFIG_DIR_VAR" "\"${env.LUNARVIM_CONFIG_DIR}\"" \
+        --replace "CACHE_DIR_VAR" "\"${env.LUNARVIM_CACHE_DIR}\"" \
+        --replace "BASE_DIR_VAR" "\"$out/lvim\""
+
+      chmod +x "$shim"
+
+      makeWrapper "$shim" "$out/bin/lvim" \
+        --set LUNARVIM_RUNTIME_DIR "${env.LUNARVIM_RUNTIME_DIR}" \
+        --set LUNARVIM_CONFIG_DIR "${env.LUNARVIM_CONFIG_DIR}" \
+        --set LUNARVIM_CACHE_DIR "${env.LUNARVIM_CACHE_DIR}" \
+        --set LUNARVIM_BASE_DIR "$out/lvim" \
+        --prefix PATH : ${lib.makeBinPath (extraPackages ++ [ nvim ])}
+
+      runHook postInstall
+    '';
+  };
+
+in {
+  home.packages =
+    [ pkgs.nodePackages.neovim pkgs.lua-language-server lunarvimDrv ];
 
   home.sessionVariables = env;
 
   # French dictionary
-  home.file.".config/lvim/spell/fr.utf-8.spl".source = vim-spell-fr-utf8-dictionary;
+  home.file.".config/lvim/spell/fr.utf-8.spl".source =
+    vim-spell-fr-utf8-dictionary;
 
   home.file.".config/lvim/config.lua" = {
     source = ../../assets/config/lvim/config.lua;
@@ -96,9 +92,7 @@ in
 
   # FT Plugin s for some filetype specific configuration
 
-  home.file.".config/lvim/after" = {
-    source = ../../assets/config/lvim/after;
-  };
+  home.file.".config/lvim/after" = { source = ../../assets/config/lvim/after; };
 
   # Tree sitter plugin
   home.file.".config/lvim/queries" = {
