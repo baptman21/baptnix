@@ -93,7 +93,7 @@
     pkgs.argocd
     pkgs.argo
     pkgs.awscli2
-    (pkgs.unstable.azure-cli.withExtensions [ pkgs.unstable.azure-cli-extensions.storage-actions ])
+    pkgs.azure-cli
     pkgs.circleci-cli
     pkgs.dig
     pkgs.firefox
