@@ -38,8 +38,6 @@ in
 {
   home.packages = [
     pkgs.nodePackages.neovim
-    # golang
-    pkgs.delve
     # lua
     pkgs.lua-language-server
     pkgs.luarocks
