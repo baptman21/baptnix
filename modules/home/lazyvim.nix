@@ -42,6 +42,8 @@ in {
     pkgs.luarocks
     pkgs.stylua
 
+    pkgs.markdownlint-cli2
+
     pkgs.nil
     pkgs.nixfmt-classic
 
@@ -50,6 +52,7 @@ in {
     pkgs.terraform-ls
 
     pkgs.ruff-lsp
+    pkgs.pyright
 
     pkgs.yaml-language-server
   ];
