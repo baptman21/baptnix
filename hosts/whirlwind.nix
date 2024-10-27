@@ -3,7 +3,6 @@
 {
   imports = [
     ../modules/system/i3-plasma.nix
-    ../modules/system/krb5.nix
     ../modules/system/docker.nix
     ../modules/system/bluetooth.nix
   ];
