@@ -95,14 +95,17 @@
   services = {
     printing.enable = true;
 
+    # Enable touchpad support
+    libinput.enable = true;
+
     xserver = {
       enable = true;
-      # Keyboard layout
-      layout = "us";
-      # Enable touchpad support
-      libinput.enable = true;
 
-      xkbVariant = "";
+      xkb = {
+        variant = "";
+        # Keyboard layout
+        layout = "us";
+      };
     };
 
     pipewire = {

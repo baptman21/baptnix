@@ -7,13 +7,18 @@ let
 in
 {
   services = {
+
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "plasma5+i3+bapt";
+    };
     xserver = {
       enable = true;
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
       displayManager = {
-        sddm.enable = true;
-        defaultSession = "plasma5+i3+bapt";
         session = [
           {
             manage = "desktop";
