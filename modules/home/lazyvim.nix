@@ -38,12 +38,19 @@ in
 {
   home.packages = [
     pkgs.nodePackages.neovim
+    # golang
+    pkgs.delve
+    # lua
     pkgs.lua-language-server
     pkgs.luarocks
     pkgs.stylua
+
     pkgs.shfmt
+
     pkgs.terraform-ls
+
     pkgs.ruff-lsp
+
     pkgs.yaml-language-server
   ];
 
