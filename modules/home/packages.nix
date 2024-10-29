@@ -80,5 +80,7 @@
 
     # Postgres
     pkgs.postgresql
+
+    pkgs.libreoffice
   ];
 }
