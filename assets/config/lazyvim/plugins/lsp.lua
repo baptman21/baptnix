@@ -14,7 +14,7 @@ return {
 			tsserver = { mason = false },
 			vtsls = { mason = false },
 
-                        yamlls = { mason = false},
+			yamlls = { mason = false },
 		},
 	},
 }
