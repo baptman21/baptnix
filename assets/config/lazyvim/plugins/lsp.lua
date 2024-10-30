@@ -5,13 +5,17 @@ return {
 		servers = {
 			lua_ls = { mason = false },
 
+			nil_ls = { mason = false },
+
+			gopls = { mason = false },
+
+			pyright = { mason = false },
 			ruff = { mason = false },
 			ruff_lsp = { mason = false },
 
 			terraformls = { mason = false },
 
 			ts_ls = { mason = false },
-			tsserver = { mason = false },
 			vtsls = { mason = false },
 
 			yamlls = { mason = false },

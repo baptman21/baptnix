@@ -72,6 +72,7 @@
 
     # Go
     pkgs.go
+    pkgs.gopls
     pkgs.golint
 
     # Rust
