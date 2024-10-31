@@ -11,6 +11,8 @@ return {
 
 			gopls = { mason = false },
 
+			marksman = { mason = false },
+
 			pyright = { mason = false },
 			ruff = { mason = false },
 			ruff_lsp = { mason = false },

@@ -42,6 +42,7 @@ in {
     pkgs.luarocks
     pkgs.stylua
 
+    pkgs.marksman
     pkgs.markdownlint-cli2
 
     pkgs.nil
