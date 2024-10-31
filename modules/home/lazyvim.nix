@@ -54,6 +54,8 @@ in {
     pkgs.ruff-lsp
     pkgs.pyright
 
+    pkgs.vscode-langservers-extracted
+
     pkgs.yaml-language-server
   ];
 

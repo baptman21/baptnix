@@ -7,6 +7,8 @@ return {
 
 			nil_ls = { mason = false },
 
+			jsonls = { mason = false },
+
 			gopls = { mason = false },
 
 			pyright = { mason = false },
