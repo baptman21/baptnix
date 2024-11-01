@@ -57,6 +57,8 @@ in {
 
     pkgs.vscode-langservers-extracted
 
+    pkgs.unstable.typescript-language-server
+
     pkgs.yaml-language-server
   ];
 
