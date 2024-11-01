@@ -59,7 +59,7 @@
     bash.enable = true;
   };
 
-  home.sessionPath = [ "$HOME/go/bin" ];
+  home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];
 
   home.shellAliases = {
     lvim = "zvim";
