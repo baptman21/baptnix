@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 # Packages to install without any specific configuration
 {
+  # Allow to install some binary outside of nix for npm and go
+  home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];
+
   home.packages = [
     # Shell utilities
     pkgs.tree
