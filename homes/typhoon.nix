@@ -62,7 +62,6 @@
   home.sessionPath = [ "$HOME/go/bin" ];
 
   home.shellAliases = {
-    # TODO: tmp to see if I prefer lazyvim to lunar
     lvim = "zvim";
 
     k = "kubectl";

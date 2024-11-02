@@ -28,7 +28,8 @@ let
       primary_rgb = "17,209,22";
     };
   };
-in { config, pkgs, ... }:
+in
+{ config, pkgs, ... }:
 let
   colors_with_theme = pkgs.substituteAll {
     src = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors.tmpl;
@@ -42,7 +43,7 @@ let
       owner = "EliverLara";
       repo = "Nordic";
       rev = "master";
-      sha256 = "sha256-slmrZSCtYB9HCa3E7hwMPoGuMSXwdNFc7M013jJs4IQ=";
+      sha256 = "sha256-I2NvhGNVRGMxWKDHXJ8a285P3C0f8pSfXsiVoHy5IgU=";
     };
 
     nativeBuildInputs = [ ];
@@ -96,7 +97,8 @@ let
       mv ./Nordic $out
     '';
   };
-in {
+in
+{
   home.file.".local/share/color-schemes/NordicDarker.colors".source =
     colors_with_theme;
   home.file.".local/share/konsole/Laconia.colorscheme".source =
