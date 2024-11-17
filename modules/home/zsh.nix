@@ -23,6 +23,9 @@
       # theme = "bapt";
       # custom = "${../../assets/zsh-custom}";
       plugins = [ "ssh-agent" "fzf" ];
+      extraConfig = ''
+        zstyle :omz:plugins:ssh-agent identities github_key
+      '';
     };
   };
 }
