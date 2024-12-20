@@ -42,7 +42,7 @@ let
       owner = "EliverLara";
       repo = "Nordic";
       rev = "master";
-      sha256 = "sha256-OZVURPajCye+BGGauYNG+hVuTJythku8RnRjU5Hqodw=";
+      sha256 = "sha256-FMA0hyhHY6LFIwmuw6+FWp0KnCQiLQL0sYmnlKlGpGc=";
     };
 
     nativeBuildInputs = [ ];
