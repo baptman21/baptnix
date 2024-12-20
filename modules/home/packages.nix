@@ -60,6 +60,7 @@
 
     # Python
     pkgs.unstable.poetry
+    pkgs.unstable.uv
     pkgs.python310
     pkgs.ruff-lsp
 
