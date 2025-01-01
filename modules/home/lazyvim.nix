@@ -36,7 +36,7 @@ let
 
 in {
   home.packages = [
-    pkgs.nodePackages.neovim
+    pkgs.neovim-node-client
     # lua
     pkgs.lua-language-server
     pkgs.luarocks

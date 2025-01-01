@@ -78,7 +78,7 @@ let
 
 in {
   home.packages =
-    [ pkgs.nodePackages.neovim pkgs.lua-language-server lunarvimDrv ];
+    [ pkgs.neovim-node-client pkgs.lua-language-server lunarvimDrv ];
 
   home.sessionVariables = env;
 
