@@ -22,12 +22,6 @@ in {
 
       "github.com" = { identityFile = sshDir + "/github_key"; };
 
-      "ssh.cri.epita.fr" = {
-        extraOptions = {
-          GSSAPIAuthentication = "yes";
-          GSSAPIDelegateCredentials = "yes";
-        };
-      };
     };
   };
 }
