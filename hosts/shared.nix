@@ -107,6 +107,9 @@
     # Enable touchpad support
     libinput.enable = true;
 
+    # Enable bin/bash shebang cf. https://unix.stackexchange.com/a/788456
+    envfs.enable = true;
+
     xserver = {
       enable = true;
 
