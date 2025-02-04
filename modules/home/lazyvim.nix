@@ -52,7 +52,7 @@ in {
 
     pkgs.terraform-ls
 
-    pkgs.ruff-lsp
+    pkgs.ruff
     pkgs.pyright
 
     pkgs.vscode-langservers-extracted
