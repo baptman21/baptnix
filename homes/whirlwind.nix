@@ -55,7 +55,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  home.shellAliases = { lvim = "zvim"; };
+  home.shellAliases = {
+    lvim = "zvim";
+    tf = "terraform";
+  };
 
   programs = {
     # Let Home Manager install and manage itself.
