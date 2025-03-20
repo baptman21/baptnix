@@ -55,6 +55,8 @@ in {
     pkgs.ruff
     pkgs.pyright
 
+    pkgs.sqlfluff
+
     pkgs.vscode-langservers-extracted
 
     pkgs.unstable.typescript-language-server
