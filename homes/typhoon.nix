@@ -37,6 +37,7 @@
     (import ../modules/home/polybar.nix { theme = "typhoon"; })
     ../modules/home/blueman.nix
     ../modules/home/kube.nix
+    ../modules/home/direnv.nix
   ];
 
   home.username = "baptman";
