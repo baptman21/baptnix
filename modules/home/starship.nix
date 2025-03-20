@@ -27,7 +27,7 @@ in { config, pkgs, ... }:
       add_newline = false;
 
       format =
-        "[┌\\[$username@$hostname\\]$localip$shlvl$singularity\\[$directory\\] $vcsh$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$docker_context$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$swift$terraform$vlang$vagrant$zig$buf$nix_shell$conda$meson$spack$memory_usage$aws$gcloud$openstack$azure$env_var$crystal$custom$sudo$cmd_duration$kubernetes[ ](bright-blue)$line_break└$jobs$battery$time$status$container$shell$character](${
+        "[┌\\[$username@$hostname\\]$localip$shlvl$singularity\\[$directory\\] $vcsh$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$docker_context$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$swift$terraform$vlang$vagrant$zig$buf$nix_shell$conda$meson$spack$direnv$memory_usage$aws$gcloud$openstack$azure$env_var$crystal$custom$sudo$cmd_duration$kubernetes[ ](bright-blue)$line_break└$jobs$battery$time$status$container$shell$character](${
           colors.${theme}.secondary
         })";
 
@@ -58,7 +58,12 @@ in { config, pkgs, ... }:
 
       direnv = {
         disabled = false;
-        style = "${colors.${theme}.primary}";
+        style = "bright-yellow";
+        allowed_msg = "";
+        loaded_msg = "";
+        not_allowed_msg = " ✗ not allowed";
+        denied_msg = " ✗ denied";
+        unloaded_msg = " ✗ not loaded";
       };
 
       character = { format = " "; };
@@ -121,6 +126,7 @@ in { config, pkgs, ... }:
       meson.format = "\\[[$symbol$project]($style)\\] ";
       nim.format = "\\[[$symbol($version)]($style)\\] ";
       nix_shell.format = "\\[[$symbol$state( \\($name\\))]($style)\\] ";
+      direnv.format = "\\[[$symbol $loaded$allowed]($style)\\] ";
       nodejs.format = "\\[[$symbol($version)]($style)\\] ";
       ocaml.format =
         "\\[[$symbol($version)(\\($switch_indicator$switch_name\\))]($style)\\] ";
@@ -175,6 +181,7 @@ in { config, pkgs, ... }:
       rust.symbol = " ";
       scala.symbol = " ";
       spack.symbol = "🅢 ";
+      direnv.symbol = "";
     } // extraSettings;
   };
 }
