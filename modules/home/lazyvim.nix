@@ -59,7 +59,14 @@ in {
 
     pkgs.vscode-langservers-extracted
 
+    pkgs.nodePackages.prettier
+
     pkgs.unstable.typescript-language-server
+
+    pkgs.gofumpt
+    pkgs.gotools
+    pkgs.delve
+    pkgs.fd
 
     pkgs.yaml-language-server
   ];
