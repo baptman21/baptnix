@@ -16,6 +16,9 @@
     pkgs.xclip
     pkgs.bc
 
+    # Abstraction over nix for package management in projects
+    pkgs.devbox
+
     pkgs.pre-commit
 
     # VLC
