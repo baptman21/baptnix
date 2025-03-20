@@ -56,6 +56,11 @@ in { config, pkgs, ... }:
         format = "[\\[$symbol$number\\]]($style)";
       };
 
+      direnv = {
+        disabled = false;
+        style = "${colors.${theme}.primary}";
+      };
+
       character = { format = " "; };
 
       shell = {
