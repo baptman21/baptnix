@@ -18,6 +18,7 @@
 
     # Abstraction over nix for package management in projects
     pkgs.devbox
+    pkgs.direnv
 
     pkgs.pre-commit
 
