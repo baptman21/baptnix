@@ -5,6 +5,8 @@ return {
 		servers = {
 			lua_ls = { mason = false },
 
+			svelte = { mason = false },
+
 			nil_ls = { mason = false },
 
 			jsonls = { mason = false },
