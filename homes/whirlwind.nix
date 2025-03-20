@@ -36,6 +36,7 @@
     (import ../modules/home/picom.nix { theme = "whirlwind"; })
     (import ../modules/home/polybar.nix { theme = "whirlwind"; })
     ../modules/home/blueman.nix
+    ../modules/home/kube.nix
   ];
 
   home.username = "baptman";
