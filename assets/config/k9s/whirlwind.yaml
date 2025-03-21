@@ -2,11 +2,11 @@ colors:
   foreground: &foreground "#11d116"
   background: &background default
   current_line: &current_line cyan
-  selection: &selection darkcyan
+  selection: &selection limegreen
   comment: &comment silver
-  cyan: &cyan pink # "#09730d" # secondary
-  green: &green forestgreen
-  yellow: &yellow darkcyan # active color
+  cyan: &cyan pink # secondary
+  green: &green "#09730d"
+  yellow: &yellow yellow
   orange: &orange orange
   magenta: &magenta darkcyan
   blue: &blue goldenrod # icon
@@ -38,7 +38,7 @@ k9s:
     bgColor: *background
     keyColor: *cyan
     numKeyColor: *magenta
-    sectionColor: *red
+    sectionColor: *blue
   frame:
     border:
       fgColor: *selection
@@ -49,8 +49,8 @@ k9s:
       numKeyColor: *magenta
     crumbs:
       fgColor: *foreground
-      bgColor: *cyan
-      activeColor: *yellow
+      bgColor: *background
+      activeColor: *current_line
     status:
       newColor: *cyan
       modifyColor: *blue

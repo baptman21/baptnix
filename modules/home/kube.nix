@@ -20,7 +20,12 @@
 
   programs.k9s = {
     enable = true;
-    settings = { k9s = { ui = { skin = theme; }; }; };
+    settings = {
+      k9s = {
+        ui = { skin = theme; };
+        featureGates = { nodeShell = true; };
+      };
+    };
     skins = {
       typhoon = ../../assets/config/k9s/typhoon.yaml;
       whirlwind = ../../assets/config/k9s/whirlwind.yaml;
