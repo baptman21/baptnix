@@ -36,7 +36,7 @@
     (import ../modules/home/picom.nix { theme = "whirlwind"; })
     (import ../modules/home/polybar.nix { theme = "whirlwind"; })
     ../modules/home/blueman.nix
-    ../modules/home/kube.nix
+    (import ../modules/home/kube.nix { theme = "whirlwind"; })
     ../modules/home/direnv.nix
   ];
 

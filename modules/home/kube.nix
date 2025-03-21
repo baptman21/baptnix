@@ -1,8 +1,14 @@
+{ theme }:
+# Kube configuration
+#
+# Args:
+# - theme: name of the them to use for k9s
+#   * typhoon
+#   * whirlind
 { config, pkgs, ... }:
 # Config for kube
 {
   home.packages = [
-    pkgs.k9s
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
@@ -11,6 +17,15 @@
     pkgs.kubectl-view-secret
     pkgs.kube-linter
   ];
+
+  programs.k9s = {
+    enable = true;
+    settings = { k9s = { ui = { skin = theme; }; }; };
+    skins = {
+      typhoon = ../../assets/config/k9s/typhoon.yaml;
+      whirlwind = ../../assets/config/k9s/whirlwind.yaml;
+    };
+  };
 
   home.shellAliases = {
     k = "kubectl";

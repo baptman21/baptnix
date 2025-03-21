@@ -36,7 +36,7 @@
     (import ../modules/home/picom.nix { theme = "typhoon"; })
     (import ../modules/home/polybar.nix { theme = "typhoon"; })
     ../modules/home/blueman.nix
-    ../modules/home/kube.nix
+    (import ../modules/home/kube.nix { theme = "typhoon"; })
     ../modules/home/direnv.nix
   ];
 
