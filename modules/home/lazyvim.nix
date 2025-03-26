@@ -70,6 +70,8 @@ in {
     pkgs.fd
 
     pkgs.yaml-language-server
+
+    pkgs.jsonnet-language-server
   ];
 
   home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };

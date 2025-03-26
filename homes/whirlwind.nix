@@ -65,4 +65,6 @@
     home-manager.enable = true;
     bash.enable = true;
   };
+
+  home.packages = [ pkgs.terragrunt ];
 }

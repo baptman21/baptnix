@@ -100,5 +100,7 @@
     pkgs.kubectl-node-shell
     pkgs.kubectl-view-secret
     pkgs.kube-linter
+
+    pkgs.go-jsonnet
   ];
 }
