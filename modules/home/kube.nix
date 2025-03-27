@@ -16,7 +16,10 @@
     pkgs.kubectl-node-shell
     pkgs.kubectl-view-secret
     pkgs.kube-linter
+    pkgs.kustomize
   ];
+
+  programs.kubecolor = { enable = true; };
 
   programs.k9s = {
     enable = true;
