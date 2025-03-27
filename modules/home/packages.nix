@@ -102,5 +102,6 @@
     pkgs.kube-linter
 
     pkgs.go-jsonnet
+    pkgs.jsonnet-bundler
   ];
 }
