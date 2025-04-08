@@ -100,6 +100,9 @@
 
   hardware.pulseaudio.enable = false;
 
+  # Allow the flash of ZSA keyboars
+  hardware.keyboard.zsa.enable = true;
+
   # Enable the X11 windowing system.
   services = {
     printing.enable = true;
