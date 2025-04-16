@@ -17,7 +17,6 @@ return {
 
 			pyright = { mason = false },
 			ruff = { mason = false },
-			ruff_lsp = { mason = false },
 
 			terraformls = { mason = false },
 
