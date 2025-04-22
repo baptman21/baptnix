@@ -9,6 +9,7 @@
 # Config for kube
 {
   home.packages = [
+    pkgs.kind
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
