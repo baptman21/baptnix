@@ -10,6 +10,7 @@
 {
   home.packages = [
     pkgs.kind
+    pkgs.fluxcd
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kubectx
