@@ -3,6 +3,8 @@ return {
 	-- Use servers already in the path instead of relying on mason
 	opts = {
 		servers = {
+			bashls = { mason = false },
+
 			lua_ls = { mason = false },
 
 			svelte = { mason = false },
