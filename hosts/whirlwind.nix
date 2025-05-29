@@ -7,6 +7,9 @@
     ../modules/system/bluetooth.nix
   ];
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "baptman" ];
+
   # Setup keyfile
   boot.initrd.secrets = { "/crypto_keyfile.bin" = null; };
 
