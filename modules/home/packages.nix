@@ -1,107 +1,110 @@
 { config, pkgs, ... }:
 # Packages to install without any specific configuration
 {
-  # Allow to install some binary outside of nix for npm and go
-  home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];
 
-  home.packages = [
-    # Shell utilities
-    pkgs.tree
-    pkgs.bat
-    pkgs.file
-    pkgs.coreutils
-    pkgs.gnugrep
-    pkgs.ranger
-    pkgs.unzip
-    pkgs.xclip
-    pkgs.bc
+  config = {
+    # Allow to install some binary outside of nix for npm and go
+    home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];
 
-    # Abstraction over nix for package management in projects
-    pkgs.devbox
+    home.packages = [
+      # Shell utilities
+      pkgs.tree
+      pkgs.bat
+      pkgs.file
+      pkgs.coreutils
+      pkgs.gnugrep
+      pkgs.ranger
+      pkgs.unzip
+      pkgs.xclip
+      pkgs.bc
 
-    pkgs.pre-commit
+      # Abstraction over nix for package management in projects
+      pkgs.devbox
 
-    # VLC
-    pkgs.vlc
+      pkgs.pre-commit
 
-    # Node
-    pkgs.nodejs
+      # VLC
+      pkgs.vlc
 
-    # Java
-    pkgs.openjdk17
+      # Node
+      pkgs.nodejs
 
-    # Nix formatter
-    pkgs.nixpkgs-fmt
+      # Java
+      pkgs.openjdk17
 
-    # Npm
-    pkgs.nodePackages.npm
-    pkgs.nodePackages.pnpm
+      # Nix formatter
+      pkgs.nixpkgs-fmt
 
-    # yaml formatter
-    pkgs.nodePackages.markdownlint-cli
+      # Npm
+      pkgs.nodePackages.npm
+      pkgs.nodePackages.pnpm
 
-    # C/C++
-    pkgs.gnumake
-    pkgs.clang-tools_14
-    pkgs.gcc.out
-    pkgs.glib.out
+      # yaml formatter
+      pkgs.nodePackages.markdownlint-cli
 
-    # Json
-    pkgs.jq
-    pkgs.yq
+      # C/C++
+      pkgs.gnumake
+      pkgs.clang-tools_14
+      pkgs.gcc.out
+      pkgs.glib.out
 
-    # Git/github
-    pkgs.gh # github cli
+      # Json
+      pkgs.jq
+      pkgs.yq
 
-    # Hashicorp stuff
-    pkgs.unstable.terraform
-    pkgs.unstable.vault-bin
-    pkgs.terraform-ls
+      # Git/github
+      pkgs.gh # github cli
 
-    # Openssl
-    pkgs.openssl
+      # Hashicorp stuff
+      pkgs.unstable.terraform
+      pkgs.unstable.vault-bin
+      pkgs.terraform-ls
 
-    # Python
-    pkgs.ruff
-    pkgs.unstable.poetry
-    pkgs.unstable.uv
-    pkgs.python310
+      # Openssl
+      pkgs.openssl
 
-    pkgs.google-chrome
-    pkgs.firefox
+      # Python
+      pkgs.ruff
+      pkgs.unstable.poetry
+      pkgs.unstable.uv
+      pkgs.python310
 
-    pkgs.slack
-    pkgs.discord
+      pkgs.google-chrome
+      pkgs.firefox
 
-    pkgs.spotify
+      pkgs.slack
+      pkgs.discord
 
-    # Zip
-    pkgs.ark
+      pkgs.spotify
 
-    # Go
-    pkgs.go
-    pkgs.gopls
-    pkgs.golint
+      # Zip
+      pkgs.ark
 
-    # Rust
-    pkgs.cargo
-    pkgs.rustc
+      # Go
+      pkgs.go
+      pkgs.gopls
+      pkgs.golint
 
-    # Postgres
-    pkgs.postgresql
+      # Rust
+      pkgs.cargo
+      pkgs.rustc
 
-    pkgs.libreoffice
+      # Postgres
+      pkgs.postgresql
 
-    # Kubernetes
-    pkgs.kubectl
-    pkgs.kubernetes-helm
-    pkgs.kubectx
-    pkgs.kubectl-neat
-    pkgs.kubectl-node-shell
-    pkgs.kubectl-view-secret
-    pkgs.kube-linter
+      pkgs.libreoffice
 
-    pkgs.go-jsonnet
-    pkgs.jsonnet-bundler
-  ];
+      # Kubernetes
+      pkgs.kubectl
+      pkgs.kubernetes-helm
+      pkgs.kubectx
+      pkgs.kubectl-neat
+      pkgs.kubectl-node-shell
+      pkgs.kubectl-view-secret
+      pkgs.kube-linter
+
+      pkgs.go-jsonnet
+      pkgs.jsonnet-bundler
+    ];
+  };
 }

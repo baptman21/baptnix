@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-# Config for kube
+# Config for direnv
 {
-  programs.direnv = { enable = true; };
+  config = { programs.direnv = { enable = true; }; };
 }

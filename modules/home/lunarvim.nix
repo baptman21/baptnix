@@ -77,25 +77,29 @@ let
   };
 
 in {
-  home.packages =
-    [ pkgs.neovim-node-client pkgs.lua-language-server lunarvimDrv ];
+  config = {
+    home.packages =
+      [ pkgs.neovim-node-client pkgs.lua-language-server lunarvimDrv ];
 
-  home.sessionVariables = env;
+    home.sessionVariables = env;
 
-  # French dictionary
-  home.file.".config/lvim/spell/fr.utf-8.spl".source =
-    vim-spell-fr-utf8-dictionary;
+    # French dictionary
+    home.file.".config/lvim/spell/fr.utf-8.spl".source =
+      vim-spell-fr-utf8-dictionary;
 
-  home.file.".config/lvim/config.lua" = {
-    source = ../../assets/config/lvim/config.lua;
-  };
+    home.file.".config/lvim/config.lua" = {
+      source = ../../assets/config/lvim/config.lua;
+    };
 
-  # FT Plugin s for some filetype specific configuration
+    # FT Plugin s for some filetype specific configuration
 
-  home.file.".config/lvim/after" = { source = ../../assets/config/lvim/after; };
+    home.file.".config/lvim/after" = {
+      source = ../../assets/config/lvim/after;
+    };
 
-  # Tree sitter plugin
-  home.file.".config/lvim/queries" = {
-    source = ../../assets/config/lvim/queries;
+    # Tree sitter plugin
+    home.file.".config/lvim/queries" = {
+      source = ../../assets/config/lvim/queries;
+    };
   };
 }

@@ -35,49 +35,51 @@ let
   };
 
 in {
-  home.packages = [
-    pkgs.neovim-node-client
+  config = {
+    home.packages = [
+      pkgs.neovim-node-client
 
-    pkgs.bash-language-server
-    pkgs.shellcheck
-    # lua
-    pkgs.lua-language-server
-    pkgs.luarocks
-    pkgs.stylua
+      pkgs.bash-language-server
+      pkgs.shellcheck
+      # lua
+      pkgs.lua-language-server
+      pkgs.luarocks
+      pkgs.stylua
 
-    pkgs.marksman
-    pkgs.markdownlint-cli2
+      pkgs.marksman
+      pkgs.markdownlint-cli2
 
-    pkgs.nil
-    pkgs.nixfmt-classic
+      pkgs.nil
+      pkgs.nixfmt-classic
 
-    pkgs.shfmt
+      pkgs.shfmt
 
-    pkgs.terraform-ls
+      pkgs.terraform-ls
 
-    pkgs.ruff
-    pkgs.pyright
+      pkgs.ruff
+      pkgs.pyright
 
-    pkgs.sqlfluff
+      pkgs.sqlfluff
 
-    pkgs.vscode-langservers-extracted
+      pkgs.vscode-langservers-extracted
 
-    pkgs.nodePackages.prettier
+      pkgs.nodePackages.prettier
 
-    pkgs.svelte-language-server
-    pkgs.unstable.typescript-language-server
+      pkgs.svelte-language-server
+      pkgs.unstable.typescript-language-server
 
-    pkgs.gofumpt
-    pkgs.gotools
-    pkgs.delve
-    pkgs.fd
+      pkgs.gofumpt
+      pkgs.gotools
+      pkgs.delve
+      pkgs.fd
 
-    pkgs.yaml-language-server
+      pkgs.yaml-language-server
 
-    pkgs.unstable.jsonnet-language-server
-  ];
+      pkgs.unstable.jsonnet-language-server
+    ];
 
-  home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };
+    home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };
 
-  home.shellAliases = { zvim = "NVIM_APPNAME=nvim-lazyvim nvim"; };
+    home.shellAliases = { zvim = "NVIM_APPNAME=nvim-lazyvim nvim"; };
+  };
 }

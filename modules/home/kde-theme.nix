@@ -97,21 +97,22 @@ let
     '';
   };
 in {
-  home.file.".local/share/color-schemes/NordicDarker.colors".source =
-    colors_with_theme;
-  home.file.".local/share/konsole/Laconia.colorscheme".source =
-    ../../assets/kde-theme-custom/konsole/Laconia.colorscheme;
+  config = {
+    home.file.".local/share/color-schemes/NordicDarker.colors".source =
+      colors_with_theme;
+    home.file.".local/share/konsole/Laconia.colorscheme".source =
+      ../../assets/kde-theme-custom/konsole/Laconia.colorscheme;
 
-  home.file.".local/share/plasma/desktoptheme/Nordic-darker".source =
-    NordicDarkerKdeGit;
+    home.file.".local/share/plasma/desktoptheme/Nordic-darker".source =
+      NordicDarkerKdeGit;
 
-  home.file.".local/share/aurorae/themes/Nordic".source = NordicDarkerGit
-    + "/kde/aurorae/Nordic";
-  home.file.".local/share/plasma/look-and-feel/Nordic-darker".source =
-    NordicDarkerGit + "/kde/plasma/look-and-feel/Nordic-darker";
-  home.file.".local/share/icons/Nordic-darker".source = NordicDarkerGit
-    + "/kde/folders/Nordic-darker";
-  home.file.".icons/Nordic-cursors".source = NordicDarkerGit
-    + "/kde/cursors/Nordic-cursors";
-
+    home.file.".local/share/aurorae/themes/Nordic".source = NordicDarkerGit
+      + "/kde/aurorae/Nordic";
+    home.file.".local/share/plasma/look-and-feel/Nordic-darker".source =
+      NordicDarkerGit + "/kde/plasma/look-and-feel/Nordic-darker";
+    home.file.".local/share/icons/Nordic-darker".source = NordicDarkerGit
+      + "/kde/folders/Nordic-darker";
+    home.file.".icons/Nordic-cursors".source = NordicDarkerGit
+      + "/kde/cursors/Nordic-cursors";
+  };
 }
