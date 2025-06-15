@@ -4,13 +4,9 @@
   homebrew = {
     enable = true;
 
-    onActivation = {
-      autoUpdate = false;
-    };
+    onActivation = { autoUpdate = false; };
 
-    taps = [
-      "homebrew/services"
-    ];
+    taps = [ "homebrew/services" ];
 
     # `brew install`
     brews = [

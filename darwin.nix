@@ -7,7 +7,7 @@ let
       specialArgs = { inherit inputs; };
 
       modules = [
-	# TODO: add shared module if needed
+        # TODO: add shared module if needed
       ] ++ modules;
     };
 in {

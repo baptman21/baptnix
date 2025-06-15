@@ -2,8 +2,7 @@
 let
   hostname = "F257QQPYTF";
   username = "baptiste.bourdet";
-in
-{
+in {
   imports = [
     # ../modules/darwin/homebrew.nix
   ];
@@ -24,7 +23,7 @@ in
   networking.computerName = hostname;
   system.defaults.smb.NetBIOSName = hostname;
 
-  users.users."${username}"= {
+  users.users."${username}" = {
     home = "/Users/${username}";
     description = username;
   };
