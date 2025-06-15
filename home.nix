@@ -1,9 +1,18 @@
-{ inputs, lib, pkgs, system, ... }:
+{ inputs, outputs, importPkgs, ... }:
 let
-  mkHome = modules:
+  mkHome = { pkgs, modules }:
     inputs.home-manager.lib.homeManagerConfiguration { inherit pkgs modules; };
 in {
-  tempest = mkHome [ ./homes/tempest.nix ];
-  typhoon = mkHome [ ./homes/typhoon.nix ];
-  whirlwind = mkHome [ ./homes/whirlwind.nix ];
+  tempest = mkHome {
+    modules = [ ./homes/tempest.nix ];
+    pkgs = importPkgs { system = "x86_64-linux"; };
+  };
+  typhoon = mkHome {
+    modules = [ ./homes/typhoon.nix ];
+    pkgs = importPkgs { system = "x86_64-linux"; };
+  };
+  whirlwind = mkHome {
+    modules = [ ./homes/whirlwind.nix ];
+    pkgs = importPkgs { system = "x86_64-linux"; };
+  };
 }

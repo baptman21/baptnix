@@ -161,9 +161,6 @@
     '';
   };
 
-  # Allow proprietary software.
-  nixpkgs.config.allowUnfree = true;
-
   system = {
     # You should not modify this by hand !
     stateVersion = "23.11";

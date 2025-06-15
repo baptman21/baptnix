@@ -14,28 +14,28 @@
 
   outputs = { self, nixpkgs, unstable, home-manager }@inputs:
     let
-      system = "x86_64-linux";
+      inherit (self) outputs;
 
       lib = nixpkgs.lib;
 
-      unstable = import inputs.unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        overlays = [
-          (import ./overlays/discord.nix)
-          (final: prev: { inherit unstable; })
-        ];
-      };
+      importPkgs = { system, overlaysOverride ? null }:
+        # Import pkgs
+        # With lazyness, this will only be done once per system. Most will use
+        # the same pkgs.
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = if overlaysOverride == null then [
+            (import ./overlays/discord.nix)
+            (import ./overlays/unstable.nix { inherit inputs; })
+          ] else
+            overlaysOverride;
+        };
     in {
       nixosConfigurations =
-        import ./hosts.nix { inherit inputs lib pkgs system; };
+        import ./hosts.nix { inherit inputs outputs lib importPkgs; };
 
       homeConfigurations =
-        import ./home.nix { inherit inputs lib pkgs system; };
+        import ./home.nix { inherit inputs outputs lib importPkgs; };
     };
 }

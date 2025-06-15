@@ -1,12 +1,10 @@
-{ inputs, lib, pkgs, system, ... }:
+{ inputs, outputs, importPkgs, ... }:
 let
-  mkHost = { name, system, modules }:
-    let
+  mkHost = { name, system, pkgs, modules }:
+    inputs.nixpkgs.lib.nixosSystem {
+      inherit system pkgs;
 
-    in inputs.nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      specialArgs = { inherit pkgs inputs system; };
+      specialArgs = { inherit inputs system; };
 
       modules = [
         { networking.hostName = "${name}"; }
@@ -17,19 +15,22 @@ let
 in {
   whirlwind = mkHost {
     name = "whirlwind";
-    inherit system;
+    system = "x86_64-linux";
+    pkgs = importPkgs { system = "x86_64-linux"; };
     modules = [ ./hosts/whirlwind.nix ];
   };
 
   typhoon = mkHost {
     name = "typhoon";
-    inherit system;
+    system = "x86_64-linux";
+    pkgs = importPkgs { system = "x86_64-linux"; };
     modules = [ ./hosts/typhoon.nix ];
   };
 
   tempest = mkHost {
     name = "tempest";
-    inherit system;
+    system = "x86_64-linux";
+    pkgs = importPkgs { system = "x86_64-linux"; };
     modules = [ ./hosts/tempest.nix ];
   };
 }
