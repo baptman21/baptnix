@@ -10,9 +10,14 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager }@inputs:
+  outputs = { self, nixpkgs, unstable, home-manager, nix-darwin }@inputs:
     let
       inherit (self) outputs;
 
@@ -37,5 +42,8 @@
 
       homeConfigurations =
         import ./home.nix { inherit inputs outputs lib importPkgs; };
+
+      darwinConfigurations =
+        import ./darwin.nix { inherit inputs outputs lib importPkgs; };
     };
 }

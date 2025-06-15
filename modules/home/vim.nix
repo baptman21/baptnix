@@ -2,7 +2,7 @@
 # Vim configuration
 let
   vim-spell-fr-utf8-dictionary = builtins.fetchurl {
-    url = "http://ftp.vim.org/vim/runtime/spell/fr.utf-8.spl";
+    url = "https://www.mirrorservice.org/pub/vim/runtime/spell/fr.utf-8.spl";
     sha256 = "abfb9702b98d887c175ace58f1ab39733dc08d03b674d914f56344ef86e63b61";
   };
 in {
@@ -25,7 +25,7 @@ in {
       source = pkgs.fetchurl {
         url =
           "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
-        sha256 = "sha256-ILTIlfmNE4SCBGmAaMTdAxcw1OfJxLYw1ic7m5r83Ns=";
+        sha256 = "sha256-wtiZhGmgSaUSJacRKKEpF7N5gi0WtjlJPinqAth4cwY";
       };
       target = ".vim/autoload/plug.vim";
     };

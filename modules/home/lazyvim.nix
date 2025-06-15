@@ -12,7 +12,7 @@ let
       owner = "LazyVim";
       repo = "starter";
       rev = "master";
-      sha256 = "sha256-nB63tBRIU9Ma9Sv/9xNCy4563HJ2DYqQshbExN/PUo0=";
+      sha256 = "sha256-QrpnlDD4r1X4C8PqBhQ+S3ar5C+qDrU1Jm/lPqyMIFM=";
     };
 
     nativeBuildInputs = [ pkgs.makeWrapper pkgs.coreutils pkgs.gnused ];
