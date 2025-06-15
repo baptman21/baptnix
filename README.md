@@ -1,9 +1,15 @@
 # BaptNix
 
-Nix configuration for a [Nixos](https://nixos.org/) environment with
-[home-manager](https://github.com/nix-community/home-manager) (and flakes).
+Nix configuration for multiple environments:
+
+- Some [Nixos](https://nixos.org/) hosts with [home-manager](https://github.com/nix-community/home-manager)
+  (and flakes).
+- Some Standalone `home-manager` environments
+- Some [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) environments
 
 ## Installation
+
+### Nixos configuration
 
 Install `nixos` on your machine.
 
@@ -13,31 +19,42 @@ The `/etc/nixos/hardware-configuration.nix` will be used by the configuration
 of the hosts, make sure it is valid for your configuration.
 
 ```bash
-$ sudo nixos-rebuild -j auto --impure --flake <path>#<host> switch
+sudo nixos-rebuild -j auto --impure --flake <path>#<host> switch
 ```
+
+### Standalone Home Manager configuration
 
 Install [home-manager](https://github.com/nix-community/home-manager).
 
 Run `home-manager`.
 
 ```bash
-$ home-manager switch --flake <path>#<home>
+home-manager switch --flake <path>#<home>
 ```
 
 ## Structure
 
 ```bash
-$ 
+$
 .
 ├── assets/                # Assets for the configuration
 ├── flake.lock
 ├── flake.nix
-├── home.nix               # Definitions of homes for home-manager
+├── darwin.nix             # Definitions of Darwin environments, to keep flake cleaner
+│
+├── darwin/
+│   └── strom.nix          # Definition of a Darwin environments.
+│
+├── home.nix               # Definitions of homes for home-manager, to keep flake cleaner
+│
+├── homes/
+│   └── tempest.nix        # Definition of a Home. May be used by a Host or Darwin environments
+│
+├── hosts.nix              # Definitions of Hosts, to keep flake cleaner
 │
 ├── hosts/
-│   ├── baptcomp/          # Specific configuration for the host and home
-│   ├── baptcomp.nix       # definition of an host
-│   └── configuration.nix  # General configuration.nix used by all hosts
+│   ├── tempest.nix        # Definition of an host
+│   └── shared.nix         # Shared configuration.nix used by all hosts
 │
 ├── modules/               # Modules that can be shared by multiple hosts
 │   ├── home/              # Home manager modules
@@ -49,12 +66,9 @@ $
 
 Currently the following hosts are available:
 
-* [baptcomp](./hosts/baptcomp.nix)
+- [tempest](./hosts/tempest.nix)
+- [whirlwind](./hosts/whirlwind.nix)
+- [typhoon](./hosts/typhoon.nix)
 
-## Disclaimer
-
-Even if in theory hosts and home-manager configuration are separated, on some
-level they need each-other. Especially for i3-plasma configuration where i3
-configuration is managed by `home-manager` but is needed for the i3+kde plasma
-of the host to work. It is advised to always use both the host and the home of
-every configuration available.
+> [!WARNING]
+> Typhoon is currently deprecated and not used
