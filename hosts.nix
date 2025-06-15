@@ -4,7 +4,7 @@ let
     inputs.nixpkgs.lib.nixosSystem {
       inherit system pkgs;
 
-      specialArgs = { inherit inputs system; };
+      specialArgs = { inherit inputs; };
 
       modules = [
         { networking.hostName = "${name}"; }
@@ -17,7 +17,16 @@ in {
     name = "whirlwind";
     system = "x86_64-linux";
     pkgs = importPkgs { system = "x86_64-linux"; };
-    modules = [ ./hosts/whirlwind.nix ];
+    modules = [
+      ./hosts/whirlwind.nix
+      inputs.home-manager.nixosModules.home-manager
+      ({
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.baptman = ./homes/whirlwind.nix;
+      })
+    ];
+
   };
 
   typhoon = mkHost {

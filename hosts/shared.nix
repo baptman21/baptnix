@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, user, system, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
   imports = [ ];
@@ -89,13 +89,7 @@
 
     localBinInPath = true;
 
-    systemPackages = with pkgs; [
-      vim
-      git
-      wget
-      inputs.home-manager.defaultPackage.${system}
-      pipewire
-    ];
+    systemPackages = with pkgs; [ vim git wget pipewire ];
   };
 
   hardware.pulseaudio.enable = false;
