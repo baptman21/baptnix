@@ -11,8 +11,6 @@ in {
 
   nix.settings.experimental-features = "nix-command flakes";
 
-  system.stateVersion = 5;
-
   nixpkgs.hostPlatform = "${pkgs.system}";
 
   # Auto upgrade nix package and the daemon service.
@@ -21,7 +19,16 @@ in {
 
   networking.hostName = hostname;
   networking.computerName = hostname;
-  system.defaults.smb.NetBIOSName = hostname;
+  system = {
+    stateVersion = 5;
+    defaults = {
+      smb.NetBIOSName = hostname;
+      NSGlobalDomain."com.apple.sound.beep.volume" = 0.0;
+      finder.AppleShowAllExtensions = true;
+      screensaver.askForPassword = true;
+      NSGlobalDomain."com.apple.swipescrolldirection" = false;
+    };
+  };
 
   users.users."${username}" = {
     home = "/Users/${username}";
@@ -29,6 +36,4 @@ in {
   };
 
   nix.settings.trusted-users = [ username ];
-
-  system.defaults.NSGlobalDomain."com.apple.sound.beep.volume" = 0.0;
 }

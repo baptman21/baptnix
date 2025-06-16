@@ -6,6 +6,7 @@
     ../modules/home/darwin_packages.nix
     # apps
     ../modules/home/fzf.nix
+    ../modules/home/alacritty.nix
     ../modules/home/git.nix
     ../modules/home/neovim.nix
     ../modules/home/lazyvim.nix
