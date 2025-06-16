@@ -30,9 +30,9 @@ vim.opt.backup = true
 vim.opt.undofile = true
 vim.opt.swapfile = true
 
-vim.opt.backupdir = "/home/baptman/.local/share/zvim/tmp/backup"
-vim.opt.undodir = "/home/baptman/.local/share/zvim/tmp/undo"
-vim.opt.directory = "/home/baptman/.local/share/zvim/tmp/swap"
+vim.opt.backupdir = vim.fn.expand("$HOME/.local/share/zvim/tmp/backup")
+vim.opt.undodir = vim.fn.expand("$HOME/.local/share/zvim/tmp/undo")
+vim.opt.directory = vim.fn.expand("$HOME/.local/share/zvim/tmp/swap")
 
 vim.opt.signcolumn = "auto" -- Always show the signcolumn, otherwise it would shift the text each time
 

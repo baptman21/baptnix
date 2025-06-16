@@ -36,9 +36,9 @@ vim.opt.backup = true
 vim.opt.undofile = true
 vim.opt.swapfile = true
 
-vim.opt.backupdir = "/home/baptman/.local/share/lvim/tmp/backup"
-vim.opt.undodir = "/home/baptman/.local/share/lvim/tmp/undo"
-vim.opt.directory = "/home/baptman/.local/share/lvim/tmp/swap"
+vim.opt.backupdir = vim.fn.expand("$HOME/.local/share/lvim/tmp/backup")
+vim.opt.undodir = vim.fn.expand("$HOME/.local/share/lvim/tmp/undo")
+vim.opt.directory = vim.fn.expand("$HOME/.local/share/lvim/tmp/swap")
 
 -- Misc
 vim.opt.smartcase = true
