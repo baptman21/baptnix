@@ -53,8 +53,6 @@
     # changes in each release.
     home.stateVersion = "23.11";
 
-    nixpkgs.config.allowUnfree = true;
-
     home.shellAliases = {
       lvim = "zvim";
       tf = "terraform";
