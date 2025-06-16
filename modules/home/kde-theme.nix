@@ -30,10 +30,10 @@ let
   };
 in { config, pkgs, ... }:
 let
-  colors_with_theme = pkgs.substituteAll {
-    src = ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors.tmpl;
-    theme_color = colors.${theme}.primary_rgb;
-  };
+  colors_with_theme = pkgs.replaceVars
+    ../../assets/kde-theme-custom/colorschemes/NordicDarker.colors.tmpl {
+      theme_color = colors.${theme}.primary_rgb;
+    };
 
   NordicDarkerGit = pkgs.stdenv.mkDerivation {
     name = "nordic-darker";
@@ -41,13 +41,17 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "EliverLara";
       repo = "Nordic";
-      rev = "master";
-      sha256 = "sha256-VEn5LsQMGBC2IzpyTGC7PN5VNWczRSbglJJHHMojZpI=";
+      rev = "17ccf8703bfaf1149c329e8b54b1e34d4955221a";
+      sha256 = "sha256-BEmVBVVG+GZxfmJEhwSCeDZva9J10FW0cvUyAGak0Vs=";
     };
 
     nativeBuildInputs = [ ];
 
     buildPhase = ''
+      echo LS $src
+      ls $src
+      echo LS
+
       cp -r $src ./Nordic
 
       chmod u+w -R ./Nordic
@@ -56,18 +60,31 @@ let
         ../../assets/kde-theme-custom/layouts
       } ./Nordic/kde/plasma/look-and-feel/Nordic-darker/contents/layouts
 
+      rm ./Nordic/kde/folders/Nordic-bluish/Places/32/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-bluish/Places/22/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-bluish/Places/16/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-bluish/Places/16/library-podcast.svg
+      rm ./Nordic/kde/folders/Nordic-darker/Places/32/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-darker/Places/22/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-darker/Places/16/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-darker/Places/16/library-podcast.svg
+      rm ./Nordic/kde/folders/Nordic-green/Places/32/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-green/Places/22/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-green/Places/16/mail-sent.svg
+      rm ./Nordic/kde/folders/Nordic-green/Places/16/library-podcast.svg
+
       cp -r ./Nordic $out
     '';
   };
 
   NordicDarkerKdeGit = pkgs.stdenv.mkDerivation {
-    name = "nordic-darker";
+    name = "nordic-darker-kde";
 
     src = pkgs.fetchFromGitHub {
       owner = "EliverLara";
       repo = "Nordic-kde";
-      rev = "master";
-      sha256 = "sha256-4x5RhFtdvyycaXg86kEwYI6bf/cD0X8NO2PwACqXr1g=";
+      rev = "5078055624735a48699c758aa55edec5fd859e48";
+      sha256 = "sha256-NJTF8v1MjXBOmEX/YmUpMeRrtlOOVOljNQZzOw5p4OE=";
     };
 
     nativeBuildInputs = [ pkgs.gzip ];
