@@ -17,7 +17,6 @@
     ../modules/home/lazyvim.nix
     (import ../modules/home/kde-theme.nix { theme = "tempest"; })
     ../modules/home/nix-index.nix
-    ../modules/home/slrn.nix
     (import ../modules/home/starship.nix { theme = "tempest"; })
     (import ../modules/home/ssh.nix {
       sshDir = config.home.homeDirectory + "/.ssh";

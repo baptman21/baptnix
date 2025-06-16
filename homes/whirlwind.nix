@@ -17,7 +17,6 @@
     ../modules/home/lazyvim.nix
     (import ../modules/home/kde-theme.nix { theme = "whirlwind"; })
     ../modules/home/nix-index.nix
-    ../modules/home/slrn.nix
     (import ../modules/home/starship.nix {
       theme = "whirlwind";
       extraSettings = {
