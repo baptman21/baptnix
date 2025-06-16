@@ -94,7 +94,7 @@
     systemPackages = with pkgs; [ vim git wget pipewire ];
   };
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Allow the flash of ZSA keyboars
   hardware.keyboard.zsa.enable = true;
