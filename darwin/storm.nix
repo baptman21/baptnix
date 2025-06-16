@@ -5,6 +5,7 @@ let
 in {
   imports = [
     # ../modules/darwin/homebrew.nix
+    ../modules/darwin/aerospace.nix
   ];
 
   environment.systemPackages = [ pkgs.vim ];
