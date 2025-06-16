@@ -178,7 +178,7 @@ in { config, pkgs, ... }:
           "${modifier}+Shift+r" = "restart";
           "${modifier}+r" = ''mode "resize"'';
         };
-        menu = "${pkgs.plasma-workspace}/bin/krunner";
+        menu = "${pkgs.kdePackages.plasma-workspace}/bin/krunner";
 
         defaultWorkspace = "workspace 1";
 

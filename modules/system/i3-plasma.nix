@@ -23,7 +23,7 @@ in {
             manage = "desktop";
             name = "plasma5+i3+bapt";
             start = ''
-              env KDEWM=${i3_script}/bin/i3_script ${pkgs.plasma-workspace}/bin/startplasma-x11
+              env KDEWM=${i3_script}/bin/i3_script ${pkgs.kdePackages.plasma-workspace}/bin/startplasma-x11
             '';
           }];
         };
