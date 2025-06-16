@@ -72,12 +72,12 @@
     proggyfonts
     terminus_font
     terminus_font_ttf
-    terminus-nerdfont
     termsyn
     font-awesome
     nerd-fonts.hack
     nerd-fonts.noto
     nerd-fonts.iosevka
+    nerd-fonts.terminess-ttf
     siji
   ];
 
