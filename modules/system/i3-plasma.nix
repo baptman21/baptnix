@@ -10,7 +10,7 @@ in {
 
       displayManager = {
         sddm.enable = true;
-        defaultSession = "plasma5+i3+bapt";
+        defaultSession = "plasma6+i3+bapt";
       };
       xserver = {
         enable = true;
@@ -21,13 +21,13 @@ in {
         displayManager = {
           session = [{
             manage = "desktop";
-            name = "plasma5+i3+bapt";
+            name = "plasma6+i3+bapt";
             start = ''
               env KDEWM=${i3_script}/bin/i3_script ${pkgs.kdePackages.plasma-workspace}/bin/startplasma-x11
             '';
           }];
         };
-        desktopManager.plasma5.enable = true;
+        desktopManager.plasma6.enable = true;
       };
     };
   };
