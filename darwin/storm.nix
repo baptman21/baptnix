@@ -36,4 +36,26 @@ in {
   };
 
   nix.settings.trusted-users = [ username ];
+
+  # Fonts Definition
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    terminus_font
+    terminus_font_ttf
+    terminus-nerdfont
+    termsyn
+    font-awesome
+    (nerdfonts.override { fonts = [ "Hack" "Noto" "Iosevka" "Terminus" ]; })
+    siji
+  ];
+
 }
