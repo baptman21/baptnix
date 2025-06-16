@@ -78,7 +78,7 @@
       pkgs.spotify
 
       # Zip
-      pkgs.ark
+      pkgs.kdePackages.ark
 
       # Go
       pkgs.go

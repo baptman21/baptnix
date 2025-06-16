@@ -55,7 +55,9 @@ in {
     terminus-nerdfont
     termsyn
     font-awesome
-    (nerdfonts.override { fonts = [ "Hack" "Noto" "Iosevka" "Terminus" ]; })
+    nerd-fonts.hack
+    nerd-fonts.noto
+    nerd-fonts.iosevka
     siji
   ];
 
