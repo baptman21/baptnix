@@ -9,7 +9,10 @@ in {
     services = {
 
       displayManager = {
-        sddm.enable = true;
+        sddm = {
+          enable = true;
+          wayland.enable = false;
+        };
         defaultSession = "plasma6+i3+bapt";
       };
       xserver = {

@@ -17,7 +17,7 @@ in { config, pkgs, ... }:
 {
   config = {
     home.shellAliases = {
-      kdelogout = "qdbus org.kde.ksmserver /KSMServer logout 0 0 2";
+      kdelogout = "qdbus org.kde.LogoutPrompt /LogoutPrompt promptAll";
     };
 
     home.packages = [
@@ -112,7 +112,7 @@ in { config, pkgs, ... }:
             "exec --no-startup-id systemctl --user restart polybar";
           "${modifier}+Ctrl+c" = "exec --no-startup-id conky -d -q";
           "${modifier}+Shift+e" =
-            "exec qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1";
+            "exec qdbus org.kde.LogoutPrompt /LogoutPrompt promptAll";
 
           "${modifier}+ctrl+r" = "move workspace to output left";
           "${modifier}+j" = "focus left";
@@ -244,7 +244,7 @@ in { config, pkgs, ... }:
 
         no_focus [class="plasmashell" window_type="on_screen_display"]
 
-        for_window [title="^Desktop .*— Plasma$"] kill, floating enable, border none;
+        for_window [title="^Desktop "] kill, floating enable, border none;
 
         for_window [class="ksplashqml"] kill, border pixel 0;
       '';
