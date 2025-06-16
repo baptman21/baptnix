@@ -1,9 +1,9 @@
 { config, pkgs, inputs, ... }:
 
 {
-  services.aerospace = {
+  programs.aerospace = {
     enable = true;
-    settings = {
+    userSettings = {
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
       mode.main.binding = {
