@@ -15,7 +15,7 @@
         size = 420000;
       };
 
-      initExtra = ''
+      initContent = ''
         export LESS=-iXFR
       '';
 
