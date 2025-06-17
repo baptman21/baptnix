@@ -4,7 +4,10 @@
   homebrew = {
     enable = true;
 
-    onActivation = { autoUpdate = false; };
+    onActivation = {
+      autoUpdate = false;
+      cleanup = "zap";
+    };
 
     taps = [ ];
 
