@@ -11,7 +11,7 @@
     ../modules/home/neovim.nix
     ../modules/home/lazyvim.nix
     ../modules/home/nix-index.nix
-    ../modules/darwin/aerospace.nix
+    ../modules/home/aerospace.nix
     (import ../modules/home/starship.nix {
       # TODO: change theme
       theme = "whirlwind";
@@ -21,9 +21,6 @@
           format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
         };
       };
-    })
-    (import ../modules/home/ssh.nix {
-      sshDir = config.home.homeDirectory + "/.ssh";
     })
     ../modules/home/vim.nix
     ../modules/home/zsh.nix
@@ -45,8 +42,6 @@
     # changes in each release.
     home.stateVersion = "23.11";
 
-    nixpkgs.config.allowUnfree = true;
-
     home.shellAliases = {
       lvim = "zvim";
       tf = "terraform";
@@ -56,6 +51,47 @@
       # Let Home Manager install and manage itself.
       home-manager.enable = true;
       bash.enable = true;
+    };
+
+    # SSH is setup manually because config is different
+    home.file.".config/git/databricks_config".text = ''
+      [user]
+      	name = "baptiste.bourdet_data"
+      	email = "baptiste.bourdet@databricks.com"
+    '';
+
+    programs = {
+      git = {
+        includes = [{
+          path = "${config.home.homeDirectory}/.config/git/databricks_config";
+          condition = "gitdir:${config.home.homeDirectory}/databricks/**";
+        }];
+        extraConfig = { github.username = "baptiste.bourdet_data"; };
+      };
+      ssh = let sshDir = config.home.homeDirectory + "/.ssh";
+      in {
+        enable = true;
+        extraConfig = ''
+          AddKeysToAgent yes
+          SendEnv EDITOR
+        '';
+        includes = [ "${sshDir}/arca.ssh" ];
+        matchBlocks = {
+          "github.com-baptman" = {
+            identityFile = sshDir + "/github_key";
+            hostname = "github.com";
+          };
+          "github.com" = {
+            identityFile = sshDir + "/id_ed25519.databricks";
+            hostname = "github.com";
+          };
+          "github.com-neon" = {
+            identityFile = sshDir + "/id_ed25519.neon";
+            hostname = "github.com";
+          };
+
+        };
+      };
     };
   };
 }
