@@ -11,16 +11,14 @@ in {
 
   nix.settings.experimental-features = "nix-command flakes";
 
-  nixpkgs.hostPlatform = "${pkgs.system}";
-
   # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
   networking.hostName = hostname;
   networking.computerName = hostname;
   system = {
     stateVersion = 5;
+    primaryUser = username;
     defaults = {
       smb.NetBIOSName = hostname;
       NSGlobalDomain."com.apple.sound.beep.volume" = 0.0;
