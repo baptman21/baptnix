@@ -3,9 +3,7 @@ let
   hostname = "F257QQPYTF";
   username = "baptiste.bourdet";
 in {
-  imports = [
-    # ../modules/darwin/homebrew.nix
-  ];
+  imports = [ ../modules/darwin/homebrew.nix ];
 
   environment.systemPackages = [ pkgs.vim ];
 
@@ -27,6 +25,7 @@ in {
       NSGlobalDomain."com.apple.swipescrolldirection" = false;
     };
   };
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   users.users."${username}" = {
     home = "/Users/${username}";

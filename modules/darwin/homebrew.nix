@@ -6,7 +6,7 @@
 
     onActivation = { autoUpdate = false; };
 
-    taps = [ "homebrew/services" ];
+    taps = [ ];
 
     # `brew install`
     brews = [
@@ -16,6 +16,8 @@
     # `brew install --cask`
     casks = [
       # "google-chrome"
+      "iterm2"
+      "macfuse"
     ];
   };
 }
