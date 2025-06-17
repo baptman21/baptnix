@@ -16,7 +16,6 @@
     # `brew install --cask`
     casks = [
       # "google-chrome"
-      "iterm2"
       "macfuse"
     ];
   };
