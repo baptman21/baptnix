@@ -221,7 +221,7 @@ in {
 
       # Custom stuff
       alt - d : ${choose-launcher}/bin/choose-launcher.sh
-      alt - enter : ${terminal}/bin/terminal.sh
+      cmd - return : ${terminal}/bin/terminal.sh
     '';
   };
 }
