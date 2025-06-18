@@ -3,7 +3,7 @@ let
   hostname = "F257QQPYTF";
   username = "baptiste.bourdet";
 in {
-  imports = [ ../modules/darwin/homebrew.nix ];
+  imports = [ ../modules/darwin/homebrew.nix ../modules/darwin/yabai_wm.nix ];
 
   environment.systemPackages = [ pkgs.vim ];
 
