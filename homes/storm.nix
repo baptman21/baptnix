@@ -11,7 +11,6 @@
     ../modules/home/neovim.nix
     ../modules/home/lazyvim.nix
     ../modules/home/nix-index.nix
-    ../modules/home/darwin_choose.nix
     (import ../modules/home/starship.nix {
       # TODO: change theme
       theme = "whirlwind";
