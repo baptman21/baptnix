@@ -2,7 +2,7 @@
 
 {
   programs.aerospace = {
-    enable = true;
+    enable = false;
     userSettings = {
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
