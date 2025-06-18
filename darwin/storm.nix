@@ -27,6 +27,8 @@ in {
       finder.AppleShowAllExtensions = true;
       screensaver.askForPassword = true;
       NSGlobalDomain."com.apple.swipescrolldirection" = false;
+      NSGlobalDomain._HIHideMenuBar = true;
+      dock.autohide = true;
     };
   };
   security.pam.services.sudo_local.touchIdAuth = true;
