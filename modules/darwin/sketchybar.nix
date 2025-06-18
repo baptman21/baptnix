@@ -14,9 +14,9 @@ let
 
       chmod u+w -R ./out
 
-      find . -type f -exec sed -i "s_@SKETCHYBAR_BIN_PATH@_"${pkgs.sketchybar}"/bin/sketchybar_g" {} \;
+      find . -type f -exec sed -i 's|_SKETCHYBAR_BIN_PATH_|'${pkgs.sketchybar}'/bin/sketchybar|g' {} \;
 
-      find . -type f -exec sed -i "s_@PLUGIN_DIR@_$out_g" {} \;
+      find . -type f -exec sed -i 's|_PLUGIN_DIR_|'$out'|g' {} \;
 
       cp -r ./out $out
     '';

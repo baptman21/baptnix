@@ -1,46 +1,13 @@
 { config, pkgs, ... }:
 # Yabai config with skhd for i3 like feel
 let
-  choose-launcher = pkgs.writeShellScriptBin "choose-launcher.sh" ''
-
-    application_dirs="/Applications/ /System/Applications/ /System/Library/CoreServices/ /System/Applications/Utilities/"
-    PATH="''${HOME}/.nix-profile/bin:''${PATH}"
-
-    if [ -e ''${HOME}/.nix-profile/Applications ]
-    then
-      application_dirs="''${application_dirs} ''${HOME}/.nix-profile/Applications"
-    fi
-    if [ -e ''${HOME}/Applications ]
-    then
-      application_dirs="''${application_dirs} ''${HOME}/Applications"
-    fi
-    if [ -e "''${HOME}/Applications/Home Manager Apps" ]
-    then
-      application_dirs="''${application_dirs} ''${HOME}/Applications/Home\ Manager\ Apps"
-    fi
-
-    currentPath="$(echo ''${PATH} | /usr/bin/sed 's/:/ /g')"
-
-    selection=$(/bin/ls ''${application_dirs} ''${currentPath} | /usr/bin/grep -vE 'Applications/:|Applications:|\:' | /usr/bin/sort -u | ${pkgs.choose-gui}/bin/choose)
-
-    if echo "''${selection}" | grep -q ".app"
-    then
-      app_name=$(basename "''${selection}" .app)
-      osascript -e "tell application \"''${app_name}\" to activate"
-    else
-      binary="$(which ''${selection})"
-      exec ''${binary} &
-      disown
-    fi
-  '';
-  terminal = pkgs.writeShellScriptBin "terminal.sh" ''
-    alacritty &
-    disown
-  '';
+  choose-launcher =
+    import ../../pkgs/darwin/choose_launcher.nix { inherit pkgs; };
+  terminal = import ../../pkgs/darwin/terminal.nix { inherit pkgs; };
 in {
   config = {
     services.yabai.enable = true;
-    services.yabai.enableScriptingAddition = false;
+    services.yabai.enableScriptingAddition = true;
     services.yabai.extraConfig = ''
       yabai -m config mouse_follows_focus          on
       yabai -m config focus_follows_mouse          on
@@ -82,6 +49,36 @@ in {
       yabai -m rule --add label="mpv" app="^mpv$" manage=off
       yabai -m rule --add label="Software Update" title="Software Update" manage=off
       yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+
+      function setup_space {
+        local idx="$1"
+        local name="$2"
+        local space=
+        echo "setup space $idx : $name"
+
+        space=$(yabai -m query --spaces --space "$idx")
+        if [ -z "$space" ]; then
+          yabai -m space --create
+        fi
+        if [ "$name" != "unnamed" ]; then
+          yabai -m space "$idx" --label "$name"
+        fi
+      }
+
+      setup_space 1 code
+      setup_space 2 web
+      setup_space 3 unnamed
+      setup_space 4 unnamed
+      setup_space 5 unnamed
+      setup_space 6 unnamed
+      setup_space 7 slack
+      setup_space 8 unnamed
+      setup_space 9 unnamed
+      setup_space 10 unnamed
+
+      # move some apps automatically to specific spaces
+      yabai -m rule --add app="^Firefox$" space=2
+      yabai -m rule --add app="^Slack$" space=7
     '';
 
     services.skhd.enable = true;

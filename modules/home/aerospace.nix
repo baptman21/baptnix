@@ -1,14 +1,24 @@
 { config, pkgs, inputs, ... }:
-
-{
+let
+  choose-launcher =
+    import ../../pkgs/darwin/choose_launcher.nix { inherit pkgs; };
+  terminal = import ../../pkgs/darwin/terminal.nix { inherit pkgs; };
+in {
   programs.aerospace = {
     enable = false;
     userSettings = {
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
+      after-startup-command = [
+        # JankyBorders has a built-in detection of already running process,
+        # so it won't be run twice on AeroSpace restart
+        "exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0"
+      ];
+
       mode.main.binding = {
         # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
-        alt-enter = "exec-and-forget alacritty msg create-window";
+        alt-enter = "exec-and-forget ${terminal}/bin/terminal.sh";
+        alt-d = "exec-and-forget ${choose-launcher}/bin/choose-launcher.sh";
 
         # i3 wraps focus by default
         alt-j = "focus --boundaries-action wrap-around-the-workspace left";
@@ -66,6 +76,9 @@
         alt-shift-9 = "move-node-to-workspace 9";
         alt-shift-0 = "move-node-to-workspace 10";
 
+        ctrl-alt-z = "";
+        ctrl-alt-c = "";
+
         alt-shift-c = "reload-config";
 
         alt-r = "mode resize";
@@ -79,6 +92,10 @@
         enter = "mode main";
         esc = "mode main";
       };
+      on-window-detected = [{
+        "if".app-id = "com.tinyspeck.slackmacgap";
+        "run" = "move-node-to-workspace 7";
+      }];
     };
   };
 }

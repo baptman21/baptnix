@@ -17,6 +17,7 @@
       # `brew install`
       brews = [
         # "aria2"  # download tool
+        # "borders"
       ];
 
       # `brew install --cask`
