@@ -1,35 +1,32 @@
 { config, pkgs, ... }:
 # Sketchybar config for darwin
-{
+let
+
+  configDir = pkgs.stdenv.mkDerivation {
+    name = "sketchybar-config";
+
+    src = ../../assets/sketchybar;
+
+    nativeBuildInputs = [ pkgs.findutils pkgs.sketchybar pkgs.gnused ];
+
+    buildPhase = ''
+      cp -r $src ./out
+
+      chmod u+w -R ./out
+
+      find . -type f -exec sed -i "s_@SKETCHYBAR_BIN_PATH@_"${pkgs.sketchybar}"/bin/sketchybar_g" {} \;
+
+      find . -type f -exec sed -i "s_@PLUGIN_DIR@_$out_g" {} \;
+
+      cp -r ./out $out
+    '';
+  };
+
+in {
   config = {
     services.sketchybar = {
       enable = true;
-      config = ''
-        # Define colors
-        export COLOR_BLACK="0x272537"
-        export COLOR_WHITE="0xe8e6e9"
-
-        # Configure bar
-        sketchybar --bar height=32 \
-                        position=top \
-                        padding_left=10 \
-                        padding_right=10 \
-                        color=$COLOR_BLACK
-
-        # Configure default values
-        sketchybar --default icon.font="SF Pro:Bold:14.0" \
-                            icon.color=$COLOR_WHITE \
-                            label.font="SF Pro:Bold:14.0" \
-                            label.color=$COLOR_WHITE
-
-        # Add items to the bar
-        sketchybar --add item clock right \
-                  --set clock script="date '+%H:%M'" \
-                              update_freq=10
-
-        # Update the bar
-        sketchybar --update
-      '';
+      config = configDir + "/sketchybarrc";
     };
   };
 }
