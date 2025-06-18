@@ -11,6 +11,7 @@
     ../modules/home/neovim.nix
     ../modules/home/lazyvim.nix
     ../modules/home/nix-index.nix
+    ../modules/home/darwin_choose.nix
     (import ../modules/home/starship.nix {
       # TODO: change theme
       theme = "whirlwind";
@@ -58,6 +59,8 @@
       	name = "baptiste.bourdet_data"
       	email = "baptiste.bourdet@databricks.com"
     '';
+
+    home.packages = [ pkgs.choose-gui ];
 
     programs = {
       git = {

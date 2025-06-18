@@ -121,12 +121,12 @@
     shift + cmd - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
     # focus monitor
-    #ctrl + alt - x  : yabai -m display --focus recent
-    #ctrl + alt - z  : yabai -m display --focus prev
-    #ctrl + alt - c  : yabai -m display --focus next
-    #ctrl + alt - 1  : yabai -m display --focus 1
-    #ctrl + alt - 2  : yabai -m display --focus 2
-    #ctrl + alt - 3  : yabai -m display --focus 3
+    ctrl + alt - x  : yabai -m display --focus recent
+    ctrl + alt - z  : yabai -m display --focus prev
+    ctrl + alt - c  : yabai -m display --focus next
+    ctrl + alt - 1  : yabai -m display --focus 1
+    ctrl + alt - 2  : yabai -m display --focus 2
+    ctrl + alt - 3  : yabai -m display --focus 3
 
 
     # move window
@@ -204,16 +204,8 @@
     ctrl + cmd - p ; passthrough
     passthrough < ctrl + cmd - p ; default
 
-    ctrl + cmd - s : bash -c 'source ~/.bash.d/darwin && pass-choose' 
-
-    ctrl + cmd - b : bash -c 'source ~/.bash.d/functions && battpop'
-    ctrl + cmd - d : bash -c 'source ~/.bash.d/functions && timepop'
-
-    cmd - space : bash -c "source ~/.bash.d/darwin && choose-launcher"
-    cmd - b : bash -c "source ~/.bash.d/darwin && choose-buku"
-    cmd + shift - k : bash -c "source ~/.bash.d/darwin && snippets"
-
-    #ctrl - 0x29 : bash -c "~/Applications/keynav.app/Contents/MacOS/XEasyMotion"
+    ctrl + cmd - d : bash -c '~/.choose-launcher.sh'
+    # TODO: add enter command for opening a terminal
 
     ## Control mouse with keyboard
     ctrl - k : cliclick "m:+0,-20" #up

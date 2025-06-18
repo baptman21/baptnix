@@ -1,28 +1,29 @@
 { config, pkgs, inputs, ... }:
 
 {
-  homebrew = {
-    enable = true;
+  config = {
+    environment.systemPath = [ config.homebrew.brewPrefix ];
+    homebrew = {
+      enable = true;
+      brewPrefix = "/opt/homebrew/bin";
 
-    onActivation = {
-      autoUpdate = false;
-      cleanup = "zap";
+      onActivation = {
+        autoUpdate = false;
+        cleanup = "zap";
+      };
+
+      taps = [ ];
+
+      # `brew install`
+      brews = [
+        # "aria2"  # download tool
+      ];
+
+      # `brew install --cask`
+      casks = [
+        # "google-chrome"
+        "macfuse"
+      ];
     };
-
-    taps = [ ];
-
-    # `brew install`
-    brews = [
-      # "aria2"  # download tool
-      "choose-gui" # rofi like
-      "dmenu-mac"
-    ];
-
-    # `brew install --cask`
-    casks = [
-      # "google-chrome"
-      "macfuse"
-      "hiddenbar" # top bar hide complexity
-    ];
   };
 }
