@@ -9,6 +9,8 @@ in {
   programs.aerospace = {
     enable = true;
     userSettings = {
+      start-at-login = true;
+
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
       after-startup-command = [
@@ -40,6 +42,7 @@ in {
         alt-v = "join-with right";
 
         alt-f = "fullscreen";
+        shift-alt-f = "fullscreen";
 
         alt-s = "layout v_accordion"; # "layout stacking" in i3
         alt-w = "layout h_accordion"; # "layout tabbed" in i3
@@ -78,8 +81,8 @@ in {
         alt-shift-9 = "move-node-to-workspace 9";
         alt-shift-0 = "move-node-to-workspace 10";
 
-        ctrl-alt-z = "";
-        ctrl-alt-c = "";
+        ctrl-alt-z = "move-workspace-to-monitor --wrap-around prev";
+        ctrl-alt-c = "move-workspace-to-monitor --wrap-around next";
 
         alt-shift-c = "reload-config";
 
