@@ -67,8 +67,14 @@
       sso_registration_scopes = sso:account:access
     '';
 
-    home.packages =
-      [ pkgs.sshfs pkgs.teleport pkgs.awscli2 pkgs.azure-cli pkgs.choose-gui ];
+    home.packages = [
+      pkgs.maccy
+      pkgs.sshfs
+      pkgs.teleport
+      pkgs.awscli2
+      pkgs.azure-cli
+      pkgs.choose-gui
+    ];
 
     # SSH is setup manually because config is different
     home.file.".config/git/databricks_config".text = ''
