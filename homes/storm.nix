@@ -62,7 +62,8 @@
       	email = "baptiste.bourdet@databricks.com"
     '';
 
-    home.packages = [ pkgs.choose-gui ];
+    home.packages =
+      [ pkgs.teleport pkgs.awscli pkgs.azure-cli pkgs.choose-gui ];
 
     programs = {
       git = {
