@@ -55,15 +55,27 @@
       bash.enable = true;
     };
 
+    home.file.".aws/config".text = ''
+      [profile dev]
+      sso_session = dev
+      sso_account_id = 369495373322
+      sso_role_name = PowerUserAccess
+
+      [sso-session dev]
+      sso_start_url = https://neondb.awsapps.com/start
+      sso_region = eu-central-1
+      sso_registration_scopes = sso:account:access
+    '';
+
+    home.packages =
+      [ pkgs.teleport pkgs.awscli pkgs.azure-cli pkgs.choose-gui ];
+
     # SSH is setup manually because config is different
     home.file.".config/git/databricks_config".text = ''
       [user]
       	name = "baptiste.bourdet_data"
       	email = "baptiste.bourdet@databricks.com"
     '';
-
-    home.packages =
-      [ pkgs.teleport pkgs.awscli pkgs.azure-cli pkgs.choose-gui ];
 
     programs = {
       git = {
