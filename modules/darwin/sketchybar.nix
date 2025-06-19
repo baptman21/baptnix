@@ -26,7 +26,7 @@ in {
   config = {
     services.sketchybar = {
       enable = true;
-      config = configDir + "/sketchybarrc";
+      # config = builtins.readFile (configDir + "/sketchybarrc");
     };
   };
 }
