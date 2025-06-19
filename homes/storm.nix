@@ -23,7 +23,9 @@
       };
     })
     ../modules/home/vim.nix
-    ../modules/home/zsh.nix
+    (import ../modules/home/zsh.nix {
+      sshIdentities = "github_key id_ed25519.databricks";
+    })
     (import ../modules/home/kube.nix { theme = "whirlwind"; })
     ../modules/home/direnv.nix
   ];

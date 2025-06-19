@@ -1,3 +1,5 @@
+{ sshIdentities ? "github_key" }:
+# sshIdentities is the list of keys seperated by space to add to agent
 { config, pkgs, ... }:
 # ZSH configuration
 {
@@ -25,7 +27,7 @@
         # custom = "${../../assets/zsh-custom}";
         plugins = [ "ssh-agent" "fzf" ];
         extraConfig = ''
-          zstyle :omz:plugins:ssh-agent identities github_key
+          zstyle :omz:plugins:ssh-agent identities ${sshIdentities}
         '';
       };
     };

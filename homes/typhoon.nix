@@ -30,7 +30,7 @@
       sshDir = config.home.homeDirectory + "/.ssh";
     })
     ../modules/home/vim.nix
-    ../modules/home/zsh.nix
+    (import ../modules/home/zsh.nix { })
     # services
     (import ../modules/home/picom.nix { theme = "typhoon"; })
     (import ../modules/home/polybar.nix { theme = "typhoon"; })
