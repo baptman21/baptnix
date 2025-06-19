@@ -29,7 +29,7 @@ in {
 
       mode.main.binding = {
         # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
-        alt-t = "exec-and-forget ${terminal}/bin/terminal.sh";
+        alt-enter = "exec-and-forget ${terminal}/bin/terminal.sh";
         alt-d = "exec-and-forget ${choose-launcher}/bin/choose-launcher.sh";
 
         # i3 wraps focus by default
