@@ -4,15 +4,17 @@ let
     import ../../pkgs/darwin/choose_launcher.nix { inherit pkgs; };
   terminal = import ../../pkgs/darwin/terminal.nix { inherit pkgs; };
 in {
+  services.jankyborders = { enable = true; };
+
   programs.aerospace = {
-    enable = false;
+    enable = true;
     userSettings = {
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
       after-startup-command = [
         # JankyBorders has a built-in detection of already running process,
         # so it won't be run twice on AeroSpace restart
-        "exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0"
+        "exec-and-forget ${pkgs.jankyborders}/bin/borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0"
       ];
 
       mode.main.binding = {
