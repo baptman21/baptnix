@@ -68,7 +68,7 @@
     '';
 
     home.packages =
-      [ pkgs.teleport pkgs.awscli pkgs.azure-cli pkgs.choose-gui ];
+      [ pkgs.teleport pkgs.awscli2 pkgs.azure-cli pkgs.choose-gui ];
 
     # SSH is setup manually because config is different
     home.file.".config/git/databricks_config".text = ''
