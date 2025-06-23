@@ -4,7 +4,11 @@
 
   config = {
     # Allow to install some binary outside of nix for npm and go
-    home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];
+    home.sessionPath = [
+      "$HOME/go/bin"
+      "$HOME/.npm-global/bin"
+      "$HOME/Library/Application Support/Coursier/bin"
+    ];
 
     home.packages = [
       # Shell utilities
@@ -88,6 +92,9 @@
 
       pkgs.go-jsonnet
       pkgs.jsonnet-bundler
+
+      pkgs.coursier
     ];
+    #
   };
 }

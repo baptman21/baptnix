@@ -80,8 +80,6 @@ in {
       pkgs.bacon
       pkgs.vscode-extensions.vadimcn.vscode-lldb
       pkgs.rust-analyzer
-
-      pkgs.coursier
     ];
 
     home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };
