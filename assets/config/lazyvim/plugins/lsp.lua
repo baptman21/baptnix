@@ -3,6 +3,10 @@ return {
 	-- Use servers already in the path instead of relying on mason
 	opts = {
 		servers = {
+			codelldb = { mason = false },
+
+			bacon = { mason = false },
+
 			bashls = { mason = false },
 
 			lua_ls = { mason = false },

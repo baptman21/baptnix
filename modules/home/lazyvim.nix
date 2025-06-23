@@ -76,10 +76,20 @@ in {
       pkgs.yaml-language-server
 
       pkgs.unstable.jsonnet-language-server
+
+      pkgs.bacon
+      pkgs.vscode-extensions.vadimcn.vscode-lldb
+      pkgs.rust-analyzer
+
+      pkgs.coursier
     ];
 
     home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };
 
     home.shellAliases = { zvim = "NVIM_APPNAME=nvim-lazyvim nvim"; };
+
+    home.sessionPath = [
+      "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter"
+    ];
   };
 }
