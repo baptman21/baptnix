@@ -27,7 +27,7 @@
       pkgs.nodejs
 
       # Java
-      pkgs.openjdk17
+      pkgs.jdk21
 
       # Nix formatter
       pkgs.nixpkgs-fmt
