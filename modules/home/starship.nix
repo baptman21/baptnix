@@ -15,6 +15,10 @@ let
       primary = "green";
       secondary = "cyan";
     };
+    storm = {
+      primary = "79";
+      secondary = "122";
+    };
   };
 in { config, pkgs, ... }:
 # Starship configuration

@@ -13,8 +13,7 @@
     ../modules/home/nix-index.nix
     ../modules/home/aerospace.nix
     (import ../modules/home/starship.nix {
-      # TODO: change theme
-      theme = "whirlwind";
+      theme = "storm";
       extraSettings = {
         kubernetes = {
           disabled = false;
