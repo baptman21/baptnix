@@ -9,10 +9,10 @@
       };
       font = {
         normal = {
-          family = "Terminess Nerd Font";
+          family = "Hack Nerd Font";
           style = "Regular";
         };
-        size = 14;
+        size = 16;
       };
     };
   };
