@@ -70,6 +70,7 @@ in {
 
       pkgs.gofumpt
       pkgs.gotools
+      pkgs.unstable.gopls
       pkgs.delve
       pkgs.fd
 
