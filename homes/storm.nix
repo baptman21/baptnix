@@ -55,15 +55,34 @@
     };
 
     home.file.".aws/config".text = ''
-      [profile dev]
-      sso_session = dev
-      sso_account_id = 369495373322
-      sso_role_name = PowerUserAccess
-
-      [sso-session dev]
+      [sso-session my-sso]
       sso_start_url = https://neondb.awsapps.com/start
       sso_region = eu-central-1
       sso_registration_scopes = sso:account:access
+
+      [profile main]
+      sso_session = my-sso
+      sso_account_id = 112633209199
+      sso_role_name = AdministratorAccess
+      region = us-east-2
+      output = json
+
+      [profile dev]
+      sso_session = my-sso
+      sso_account_id = 369495373322
+      sso_role_name = AdministratorAccess
+      sso_start_url = https://neondb.awsapps.com/start
+      region = us-east-2
+      output = json
+
+      [profile prod]
+      sso_session = my-sso
+      sso_account_id = 093970136003
+      sso_role_name = AdministratorAccess
+      sso_region = eu-central-1
+      sso_start_url = https://neondb.awsapps.com/start
+      region = eu-central-1
+      output = json
     '';
 
     home.packages = [
