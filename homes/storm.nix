@@ -93,6 +93,7 @@
       pkgs.azure-cli
       pkgs.choose-gui
       pkgs.sops
+      pkgs.starpls
     ];
 
     # SSH is setup manually because config is different
