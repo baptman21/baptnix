@@ -92,6 +92,7 @@
       pkgs.awscli2
       pkgs.azure-cli
       pkgs.choose-gui
+      pkgs.sops
     ];
 
     # SSH is setup manually because config is different
