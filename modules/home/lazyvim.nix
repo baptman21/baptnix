@@ -66,7 +66,6 @@ in {
       pkgs.nodePackages.prettier
 
       pkgs.svelte-language-server
-      pkgs.unstable.typescript-language-server
 
       pkgs.gofumpt
       pkgs.gotools
