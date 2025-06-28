@@ -55,32 +55,60 @@
     };
 
     home.file.".aws/config".text = ''
-      [sso-session my-sso]
+      # DATABRICKS
+      ## SSO SESSIONS
+      [sso-session dbx-root-sso]
+      sso_start_url = https://databricks-aws-root.awsapps.com/start
+      sso_region = us-west-2
+      sso_registration_scopes = sso:account:access
+
+      [sso-session dbx-rnd-root-sso]
+      sso_start_url = https://databricks-aws-rnd-root.awsapps.com/start
+      sso_region = us-west-2
+      sso_registration_scopes = sso:account:access
+
+      ## PROFILES
+      [profile dbx-dev-view]
+      sso_session = dbx-rnd-root-sso
+      sso_account_id = 707343435239
+      sso_role_name = databricks-view-only
+      region = us-west-2
+      output = json
+
+      [profile dbx-stg-view]
+      sso_session = dbx-rnd-root-sso
+      sso_account_id = 548125073166
+      sso_role_name = databricks-view-only
+      region = us-west-2
+      output = json
+
+      # NEON
+      ## SSO SESSIONS
+      [sso-session neon-sso]
       sso_start_url = https://neondb.awsapps.com/start
       sso_region = eu-central-1
       sso_registration_scopes = sso:account:access
 
-      [profile main]
-      sso_session = my-sso
+      ## PROFILES
+      [profile neon-main]
+      sso_session = neon-sso
       sso_account_id = 112633209199
       sso_role_name = AdministratorAccess
       region = us-east-2
       output = json
 
-      [profile dev]
-      sso_session = my-sso
+      [profile neon-dev]
+      sso_session = neon-sso
       sso_account_id = 369495373322
       sso_role_name = AdministratorAccess
-      sso_start_url = https://neondb.awsapps.com/start
       region = us-east-2
       output = json
 
-      [profile prod]
-      sso_session = my-sso
+      [profile neon-prod]
+      sso_session = neon-sso
       sso_account_id = 093970136003
       sso_role_name = AdministratorAccess
       sso_region = eu-central-1
-      sso_start_url = https://neondb.awsapps.com/start
       region = eu-central-1
       output = json
     '';
