@@ -42,6 +42,8 @@ in { config, pkgs, ... }:
           style_user = "${colors.${theme}.primary}";
         };
 
+        git_status = { use_git_executable = true; };
+
         hostname = {
           ssh_only = false;
           style = "${colors.${theme}.primary}";

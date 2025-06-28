@@ -104,6 +104,10 @@
     '';
 
     programs = {
+      starship = {
+        enable = true;
+        settings = { git_status = { disabled = true; }; };
+      };
       git = {
         includes = [{
           path = "${config.home.homeDirectory}/.config/git/databricks_config";

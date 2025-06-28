@@ -44,6 +44,8 @@
         core = {
           editor = "vim";
           autocrlf = "input";
+          fsmonitor = true;
+          untrackedcache = true;
         };
         pull.ff = "only";
       };
