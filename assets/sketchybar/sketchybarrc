@@ -10,7 +10,7 @@ A_COLOR=0xEB1e1e2e
 B_COLOR=0x77ADADAD
 
 sketchybar --bar height=54 \
-    margin=12 \
+    margin=3 \
     y_offset=0 \
     padding_left=0 \
     padding_right=0 \
@@ -23,49 +23,30 @@ sketchybar --default updates=when_shown \
     background.color=0x00000000 \
     y_offset=0
 
-# SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-# SPACES=()
-#
-# for i in "${!SPACE_ICONS[@]}"; do
-#     sid=$(($i + 1))
-#     SPACES+=(space.$sid)
-#     sketchybar --add space space.$sid left \
-#         --set space.$sid associated_space=$sid \
-#         icon=${SPACE_ICONS[i]} \
-#         icon.highlight_color=0xFFFFFFFF \
-#         icon.align=center \
-#         icon.width=30 \
-#         label.drawing=off \
-#         click_script="aerospace workspace $sid"
-# done
-#
-# sketchybar --add item highlight_space left \
-#     --set highlight_space width=22 \
-#     background.color=$COLOR \
-#     background.height=22 \
-#     script="$CONFIG_DIR/scripts/highlight_space.sh"
-#
-# sketchybar --subscribe highlight_space space_change
-#
-# for i in "${!SPACE_ICONS[@]}"; do
-#     sid=$(($i + 1))
-#     SPACES+=(space.$sid)
-#     sketchybar --add space space_ex.$sid left \
-#         --set space_ex.$sid associated_space=$sid \
-#         icon=${SPACE_ICONS[i]} \
-#         icon.highlight_color=0xFFFFFFFF \
-#         icon.align=center \
-#         icon.width=30 \
-#         label.drawing=off \
-#         click_script="yabai -m space --focus $sid"
-# done
+SPACES=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+SPACE_ICONS=("unused" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
-sketchybar --set space_ex.1 padding_left=-999999
+sketchybar --add event aerospace_workspace_change
+
+for sid in "${SPACES[@]}"; do
+    sketchybar --add item "space.$sid" left \
+        --subscribe "space.$sid" aerospace_workspace_change \
+        --set "space.$sid" \
+        icon="${SPACE_ICONS[sid]}" \
+        icon.highlight_color=0xFFFFFFFF \
+        icon.align=center \
+        icon.width=30 \
+        label.drawing=off \
+        background.color=$COLOR \
+        background.height=22 \
+        click_script="@AEROSPACE_BIN_PATH@ workspace $sid" \
+        script="$CONFIG_DIR/scripts/highlight_space.sh $sid"
+done
 
 sketchybar --default \
-    background.color=$A_COLOR \
+    background.color=$BG_COLOR \
     blur_radius=2 \
-    background.height=30 \
+    background.height=20 \
     icon.padding_left=12 \
     icon.padding_right=4 \
     label.padding_left=4 \
@@ -88,7 +69,7 @@ sketchybar --add item time right \
     --set time icon=󱑎 \
     icon.color=$COLOR \
     background.border_color=$COLOR \
-    label="$(date '+%I:%M %p')" \
+    label="$(date '+%H:%M:%S')" \
     script="$CONFIG_DIR/scripts/time.sh" \
     update_freq=1
 

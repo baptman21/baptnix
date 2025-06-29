@@ -1,6 +1,9 @@
-SID=$(echo $INFO | jq .[\"display-1\"])
-if [ "$SID" = "" ]; then
-    SID=$(yabaiworkspacworkspacworkspacefi
-LENGTH=$($(echo yabai -m query --spaces) | jq length)
-sketchybar --animate circ 15 --set highlight_space background.padding_left=$((-(LENGTH - (SID - 2)) * 30 + 7))
+#!/bin/sh
 
+# FOCUSED_WORKSPACE=$(@AEROSPACE_BIN_PATH@ list-workspaces --focused)
+
+if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+    @SKETCHYBAR_BIN_PATH@ --set "$NAME" background.drawing=on
+else
+    @SKETCHYBAR_BIN_PATH@ --set "$NAME" background.drawing=off
+fi

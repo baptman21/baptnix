@@ -16,6 +16,8 @@ let
 
       find . -type f -exec sed -i 's|@SKETCHYBAR_BIN_PATH@|'${pkgs.sketchybar}'/bin/sketchybar|g' {} \;
 
+      find . -type f -exec sed -i 's|@AEROSPACE_BIN_PATH@|'${pkgs.aerospace}'/bin/aerospace|g' {} \;
+
       find . -type f -exec sed -i 's|@CONFIG_DIR@|'$out'|g' {} \;
 
       cp -r ./out $out

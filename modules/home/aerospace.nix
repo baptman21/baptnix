@@ -18,11 +18,18 @@ in {
         # so it won't be run twice on AeroSpace restart
         "exec-and-forget ${pkgs.jankyborders}/bin/borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=50.0"
       ];
+
+      exec-on-workspace-change = [
+        "${pkgs.bash}/bin/bash"
+        "-c"
+        "${pkgs.sketchybar}/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+      ];
+
       gaps = {
         inner.horizontal = 20;
         inner.vertical = 20;
         outer.left = [ { monitor."built-in" = 10; } 30 ];
-        outer.top = [ { monitor."built-in" = 10; } 30 ];
+        outer.top = [ { monitor."built-in" = 20; } 40 ];
         outer.bottom = [ { monitor."built-in" = 10; } 30 ];
         outer.right = [ { monitor."built-in" = 10; } 30 ];
       };
