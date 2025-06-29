@@ -21,10 +21,10 @@ in {
       gaps = {
         inner.horizontal = 20;
         inner.vertical = 20;
-        outer.left = [ { monitor."built-in" = 4; } 30 ];
-        outer.top = [ { monitor."built-in" = 4; } 30 ];
-        outer.bottom = [ { monitor."built-in" = 4; } 30 ];
-        outer.right = [ { monitor."built-in" = 4; } 30 ];
+        outer.left = [ { monitor."built-in" = 10; } 30 ];
+        outer.top = [ { monitor."built-in" = 10; } 30 ];
+        outer.bottom = [ { monitor."built-in" = 10; } 30 ];
+        outer.right = [ { monitor."built-in" = 10; } 30 ];
       };
 
       mode.main.binding = {

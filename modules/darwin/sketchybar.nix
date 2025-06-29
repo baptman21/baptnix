@@ -14,9 +14,9 @@ let
 
       chmod u+w -R ./out
 
-      find . -type f -exec sed -i 's|_SKETCHYBAR_BIN_PATH_|'${pkgs.sketchybar}'/bin/sketchybar|g' {} \;
+      find . -type f -exec sed -i 's|@SKETCHYBAR_BIN_PATH@|'${pkgs.sketchybar}'/bin/sketchybar|g' {} \;
 
-      find . -type f -exec sed -i 's|_PLUGIN_DIR_|'$out'|g' {} \;
+      find . -type f -exec sed -i 's|@CONFIG_DIR@|'$out'|g' {} \;
 
       cp -r ./out $out
     '';
@@ -26,7 +26,7 @@ in {
   config = {
     services.sketchybar = {
       enable = true;
-      # config = builtins.readFile (configDir + "/sketchybarrc");
+      config = builtins.readFile (configDir + "/sketchybarrc");
     };
   };
 }
