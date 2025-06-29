@@ -4,110 +4,148 @@ alias sketchybar="@SKETCHYBAR_BIN_PATH@"
 
 CONFIG_DIR=@CONFIG_DIR@
 
-COLOR=0xFFd7827e
+FG_COLOR=0xFFFFFFFF
 BG_COLOR=0xFF1e1e2e
 
 NEON_COLOR=0xFF00FFB1
 DATABRICKS_COLOR=0xFFFF004E
 
-sketchybar --bar height=54 \
+# Adding padding left for bracket bug, cf. https://github.com/FelixKratz/SketchyBar/issues/638
+sketchybar --bar \
+    height=30 \
+    notch_display_height=50 \
     margin=3 \
     y_offset=0 \
-    padding_left=0 \
+    padding_left=30 \
     padding_right=0 \
     color=0x00000000
 
 sketchybar --default updates=when_shown \
     icon.font="Hack Nerd Font:Regular:12" \
-    icon.color=0xFFFFFFFF \
+    icon.color="$FG_COLOR" \
     label.font="Hack Nerd Font:Regular:12" \
     background.color=0x00000000 \
     y_offset=0
 
+sketchybar --add event aerospace_workspace_change
+
+# Left
+sketchybar --default \
+    background.color=$BG_COLOR \
+    blur_radius=2 \
+    background.height=20 \
+    icon.padding_left=10 \
+    icon.padding_right=5 \
+    label.padding_left=5 \
+    label.padding_right=10 \
+    icon.color=$NEON_COLOR \
+    label.color="$FG_COLOR" \
+    background.padding_left=10 \
+    background.padding_right=10 \
+    background.corner_radius=4 \
+    background.border_width=2 \
+    background.border_color=$NEON_COLOR
+
 SPACES=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 SPACE_ICONS=("unused" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-
-sketchybar --add event aerospace_workspace_change
 
 for sid in "${SPACES[@]}"; do
     sketchybar --add item "space.$sid" left \
         --subscribe "space.$sid" aerospace_workspace_change \
         --set "space.$sid" \
         icon="${SPACE_ICONS[sid]}" \
-        icon.highlight_color=0xFFFFFFFF \
+        icon.highlight_color="$FG_COLOR" \
         icon.align=center \
         icon.width=30 \
+        label.color="$FG_COLOR" \
         label.drawing=off \
-        background.color=$COLOR \
-        background.height=22 \
+        background.drawing=false \
+        background.padding_left=2 \
+        background.padding_right=2 \
+        icon.padding_left=5 \
+        icon.padding_right=5 \
         click_script="@AEROSPACE_BIN_PATH@ workspace $sid" \
         script="$CONFIG_DIR/scripts/highlight_space.sh $sid"
 done
 
-sketchybar --default \
-    background.color=$BG_COLOR \
-    blur_radius=2 \
-    background.height=20 \
-    icon.padding_left=12 \
-    icon.padding_right=4 \
-    label.padding_left=4 \
-    label.padding_right=12 \
-    background.padding_left=18 \
-    background.border_width=1
+sketchybar --add bracket spaces '/space\..*/' \
+    --set spaces \
+    background.drawing=true
 
+# Middle
 sketchybar --add item neon q \
     --set neon \
     icon= \
     label="Neon" \
-    label.padding_left=0 \
-    icon.padding_right=10 \
-    background.padding_left=0 \
-    icon.color="$NEON_COLOR" \
-    label.color="$NEON_COLOR" \
-    background.border_color=$COLOR
+    label.padding_left=5 \
+    label.padding_right=30 \
+    icon.padding_right=5 \
+    icon.padding_left=30 \
+    background.padding_right=0 \
+    background.padding_left=10 \
+    icon.color="$NEON_COLOR"
 
-sketchybar --add item databricks e \
-    --set databricks \
-    icon=󰆧 \
+sketchybar --add item databricks_label e \
+    --set databricks_label \
     label="Databricks" \
-    label.padding_left=0 \
-    icon.padding_right=10 \
+    label.color="$FG_COLOR" \
+    label.padding_left=10 \
+    label.padding_right=5 \
+    icon.drawing=false \
+    background.padding_right=0 \
     background.padding_left=0 \
-    icon.color="$DATABRICKS_COLOR" \
-    label.color="$DATABRICKS_COLOR" \
-    background.border_color=$COLOR
+    background.border_width=0 \
+    background.drawing=false
 
-sketchybar --add item settings right \
-    --set settings \
-    icon=⛭ \
-    label="Settings" \
-    label.padding_left=0 \
+sketchybar --add item databricks_icon e \
+    --set databricks_icon \
+    icon=󰆧 \
+    icon.color="$DATABRICKS_COLOR" \
+    icon.padding_left=5 \
     icon.padding_right=10 \
+    label.drawing=false \
+    background.padding_right=0 \
     background.padding_left=0 \
-    click_script="$CONFIG_DIR/scripts/system_settings.sh" \
-    icon.color=$COLOR \
-    background.border_color=$COLOR
+    background.border_width=0 \
+    background.drawing=false
+
+sketchybar --add bracket databricks databricks_icon databricks_label \
+    --set databricks \
+    background.padding_left=0 \
+    background.border_color="$DATABRICKS_COLOR"
+
+# Right
+sketchybar --default \
+    icon.padding_left=10 \
+    icon.padding_right=5 \
+    label.padding_left=5 \
+    label.padding_right=10 \
+    background.padding_left=10 \
+    background.padding_right=10 \
+    icon.color="$DATABRICKS_COLOR" \
+    background.border_color="$DATABRICKS_COLOR"
 
 sketchybar --add item time right \
     --set time icon=󱑎 \
-    icon.color=$COLOR \
-    background.border_color=$COLOR \
+    background.padding_right=30 \
     label="$(date '+%H:%M:%S')" \
     script="$CONFIG_DIR/scripts/time.sh" \
     update_freq=1
 
 sketchybar --add item date right \
     --set date icon=󱨰 \
-    icon.color=$COLOR \
-    background.border_color=$COLOR \
     label="$(date '+%a %b %d')" \
     script="$CONFIG_DIR/scripts/date.sh" \
     update_freq=10
 
+sketchybar --add item settings right \
+    --set settings \
+    icon=⛭ \
+    label="Settings" \
+    click_script="$CONFIG_DIR/scripts/system_settings.sh"
+
 sketchybar --add item battery right \
     --set battery icon= \
-    icon.color=$COLOR \
-    background.border_color=$COLOR \
     label="--%" \
     script="$CONFIG_DIR/scripts/battery.sh" \
     update_freq=20

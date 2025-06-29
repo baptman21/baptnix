@@ -1,9 +1,10 @@
 #!/bin/sh
 
-# FOCUSED_WORKSPACE=$(@AEROSPACE_BIN_PATH@ list-workspaces --focused)
+NEON_COLOR=0xFF00FFB1
+FG_COLOR=0xFFFFFFFF
 
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-    @SKETCHYBAR_BIN_PATH@ --set "$NAME" background.drawing=on
+    @SKETCHYBAR_BIN_PATH@ --set "$NAME" icon.color="$NEON_COLOR"
 else
-    @SKETCHYBAR_BIN_PATH@ --set "$NAME" background.drawing=off
+    @SKETCHYBAR_BIN_PATH@ --set "$NAME" icon.color="$FG_COLOR"
 fi

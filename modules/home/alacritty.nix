@@ -7,6 +7,7 @@
       general = {
         import = [ "${pkgs.alacritty-theme}/share/alacritty-theme/iris.toml" ];
       };
+      window = { opacity = 0.9; };
       font = {
         normal = {
           family = "Hack Nerd Font";
