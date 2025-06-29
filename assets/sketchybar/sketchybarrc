@@ -6,8 +6,9 @@ CONFIG_DIR=@CONFIG_DIR@
 
 COLOR=0xFFd7827e
 BG_COLOR=0xFF1e1e2e
-A_COLOR=0xEB1e1e2e
-B_COLOR=0x77ADADAD
+
+NEON_COLOR=0xFF00FFB1
+DATABRICKS_COLOR=0xFFFF004E
 
 sketchybar --bar height=54 \
     margin=3 \
@@ -54,7 +55,29 @@ sketchybar --default \
     background.padding_left=18 \
     background.border_width=1
 
-sketchybar --add item settings e \
+sketchybar --add item neon q \
+    --set neon \
+    icon= \
+    label="Neon" \
+    label.padding_left=0 \
+    icon.padding_right=10 \
+    background.padding_left=0 \
+    icon.color="$NEON_COLOR" \
+    label.color="$NEON_COLOR" \
+    background.border_color=$COLOR
+
+sketchybar --add item databricks e \
+    --set databricks \
+    icon=󰆧 \
+    label="Databricks" \
+    label.padding_left=0 \
+    icon.padding_right=10 \
+    background.padding_left=0 \
+    icon.color="$DATABRICKS_COLOR" \
+    label.color="$DATABRICKS_COLOR" \
+    background.border_color=$COLOR
+
+sketchybar --add item settings right \
     --set settings \
     icon=⛭ \
     label="Settings" \
