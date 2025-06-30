@@ -46,6 +46,8 @@
     home.shellAliases = {
       lvim = "zvim";
       tf = "terraform";
+      by = "bat -l yaml";
+      bj = "bat -l json";
     };
 
     programs = {
