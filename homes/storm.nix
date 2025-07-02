@@ -124,6 +124,7 @@
       pkgs.choose-gui
       pkgs.sops
       pkgs.starpls
+      pkgs.tflint
     ];
 
     # SSH is setup manually because config is different
