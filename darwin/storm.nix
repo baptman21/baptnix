@@ -5,7 +5,16 @@ let
 in {
   imports = [ ../modules/darwin/homebrew.nix ../modules/darwin/sketchybar.nix ];
 
-  environment.systemPackages = [ pkgs.vim ];
+  environment = {
+    # Environment variables
+    variables = {
+      EDITOR = "vim";
+      VISUAL = "vim";
+      PAGER = "less";
+    };
+
+    systemPackages = [ pkgs.vim ];
+  };
 
   nix.settings.experimental-features = "nix-command flakes";
 
