@@ -70,5 +70,16 @@ in {
       siji
     ];
 
+    # Install dbx cli
+    homebrew = {
+      taps = [{
+        name = "databricks/tap";
+        clone_target = "git@github.com:databricks/tap";
+      }];
+
+      brews = [ "databricks" ];
+
+    };
+
   };
 }
