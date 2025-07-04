@@ -125,6 +125,7 @@
       pkgs.sops
       pkgs.starpls
       pkgs.tflint
+      pkgs.ansible
     ];
 
     # SSH is setup manually because config is different
