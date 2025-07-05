@@ -15,6 +15,7 @@ return {
 			},
 		},
 	},
+	{ "norcalli/nvim-colorizer.lua" },
 	{
 		"folke/noice.nvim",
 		opts = {
