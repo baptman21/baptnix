@@ -9,6 +9,7 @@ return {
 				purple = "#956ad3",
 				yellow = "#e1a51c",
 				cyan = "#1dcae0",
+				bg_d = "#272537", -- set same color as background for transparency
 			},
 			highlights = {
 				DashboardHeader = { fg = "$purple" }, -- color for dashboard-nvim
