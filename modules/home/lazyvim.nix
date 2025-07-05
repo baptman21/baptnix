@@ -82,7 +82,10 @@ in {
       pkgs.rust-analyzer
 
       pkgs.metals
-    ];
+
+    ] ++ pkgs.lib.lists.optionals
+      # disabled because not working on macos
+      (pkgs.stdenv.isLinux) [ pkgs.mermaid-cli ];
 
     home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };
 
