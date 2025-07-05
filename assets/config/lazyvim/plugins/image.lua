@@ -12,6 +12,7 @@ return {
 		dependencies = {
 			"3rd/image.nvim",
 		},
+
 		opts = { -- you can just pass {}, defaults below
 			events = {
 				render_buffer = { "InsertLeave", "BufWinEnter", "TextChanged" },
