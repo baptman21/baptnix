@@ -2,6 +2,7 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		opts = {
+			style = "darker",
 			colors = {
 				-- Iris colors, cf ../../../themes/iris
 				green = "#36b32d",
