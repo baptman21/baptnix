@@ -16,7 +16,7 @@ in {
       after-startup-command = [
         # JankyBorders has a built-in detection of already running process,
         # so it won't be run twice on AeroSpace restart
-        "exec-and-forget ${pkgs.jankyborders}/bin/borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=50.0"
+        "exec-and-forget ${pkgs.jankyborders}/bin/borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0"
       ];
 
       exec-on-workspace-change = [
