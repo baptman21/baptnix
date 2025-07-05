@@ -4,10 +4,11 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Hack Nerd Font";
+      name = "Hack Nerd Font Mono";
       size = 16;
     };
-    themeFile = "OneHalfDark";
+    # themeFile = "tokyo_night_storm";
+    # themeFile = "1984_dark";
     shellIntegration = {
       enableZshIntegration = true;
       enableBashIntegration = true;
@@ -22,7 +23,11 @@
       enable_audio_bell = false;
 
       background_opacity = 0.9;
-      background_blur = 10.0;
+      background_blur = 10;
     };
+    extraConfig = ''
+      # Custom Iris theme
+      include ${../../assets/themes/iris/kitty.conf}
+    '';
   };
 }
