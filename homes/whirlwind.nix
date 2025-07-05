@@ -13,7 +13,6 @@
       background_image = ../assets/wallpapers/forest-botw.jpg;
     })
     ../modules/home/neovim.nix
-    ../modules/home/lunarvim.nix
     ../modules/home/lazyvim.nix
     (import ../modules/home/kde-theme.nix { theme = "whirlwind"; })
     ../modules/home/nix-index.nix
@@ -53,10 +52,7 @@
     # changes in each release.
     home.stateVersion = "23.11";
 
-    home.shellAliases = {
-      lvim = "zvim";
-      tf = "terraform";
-    };
+    home.shellAliases = { tf = "terraform"; };
 
     programs = {
       # Let Home Manager install and manage itself.

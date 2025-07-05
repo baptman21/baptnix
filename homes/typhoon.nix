@@ -13,7 +13,6 @@
       background_image = ../assets/wallpapers/purple-planet.jpg;
     })
     ../modules/home/neovim.nix
-    ../modules/home/lunarvim.nix
     ../modules/home/lazyvim.nix
     (import ../modules/home/kde-theme.nix { theme = "typhoon"; })
     ../modules/home/nix-index.nix
@@ -63,8 +62,6 @@
   home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];
 
   home.shellAliases = {
-    lvim = "zvim";
-
     tf = "terraform";
     by = "bat -l yaml";
   };
