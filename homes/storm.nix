@@ -7,6 +7,7 @@
     # apps
     ../modules/home/fzf.nix
     ../modules/home/alacritty.nix
+    ../modules/home/kitty.nix
     ../modules/home/git.nix
     ../modules/home/neovim.nix
     ../modules/home/lazyvim.nix
