@@ -79,6 +79,7 @@ in {
 
       brews = [ "databricks" ];
 
+      casks = [ "obsidian" ];
     };
 
   };
