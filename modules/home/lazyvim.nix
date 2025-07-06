@@ -83,16 +83,23 @@ in {
 
       pkgs.metals
 
+      (pkgs.writeShellScriptBin "lvim" ''
+        NVIM_APPNAME=nvim-lazyvim nvim "$@"
+      '')
+
     ] ++ pkgs.lib.lists.optionals
       # disabled because not working on macos
       (pkgs.stdenv.isLinux) [ pkgs.mermaid-cli ];
 
     home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };
 
-    home.shellAliases = { lvim = "NVIM_APPNAME=nvim-lazyvim nvim"; };
+    # home.shellAliases = { lvim = "NVIM_APPNAME=nvim-lazyvim nvim"; };
 
     home.sessionPath = [
       "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter"
+
+      # Add mind repo bin
+      "${config.home.homeDirectory}/Baptcave/mind/bin"
     ];
   };
 }
