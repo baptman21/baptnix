@@ -4,6 +4,13 @@ return {
 		opts = {
 			checkbox = {
 				enabled = true,
+				custom = {
+					important = {
+						raw = "[~]",
+						rendered = " ",
+						highlight = "DiagnosticWarn",
+					},
+				},
 			},
 		},
 	},
