@@ -52,6 +52,14 @@ return {
 					tomorrow = function()
 						return os.date("%Y-%m-%d", os.time() + 86400)
 					end,
+					clean_name = function(ctx)
+						local id = ctx.partial_note.id
+						local date = os.date("%Y-%m-%d-", os.time())
+						local without_date = (string.sub(id, 0, #date) == date) and string.sub(id, #date + 1) or id
+						local without_underscore = string.gsub(without_date, "_", " ")
+						local out = string.gsub(without_underscore, "^%l", string.upper)
+						return out
+					end,
 				},
 			},
 
