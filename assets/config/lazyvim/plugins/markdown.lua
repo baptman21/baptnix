@@ -4,6 +4,7 @@ return {
 		opts = {
 			checkbox = {
 				enabled = true,
+				right_pad = 2,
 				custom = {
 					important = {
 						raw = "[~]",
