@@ -5,3 +5,7 @@ map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 map("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+
+-- Obsidian shortcuts
+map("n", "<leader>mb", "<cmd>Obsidian backlinks<cr>", { desc = "Obsidian backlings" })
+map("n", "<leader>mc", "<cmd>Obsidian toggle_checkbox<cr>", { desc = "Obsidian backlings" })
