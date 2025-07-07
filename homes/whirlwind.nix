@@ -13,7 +13,7 @@
       background_image = ../assets/wallpapers/forest-botw.jpg;
     })
     ../modules/home/neovim.nix
-    ../modules/home/lazyvim.nix
+    (import ../modules/home/lazyvim.nix { })
     (import ../modules/home/kde-theme.nix { theme = "whirlwind"; })
     ../modules/home/nix-index.nix
     (import ../modules/home/starship.nix {

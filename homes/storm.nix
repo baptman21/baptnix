@@ -10,7 +10,7 @@
     ../modules/home/kitty.nix
     ../modules/home/git.nix
     ../modules/home/neovim.nix
-    ../modules/home/lazyvim.nix
+    (import ../modules/home/lazyvim.nix { additionalPlugins = [ "jira.lua" ]; })
     ../modules/home/nix-index.nix
     ../modules/home/aerospace.nix
     (import ../modules/home/starship.nix {

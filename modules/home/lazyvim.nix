@@ -1,8 +1,12 @@
+{ additionalPlugins ? [ ] }:
+# additionalPlugins: list of additional plugins to install
 { config, pkgs, ... }:
 # Lazyvim
 #
 let
   lib = pkgs.lib;
+
+  flatAdditionalPlugins = builtins.concatStringsSep " " additionalPlugins;
 
   lazyvimStaterRepo = pkgs.stdenv.mkDerivation {
     pname = "lazyvim";
@@ -29,6 +33,14 @@ let
 
       rm -rf $out/lua/plugins
       cp -r ${../../assets/config/lazyvim}/plugins $out/lua/plugins
+
+      mkdir $out/lua/additionalPlugins
+
+      for plugin in ${flatAdditionalPlugins}; do
+        cp "${
+          ../../assets/config/lazyvim
+        }/additionalPlugins/$plugin" "$out/lua/additionalPlugins/$plugin"
+      done
 
       cp -r ${../../assets/config/lazyvim}/after $out/after
     '';
