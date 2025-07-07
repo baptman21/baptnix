@@ -9,6 +9,7 @@ return {
 	},
 	{
 		"3rd/diagram.nvim",
+		cond = vim.env.KITTY_SCROLLBACK_NVIM ~= "true",
 		dependencies = {
 			"3rd/image.nvim",
 		},
