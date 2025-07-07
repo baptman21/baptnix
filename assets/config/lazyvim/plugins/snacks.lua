@@ -18,5 +18,14 @@ return {
 				},
 			},
 		},
+		keys = {
+			{
+				"<leader>sP",
+				function()
+					require("snacks").picker.pickers()
+				end,
+				desc = "Snacks Pickers",
+			},
+		},
 	},
 }
