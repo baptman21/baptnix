@@ -36,8 +36,12 @@ map("n", "<leader>mmn", function()
 	L.new_note("0-inbox/", "note")
 end, { desc = "Create a new note" })
 
-map("n", "<leader>mmt", function()
-	L.new_note("4-tasks/work/", "task")
+map("n", "<leader>mmw", function()
+	L.new_note("0-inbox/", "note")
+end, { desc = "Create a new work note" })
+
+map("n", "<leader>mmwt", function()
+	L.new_note("4-tasks/private-work/", "task")
 end, { desc = "Create a new work task" })
 
 map("n", "<leader>mmp", function()
