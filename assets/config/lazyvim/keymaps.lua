@@ -38,8 +38,8 @@ end, { desc = "Create a new note" })
 
 map("n", "<leader>mmt", function()
 	L.new_note("4-tasks/work/", "task")
-end, { desc = "Create a new note" })
+end, { desc = "Create a new work task" })
 
 map("n", "<leader>mmp", function()
 	L.new_note("4-tasks/personal/", "task")
-end, { desc = "Create a new note" })
+end, { desc = "Create a new personal task" })
