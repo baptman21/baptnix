@@ -26,6 +26,17 @@ return {
 				end,
 				desc = "Snacks Pickers",
 			},
+			{
+				"<C-G>",
+				function()
+					require("snacks").picker.pick({
+						source = "files",
+						confirm = "put",
+					})
+				end,
+				desc = "Files picker from command",
+				mode = "c",
+			},
 		},
 	},
 }
