@@ -17,6 +17,7 @@
       pkgs.file
       pkgs.coreutils
       pkgs.gnugrep
+      pkgs.ripgrep
       pkgs.ranger
       pkgs.unzip
       pkgs.xclip
