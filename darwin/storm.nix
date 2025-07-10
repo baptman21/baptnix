@@ -77,7 +77,7 @@ in {
         clone_target = "git@github.com:databricks/tap";
       }];
 
-      brews = [ "databricks" ];
+      brews = [ "rsync" "databricks" ];
 
       casks = [ "obsidian" ];
     };
