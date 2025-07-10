@@ -9,7 +9,8 @@ in {
   programs.aerospace = {
     enable = true;
     userSettings = {
-      start-at-login = true;
+      # Diable to create manually
+      # start-at-login = true;
 
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
