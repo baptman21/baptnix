@@ -10,6 +10,7 @@
       # Shell utilities
       pkgs.tree
       pkgs.bat
+      pkgs.bat-extras.batman
       pkgs.file
       pkgs.coreutils
       pkgs.gnugrep

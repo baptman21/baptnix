@@ -15,6 +15,7 @@
     })
     ../modules/home/nix-index.nix
     ../modules/home/aerospace.nix
+    ../modules/home/eza.nix
     (import ../modules/home/starship.nix {
       theme = "storm";
       extraSettings = {
