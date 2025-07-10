@@ -129,6 +129,7 @@
       pkgs.starpls
       pkgs.tflint
       pkgs.ansible
+      pkgs.bazel
     ];
 
     # SSH is setup manually because config is different
