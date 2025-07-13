@@ -49,7 +49,7 @@ in { config, pkgs, ... }:
         bind=$mod,Return,exec,kitty
         bind=$mod_SHIFT,Q,killactive,
         bind=$mod,Space,togglefloating,
-        bind=$mod,D,exec,wofi --show run --xoffset=1670 --yoffset=12 --width=230px --height=984 --style=$HOME/.config/wofi.css --term=kitty --prompt=Run
+        bind=$mod,D,exec,wofi --show run --xoffset=1670 --yoffset=12 --width=230px --height=984 --term=kitty --prompt=Run
         bind=$mod,F,fullscreen,0
 
         bind=$mod,h,movefocus,l
