@@ -4,9 +4,8 @@
 # Lazyvim
 #
 let
-  lib = pkgs.lib;
-
-  flatAdditionalPlugins = builtins.concatStringsSep " " additionalPlugins;
+  flatAdditionalPlugins =
+    builtins.concatStringsSep " " (additionalPlugins ++ [ "empty.lua" ]);
 
   lazyvimStaterRepo = pkgs.stdenv.mkDerivation {
     pname = "lazyvim";
