@@ -17,6 +17,11 @@ in { config, pkgs, ... }:
 {
   config = {
     programs.kitty.enable = true; # Full config in kitty.nix
+
+    services.hyprpolkitagent.enable = true; # auth tool
+
+    home.packages = [ pkgs.swaybg ];
+
     wayland.windowManager.hyprland = {
       enable = true; # enable Hyprland
       extraConfig = ''

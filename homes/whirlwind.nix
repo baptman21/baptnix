@@ -9,6 +9,7 @@
     ../modules/home/git.nix
     ../modules/home/kitty.nix
     ../modules/home/dunst.nix
+    ../modules/home/eww.nix
     (import ../modules/home/hyprland.nix {
       theme = "whirlwind";
       modifier = "SUPER";
