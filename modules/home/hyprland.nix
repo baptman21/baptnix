@@ -34,6 +34,13 @@ in { config, pkgs, ... }:
             col.inactive_border=0xff292a37
         }
 
+        monitor=,1920x1080,auto,1,bitdepth,8
+        monitor=,preferred,auto,1,mirror,eDP-1,bitdepth,8
+
+        xwayland {
+          force_zero_scaling = true
+        }
+
         bind=$mod,Return,exec,kitty
         bind=$mod_SHIFT,Q,killactive,
         bind=$mod,Space,togglefloating,
