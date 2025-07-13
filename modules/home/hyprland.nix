@@ -26,57 +26,17 @@ in { config, pkgs, ... }:
         # exec-once=eww open bar
         # exec-once=dunst
 
-        input {
-            # follow_mouse=0
-        }
-
         general {
-            sensitivity=1
-            main_mod=${modifier}
-
             gaps_in=6
             gaps_out=12
             border_size=4
             col.active_border=0xffb072d1
             col.inactive_border=0xff292a37
-
-            damage_tracking=full
         }
 
-        decoration {
-            rounding=8
-            blur=0
-            drop_shadow=0
-            shadow_range=60
-            col.shadow=0x66000000
-        }
-
-        animations {
-            enabled=1
-            animation=windows,1,4,default,slide
-            animation=borders,1,5,default
-            animation=fadein,1,5,default
-            animation=workspaces,1,3,default,vertslide
-        }
-
-        dwindle {
-            pseudotile=0 # enable pseudotiling on dwindle
-        }
-
-        # example window rules
-        # for windows named/classed as abc and xyz
-        windowrule=float,move 0 0,pqiv
-        windowrule=float,foot-notes
-        #windowrule=size 420 69,abc
-        #windowrule=tile,xyz
-        #windowrule=float,abc
-        #windowrule=pseudo,abc
-        #windowrule=monitor 0,xyz
-
-        # example binds
         bind=$mod,Return,exec,kitty
         bind=$mod_SHIFT,Q,killactive,
-        bind=$mod,V,togglefloating,
+        bind=$mod,Space,togglefloating,
         bind=$mod,D,exec,wofi --show run --xoffset=1670 --yoffset=12 --width=230px --height=984 --style=$HOME/.config/wofi.css --term=kitty --prompt=Run
         bind=$mod,F,fullscreen,0
 
@@ -90,17 +50,27 @@ in { config, pkgs, ... }:
         bind=$mod_SHIFT,k,movewindow,u
         bind=$mod_SHIFT,j,movewindow,d
 
-        bind=ALT,1,workspace,1
-        bind=ALT,2,workspace,2
-        bind=ALT,3,workspace,3
-        bind=ALT,4,workspace,4
-        bind=ALT,5,workspace,5
+        bind=$mod,1,workspace,1
+        bind=$mod,2,workspace,2
+        bind=$mod,3,workspace,3
+        bind=$mod,4,workspace,4
+        bind=$mod,5,workspace,5
+        bind=$mod,6,workspace,6
+        bind=$mod,7,workspace,7
+        bind=$mod,8,workspace,8
+        bind=$mod,9,workspace,9
+        bind=$mod,0,workspace,0
 
-        bind=$mod_SHIFT,exclam,movetoworkspacesilent,1
-        bind=$mod_SHIFT,at,movetoworkspacesilent,2
-        bind=$mod_SHIFT,numbersign,movetoworkspacesilent,3
-        bind=$mod_SHIFT,dollar,movetoworkspacesilent,4
-        bind=$mod_SHIFT,percent,movetoworkspacesilent,5
+        bind=$mod_SHIFT,1,movetoworkspacesilent,1
+        bind=$mod_SHIFT,2,movetoworkspacesilent,2
+        bind=$mod_SHIFT,3,movetoworkspacesilent,3
+        bind=$mod_SHIFT,4,movetoworkspacesilent,4
+        bind=$mod_SHIFT,5,movetoworkspacesilent,5
+        bind=$mod_SHIFT,6,movetoworkspacesilent,6
+        bind=$mod_SHIFT,7,movetoworkspacesilent,7
+        bind=$mod_SHIFT,8,movetoworkspacesilent,8
+        bind=$mod_SHIFT,9,movetoworkspacesilent,9
+        bind=$mod_SHIFT,0,movetoworkspacesilent,0
 
         bind=,XF86MonBrightnessUp,exec,brightnessctl set +5%
         bind=,XF86MonBrightnessDown,exec,brightnessctl set 5%-

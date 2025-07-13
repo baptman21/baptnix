@@ -32,8 +32,6 @@
     ../modules/home/vim.nix
     (import ../modules/home/zsh.nix { })
     # services
-    (import ../modules/home/picom.nix { theme = "whirlwind"; })
-    (import ../modules/home/polybar.nix { theme = "whirlwind"; })
     ../modules/home/blueman.nix
     (import ../modules/home/kube.nix { theme = "whirlwind"; })
     ../modules/home/direnv.nix
