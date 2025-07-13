@@ -39,6 +39,7 @@
         # Custom Iris theme
         include ${../../assets/themes/iris/kitty.conf}
 
+        shell zsh
 
         map kitty_mod+f scroll_page_up
         map kitty_mod+b scroll_page_down
