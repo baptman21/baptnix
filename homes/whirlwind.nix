@@ -7,6 +7,7 @@
     # apps
     ../modules/home/fzf.nix
     ../modules/home/git.nix
+    ../modules/home/kitty.nix
     (import ../modules/home/hyperland.nix {
       theme = "whirlwind";
       modifier = "Mod4";
