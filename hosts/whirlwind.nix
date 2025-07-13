@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../modules/system/hyperland.nix
+    ../modules/system/hyprland.nix
     ../modules/system/docker.nix
     ../modules/system/bluetooth.nix
   ];

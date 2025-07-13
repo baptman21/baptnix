@@ -8,9 +8,9 @@
     ../modules/home/fzf.nix
     ../modules/home/git.nix
     ../modules/home/kitty.nix
-    (import ../modules/home/hyperland.nix {
+    (import ../modules/home/hyprland.nix {
       theme = "whirlwind";
-      modifier = "Mod4";
+      modifier = "SUPER";
       background_image = ../assets/wallpapers/forest-botw.jpg;
     })
     ../modules/home/neovim.nix
