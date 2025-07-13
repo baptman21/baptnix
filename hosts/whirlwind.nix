@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../modules/system/i3-plasma.nix
+    ../modules/system/hyperland.nix
     ../modules/system/docker.nix
     ../modules/system/bluetooth.nix
   ];

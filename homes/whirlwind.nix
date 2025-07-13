@@ -7,7 +7,7 @@
     # apps
     ../modules/home/fzf.nix
     ../modules/home/git.nix
-    (import ../modules/home/i3-plasma.nix {
+    (import ../modules/home/hyperland.nix {
       theme = "whirlwind";
       modifier = "Mod4";
       background_image = ../assets/wallpapers/forest-botw.jpg;
