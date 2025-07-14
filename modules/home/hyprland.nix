@@ -28,6 +28,7 @@ in { config, pkgs, ... }:
     home.packages = [
       pkgs.swaybg # background
       pkgs.hyprpicker # color picker
+      pkgs.brightnessctl # brightness control
       pkgs.xfce.thunar # file browser
       pkgs.iwgtk # wifi
       pkgs.blueberry # bluetooth
