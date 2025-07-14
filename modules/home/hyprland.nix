@@ -22,6 +22,10 @@ in { config, pkgs, ... }:
 
     home.packages = [ pkgs.swaybg pkgs.hyprpicker ];
 
+    # Clipboard manager
+    # TODO: add mapping for opening it with wofi
+    services.cliphist = { enable = true; };
+
     services.hypridle = {
       enable = true;
       settings = {
