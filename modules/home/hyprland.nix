@@ -20,7 +20,18 @@ in { config, pkgs, ... }:
 
     services.hyprpolkitagent.enable = true; # auth tool
 
-    home.packages = [ pkgs.swaybg pkgs.hyprpicker ];
+    services.udiskie = {
+      enable = true; # Auto disk mounting (e.g. USB)
+      settings = { };
+    };
+
+    home.packages = [
+      pkgs.swaybg # background
+      pkgs.hyprpicker # color picker
+      pkgs.xfce.thunar # file browser
+      pkgs.iwgtk # wifi
+      pkgs.blueberry # bluetooth
+    ];
 
     # Clipboard manager
     # TODO: add mapping for opening it with wofi

@@ -4,6 +4,9 @@
   config = {
     programs.hyprland.enable = true;
 
+    # Mounting disks service, used by udiskie
+    services.udisks2.enable = true;
+
     # Hint electron app to use wayland
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
