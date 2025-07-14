@@ -10,7 +10,6 @@
     # Hyperland
     ../modules/home/kitty.nix
     ../modules/home/dunst.nix
-    ../modules/home/eww.nix
     ../modules/home/wofi.nix
     (import ../modules/home/hyprland.nix {
       theme = "whirlwind";
