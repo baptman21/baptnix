@@ -37,7 +37,7 @@ map("n", "<leader>mmn", function()
 end, { desc = "Create a new note" })
 
 map("n", "<leader>mmw", function()
-	L.new_note("0-inbox/", "note")
+	L.new_note("0-inbox/private-work/", "note")
 end, { desc = "Create a new work note" })
 
 map("n", "<leader>mmt", function()
