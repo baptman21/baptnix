@@ -4,12 +4,20 @@ return {
 		opts = {
 			checkbox = {
 				enabled = true,
-				right_pad = 0,
+				unchecked = {
+					icon = "   󰄱 ",
+				},
+				checked = {
+					icon = "   󰱒 ",
+				},
 				custom = {
 					important = {
 						raw = "[~]",
-						rendered = " ",
+						rendered = "    ",
 						highlight = "DiagnosticWarn",
+					},
+					todo = {
+						rendered = "   󰥔 ",
 					},
 				},
 			},
