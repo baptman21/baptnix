@@ -7,6 +7,11 @@ return {
 				jsonnet_ls = {
 					enabled = true,
 					mason = false,
+					settings = {
+						formatting = {
+							StringStyle = "double",
+						},
+					},
 				},
 			},
 		},

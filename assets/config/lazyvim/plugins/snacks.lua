@@ -12,9 +12,10 @@ return {
 						},
 					},
 				},
-				list = {
-					input = {
-						keys = {},
+				formatters = {
+					file = {
+						filename_first = true, -- display filename before the file path
+						truncate = 999, -- truncate the file path to (roughly) this length
 					},
 				},
 			},
