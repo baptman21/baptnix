@@ -2,6 +2,9 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {
+			code = {
+				border = "thin",
+			},
 			checkbox = {
 				enabled = true,
 				unchecked = {
