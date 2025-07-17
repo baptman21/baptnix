@@ -68,6 +68,7 @@ vim.filetype.add({
 	pattern = {
 		[".*/templates/.*%.tpl"] = "helm",
 		[".*/templates/.*%.ya?ml"] = "helm",
+		[".*jsonnet.TEMPLATE"] = "jsonnet",
 		["helmfile.*%.ya?ml"] = "helm",
 	},
 })
