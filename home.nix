@@ -15,4 +15,9 @@ in {
     modules = [ ./homes/whirlwind.nix ];
     pkgs = importPkgs { system = "x86_64-linux"; };
   };
+
+  cant = mkHome {
+    modules = [ ./homes/cant.nix ];
+    pkgs = importPkgs { system = "x86_64-linux"; };
+  };
 }
