@@ -45,5 +45,7 @@
 
       darwinConfigurations =
         import ./darwin.nix { inherit inputs outputs lib importPkgs; };
+
+      inherit (home-manager) packages;
     };
 }
