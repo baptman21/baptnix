@@ -11,7 +11,8 @@
     ../modules/home/git.nix
     ../modules/home/neovim.nix
     (import ../modules/home/lazyvim.nix {
-      additionalPlugins = [ "ai.lua" "jira.lua" "mind.lua" ];
+      additionalPlugins =
+        [ "disable_mason.lua" "ai.lua" "jira.lua" "mind.lua" ];
     })
     ../modules/home/nix-index.nix
     ../modules/home/aerospace.nix

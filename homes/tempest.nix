@@ -13,7 +13,9 @@
       background_image = ../assets/wallpapers/the-expanse-1440p.png;
     })
     ../modules/home/neovim.nix
-    (import ../modules/home/lazyvim.nix { })
+    (import ../modules/home/lazyvim.nix {
+      additionalPlugins = [ "disable_mason.lua" "mind.lua" ];
+    })
     (import ../modules/home/kde-theme.nix { theme = "tempest"; })
     ../modules/home/nix-index.nix
     (import ../modules/home/starship.nix { theme = "tempest"; })
