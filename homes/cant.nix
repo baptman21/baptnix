@@ -45,18 +45,18 @@
       cargo
       eternal-terminal
     ];
-  };
 
-  systemd.user.services = {
-    # Eternal terminal
-    et = {
-      description = "Eternal Terminal for better SSH";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "syslog.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.eternal-terminal}/bin/et";
-        Restart = "on-failure";
+    systemd.user.services = {
+      # Eternal terminal
+      et = {
+        description = "Eternal Terminal for better SSH";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "network.target" "syslog.target" ];
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.eternal-terminal}/bin/et";
+          Restart = "on-failure";
+        };
       };
     };
   };
