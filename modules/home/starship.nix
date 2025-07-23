@@ -19,6 +19,10 @@ let
       primary = "79";
       secondary = "122";
     };
+    cant = {
+      primary = "24";
+      secondary = "31";
+    };
   };
 in { config, pkgs, ... }:
 # Starship configuration

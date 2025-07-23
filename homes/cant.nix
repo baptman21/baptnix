@@ -5,19 +5,12 @@
     # packages
     ../modules/home/fzf.nix
     ../modules/home/neovim.nix
+    (import ../modules/home/zsh.nix { })
     (import ../modules/home/lazyvim.nix {
       additionalPlugins = [ "ai.lua" "jira.lua" ];
     })
     ../modules/home/eza.nix
-    (import ../modules/home/starship.nix {
-      theme = "storm";
-      extraSettings = {
-        kubernetes = {
-          disabled = false;
-          format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
-        };
-      };
-    })
+    (import ../modules/home/starship.nix { theme = "cant"; })
   ];
 
   config = {
@@ -40,5 +33,11 @@
       bash.enable = true;
       go.enable = true;
     };
+
+    home.packages = with pkgs; [
+      # packages
+      rustc
+      cargo
+    ];
   };
 }
