@@ -22,7 +22,7 @@
 
   config = {
     home.username = "baptiste.bourdet";
-    home.homeDirectory = "/Users/baptiste.bourdet";
+    home.homeDirectory = "/home/baptiste.bourdet";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
