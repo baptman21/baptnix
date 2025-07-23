@@ -49,14 +49,16 @@
     systemd.user.services = {
       # Eternal terminal
       et = {
-        description = "Eternal Terminal for better SSH";
-        wantedBy = [ "multi-user.target" ];
-        after = [ "network.target" "syslog.target" ];
-        serviceConfig = {
+        Unit = {
+          Description = "Eternal Terminal for better SSH";
+          After = [ "network.target" "syslog.target" ];
+        };
+        Service = {
           Type = "simple";
           ExecStart = "${pkgs.eternal-terminal}/bin/et";
           Restart = "on-failure";
         };
+        Install = { WantedBy = [ "multi-user.target" ]; };
       };
     };
   };
