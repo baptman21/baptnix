@@ -72,6 +72,7 @@
       pkgs.tflint
       pkgs.ansible
       pkgs.bazel
+      pkgs.eternal-terminal
     ];
 
     # SSH is setup manually because config is different
