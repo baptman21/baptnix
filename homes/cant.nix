@@ -32,6 +32,11 @@
       home-manager.enable = true;
       bash.enable = true;
       go.enable = true;
+
+      starship = {
+        enable = true;
+        settings = { git_status = { disabled = true; }; };
+      };
     };
 
     home.packages = with pkgs; [
