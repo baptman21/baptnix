@@ -1,3 +1,9 @@
+vim.api.nvim_create_user_command("F", function(opts)
+	require("snacks").picker.files({
+		cwd = opts.fargs[1],
+	})
+end, { nargs = 1 })
+
 return {
 	{
 		"snacks.nvim",
@@ -24,8 +30,12 @@ return {
 							["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
 							["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
 							["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
+							["<c-y>"] = { "put", mode = { "i", "n" } },
 							["<c-Esc>"] = { "close", mode = { "n", "i" } },
 							["<Esc><Esc>"] = { "close", mode = { "n" } },
+
+							["<Down>"] = { "history_forward", mode = { "i", "n" } },
+							["<Up>"] = { "history_back", mode = { "i", "n" } },
 
 							["<c-o>"] = {
 								"toggle_wrap",
@@ -38,7 +48,7 @@ return {
 							-- ["<Esc>"] = { "close", mode = { "n", "i" } },
 
 							["/"] = false, -- "toggle_focus",
-							-- ["<C-Down>"] = { "history_forward", mode = { "i", "n" } },
+							["<C-Down>"] = false, -- { "history_forward", mode = { "i", "n" } },
 							-- ["<C-Up>"] = { "history_back", mode = { "i", "n" } },
 
 							["<C-c>"] = { "cancel", mode = "i" },
@@ -52,8 +62,9 @@ return {
 							-- ["<S-Tab>"] = { "select_and_prev", mode = { "i", "n" } },
 							-- ["<Tab>"] = { "select_and_next", mode = { "i", "n" } },
 
-							["<Up>"] = false, -- { "list_up", mode = { "i", "n" } },
-							["<Down>"] = false, -- { "list_down", mode = { "i", "n" } },
+							-- overwritten in custom
+							-- ["<Up>"] = false, -- { "list_up", mode = { "i", "n" } },
+							-- ["<Down>"] = false, -- { "list_down", mode = { "i", "n" } },
 
 							["<a-d>"] = false, -- { "inspect", mode = { "n", "i" } },
 							["<a-f>"] = false, -- { "toggle_follow", mode = { "i", "n" } },
@@ -114,6 +125,7 @@ return {
 						keys = {
 							-- Custom
 							["<c-w>"] = "cycle_win",
+							["<c-y>"] = "put",
 							-- ["<c-e>"] = "inspect", used for debug if needed
 							["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
 							["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
@@ -215,17 +227,6 @@ return {
 					require("snacks").picker.pickers()
 				end,
 				desc = "Snacks Pickers",
-			},
-			{
-				"<C-G>",
-				function()
-					require("snacks").picker.pick({
-						source = "files",
-						confirm = "put",
-					})
-				end,
-				desc = "Files picker from command",
-				mode = "c",
 			},
 		},
 	},
