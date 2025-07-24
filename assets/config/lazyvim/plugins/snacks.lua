@@ -3,6 +3,19 @@ return {
 		"snacks.nvim",
 		opts = {
 			picker = {
+				actions = {
+					list_scroll_left = function(picker)
+						picker.list.win:hscroll(true)
+					end,
+					toggle_wrap = function(picker)
+						vim.api.nvim_win_call(picker.list.win.win, function()
+							vim.cmd("set wrap!")
+						end)
+					end,
+					list_scroll_right = function(picker)
+						picker.list.win:hscroll()
+					end,
+				},
 				win = {
 					-- input window
 					input = {
@@ -13,6 +26,11 @@ return {
 							["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
 							["<c-Esc>"] = { "close", mode = { "n", "i" } },
 							["<Esc><Esc>"] = { "close", mode = { "n" } },
+
+							["<c-o>"] = {
+								"toggle_wrap",
+								mode = { "i", "n" },
+							},
 
 							-- Default
 							-- to close the picker on ESC instead of going to normal mode,
@@ -100,6 +118,7 @@ return {
 							["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
 							["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
 							["<c-Esc>"] = "cancel",
+							["<Esc><Esc>"] = "cancel",
 
 							-- Default
 							["/"] = false,
@@ -108,7 +127,7 @@ return {
 							-- ["<CR>"] = "confirm",
 							-- ["<S-CR>"] = { { "pick_win", "jump" } },
 
-							-- ["<Esc>"] = "cancel",
+							["<Esc>"] = false,
 
 							-- ["<S-Tab>"] = { "select_and_prev", mode = { "n", "x" } },
 							-- ["<Tab>"] = { "select_and_next", mode = { "n", "x" } },
@@ -164,6 +183,7 @@ return {
 						wo = {
 							conceallevel = 2,
 							concealcursor = "nvc",
+							wrap = false, -- enable line wrapping in the list window
 						},
 					},
 					-- preview window
@@ -171,8 +191,9 @@ return {
 						keys = {
 							-- Custom
 							["<c-Esc>"] = "cancel",
+							["<Esc><Esc>"] = "cancel",
 							-- Default
-							-- ["<Esc>"] = "cancel",
+							["<Esc>"] = false,
 							-- ["q"] = "close",
 							-- ["i"] = "focus_input",
 							-- ["<c-w>"] = "cycle_win",
@@ -181,7 +202,7 @@ return {
 				},
 				formatters = {
 					file = {
-						filename_first = true, -- display filename before the file path
+						-- filename_first = true, -- display filename before the file path
 						truncate = 999, -- truncate the file path to (roughly) this length
 					},
 				},
