@@ -41,6 +41,9 @@
 
         shell zsh
 
+        # Let aerospace or I3 kill windows
+        map ctrl+shift+w
+
         map kitty_mod+f scroll_page_up
         map kitty_mod+b scroll_page_down
 
