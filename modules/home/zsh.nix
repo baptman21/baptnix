@@ -1,4 +1,4 @@
-{ sshIdentities ? "github_key" }:
+{ sshAgent ? true, sshIdentities ? "github_key" }:
 # sshIdentities is the list of keys seperated by space to add to agent
 { config, pkgs, ... }:
 # ZSH configuration
@@ -25,10 +25,11 @@
         enable = true;
         # theme = "bapt";
         # custom = "${../../assets/zsh-custom}";
-        plugins = [ "ssh-agent" "fzf" ];
-        extraConfig = ''
+        plugins = [ "fzf" ] ++ (if sshAgent then [ "ssh-agent" ] else [ ]);
+        extraConfig = if sshAgent then ''
           zstyle :omz:plugins:ssh-agent identities ${sshIdentities}
-        '';
+        '' else
+          "";
       };
     };
   };

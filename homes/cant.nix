@@ -5,7 +5,7 @@
     # packages
     ../modules/home/fzf.nix
     ../modules/home/neovim.nix
-    (import ../modules/home/zsh.nix { })
+    (import ../modules/home/zsh.nix { sshAgent = false; })
     (import ../modules/home/lazyvim.nix {
       additionalPlugins = [ "ai.lua" "jira.lua" ];
     })
