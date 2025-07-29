@@ -13,7 +13,6 @@
     ../modules/home/wofi.nix
     (import ../modules/home/hyprland.nix {
       theme = "whirlwind";
-      modifier = "SUPER";
       background_image = ../assets/wallpapers/forest-botw.jpg;
     })
     ../modules/home/neovim.nix

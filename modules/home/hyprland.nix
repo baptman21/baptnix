@@ -1,8 +1,7 @@
-{ modifier, background_image, theme }:
+{ background_image, theme }:
 # Hyperland config
 #
 # Args:
-# - modifier: i3 modifier
 # - background_image: background image
 # - theme: one of tempest, whirlwind
 #
@@ -26,7 +25,7 @@ in { config, pkgs, ... }:
     };
 
     programs.waybar = {
-      enable = true; # Auto disk mounting (e.g. USB)
+      enable = true; # Top bar
       systemd = {
         enable = true;
         enableDebug = false;
@@ -302,7 +301,7 @@ in { config, pkgs, ... }:
         bind=,XF86AudioLowerVolume,exec,pamixer -d 5
       '';
       settings = {
-        "$mod" = modifier;
+        "$mod" = "Mod4"; # Keep a
         # bind = [ "$mod, F, exec, firefox" ", Print, exec, grimblast copy area" ]
         #   ++ (
         #     # workspaces
