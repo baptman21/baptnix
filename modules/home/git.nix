@@ -40,7 +40,7 @@
         };
         merge.tool = "fugitive";
         mergetool."fugitive".cmd = ''
-          vim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
+          lvim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
         core = {
           editor = "vim";
           autocrlf = "input";
