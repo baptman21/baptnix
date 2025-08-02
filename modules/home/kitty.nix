@@ -37,7 +37,7 @@
       };
       extraConfig = ''
         # Custom Iris theme
-        include ${../../assets/themes/expanse/light/kitty.conf}
+        include ${../../assets/themes/expanse/dark/kitty.conf}
 
         shell zsh
 
