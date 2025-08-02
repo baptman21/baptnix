@@ -65,6 +65,7 @@ in { config, pkgs, ... }:
       pkgs.xfce.thunar # file browser
       pkgs.iwgtk # wifi
       pkgs.blueberry # bluetooth
+      pkgs.wl-clipboard # clipboard, and wl-copy util
     ];
 
     # Clipboard manager
