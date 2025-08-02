@@ -2,6 +2,7 @@
 # BaptComp Whirlwind configuration
 {
   imports = [
+    ../modules/home/bapt
     # packages
     ../modules/home/packages.nix
     # apps
@@ -43,6 +44,11 @@
   ];
 
   config = {
+    bapt = {
+      # My own config
+      theme = config.bapt.themes.expanse-dark;
+    };
+
     home.username = "baptman";
     home.homeDirectory = "/home/baptman";
 
