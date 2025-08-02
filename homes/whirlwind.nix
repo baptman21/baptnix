@@ -11,6 +11,7 @@
     ../modules/home/kitty.nix
     ../modules/home/dunst.nix
     ../modules/home/wofi.nix
+    ../modules/home/eza.nix
     (import ../modules/home/hyprland.nix {
       theme = "whirlwind";
       background_image = ../assets/wallpapers/forest-botw.jpg;
