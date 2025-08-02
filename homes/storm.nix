@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 # BaptComp Whirlwind configuration
-let aws_export = import ../pkgs/aws-export.nix { inherit pkgs; };
-in {
+{
   imports = [
     # packages
     ../modules/home/darwin_packages.nix
@@ -53,8 +52,8 @@ in {
       tf = "terraform";
       by = "bat -l yaml";
       bj = "bat -l json";
-      awse = "source ${aws_export.awse}/bin/aws-export.sh";
-      awsu = "source ${aws_export.awsu}/bin/aws-unset.sh";
+      awse = "source ${pkgs.bapt.awsexport.awse}/bin/aws-export.sh";
+      awsu = "source ${pkgs.bapt.awsexport.awsu}/bin/aws-unset.sh";
     };
 
     programs = {

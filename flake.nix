@@ -32,6 +32,7 @@
           config.allowUnfree = true;
           overlays = if overlaysOverride == null then [
             (import ./overlays/discord.nix)
+            (import ./overlays/bapt.nix)
             (import ./overlays/unstable.nix { inherit inputs; })
           ] else
             overlaysOverride;
