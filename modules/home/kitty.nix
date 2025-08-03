@@ -1,7 +1,18 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 # Kitty
-{
+let
+
+  themeFiles =
+    lib.mapAttrs (name: value: pkgs.bapt.lib.themes.toKittyConf value)
+    config.bapt.themes;
+  hmThemeFiles = lib.mapAttrs' (name: value:
+    let
+      filename = ".config/kitty/themes/" + value.name + ".conf";
+      content = { source = themeFiles."${value.name}"; };
+    in lib.nameValuePair filename content) config.bapt.themes;
+in {
   config = {
+    home.file = hmThemeFiles;
 
     home.shellAliases = {
       # Override the default clear command to keep the scrollback buffer
@@ -37,7 +48,7 @@
       };
       extraConfig = ''
         # Custom Iris theme
-        include ${../../assets/themes/expanse/dark/kitty.conf}
+        include ${themeFiles."${config.bapt.theme.name}"}
 
         shell zsh
 

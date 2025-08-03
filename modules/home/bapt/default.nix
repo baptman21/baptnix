@@ -1,5 +1,7 @@
 { config, lib, ... }:
-let inherit (lib) mkOption types;
+let
+  inherit (lib) mkOption types;
+  expanse = import ./themes/expanse.nix { };
 in {
   options.bapt = {
     theme = mkOption {
@@ -16,8 +18,8 @@ in {
 
   config.bapt = {
     themes = {
-      expanse-light = { name = "expanse-light"; };
-      expanse-dark = { name = "expanse-dark"; };
+      expanse-light = expanse.light;
+      expanse-dark = expanse.dark;
     };
   };
 }
