@@ -14,6 +14,11 @@ in {
       type = types.attrsOf types.attrs;
       description = "All themes available.";
     };
+
+    outputs = mkOption {
+      type = types.attrsOf types.attrs;
+      description = "Outputs to include in the generated folder";
+    };
   };
 
   config.bapt = {

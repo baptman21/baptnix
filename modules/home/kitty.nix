@@ -14,6 +14,10 @@ in {
   config = {
     home.file = hmThemeFiles;
 
+    bapt.outputs =
+      lib.attrsets.getAttrs ((builtins.attrNames hmThemeFiles) ++ [ ".zshrc" ])
+      config.home.file;
+
     home.shellAliases = {
       # Override the default clear command to keep the scrollback buffer
       clear = ''printf "\e[H\e[22J"'';
