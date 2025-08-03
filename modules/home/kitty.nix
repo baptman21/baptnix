@@ -14,8 +14,8 @@ in {
   config = {
     home.file = hmThemeFiles;
 
-    bapt.outputs =
-      lib.attrsets.getAttrs ((builtins.attrNames hmThemeFiles) ++ [ ".zshrc" ])
+    # Output all the theme files
+    bapt.outputs = lib.attrsets.getAttrs ((builtins.attrNames hmThemeFiles))
       config.home.file;
 
     home.shellAliases = {
