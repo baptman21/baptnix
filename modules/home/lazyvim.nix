@@ -7,6 +7,8 @@ let
   flatAdditionalPlugins =
     builtins.concatStringsSep " " (additionalPlugins ++ [ "empty.lua" ]);
 
+  themePlugin = pkgs.bapt.lib.themes.toLazyvimTheme config.bapt.theme;
+
   lazyvimStaterRepo = pkgs.stdenv.mkDerivation {
     pname = "lazyvim";
     version = "master";
@@ -34,6 +36,8 @@ let
       cp -r ${../../assets/config/lazyvim}/plugins $out/lua/plugins
 
       mkdir $out/lua/additionalPlugins
+
+      cp -r ${themePlugin} $out/lua/additionalPlugins/theme.lua
 
       for plugin in ${flatAdditionalPlugins}; do
         cp "${

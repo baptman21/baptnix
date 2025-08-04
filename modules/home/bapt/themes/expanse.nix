@@ -12,15 +12,17 @@
       green = "#16ad0b";
       lightGreen = "#60ae38";
       yellow = "#f5971d";
-      lightYellow = "#fee92e";
+      lightYellow = "#fec900";
       blue = "#134eb2";
       lightBlue = "#53a4f3";
       purple = "#550087";
-      lightPurple = "#a94dbb";
+      lightPurple = "#956ad3";
       cyan = "#008293";
-      lightCyan = "#46a5b3";
+      lightCyan = "#1dcae0";
       white = "#eeeeee";
       lightWhite = "#d8d8d8";
+      grey = "#535965";
+      lightGrey = "#7a818e";
     };
 
     foreground = {
@@ -30,12 +32,22 @@
 
     background = {
       # background
-      one = "#272537";
+      zero = "#272537";
+      one = "#454161";
+      two = "#403b61";
+      three = "#272249";
     };
 
     special = {
       # Special colors that don't fit the colors
       cursor = "#e4e4e4";
+
+      search = "#e8c88c";
+
+      diffAdd = "#4e8d2d";
+      diffDelete = "#8d0f17";
+      diffChange = "#172a3a";
+      diffText = "#274964";
     };
 
   };
@@ -55,11 +67,15 @@
       blue = "#134eb2";
       lightBlue = "#53a4f3";
       purple = "#550087";
-      lightPurple = "#a94dbb";
+      lightPurple = "#956ad3";
       cyan = "#008293";
-      lightCyan = "#46a5b3";
+      lightCyan = "#18abbd";
+
       white = "#212121";
       lightWhite = "#424242";
+      grey = "#ff0000";
+      lightGrey = "#0000ff";
+      dark_yellow = "#93691d";
     };
 
     foreground = {
@@ -69,12 +85,22 @@
 
     background = {
       # background
-      one = "#ffe3bf";
+      zero = "#ffe3bf";
+      one = "#fff1de";
+      two = "#fbe9d2";
+      three = "#ffdbac";
     };
 
     special = {
       # Special colors that don't fit the colors
       cursor = "#1f0c3e";
+
+      search = "#b292bb";
+
+      diffAdd = "#61b038";
+      diffDelete = "#b7141e";
+      diffChange = "#4a87bb";
+      diffText = "#62c4f9";
     };
 
   };

@@ -2,6 +2,7 @@
 # BaptComp Whirlwind configuration
 {
   imports = [
+    ../modules/home/bapt
     # packages
     ../modules/home/darwin_packages.nix
     # apps
@@ -35,6 +36,11 @@
   ];
 
   config = {
+    bapt = {
+      # My own config
+      theme = config.bapt.themes.expanse-dark;
+    };
+
     home.username = "baptiste.bourdet";
     home.homeDirectory = "/Users/baptiste.bourdet";
 

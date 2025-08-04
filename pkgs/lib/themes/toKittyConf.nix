@@ -8,12 +8,12 @@ let
   toKittyConf = theme:
     writeText "kitty-theme-${theme.name}.conf" ''
       # Colors (${theme.name})
-      background ${theme.background.one}
+      background ${theme.background.zero}
       foreground ${theme.foreground.one}
 
       selection_foreground ${theme.foreground.two}
       # TODO: add more background colors
-      selection_background ${theme.background.one}
+      selection_background ${theme.background.zero}
 
       # Black
       color0 ${theme.colors.black}
