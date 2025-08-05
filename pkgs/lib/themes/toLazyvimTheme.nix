@@ -1,8 +1,6 @@
 { writeText }:
 let
-  # ToKittyConf formats a theme for kitty. Returns the content of a kitty
-  # config with the theme.
-  #
+  # TtoLazyvimTheme formats a theme for lazyvim.
   # args:
   # - theme: a theme config as defined in config.bapt.themes
   toLazyvimTheme = theme:

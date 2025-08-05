@@ -11,9 +11,8 @@ let
       background ${theme.background.zero}
       foreground ${theme.foreground.one}
 
-      selection_foreground ${theme.foreground.two}
-      # TODO: add more background colors
-      selection_background ${theme.background.zero}
+      # selection_foreground ${theme.foreground.two}
+      selection_background ${theme.background.three}
 
       # Black
       color0 ${theme.colors.black}

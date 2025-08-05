@@ -38,7 +38,7 @@
   config = {
     bapt = {
       # My own config
-      theme = config.bapt.themes.expanse-dark;
+      theme = config.bapt.themes.expanse-light;
     };
 
     home.username = "baptiste.bourdet";

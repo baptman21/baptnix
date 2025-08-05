@@ -13,9 +13,9 @@
       lightGreen = "#60ae38";
       yellow = "#f5971d";
       lightYellow = "#fec900";
-      blue = "#134eb2";
+      blue = "#0a62cc";
       lightBlue = "#53a4f3";
-      purple = "#550087";
+      purple = "#761dab";
       lightPurple = "#956ad3";
       cyan = "#008293";
       lightCyan = "#1dcae0";
@@ -70,25 +70,25 @@
       lightPurple = "#956ad3";
       cyan = "#008293";
       lightCyan = "#18abbd";
-
       white = "#212121";
       lightWhite = "#424242";
-      grey = "#ff0000";
-      lightGrey = "#0000ff";
+      grey = "#535965";
+      lightGrey = "#7a818e";
       dark_yellow = "#93691d";
     };
 
     foreground = {
+      # one = "#1e004f";
       one = "#1e004f";
       two = "#150038";
     };
 
     background = {
       # background
-      zero = "#ffe3bf";
+      zero = "#fff4e5";
       one = "#fff1de";
       two = "#fbe9d2";
-      three = "#ffdbac";
+      three = "#ffe8c9";
     };
 
     special = {
