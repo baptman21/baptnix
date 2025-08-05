@@ -5,7 +5,7 @@ return {
 			style = "dark",
 			transparent = true,
 			highlights = {
-				DashboardHeader = { fg = "$purple" }, -- color for dashboard-nvim
+				SnacksDashboardHeader = { fg = "$purple" }, -- color for snacks dashboard
 			},
 		},
 	},
