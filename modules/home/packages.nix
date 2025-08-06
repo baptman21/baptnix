@@ -98,6 +98,7 @@
       # Kubernetes
       pkgs.kubectl
       pkgs.kubernetes-helm
+      pkgs.kubernetes-helmPlugins.helm-diff
       pkgs.kubectx
       pkgs.kubectl-neat
       pkgs.kubectl-node-shell
