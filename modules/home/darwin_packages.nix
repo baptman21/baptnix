@@ -84,8 +84,14 @@
 
       # Kubernetes
       pkgs.kubectl
-      pkgs.kubernetes-helm
-      pkgs.kubernetes-helmPlugins.helm-diff
+      (pkgs.wrapHelm pkgs.kubernetes-helm {
+        plugins = with pkgs.kubernetes-helmPlugins; [
+          helm-secrets
+          helm-diff
+          helm-s3
+          helm-git
+        ];
+      })
       pkgs.kubectx
       pkgs.kubectl-neat
       pkgs.kubectl-node-shell
