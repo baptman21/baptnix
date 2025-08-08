@@ -34,8 +34,8 @@
       # background
       zero = "#272537";
       one = "#454161";
-      two = "#403b61";
-      three = "#272249";
+      two = "#272249";
+      three = "#403b61";
     };
 
     special = {
@@ -61,12 +61,12 @@
       red = "#b7141e";
       lightRed = "#e83a3f";
       green = "#16ad0b";
-      lightGreen = "#7dae64";
+      lightGreen = "#6cae4b";
       yellow = "#f5971d";
       lightYellow = "#fec900";
       blue = "#134eb2";
       lightBlue = "#53a4f3";
-      purple = "#550087";
+      purple = "#69159b";
       lightPurple = "#956ad3";
       cyan = "#008293";
       lightCyan = "#18abbd";
@@ -74,7 +74,6 @@
       lightWhite = "#424242";
       grey = "#535965";
       lightGrey = "#7a818e";
-      dark_yellow = "#93691d";
     };
 
     foreground = {
@@ -87,8 +86,8 @@
       # background
       zero = "#fff4e5";
       one = "#fff1de";
-      two = "#fbe9d2";
-      three = "#ffe8c9";
+      two = "#ffe8c9";
+      three = "#f9ebd8";
     };
 
     special = {
