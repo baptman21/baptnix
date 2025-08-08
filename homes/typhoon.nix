@@ -72,6 +72,7 @@
     pkgs.argocd
     pkgs.argo
     pkgs.awscli2
+    pkgs.ssm-session-manager-plugin
     pkgs.azure-cli
     pkgs.circleci-cli
     pkgs.dig
