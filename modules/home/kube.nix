@@ -7,7 +7,19 @@
 #   * whirlind
 { config, pkgs, ... }:
 # Config for kube
-{
+let
+  kubernetes-helm = pkgs.wrapHelm pkgs.kubernetes-helm {
+    plugins = with pkgs.kubernetes-helmPlugins; [
+      helm-secrets
+      helm-diff
+      helm-s3
+      helm-git
+    ];
+  };
+
+  helmfile =
+    pkgs.helmfile-wrapped.override { inherit (kubernetes-helm) pluginsDir; };
+in {
   config = {
     home.packages = [
       pkgs.kind
@@ -20,6 +32,8 @@
       pkgs.kubectl-view-secret
       pkgs.kube-linter
       pkgs.kustomize
+      helmfile
+      kubernetes-helm
     ];
 
     programs.kubecolor = { enable = true; };

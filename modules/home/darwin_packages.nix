@@ -82,22 +82,6 @@
       # Postgres
       pkgs.postgresql
 
-      # Kubernetes
-      pkgs.kubectl
-      (pkgs.wrapHelm pkgs.kubernetes-helm {
-        plugins = with pkgs.kubernetes-helmPlugins; [
-          helm-secrets
-          helm-diff
-          helm-s3
-          helm-git
-        ];
-      })
-      pkgs.kubectx
-      pkgs.kubectl-neat
-      pkgs.kubectl-node-shell
-      pkgs.kubectl-view-secret
-      pkgs.kube-linter
-
       pkgs.go-jsonnet
       pkgs.jsonnet-bundler
 
