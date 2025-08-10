@@ -8,10 +8,10 @@
       black = "#212121";
       lightBlack = "#424242";
       red = "#b7141e";
-      lightRed = "#e83a3f";
+      lightRed = "#c43c34";
       green = "#16ad0b";
-      lightGreen = "#60ae38";
-      yellow = "#f5971d";
+      lightGreen = "#6cae4b";
+      yellow = "#dcae09";
       lightYellow = "#fec900";
       blue = "#0a62cc";
       lightBlue = "#53a4f3";
@@ -44,7 +44,7 @@
 
       search = "#e8c88c";
 
-      diffAdd = "#4e8d2d";
+      diffAdd = "#205C00";
       diffDelete = "#8d0f17";
       diffChange = "#172a3a";
       diffText = "#274964";
@@ -59,10 +59,10 @@
       black = "#eeeeee";
       lightBlack = "#a4a4a4";
       red = "#b7141e";
-      lightRed = "#e83a3f";
+      lightRed = "#c43c34";
       green = "#16ad0b";
       lightGreen = "#6cae4b";
-      yellow = "#f5971d";
+      yellow = "#dcae09";
       lightYellow = "#fec900";
       blue = "#134eb2";
       lightBlue = "#53a4f3";
@@ -77,7 +77,6 @@
     };
 
     foreground = {
-      # one = "#1e004f";
       one = "#1e004f";
       two = "#150038";
     };
