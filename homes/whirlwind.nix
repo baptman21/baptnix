@@ -49,6 +49,8 @@
       theme = config.bapt.themes.expanse-dark;
     };
 
+    home.file."tmp".source = pkgs.bapt.lib.themes.toTermite config.bapt.theme;
+
     home.username = "baptman";
     home.homeDirectory = "/home/baptman";
 

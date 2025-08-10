@@ -3,4 +3,5 @@
 {
   toKittyConf = callPackage ./toKittyConf.nix { };
   toLazyvimTheme = callPackage ./toLazyvimTheme.nix { };
+  toTermite = callPackage ./toTermite.nix { };
 }
