@@ -54,7 +54,7 @@ in {
           alt-shift-l = "move up";
           alt-shift-semicolon = "move right";
 
-          alt-w = "close --quit-if-last-window";
+          alt-shift-q = "close --quit-if-last-window";
 
           # Consider using "join-with" command as a "split" replacement if you want to enable
           # normalizations
@@ -65,7 +65,7 @@ in {
           shift-alt-f = "fullscreen";
 
           alt-s = "layout v_accordion"; # "layout stacking" in i3
-          alt-t = "layout h_accordion"; # "layout tabbed" in i3
+          alt-w = "layout h_accordion"; # "layout tabbed" in i3
           alt-e =
             "layout tiles horizontal vertical"; # "layout toggle split" in i3
 
