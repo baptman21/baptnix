@@ -95,6 +95,7 @@ in {
       pkgs.bacon
       pkgs.vscode-extensions.vadimcn.vscode-lldb
       pkgs.rust-analyzer
+      pkgs.python313Packages.debugpy
 
       pkgs.metals
 
