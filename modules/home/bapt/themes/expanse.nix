@@ -14,7 +14,7 @@
       yellow = "#dcae09";
       lightYellow = "#fec900";
       blue = "#0a62cc";
-      lightBlue = "#53a4f3";
+      lightBlue = "#0084da";
       purple = "#761dab";
       lightPurple = "#956ad3";
       cyan = "#008293";
@@ -65,7 +65,7 @@
       yellow = "#dcae09";
       lightYellow = "#fec900";
       blue = "#134eb2";
-      lightBlue = "#53a4f3";
+      lightBlue = "#0084da";
       purple = "#69159b";
       lightPurple = "#956ad3";
       cyan = "#008293";
