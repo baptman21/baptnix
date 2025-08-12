@@ -11,7 +11,7 @@
       lightRed = "#c43c34";
       green = "#16ad0b";
       lightGreen = "#6cae4b";
-      yellow = "#dcae09";
+      yellow = "#f5ac1d";
       lightYellow = "#fec900";
       blue = "#0a62cc";
       lightBlue = "#0084da";
@@ -62,7 +62,7 @@
       lightRed = "#c43c34";
       green = "#16ad0b";
       lightGreen = "#6cae4b";
-      yellow = "#dcae09";
+      yellow = "#f5ac1d";
       lightYellow = "#fec900";
       blue = "#134eb2";
       lightBlue = "#0084da";
