@@ -69,6 +69,8 @@
     };
 
     home.packages = [
+      # need for linking of some rust
+      pkgs.libiconv
       pkgs.maccy
       pkgs.sshfs
       pkgs.teleport
