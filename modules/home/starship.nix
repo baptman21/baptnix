@@ -87,7 +87,10 @@ in { config, pkgs, ... }:
           bash_indicator = "[bash](yellow)\\$";
         };
 
-        time = { disabled = false; };
+        time = {
+          disabled = false;
+          style = "bold blue";
+        };
 
         status = {
           disabled = false;
