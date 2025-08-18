@@ -42,7 +42,7 @@
         mergetool."fugitive".cmd = ''
           lvim -f -c '"set nocursorline"' -c '":set wrap"' -c "Gvdiffsplit!" "$MERGED"'';
         core = {
-          editor = "vim";
+          editor = "lvim";
           autocrlf = "input";
           fsmonitor = true;
           untrackedcache = true;
