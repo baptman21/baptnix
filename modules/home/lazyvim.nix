@@ -109,8 +109,6 @@ in {
 
     home.file.".config/nvim-lazyvim" = { source = lazyvimStaterRepo; };
 
-    # home.shellAliases = { lvim = "NVIM_APPNAME=nvim-lazyvim nvim"; };
-
     home.sessionPath = [
       "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter"
 
