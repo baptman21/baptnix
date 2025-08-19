@@ -70,6 +70,7 @@
 
     home.packages = [
       # need for linking of some rust
+      pkgs.moreutils
       pkgs.libiconv
       pkgs.maccy
       pkgs.sshfs
