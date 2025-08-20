@@ -14,6 +14,11 @@
   ];
 
   config = {
+    bapt = {
+      # My own config
+      theme = config.bapt.themes.expanse-dark;
+    };
+
     home.username = "baptiste.bourdet";
     home.homeDirectory = "/home/baptiste.bourdet";
 
@@ -43,6 +48,10 @@
       # packages
       rustc
       cargo
+
+      # for sponge
+      pkgs.moreutils
+
     ];
   };
 }
