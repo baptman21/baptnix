@@ -2,6 +2,7 @@
 # Remember the cant, old bucket, only used for config
 {
   imports = [
+    ../modules/home/bapt
     # packages
     ../modules/home/fzf.nix
     ../modules/home/neovim.nix
