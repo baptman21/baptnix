@@ -61,6 +61,7 @@
       pkgs.unstable.terraform
       pkgs.unstable.vault-bin
       pkgs.terraform-ls
+      pkgs.terraform-docs
 
       # Openssl
       pkgs.openssl
