@@ -49,6 +49,7 @@
       # packages
       rustc
       cargo
+      golint
 
       # for sponge
       pkgs.moreutils
