@@ -101,6 +101,10 @@
         enable = true;
         settings = { git_status = { disabled = true; }; };
       };
+      programs.kitty.settings = {
+        clipboard_control =
+          "write-clipboard write-primary read-clipboard read-primary";
+      };
       git = {
         includes = [{
           path = "${config.home.homeDirectory}/.config/git/databricks_config";
