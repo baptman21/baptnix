@@ -1,4 +1,4 @@
-{ additionalPlugins ? [ ] }:
+{ additionalPlugins ? [ ], additionalOptions ? "" }:
 # additionalPlugins: list of additional plugins to install
 { config, pkgs, ... }:
 # Lazyvim
@@ -8,6 +8,9 @@ let
     builtins.concatStringsSep " " (additionalPlugins ++ [ "empty.lua" ]);
 
   themePlugin = pkgs.bapt.lib.themes.toLazyvimTheme config.bapt.theme;
+
+  additionalOptionsFile =
+    pkgs.writeText "LazyvimadditionalOptionsFile.txt" additionalOptions;
 
   lazyvimStaterRepo = pkgs.stdenv.mkDerivation {
     pname = "lazyvim";
@@ -26,6 +29,8 @@ let
       mkdir -p $out
       cp -r * $out
       cp ${../../assets/config/lazyvim}/options.lua $out/lua/config/options.lua
+      echo "" >> $out/lua/config/options.lua
+      cat "${additionalOptionsFile}" >> $out/lua/config/options.lua
       cp ${../../assets/config/lazyvim}/keymaps.lua $out/lua/config/keymaps.lua
       cp ${
         ../../assets/config/lazyvim

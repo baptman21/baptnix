@@ -10,6 +10,10 @@
     (import ../modules/home/zsh.nix { sshAgent = false; })
     (import ../modules/home/lazyvim.nix {
       additionalPlugins = [ "ai.lua" "jira.lua" ];
+      additionalOptions = ''
+        -- Use kitty clipboard integration
+        vim.g.clipboard = "osc52"
+      '';
     })
     ../modules/home/eza.nix
     (import ../modules/home/starship.nix { theme = "cant"; })
