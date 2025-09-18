@@ -101,7 +101,7 @@
         enable = true;
         settings = { git_status = { disabled = true; }; };
       };
-      programs.kitty.settings = {
+      kitty.settings = {
         clipboard_control =
           "write-clipboard write-primary read-clipboard read-primary";
       };
