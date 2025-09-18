@@ -5,6 +5,7 @@
     ../modules/home/bapt
     # packages
     ../modules/home/fzf.nix
+    (import ../modules/home/kube.nix { theme = "typhoon"; })
     ../modules/home/neovim.nix
     (import ../modules/home/zsh.nix { sshAgent = false; })
     (import ../modules/home/lazyvim.nix {
@@ -50,6 +51,8 @@
       rustc
       cargo
       golint
+      pkg-config
+      gpgme.dev
 
       # for sponge
       pkgs.moreutils
