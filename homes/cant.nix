@@ -60,9 +60,10 @@
 
       # for sponge
       pkgs.moreutils
+      pkgs.rustfmt
 
     ];
 
-    home.sessionPath = [ "$HOME/universe/bin" ];
+    home.sessionPath = [ ];
   };
 }
