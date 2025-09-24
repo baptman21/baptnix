@@ -62,5 +62,7 @@
       pkgs.moreutils
 
     ];
+
+    home.sessionPath = [ "$HOME/universe/bin" ];
   };
 }
