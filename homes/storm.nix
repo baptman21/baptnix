@@ -71,6 +71,7 @@
     home.packages = [
       # need for linking of some rust
       pkgs.libiconv
+      pkgs.rustfmt
 
       # for sponge
       pkgs.moreutils
