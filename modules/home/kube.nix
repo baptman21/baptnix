@@ -32,6 +32,7 @@ in {
       pkgs.kubectl-view-secret
       pkgs.kube-linter
       pkgs.kustomize
+      pkgs.k3d
       helmfile
       kubernetes-helm
     ];
