@@ -23,15 +23,7 @@
     })
     (import ../modules/home/kde-theme.nix { theme = "whirlwind"; })
     ../modules/home/nix-index.nix
-    (import ../modules/home/starship.nix {
-      theme = "whirlwind";
-      extraSettings = {
-        kubernetes = {
-          disabled = false;
-          format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
-        };
-      };
-    })
+    (import ../modules/home/starship.nix { theme = "whirlwind"; })
     (import ../modules/home/ssh.nix {
       sshDir = config.home.homeDirectory + "/.ssh";
     })
@@ -70,6 +62,7 @@
       # Let Home Manager install and manage itself.
       home-manager.enable = true;
       bash.enable = true;
+      starship = { settings = { kubernetes.disabled = false; }; };
     };
   };
 }

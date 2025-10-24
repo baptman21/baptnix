@@ -16,15 +16,7 @@
       '';
     })
     ../modules/home/eza.nix
-    (import ../modules/home/starship.nix {
-      theme = "cant";
-      extraSettings = {
-        kubernetes = {
-          disabled = false;
-          format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
-        };
-      };
-    })
+    (import ../modules/home/starship.nix { theme = "cant"; })
   ];
 
   config = {
@@ -54,7 +46,10 @@
 
       starship = {
         enable = true;
-        settings = { git_status = { disabled = true; }; };
+        settings = {
+          git_status = { disabled = true; };
+          kubernetes.disabled = false;
+        };
       };
     };
 

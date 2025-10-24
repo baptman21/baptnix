@@ -18,15 +18,7 @@
     ../modules/home/nix-index.nix
     ../modules/home/aerospace.nix
     ../modules/home/eza.nix
-    (import ../modules/home/starship.nix {
-      theme = "storm";
-      extraSettings = {
-        kubernetes = {
-          disabled = false;
-          format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
-        };
-      };
-    })
+    (import ../modules/home/starship.nix { theme = "storm"; })
     ../modules/home/vim.nix
     (import ../modules/home/zsh.nix {
       sshIdentities = "github_key id_ed25519.databricks";
@@ -100,7 +92,10 @@
     programs = {
       starship = {
         enable = true;
-        settings = { git_status = { disabled = true; }; };
+        settings = {
+          git_status = { disabled = true; };
+          kubernetes.disabled = false;
+        };
       };
       kitty.settings = {
         clipboard_control =

@@ -18,15 +18,7 @@
     })
     (import ../modules/home/kde-theme.nix { theme = "typhoon"; })
     ../modules/home/nix-index.nix
-    (import ../modules/home/starship.nix {
-      theme = "typhoon";
-      extraSettings = {
-        kubernetes = {
-          disabled = false;
-          format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
-        };
-      };
-    })
+    (import ../modules/home/starship.nix { theme = "typhoon"; })
     (import ../modules/home/ssh.nix {
       sshDir = config.home.homeDirectory + "/.ssh";
     })
@@ -59,6 +51,8 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
     bash.enable = true;
+
+    starship = { settings = { kubernetes.disabled = false; }; };
   };
 
   home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];

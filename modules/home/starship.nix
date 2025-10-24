@@ -1,4 +1,4 @@
-{ theme, extraSettings ? { } }:
+{ theme }:
 # Args:
 # - theme: one of whirlwind, tempest
 let
@@ -52,6 +52,13 @@ in { config, pkgs, ... }:
           ssh_only = false;
           style = "${colors.${theme}.primary}";
           format = "[$ssh_symbol$hostname]($style)";
+        };
+
+        kubernetes = {
+          contexts = [{
+            context_pattern = ".*prod.*";
+            style = "bold red";
+          }];
         };
 
         directory = {
@@ -199,7 +206,7 @@ in { config, pkgs, ... }:
         scala.symbol = " ";
         spack.symbol = "🅢 ";
         direnv.symbol = "";
-      } // extraSettings;
+      };
     };
   };
 }
