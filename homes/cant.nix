@@ -16,7 +16,15 @@
       '';
     })
     ../modules/home/eza.nix
-    (import ../modules/home/starship.nix { theme = "cant"; })
+    (import ../modules/home/starship.nix {
+      theme = "cant";
+      extraSettings = {
+        kubernetes = {
+          disabled = false;
+          format = "\\[[$symbol$context( \\($namespace\\))]($style)\\] ";
+        };
+      };
+    })
   ];
 
   config = {
