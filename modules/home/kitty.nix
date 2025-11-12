@@ -46,7 +46,7 @@ in {
 
         background_opacity = 0.9;
         background_blur = 10;
-        allow_remote_control = true;
+        allow_remote_control = "socket-only";
         listen_on = "unix:/tmp/kitty";
 
       };
