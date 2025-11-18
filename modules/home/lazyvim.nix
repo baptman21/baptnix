@@ -71,6 +71,7 @@ in {
 
       pkgs.nil
       pkgs.nixfmt-classic
+      pkgs.statix
 
       pkgs.shfmt
 
@@ -88,6 +89,7 @@ in {
       pkgs.svelte-language-server
 
       pkgs.gofumpt
+      pkgs.golangci-lint
       pkgs.gotools
       pkgs.unstable.gopls
       pkgs.delve
