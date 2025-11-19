@@ -38,6 +38,11 @@
     # changes in each release.
     home.stateVersion = "23.11";
 
+    home.shellAliases = {
+      by = "bat -l yaml";
+      bj = "bat -l json";
+    };
+
     programs = {
       # Let Home Manager install and manage itself.
       home-manager.enable = true;
