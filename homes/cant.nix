@@ -72,6 +72,6 @@
 
     ];
 
-    home.sessionPath = [ ];
+    home.sessionPath = [ "$HOME/.local/bin" ];
   };
 }
