@@ -6,6 +6,8 @@ return {
 			servers = {
 				bashls = { mason = false },
 
+				clangd = { mason = false },
+
 				lua_ls = { mason = false },
 
 				svelte = { mason = false },
