@@ -1,7 +1,6 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = { "giuxtaposition/blink-cmp-copilot" },
 		opts = {
 			sources = {
 				providers = {
