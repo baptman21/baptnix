@@ -22,6 +22,14 @@ return {
 						picker.list.win:hscroll()
 					end,
 				},
+				sources = {
+					explorer = {
+						auto_close = true,
+						layout = {
+							preset = "default",
+						},
+					},
+				},
 				win = {
 					-- input window
 					input = {
