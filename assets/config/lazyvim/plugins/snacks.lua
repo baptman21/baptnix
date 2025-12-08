@@ -215,7 +215,7 @@ return {
 				formatters = {
 					file = {
 						-- filename_first = true, -- display filename before the file path
-						truncate = 999, -- truncate the file path to (roughly) this length
+						min_width = 999, -- don't truncate file names
 					},
 				},
 			},
