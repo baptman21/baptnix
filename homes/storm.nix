@@ -7,6 +7,7 @@
     ../modules/home/darwin_packages.nix
     # apps
     ../modules/home/fzf.nix
+    ../modules/home/bat.nix
     ../modules/home/alacritty.nix
     ../modules/home/kitty.nix
     ../modules/home/git.nix
@@ -50,8 +51,6 @@
 
     home.shellAliases = {
       tf = "terraform";
-      by = "bat -l yaml";
-      bj = "bat -l json";
       awse = "source ${pkgs.bapt.awsexport.awse}/bin/aws-export.sh";
       awsu = "source ${pkgs.bapt.awsexport.awsu}/bin/aws-unset.sh";
     };

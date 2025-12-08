@@ -5,6 +5,7 @@
     ../modules/home/bapt
     # packages
     ../modules/home/fzf.nix
+    ../modules/home/bat.nix
     (import ../modules/home/kube.nix { theme = "typhoon"; })
     ../modules/home/neovim.nix
     (import ../modules/home/zsh.nix { sshAgent = false; })
@@ -38,11 +39,6 @@
     # changes in each release.
     home.stateVersion = "23.11";
 
-    home.shellAliases = {
-      by = "bat -l yaml";
-      bj = "bat -l json";
-    };
-
     programs = {
       # Let Home Manager install and manage itself.
       home-manager.enable = true;
@@ -69,7 +65,6 @@
       # for sponge
       pkgs.moreutils
       pkgs.rustfmt
-
     ];
 
     home.sessionPath = [ "$HOME/.local/bin" ];

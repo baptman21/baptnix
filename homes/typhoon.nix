@@ -6,6 +6,7 @@
     ../modules/home/packages.nix
     # apps
     ../modules/home/fzf.nix
+    ../modules/home/bat.nix
     ../modules/home/git.nix
     (import ../modules/home/i3-plasma.nix {
       theme = "typhoon";
@@ -57,10 +58,7 @@
 
   home.sessionPath = [ "$HOME/go/bin" "$HOME/.npm-global/bin" ];
 
-  home.shellAliases = {
-    tf = "terraform";
-    by = "bat -l yaml";
-  };
+  home.shellAliases = { tf = "terraform"; };
 
   home.packages = [
     pkgs.argocd

@@ -13,7 +13,6 @@
     home.packages = [
       # Shell utilities
       pkgs.tree
-      pkgs.bat
       pkgs.file
       pkgs.coreutils
       pkgs.gnugrep
