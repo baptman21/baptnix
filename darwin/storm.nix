@@ -79,7 +79,13 @@ in {
 
       brews = [ "neonctl" "rsync" "databricks" ];
 
-      casks = [ "obsidian" ];
+      casks = [
+        "obsidian"
+        {
+          name = "stretchly";
+          args = { no_quarantine = true; };
+        }
+      ];
     };
 
   };
