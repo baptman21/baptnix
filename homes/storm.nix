@@ -105,7 +105,7 @@
       git = {
         includes = [{
           path = "${config.home.homeDirectory}/.config/git/databricks_config";
-          condition = "gitdir:${config.home.homeDirectory}/databricks/**";
+          condition = "gitdir:${config.home.homeDirectory}/git/databricks**";
         }];
         extraConfig = { github.username = "baptiste.bourdet_data"; };
       };
