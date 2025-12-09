@@ -28,6 +28,17 @@ return {
 						layout = {
 							preset = "default",
 						},
+						matcher = {
+							fuzzy = true,
+							smartcase = true,
+						},
+						win = {
+							input = {
+								keys = {
+									["<leader>f"] = "picker_files",
+								},
+							},
+						},
 					},
 				},
 				win = {
