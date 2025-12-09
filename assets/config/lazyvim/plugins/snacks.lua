@@ -32,9 +32,26 @@ return {
 							fuzzy = true,
 							smartcase = true,
 						},
+						-- Toggle search directory mode: cf. https://github.com/folke/snacks.nvim/discussions/2595#discussioncomment-15175655
+						toggles = {
+							search_dir = "D",
+						},
+						transform = function(item, ctx)
+							local is_searching = ctx.picker.input.filter.meta.searching
+							if is_searching and ctx.picker.opts.search_dir then
+								return item.dir or false
+							end
+						end,
 						win = {
 							input = {
 								keys = {
+									["<leader>d"] = { "toggle_search_dir", mode = { "i", "n" } },
+									["<leader>f"] = "picker_files",
+								},
+							},
+							list = {
+								keys = {
+									["<leader>d"] = "toggle_search_dir",
 									["<leader>f"] = "picker_files",
 								},
 							},
@@ -46,6 +63,10 @@ return {
 					input = {
 						keys = {
 							-- Custom
+							-- Add glob easily
+							["<leader>g"] = { "<cmd>normal! A -- -g ''<cr>", mode = { "n" }, expr = true },
+							["<leader>ag"] = { "<cmd>normal! A -g ''<cr>", mode = { "n" }, expr = true },
+
 							["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
 							["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
 							["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
