@@ -64,8 +64,8 @@ return {
 						keys = {
 							-- Custom
 							-- Add glob easily
-							["<leader>g"] = { "<cmd>normal! A -- -g ''<cr>", mode = { "n" }, expr = true },
-							["<leader>ag"] = { "<cmd>normal! A -g ''<cr>", mode = { "n" }, expr = true },
+							["<leader>g"] = { "<cmd>normal! A -- -g <cr>", mode = { "n" }, expr = true },
+							["<leader>ag"] = { "<cmd>normal! A -g <cr>", mode = { "n" }, expr = true },
 
 							["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
 							["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
