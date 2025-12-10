@@ -20,4 +20,9 @@ in {
     modules = [ ./homes/cant.nix ];
     pkgs = importPkgs { system = "x86_64-linux"; };
   };
+
+  agathaking = mkHome {
+    modules = [ ./homes/agathaking.nix ];
+    pkgs = importPkgs { system = "x86_64-linux"; };
+  };
 }
