@@ -94,6 +94,7 @@ in {
       pkgs.unstable.gopls
       pkgs.delve
       pkgs.fd
+      pkgs.tree-sitter
 
       pkgs.yaml-language-server
 
