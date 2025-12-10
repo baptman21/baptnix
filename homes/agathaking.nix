@@ -18,7 +18,7 @@
     })
 
     ../modules/home/eza.nix
-    (import ../modules/home/starship.nix { theme = "cant"; })
+    (import ../modules/home/starship.nix { theme = "tempest"; })
   ];
 
   config = {
@@ -62,6 +62,8 @@
       golint
       pkg-config
       gpgme.dev
+
+      obsidian
 
       # for sponge
       pkgs.moreutils
