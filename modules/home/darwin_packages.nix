@@ -28,7 +28,7 @@
       pkgs.pre-commit
 
       # Node
-      pkgs.nodejs
+      # pkgs.nodejs
 
       # Java
       pkgs.jdk21
@@ -45,7 +45,7 @@
 
       # C/C++
       pkgs.gnumake
-      pkgs.clang-tools_14
+      pkgs.clang-tools
       pkgs.gcc.out
       pkgs.glib.out
 

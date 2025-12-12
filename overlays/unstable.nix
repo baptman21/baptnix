@@ -1,7 +1,7 @@
 { inputs }:
 self: super: {
   unstable = import inputs.unstable {
-    system = self.system;
+    inherit (self.stdenv.hostPlatform) system;
     config.allowUnfree = true;
   };
 }

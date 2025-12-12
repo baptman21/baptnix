@@ -80,7 +80,7 @@
       pkgs.starpls
       pkgs.tflint
       pkgs.ansible
-      pkgs.bazel
+      pkgs.bazel_8
     ];
 
     # SSH is setup manually because config is different
@@ -107,11 +107,12 @@
           path = "${config.home.homeDirectory}/.config/git/databricks_config";
           condition = "gitdir:${config.home.homeDirectory}/git/databricks**";
         }];
-        extraConfig = { github.username = "baptiste.bourdet_data"; };
+        settings = { github.username = "baptiste.bourdet_data"; };
       };
       ssh = let sshDir = config.home.homeDirectory + "/.ssh";
       in {
         enable = true;
+        enableDefaultConfig = false;
         extraConfig = ''
           AddKeysToAgent yes
           SendEnv EDITOR
@@ -130,7 +131,18 @@
             identityFile = sshDir + "/id_ed25519.neon";
             hostname = "github.com";
           };
-
+          "*" = {
+            forwardAgent = false;
+            addKeysToAgent = "no";
+            compression = false;
+            serverAliveInterval = 0;
+            serverAliveCountMax = 3;
+            hashKnownHosts = false;
+            userKnownHostsFile = "~/.ssh/known_hosts";
+            controlMaster = "no";
+            controlPath = "~/.ssh/master-%r@%n:%p";
+            controlPersist = "no";
+          };
         };
       };
     };

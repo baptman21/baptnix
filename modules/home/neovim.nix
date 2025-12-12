@@ -10,7 +10,7 @@
       extraPackages = with pkgs; [
         git
         tree-sitter
-        sumneko-lua-language-server
+        lua-language-server
         imagemagick
       ];
     };

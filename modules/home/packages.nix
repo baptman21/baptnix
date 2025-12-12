@@ -45,7 +45,7 @@
 
       # C/C++
       pkgs.gnumake
-      pkgs.clang-tools_14
+      pkgs.clang-tools
       pkgs.gcc.out
       pkgs.glib.out
 
