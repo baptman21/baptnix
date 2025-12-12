@@ -9,6 +9,10 @@ in {
 
     programs.aerospace = {
       enable = true;
+      launchd = {
+        enable = true;
+        keepAlive = true;
+      };
       userSettings = {
         # Diable to create manually
         # start-at-login = true;
