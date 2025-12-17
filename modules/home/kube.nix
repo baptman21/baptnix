@@ -1,4 +1,4 @@
-{ theme }:
+{ theme, enableNodeShell ? true }:
 # Kube configuration
 #
 # Args:
@@ -28,14 +28,13 @@ in {
       pkgs.kubernetes-helm
       pkgs.kubectx
       pkgs.kubectl-neat
-      pkgs.kubectl-node-shell
       pkgs.kubectl-view-secret
       pkgs.kube-linter
       pkgs.kustomize
       pkgs.k3d
       helmfile
       kubernetes-helm
-    ];
+    ] ++ (pkgs.lib.lists.optional enableNodeShell pkgs.kubectl-node-shell);
 
     programs.kubecolor = { enable = true; };
 

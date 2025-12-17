@@ -6,7 +6,10 @@
     # packages
     ../modules/home/fzf.nix
     ../modules/home/bat.nix
-    (import ../modules/home/kube.nix { theme = "typhoon"; })
+    (import ../modules/home/kube.nix {
+      theme = "typhoon";
+      enableNodeShell = false;
+    })
     ../modules/home/neovim.nix
     (import ../modules/home/zsh.nix { sshAgent = false; })
     (import ../modules/home/lazyvim.nix {
@@ -67,6 +70,6 @@
       pkgs.rustfmt
     ];
 
-    home.sessionPath = [ "$HOME/.local/bin" ];
+    home.sessionPath = [ "$HOME/.local/bin" "$HOME/.local/custombin" ];
   };
 }
