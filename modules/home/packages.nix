@@ -37,7 +37,7 @@
       pkgs.nixpkgs-fmt
 
       # Npm
-      pkgs.nodePackages.npm
+      # pkgs.nodePackages.npm
       pkgs.nodePackages.pnpm
 
       # yaml formatter

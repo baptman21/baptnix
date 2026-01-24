@@ -63,11 +63,10 @@
       pkg-config
       gpgme.dev
 
-      obsidian
-
       # for sponge
       pkgs.moreutils
       pkgs.rustfmt
+      pkgs.bazelisk
     ];
 
     home.sessionPath = [ "$HOME/.local/bin" ];
