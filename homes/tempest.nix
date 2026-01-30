@@ -7,6 +7,7 @@
     # apps
     ../modules/home/fzf.nix
     ../modules/home/git.nix
+    ../modules/home/gh.nix
     (import ../modules/home/i3-plasma.nix {
       theme = "tempest";
       modifier = "Mod4";

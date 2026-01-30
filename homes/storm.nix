@@ -12,6 +12,7 @@
     ../modules/home/kitty.nix
     ../modules/home/git.nix
     ../modules/home/neovim.nix
+    ../modules/home/gh.nix
     (import ../modules/home/lazyvim.nix {
       additionalPlugins =
         [ "disable_mason.lua" "ai.lua" "jira.lua" "mind.lua" ];

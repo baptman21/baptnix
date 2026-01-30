@@ -8,6 +8,7 @@
     ../modules/home/fzf.nix
     ../modules/home/bat.nix
     ../modules/home/git.nix
+    ../modules/home/gh.nix
     (import ../modules/home/i3-plasma.nix {
       theme = "typhoon";
       modifier = "Mod4";

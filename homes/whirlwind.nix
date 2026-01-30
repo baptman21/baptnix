@@ -8,6 +8,7 @@
     # apps
     ../modules/home/fzf.nix
     ../modules/home/git.nix
+    ../modules/home/gh.nix
     # Hyperland
     ../modules/home/kitty.nix
     ../modules/home/dunst.nix

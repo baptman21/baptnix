@@ -5,6 +5,7 @@
     ../modules/home/bapt
     # packages
     ../modules/home/fzf.nix
+    ../modules/home/gh.nix
     ../modules/home/bat.nix
     (import ../modules/home/kube.nix {
       theme = "typhoon";

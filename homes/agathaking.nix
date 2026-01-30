@@ -8,6 +8,7 @@
     ../modules/home/packages.nix
     ../modules/home/bat.nix
     ../modules/home/neovim.nix
+    ../modules/home/gh.nix
     (import ../modules/home/zsh.nix { })
     (import ../modules/home/lazyvim.nix {
       additionalPlugins = [ "disable_mason.lua" "mind.lua" ];
