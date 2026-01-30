@@ -77,7 +77,23 @@ in {
         clone_target = "git@github.com:databricks/tap";
       }];
 
-      brews = [ "neonctl" "rsync" "databricks" ];
+      brews = [
+        "neonctl"
+        "rsync"
+        "databricks"
+        "protobuf"
+        "openssl"
+        "flex"
+        "bison"
+        "icu4c"
+        "pkg-config"
+        "m4"
+        "autoconf"
+        "automake"
+        "cjson"
+        "libtool"
+        "libpq"
+      ];
 
       casks = [
         "obsidian"
