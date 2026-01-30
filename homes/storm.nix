@@ -107,7 +107,19 @@
           path = "${config.home.homeDirectory}/.config/git/databricks_config";
           condition = "gitdir:${config.home.homeDirectory}/git/databricks**";
         }];
-        settings = { github.username = "baptiste.bourdet_data"; };
+        settings = {
+          github.username = "baptiste.bourdet_data";
+          credential = {
+            "https://github.com" = {
+              helper =
+                "!/etc/profiles/per-user/baptiste.bourdet/bin/gh auth git-credential";
+            };
+            "https://gist.github.com" = {
+              helper =
+                "!/etc/profiles/per-user/baptiste.bourdet/bin/gh auth git-credential";
+            };
+          };
+        };
       };
       ssh = let sshDir = config.home.homeDirectory + "/.ssh";
       in {
