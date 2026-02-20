@@ -28,7 +28,7 @@ function L.new_note(inbox, template)
 			return
 		end
 		vim.cmd("e " .. full_path)
-		vim.cmd("Obsidian template " .. template)
+		vim.cmd("Obsidian new_from_template " .. template)
 	end)
 end
 
