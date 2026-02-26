@@ -10,6 +10,10 @@ vim.api.nvim_create_autocmd("User", {
 			vim.b.restore_formatoptions_t = true
 			vim.opt.formatoptions:remove("t")
 		end
+		if formatoptions.c then
+			vim.b.restore_formatoptions_c = true
+			vim.opt.formatoptions:remove("c")
+		end
 	end,
 })
 
@@ -19,6 +23,10 @@ vim.api.nvim_create_autocmd("User", {
 		if vim.b.restore_formatoptions_t then
 			vim.opt.formatoptions:append("t")
 			vim.b.restore_formatoptions_t = nil
+		end
+		if vim.b.restore_formatoptions_c then
+			vim.opt.formatoptions:append("c")
+			vim.b.restore_formatoptions_c = nil
 		end
 	end,
 })
