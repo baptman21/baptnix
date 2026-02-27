@@ -69,7 +69,7 @@ in { config, pkgs, ... }:
         };
 
         jobs = {
-          disabled = true;
+          disabled = false;
           style = "${colors.${theme}.primary}";
           format = "[\\[$symbol$number\\]]($style)";
         };
