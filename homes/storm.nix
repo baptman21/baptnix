@@ -82,6 +82,7 @@
       pkgs.tflint
       pkgs.ansible
       pkgs.bazel_8
+      pkgs.mise
     ];
 
     # SSH is setup manually because config is different
