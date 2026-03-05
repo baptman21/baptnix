@@ -93,6 +93,7 @@ in {
         "cjson"
         "libtool"
         "libpq"
+        "wireshark"
       ];
 
       casks = [
