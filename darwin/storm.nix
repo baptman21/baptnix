@@ -93,11 +93,11 @@ in {
         "cjson"
         "libtool"
         "libpq"
-        "wireshark"
       ];
 
       casks = [
         "obsidian"
+        "wireshark"
         {
           name = "stretchly";
           args = { no_quarantine = true; };
