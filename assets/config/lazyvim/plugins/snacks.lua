@@ -10,9 +10,6 @@ return {
 		opts = {
 			terminal = {
 				win = {
-					keys = {
-						["<Esc><Esc>"] = { "<C-\\><C-n>", mode = "t", desc = "Enter normal mode" },
-					},
 					wo = {
 						winhighlight = "Normal:Normal,FloatBorder:Normal",
 					},
