@@ -8,6 +8,16 @@ return {
 	{
 		"snacks.nvim",
 		opts = {
+			terminal = {
+				win = {
+					keys = {
+						["<Esc><Esc>"] = { "<C-\\><C-n>", mode = "t", desc = "Enter normal mode" },
+					},
+					wo = {
+						winhighlight = "Normal:Normal,FloatBorder:Normal",
+					},
+				},
+			},
 			picker = {
 				actions = {
 					list_scroll_left = function(picker)
