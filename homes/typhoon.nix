@@ -6,6 +6,7 @@
     ../modules/home/packages.nix
     # apps
     ../modules/home/fzf.nix
+    ../modules/home/zellij.nix
     ../modules/home/bat.nix
     ../modules/home/git.nix
     ../modules/home/gh.nix

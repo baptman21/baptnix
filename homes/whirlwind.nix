@@ -7,6 +7,7 @@
     ../modules/home/packages.nix
     # apps
     ../modules/home/fzf.nix
+    ../modules/home/zellij.nix
     ../modules/home/git.nix
     ../modules/home/gh.nix
     # Hyperland

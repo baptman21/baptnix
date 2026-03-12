@@ -5,6 +5,7 @@
     ../modules/home/bapt
     # packages
     ../modules/home/fzf.nix
+    ../modules/home/zellij.nix
     ../modules/home/packages.nix
     ../modules/home/bat.nix
     ../modules/home/neovim.nix

@@ -7,6 +7,7 @@
     ../modules/home/darwin_packages.nix
     # apps
     ../modules/home/fzf.nix
+    ../modules/home/zellij.nix
     ../modules/home/bat.nix
     ../modules/home/alacritty.nix
     ../modules/home/kitty.nix
