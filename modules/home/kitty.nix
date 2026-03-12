@@ -45,6 +45,7 @@ in {
         enable_audio_bell = false;
 
         background_opacity = 0.9;
+        dynamic_background_opacity = true;
         background_blur = 10;
         allow_remote_control = "socket-only";
         listen_on = "unix:/tmp/kitty";
@@ -61,6 +62,9 @@ in {
 
         map kitty_mod+f scroll_page_up
         map kitty_mod+b scroll_page_down
+
+        map kitty_mod+i set_background_opacity 1.0
+        map kitty_mod+k set_background_opacity 0.9
 
         # Override clear to keep it in the scrollback buffer
         map ctrl+l clear_terminal to_cursor_scroll active
