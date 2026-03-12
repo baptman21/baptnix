@@ -23,6 +23,7 @@ require("lazy").setup({
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		-- { import = "lazyvim.plugins.extras.lang.svelte" }, disabled because warning when opening any file
 		{ import = "lazyvim.plugins.extras.dap.core" },
+		{ import = "lazyvim.plugins.extras.ai.sidekick" },
 		{ import = "lazyvim.plugins.extras.dap.core" },
 		{ import = "lazyvim.plugins.extras.editor.outline" },
 		{ import = "lazyvim.plugins.extras.lang.clangd" },

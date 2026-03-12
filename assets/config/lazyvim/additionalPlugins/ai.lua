@@ -13,51 +13,93 @@ return {
 		},
 	},
 	{
-		"coder/claudecode.nvim",
-		dependencies = { "folke/snacks.nvim" },
+		"folke/sidekick.nvim",
 		opts = {
-			auto_start = true,
-			log_level = "info", -- "trace", "debug", "info", "warn", "error"
-			terminal_cmd = "~/.claude/custom",
-			-- When true, successful sends will focus the Claude terminal if already connected
-			focus_after_send = false,
-
-			-- Selection Tracking
-			track_selection = true,
-			visual_demotion_delay_ms = 50,
-
-			-- Terminal Configuration
-			terminal = {
-				split_side = "right", -- "left" or "right"
-				split_width_percentage = 0.30,
-				provider = "auto", -- "auto", "snacks", "native", "external", "none", or custom provider table
-				auto_close = true,
-			},
-
-			-- Diff Integration
-			diff_opts = {
-				auto_close_on_accept = true,
-				vertical_split = true,
-				open_in_current_tab = true,
-				keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens
-			},
-
-			snacks_opts = {
-				keys = {
-					claude_hide_ctrl = {
-						"<C-,>",
-						function(self)
-							self:hide()
-						end,
-						mode = "t",
-						desc = "Hide (Ctrl+,)",
-					},
+			-- add any options here
+			cli = {
+				mux = {
+					backend = "zellij",
+					enabled = true,
+				},
+				tools = {
+					claude = { cmd = "~/.claude/custom" },
 				},
 			},
 		},
 		keys = {
-			{ "<leader>tcc", "<cmd>ClaudeCodeFocus<cr>", desc = "Toggle Claude", mode = { "n", "x" } },
-			{ "<leader>tcs", "<cmd>ClaudeCodeSend<cr>", desc = "Claude Send current postision", mode = { "n", "x" } },
+			{
+				"<tab>",
+				function()
+					-- if there is a next edit, jump to it, otherwise apply it if any
+					if not require("sidekick").nes_jump_or_apply() then
+						return "<Tab>" -- fallback to normal tab
+					end
+				end,
+				expr = true,
+				desc = "Goto/Apply Next Edit Suggestion",
+			},
+			{
+				"<leader>aa",
+				function()
+					require("sidekick.cli").toggle()
+				end,
+				desc = "Sidekick Toggle CLI",
+			},
+			{
+				"<leader>as",
+				function()
+					require("sidekick.cli").select()
+				end,
+				-- Or to select only installed tools:
+				-- require("sidekick.cli").select({ filter = { installed = true } })
+				desc = "Select CLI",
+			},
+			{
+				"<leader>ad",
+				function()
+					require("sidekick.cli").close()
+				end,
+				desc = "Detach a CLI Session",
+			},
+			{
+				"<leader>at",
+				function()
+					require("sidekick.cli").send({ msg = "{this}" })
+				end,
+				mode = { "x", "n" },
+				desc = "Send This",
+			},
+			{
+				"<leader>af",
+				function()
+					require("sidekick.cli").send({ msg = "{file}" })
+				end,
+				desc = "Send File",
+			},
+			{
+				"<leader>av",
+				function()
+					require("sidekick.cli").send({ msg = "{selection}" })
+				end,
+				mode = { "x" },
+				desc = "Send Visual Selection",
+			},
+			{
+				"<leader>ap",
+				function()
+					require("sidekick.cli").prompt()
+				end,
+				mode = { "n", "x" },
+				desc = "Sidekick Select Prompt",
+			},
+			-- Example of a keybinding to open Claude directly
+			{
+				"<leader>ac",
+				function()
+					require("sidekick.cli").toggle({ name = "claude", focus = true })
+				end,
+				desc = "Sidekick Toggle Claude",
+			},
 		},
 	},
 }
