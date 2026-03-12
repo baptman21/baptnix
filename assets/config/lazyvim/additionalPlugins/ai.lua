@@ -22,7 +22,7 @@ return {
 					enabled = true,
 				},
 				tools = {
-					claude = { cmd = { "~/.claude/custom" } },
+					claude = { cmd = { vim.fn.expand("~/.claude/custom") } },
 				},
 			},
 		},
