@@ -48,6 +48,21 @@ map("n", "<leader>mmp", function()
 	L.new_note("4-tasks/personal/", "task")
 end, { desc = "Create a new personal task" })
 
+-- Snack Terminal in new tab
+map("n", "<leader>mmp", function()
+	L.new_note("4-tasks/personal/", "task")
+end, { desc = "Create a new personal task" })
+
+map("n", "<leader>gt", function()
+	vim.cmd("tabnew")
+	Snacks.terminal.open(nil, { win = { position = "current" } })
+end, { desc = "Open terminal in new tab" })
+
+map("n", "<leader>grt", function()
+	vim.cmd("tabnew")
+	Snacks.terminal.open(nil, { cwd = Lazyvim.root(), win = { position = "current" } })
+end, { desc = "Open terminal in new tab in the root directory" })
+
 -- Snacks image disable and enable
 --
 -- -- Disable snacks.image. First finds all existing autocmds from snacks.image,
