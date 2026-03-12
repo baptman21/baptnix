@@ -57,7 +57,11 @@ return {
 						buffers = { "<c-b>", "buffers", mode = "nt", desc = "open buffer picker" },
 						files = { "<c-f>", "files", mode = "nt", desc = "open file picker" },
 						hide_n = { "<leader>q", "hide", mode = "n", desc = "hide the terminal window" },
-						hide_ctrl_z = { "<c-z>", "hide", mode = "t", desc = "hide the terminal window" },
+						-- overriding the current mapping
+						hide_ctrl_q = nil,
+						hide_ctrl_dot = nil,
+						hide_ctrl_z = nil,
+						hide_ctrl_a = { "<c-a><c-a>", "hide", mode = "t", desc = "hide the terminal window" },
 						prompt = { "<c-p>", "prompt", mode = "t", desc = "insert prompt or context" },
 						stopinsert = { "<Esc><Esc>", "stopinsert", mode = "t", desc = "enter normal mode" },
 					},
