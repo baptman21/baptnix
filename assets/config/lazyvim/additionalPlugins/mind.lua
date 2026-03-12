@@ -31,7 +31,7 @@ return {
 				},
 			},
 			-- Either 'wiki' or 'markdown'.
-			preferred_link_style = "wiki",
+			link = { style = "wiki" },
 
 			-- Optional, for templates (see https://github.com/obsidian-nvim/obsidian.nvim/wiki/Using-templates)
 			templates = {
