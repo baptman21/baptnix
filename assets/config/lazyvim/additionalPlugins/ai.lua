@@ -13,6 +13,29 @@ return {
 		},
 	},
 	{
+		"folke/snacks.nvim",
+		optional = true,
+		opts = {
+			picker = {
+				actions = {
+					sidekick_send = function(...)
+						return require("sidekick.cli.picker.snacks").send(...)
+					end,
+				},
+				win = {
+					input = {
+						keys = {
+							["<a-a>"] = {
+								"sidekick_send",
+								mode = { "n" },
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+	{
 		"folke/sidekick.nvim",
 		opts = {
 			-- add any options here
@@ -23,6 +46,8 @@ return {
 				},
 				tools = {
 					claude = { cmd = { vim.fn.expand("~/.claude/custom") } },
+					claude2 = { cmd = { vim.fn.expand("~/.claude/custom") } },
+					resume = { cmd = { vim.fn.expand("~/.claude/resume") } },
 				},
 				win = {
 					wo = {
@@ -35,14 +60,6 @@ return {
 						hide_ctrl_z = { "<c-z>", "hide", mode = "t", desc = "hide the terminal window" },
 						prompt = { "<c-p>", "prompt", mode = "t", desc = "insert prompt or context" },
 						stopinsert = { "<Esc><Esc>", "stopinsert", mode = "t", desc = "enter normal mode" },
-						-- Navigate windows in terminal mode. Only active when:
-						-- * layout is not "float"
-						-- * there is another window in the direction
-						-- With the default layout of "right", only `<c-h>` will be mapped
-						nav_left = { "<c-h>", "nav_left", expr = true, desc = "navigate to the left window" },
-						nav_down = { "<c-j>", "nav_down", expr = true, desc = "navigate to the below window" },
-						nav_up = { "<c-k>", "nav_up", expr = true, desc = "navigate to the above window" },
-						nav_right = { "<c-l>", "nav_right", expr = true, desc = "navigate to the right window" },
 					},
 				},
 			},
@@ -62,7 +79,7 @@ return {
 			{
 				"<leader>aa",
 				function()
-					require("sidekick.cli").toggle({ name = "claude", focus = true })
+					require("sidekick.cli").toggle()
 				end,
 				desc = "Sidekick Toggle CLI",
 			},
@@ -112,14 +129,6 @@ return {
 				end,
 				mode = { "n", "x" },
 				desc = "Sidekick Select Prompt",
-			},
-			-- Example of a keybinding to open Claude directly
-			{
-				"<leader>ac",
-				function()
-					require("sidekick.cli").toggle()
-				end,
-				desc = "Sidekick Choose Tool",
 			},
 		},
 	},
